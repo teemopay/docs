@@ -25,6 +25,13 @@ export default defineConfig({
             rel: "sitemap",
             href: "/sitemap-index.xml",
           },
+        }, // SEO
+        {
+          tag: "meta",
+          attrs: {
+            name: "google-site-verification",
+            content: "-GfotMXI9T6QLKuRhihSibM-EpdU67vYtWdbK64UDr0",
+          },
         },
       ],
       // 网站左上角标题和右侧 GitHub 链接
