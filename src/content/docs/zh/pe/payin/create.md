@@ -37,7 +37,7 @@ description: 商户请求创建一个代收订单
 | paymentType     | Int    | yes  | 1    | 支付方式: 101 ：checkout（支付链接收银台）   |
 | amount          | String | yes  |      | 代收金额(索尔)                               |
 | expirationTime  | Long   | yes  |      | 过期时间                                     |
-| realName        | String | yes  |      | 用户姓名：大写，不好含特殊字符，40个字符以内 |
+| realName        | String | yes  |      | 用户姓名：大写，不包含特殊字符，40个字符以内 |
 | email           | String | yes  |      | 用户邮箱：满足正则表达式即可                 |
 | phone           | String | yes  |      | 电话号码 9位数不包含区号                     |
 | remark          | String | no   |      | 交易备注                                     |
