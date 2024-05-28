@@ -60,6 +60,7 @@ export default defineConfig({
         }, // 中文文档
       },
       // 侧边栏导航
+      // 侧边栏导航
       sidebar: [
         {
           label: "Introduction",
@@ -172,6 +173,101 @@ export default defineConfig({
                     zh: "账单查询",
                   },
                   link: "/mx/inquire/bill",
+                },
+              ],
+            },
+          ], // 二级导航
+        },
+        {
+          label: "🇵🇪 Peru",
+          translations: {
+            zh: "🇵🇪 Peru",
+          },
+          items: [
+            {
+              label: "Payout",
+              translations: {
+                zh: "代付",
+              },
+              items: [
+                {
+                  label: "Create Payout",
+                  translations: {
+                    zh: "创建代付",
+                  },
+                  link: "/pe/payout/create",
+                },
+                {
+                  label: "Payout callback",
+                  translations: {
+                    zh: "代付回调",
+                  },
+                  link: "/pe/payout/callback",
+                },
+                {
+                  label: "Payout Query",
+                  translations: {
+                    zh: "代付查询",
+                  },
+                  link: "/pe/payout/query",
+                },
+                {
+                  label: "Bank",
+                  translations: {
+                    zh: "银行列表",
+                  },
+                  link: "/pe/payout/bank",
+                },
+              ],
+            },
+            {
+              label: "Payin",
+              translations: {
+                zh: "代收",
+              },
+              items: [
+                {
+                  label: "Create Payin",
+                  translations: {
+                    zh: "创建代收",
+                  },
+                  link: "/pe/payin/create",
+                },
+                {
+                  label: "Payin callback",
+                  translations: {
+                    zh: "代收回调",
+                  },
+                  link: "/pe/payin/callback",
+                },
+                {
+                  label: "Payin Query",
+                  translations: {
+                    zh: "代收查询",
+                  },
+                  link: "/pe/payin/query",
+                },
+              ],
+            },
+            {
+              label: "Inquire",
+              translations: {
+                zh: "查询",
+              },
+              items: [
+                {
+                  label: "Balance Inquire",
+                  translations: {
+                    zh: "余额查询",
+                  },
+                  link: "/pe/inquire/balance",
+                },
+                {
+                  label: "Bill Inquiry",
+                  translations: {
+                    zh: "账单查询",
+                  },
+                  link: "/pe/inquire/bill",
                 },
               ],
             },
