@@ -3,8 +3,6 @@ import starlight from "@astrojs/starlight";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 
-import vtbot from "astro-vtbot";
-
 // https://astro.build/config
 export default defineConfig({
   site: "https://docs.teemopay.com",
@@ -285,9 +283,5 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap(),
-    vtbot({
-      loadingIndicator: true,
-      autoLint: true,
-    }),
   ],
 });
