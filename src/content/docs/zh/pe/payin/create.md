@@ -30,25 +30,25 @@ description: 商户请求创建一个代收订单
 ### 请求参数
 
 | 字段            | 类型   | 必需 | 长度 | 描述                                          |
-| --------------- | ------ | ---- | ---- | --------------------------------------------- |
-| merchantOrderNo | String | yes  | 32   | 商户订单号                                    |
-| paymentType     | Int    | yes  | 1    | 支付方式: 101 ：checkout（支付链接收银台）    |
-| amount          | String | yes  |      | 代收金额(索尔)                                |
-| expirationTime  | Long   | yes  |      | 过期时间                                      |
-| realName        | String | yes  |      | 用户姓名：大写，不包含特殊字符，40 个字符以内 |
-| email           | String | yes  |      | 用户邮箱：满足正则表达式即可                  |
-| phone           | String | yes  |      | 电话号码 9 位数不包含区号                     |
-| remark          | String | no   |      | 交易备注                                      |
-| sign            | String | yes  |      | 签名                                          |
-| callbackUrl     | String | yes  |      | 回调地址                                      |
-| country         | String | yes  |      | "PE"                                          |
+| --------------- | ------ | ---- | --- | --------------------------------------------- |
+| merchantOrderNo | String | yes  | 32  | 商户订单号                                    |
+| paymentType     | Int    | yes  |     | 支付方式: 101 ：checkout（支付链接收银台）    |
+| amount          | String | yes  |     | 代收金额(索尔)                                |
+| expirationTime  | Long   | yes  |     | 过期时间                                      |
+| realName        | String | yes  |     | 用户姓名：大写，不包含特殊字符，40 个字符以内 |
+| email           | String | yes  |     | 用户邮箱：满足正则表达式即可                  |
+| phone           | String | yes  |     | 电话号码 9 位数不包含区号                     |
+| remark          | String | no   |     | 交易备注                                      |
+| sign            | String | yes  |     | 签名                                          |
+| callbackUrl     | String | yes  |     | 回调地址                                      |
+| country         | String | yes  |     | "PE"                                          |
 
 ```json title="请求示例"
 {
   "merchantOrderNo": "C27412415HkF6U9SnXRrxitBWD647lw7",
   "realName": "aaaaaa",
   "amount": "100",
-  "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
+  "callbackUrl": "http://test.domin.com",
   "paymentType": 101,
   "email": "1QWWQWQ2891@qq.com",
   "phone": "123456789",
