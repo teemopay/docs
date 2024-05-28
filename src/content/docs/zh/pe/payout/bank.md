@@ -18,8 +18,8 @@ description: 代付支持的银行列表
 
 | ID   | 描述      |
 | ---- | --------- |
-| 1    | AHORRO    |
-| 2    | CORRIENTE |
+| 101    | AHORRO    |
+| 102    | CORRIENTE |
 
 
 
