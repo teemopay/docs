@@ -179,7 +179,7 @@ export default defineConfig({
         {
           label: "🇵🇪 Peru",
           translations: {
-            zh: "🇵🇪 Peru",
+            zh: "🇵🇪 秘鲁",
           },
           items: [
             {
