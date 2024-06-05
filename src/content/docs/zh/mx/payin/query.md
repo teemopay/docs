@@ -31,7 +31,6 @@ description: 商户查询一个代收订单的状态
 | tradeNo                       | String | yes  |      | 平台订单号                                     |
 | paymentType                   | int    | yes  | 1    | 代收方式: 1-clabe 2-收银台                     |
 | amount                        | String | yes  |      | 订单交易金额                                   |
-| method                        | String | yes  |      | 支付方式: VA-线上 store-线下 url-收银台        |
 | status                        | String | yes  |      | 2-成功 3-失败 4-退款                           |
 | remark                        | String | no   |      | 商户创建订单传的值                             |
 | statementList                 | Object | no   |      | 代收流水信息                                   |
@@ -48,7 +47,6 @@ description: 商户查询一个代收订单的状态
   "tradeNo": "TF201806251011",
   "paymentType": 1,
   "amount": "100",
-  "method": "VA",
   "status": "2",
   "remark": "代收备注",
   "statementList": [
