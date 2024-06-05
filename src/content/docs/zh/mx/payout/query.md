@@ -39,9 +39,9 @@ description: 商户查询一个代付订单的状态
 
 ```json title=返回示例
 {
-    "code": 200,
+    "code": 200, 
     "msg":"success",
-	"data": {
+    "data": {
       "merchantOrderNo": "201806251011",
       "tradeNo": "TF201806251011",
       "remark": "代付备注",
@@ -53,7 +53,7 @@ description: 商户查询一个代付订单的状态
 ```json title=订单不存在返回示例
 {
     "code": 400,
-    "msg":"Order not found",
-	"data": null
+    "msg":"Order not found", 
+    "data": null
 }
 ```
