@@ -47,13 +47,16 @@ description: 商户查询一个代付订单的状态
       "remark": "代付备注",
       "status": "1",
       "sign": "TEEMO_SIGN"
-    }
+    },
+    "present": true, 
+    "success": true
 }
 ```
 ```json title=订单不存在返回示例
 {
     "code": 400,
-    "msg":"Order not found", 
-    "data": null
+    "msg":"Order not found",
+    "present": false,
+    "success": false
 }
 ```

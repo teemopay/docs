@@ -58,6 +58,8 @@ description: 商户查询一个代收订单的状态
       "message": "代收成功"
     }
   ],
-  "sign": "TEEMO_SIGN"
+  "sign": "TEEMO_SIGN",
+  "present": true,
+  "success": true
 }
 ```
