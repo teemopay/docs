@@ -271,6 +271,101 @@ export default defineConfig({
             },
           ], // 二级导航
         },
+        {
+          label: "co Columbia",
+          translations: {
+            zh: "co 哥伦比亚",
+          },
+          items: [
+            {
+              label: "Payout",
+              translations: {
+                zh: "代付",
+              },
+              items: [
+                {
+                  label: "Create Payout",
+                  translations: {
+                    zh: "创建代付",
+                  },
+                  link: "/co/payout/create",
+                },
+                {
+                  label: "Payout callback",
+                  translations: {
+                    zh: "代付回调",
+                  },
+                  link: "/co/payout/callback",
+                },
+                {
+                  label: "Payout Query",
+                  translations: {
+                    zh: "代付查询",
+                  },
+                  link: "/co/payout/query",
+                },
+                {
+                  label: "Bank",
+                  translations: {
+                    zh: "银行列表",
+                  },
+                  link: "/co/payout/bank",
+                },
+              ],
+            },
+            {
+              label: "Payin",
+              translations: {
+                zh: "代收",
+              },
+              items: [
+                {
+                  label: "Create Payin",
+                  translations: {
+                    zh: "创建代收",
+                  },
+                  link: "/co/payin/create",
+                },
+                {
+                  label: "Payin callback",
+                  translations: {
+                    zh: "代收回调",
+                  },
+                  link: "/co/payin/callback",
+                },
+                {
+                  label: "Payin Query",
+                  translations: {
+                    zh: "代收查询",
+                  },
+                  link: "/co/payin/query",
+                },
+              ],
+            },
+            {
+              label: "Inquire",
+              translations: {
+                zh: "查询",
+              },
+              items: [
+                {
+                  label: "Balance Inquire",
+                  translations: {
+                    zh: "余额查询",
+                  },
+                  link: "/co/inquire/balance",
+                },
+                {
+                  label: "Bill Inquiry",
+                  translations: {
+                    zh: "账单查询",
+                  },
+                  link: "/co/inquire/bill",
+                },
+              ],
+            },
+          ], // 二级导航
+        },
       ],
       // 重新组件
       components: {
