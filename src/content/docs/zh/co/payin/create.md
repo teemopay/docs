@@ -37,17 +37,17 @@ description: 商户请求创建一个代收订单
 
 ### 请求参数
 
-| 字段            | 类型   | 必需 | 长度 | 描述                                          |
-| --------------- | ------ | ---- |----| --------------------------------------------- |
-| merchantOrderNo | String | yes  | 32 | 商户订单号                                    |
-| paymentType     | Int    | yes  |    | 支付方式: 支付方式列表 |
-| amount          | String | yes  | 20 | 代收金额(索尔)                                |
-| expirationTime  | Long   | yes  |    | 过期时间                                      |
-| realName        | String | yes  | 40 | 用户姓名：大写，不包含特殊字符，40 个字符以内 |
-| email           | String | yes  | 50 | 用户邮箱：满足正则表达式即可                  |
-| phone           | String | yes  | 50 | 电话号码 9 位数不包含区号                     |
-| sign            | String | yes  |    | 签名                                          |
-| callbackUrl     | String | yes  | 200 | 回调地址                                      |
+| 字段            | 类型   | 必需  | 长度  | 描述                       |
+| --------------- | ------ |-----|-----|--------------------------|
+| merchantOrderNo | String | yes | 32  | 商户订单号                    |
+| paymentType     | Int    | yes |     | 支付方式: 支付方式列表             |
+| amount          | String | yes | 20  | 代收金额(索尔)                 |
+| expirationTime  | Long   | yes |     | 过期时间                     |
+| realName        | String | yes | 50  | 用户姓名：大写，不包含特殊字符，50 个字符以内 |
+| email           | String | yes | 50  | 用户邮箱：满足正则表达式即可           |
+| phone           | String | yes | 50  | 电话号码 9 位数不包含区号           |
+| sign            | String | yes |     | 签名                       |
+| callbackUrl     | String | no  | 200 | 回调地址                     |
 
 ```json title="请求示例"
 {
@@ -65,14 +65,14 @@ description: 商户请求创建一个代收订单
 
 ### 返回参数
 
-| 字段            | 类型       | 必需 | 长度 | 描述                                                     |
-| --------------- | ---------- | ---- |----| -------------------------------------------------------- |
-| merchantOrderNo | String     | yes  | 32 | 商户订单号                                               |
-| tradeNo         | String     | yes  | 32 | 平台订单号                                               |
-| amount          | String     | yes  | 32 | 交易金额                                                 |
-| paymentType     | Int        | yes  | 3  | 支付方式                                                 |
-| paymentInfo     | String     | yes  | 32 | 主要付款信息，返回的是实际用于付款的信息，例如：付款编号 |
-| additionalInfo  | JSONObject | No   |    | 附加信息                                                 |
+| 字段            | 类型       | 必需  | 长度 | 描述                                                     |
+| --------------- | ---------- |-----|----| -------------------------------------------------------- |
+| merchantOrderNo | String     | yes | 32 | 商户订单号                                               |
+| tradeNo         | String     | yes | 32 | 平台订单号                                               |
+| amount          | String     | yes | 32 | 交易金额                                                 |
+| paymentType     | Int        | yes | 3  | 支付方式                                                 |
+| paymentInfo     | String     | yes | 32 | 主要付款信息，返回的是实际用于付款的信息，例如：付款编号 |
+| additionalInfo  | JSONObject | no  |    | 附加信息                                                 |
 
 ```json
 {
