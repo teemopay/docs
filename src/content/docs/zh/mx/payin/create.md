@@ -9,10 +9,19 @@ description: 商户请求创建一个代收订单
 | ------ | -------------------------- |
 | POST   | /api/pay/payment/create/v1 |
 
+## 头部信息（header）
+
+| header参数                  | 入参参数描述  |
+|---------------------------|---------|
+| timestamp                 | 请求时间戳   |
+| nonce                     | 随机值     |
+| country                   | 国家码(MX) |
+| app_code                  | app编号   |
+
 ## 支持支付方式列表（paymentType）
 
 | 支付方式名称                     | PaymentType (入参参数) |
-| -------------------------------- | ---------------------- |
+| ------------------------------ | ---------------------- |
 | VA (线上银行转账单次和多次)      | 1                      |
 | PaymentLink（支付链接）          | 2                      |
 | BankTranfer （线上银行转账单次） | 3                      |
@@ -23,18 +32,18 @@ description: 商户请求创建一个代收订单
 
 ##### 当支付方式为 2 时 additionalInfo 返回包含：
 
-| 字段名      | 类型       | 是否必传 | 说明     |
-| ----------- | ---------- | -------- | -------- |
-| paymentLink | String(32) | 是       | 支付链接 |
+| 字段名      | 类型       | 长度 | 是否必传 | 说明     |
+| ----------- | ---------- |----|------| -------- |
+| paymentLink | String(32) | 32 | 是    | 支付链接 |
 
 ##### 当支付方式为 3 时 additionalInfo 返回包含：
 
-| 字段名          | 类型           | 是否必传 | 说明          |
-| --------------- | -------------- | -------- | ------------- |
-| bankName        | String(16)     | 是       | 付款银行名称  |
-| bankCode        | String（16）   | 是       | 付款银行编码  |
-| expiredTime     | Long           | 是       | 默认时间 9 天 |
-| beneficiaryName | Stringf （32） | 是       | 收款方姓名    |
+| 字段名          | 类型           | 长度 | 是否必传 | 说明          |
+| --------------- |--------------|----|------| ------------- |
+| bankName        | String(16)   | 16 | 是    | 付款银行名称  |
+| bankCode        | String（16）   | 16 | 是    | 付款银行编码   |
+| expiredTime     | Long         |    | 是    | 默认时间 9 天 |
+| beneficiaryName | Stringf （32） | 32 | 是    | 收款方姓名    |
 
 ##### 当支付方式为 4 时 additionalInfo 返回包含：
 
@@ -50,16 +59,15 @@ description: 商户请求创建一个代收订单
 
 ### 请求参数
 
-| 字段            | 类型   | 必需 | 长度 | 描述                                                                                                                  |
-| --------------- | ------ | ---- | ---- | --------------------------------------------------------------------------------------------------------------------- |
-| merchantOrderNo | String | yes  | 32   | 商户订单号                                                                                                            |
-| paymentType     | Int    | yes  | 1    | 支付方式: 1-还款码 2-收银台 3-BankTransfer（线上收款单次）4-PayCashOnce（线下收款单次）5-PayCashRecurrent（线下多次） |
-| amount          | String | yes  |      | 代收金额(比索)                                                                                                        |
-| expirationTime  | Long   | no   |      | 过期时间, 在一定条件下必传，例：1717048800000，当 paymentType 为 2、4、5 时必传                                       |
-| realName        | String | no   |      | 手机号                                                                                                                |
-| email           | String | no   |      | 代付回调地址，若不传, 则以商户配置为准                                                                                |
-| remark          | String | no   |      | 订单备注                                                                                                              |
-| sign            | String | yes  |      | 签名                                                                                                                  |
+| 字段              | 类型   | 必需 | 长度  | 描述                                                                                                                  |
+|-----------------| ------ | ---- |-----| --------------------------------------------------------------------------------------------------------------------- |
+| merchantOrderNo | String | yes  | 32  | 商户订单号                                                                                                            |
+| paymentType     | Int    | yes  | 3   | 支付方式: 1-还款码 2-收银台 3-BankTransfer（线上收款单次）4-PayCashOnce（线下收款单次）5-PayCashRecurrent（线下多次） |
+| amount          | String | yes  | 20  | 代收金额(比索)                                                                                                        |
+| expirationTime  | Long   | no   |     | 过期时间, 在一定条件下必传，例：1717048800000，当 paymentType 为 2、4、5 时必传                                       |
+| phone           | String | no   | 20  | 手机号                                                                                                                |
+| callbackUrl     | String | no   | 200 | 代付回调地址，若不传, 则以商户配置为准                                                                                |
+| sign            | String | yes  |     | 签名                                                                                                                  |
 
 ```json title="请求示例"
 {
@@ -71,11 +79,7 @@ description: 商户请求创建一个代收订单
   "email": "231231231231@qq.com",
   "phone": "213213213213213",
   "sign": "YOUR_SIGN",
-  "expirationTime": 1717048800000,
-  "timestamp": "1715330430694",
-  "nonce": "ASDASDSADSADSADSADSA",
-  "country": "MX",
-  "app_code": "YOUR_APPCODE"
+  "expirationTime": 1717048800000
 }
 ```
 

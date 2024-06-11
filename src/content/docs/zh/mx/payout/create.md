@@ -9,22 +9,29 @@ description: 商户请求创建一个代付订单
 | ------ | ------------------------- |
 | POST   | /api/pay/payout/create/v1 |
 
+## 头部信息（header）
+
+| header参数                  | 入参参数描述  |
+|---------------------------|---------|
+| timestamp                 | 请求时间戳   |
+| nonce                     | 随机值     |
+| country                   | 国家码(MX) |
+| app_code                  | app编号   |
+
 ### 请求参数
 
-| 字段            | 类型   | 必需 | 长度 | 描述                                   |
-| --------------- | ------ | ---- | ---- | -------------------------------------- |
-| merchantOrderNo | String | yes  | 32   | 商户订单号                             |
-| amount          | String | yes  |      | 代付金额(比索)                         |
-| bankCode        | String | yes  |      | 银行编码                               |
-| bankName        | String | yes  |      | 银行名称                               |
-| accountType     | int    | yes  |      | 账户类型 3-借记卡 30-CLABE             |
-| bankAccount     | String | yes  |      | 收款账号                               |
-| realName        | String | yes  |      | 客户姓名                               |
-| IdCardNumber    | String | yes  |      | 收款人 ID 号码                         |
-| email           | String | yes  |      | 收款人邮箱                             |
-| callbackUrl     | String | no   |      | 代付回调地址，若不传, 则以商户配置为准 |
-| remark          | String | no   |      | 订单备注                               |
-| sign            | String | yes  |      | 签名                                   |
+| 字段              | 类型   | 必需 | 长度  | 描述                                   |
+|-----------------| ------ | ---- |-----| -------------------------------------- |
+| merchantOrderNo | String | yes  | 32  | 商户订单号                             |
+| amount          | String | yes  | 20  | 代付金额(比索)                         |
+| bankCode        | String | yes  | 50  | 银行编码                               |
+| bankName        | String | yes  | 50  | 银行名称                               |
+| accountType     | int    | yes  | 3   | 账户类型 3-借记卡 30-CLABE             |
+| bankAccount     | String | yes  | 50  | 收款账号                               |
+| realName        | String | yes  | 40  | 客户姓名                               |
+| IdCardNumber    | String | yes  | 50  | 收款人 ID 号码                         |
+| callbackUrl     | String | no   | 200 | 代付回调地址，若不传, 则以商户配置为准 |
+| sign            | String | yes  |     | 签名                                   |
 
 ```json title=请求示例
 {
@@ -36,9 +43,7 @@ description: 商户请求创建一个代付订单
   "bankAccount": "1234567890",
   "realName": "张三",
   "IdCardNumber": "1234567890",
-  "email": "zhangsa@gmail.com",
   "callbackUrl": "https://merchant.com/api/payout/callback",
-  "remark": "代付备注",
   "sign": "YOUR_SIGN"
 }
 ```
