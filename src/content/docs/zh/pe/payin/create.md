@@ -41,7 +41,7 @@ description: 商户请求创建一个代收订单
 | 字段            | 类型   | 必需 | 长度  | 描述                                          |
 | --------------- | ------ | ---- |-----| --------------------------------------------- |
 | merchantOrderNo | String | yes  | 32  | 商户订单号                                    |
-| paymentType     | Int    | yes  | 3   | 支付方式: 101 ：checkout（支付链接收银台）    |
+| paymentType     | Int    | yes  |     | 支付方式: 101 ：checkout（支付链接收银台）    |
 | amount          | String | yes  | 20  | 代收金额(索尔)                                |
 | expirationTime  | Long   | yes  |     | 过期时间                                      |
 | realName        | String | yes  | 40  | 用户姓名：大写，不包含特殊字符，40 个字符以内 |

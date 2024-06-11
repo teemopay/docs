@@ -16,7 +16,7 @@ import Table from "@components/Table.astro";
   thead={["字段", "类型", "必需", "长度", "描述"]}
   tbody={[
     ["merchantOrderNo", "String", "yes", "32" ,"商户订单号"],
-    ["paymentType", "int", "yes", "3", "支付方式: 1-还款码 2-收银台"],
+    ["paymentType", "int", "yes", "", "支付方式: 1-还款码 2-收银台"],
     ["amount", "String", "yes", "20" ,"代收金额(比索)"],
     ["callbackUrl", "String", "no", "200", "代付回调地址，若不传, 则以商户配置为准"],
     ["sign", "String", "yes", "","签名"],
