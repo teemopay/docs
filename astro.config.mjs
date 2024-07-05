@@ -272,9 +272,9 @@ export default defineConfig({
           ], // 二级导航
         },
         {
-          label: "co Columbia",
+          label: "🇨🇴 Columbia",
           translations: {
-            zh: "co 哥伦比亚",
+            zh: "🇨🇴 哥伦比亚",
           },
           items: [
             {
@@ -366,6 +366,65 @@ export default defineConfig({
             },
           ], // 二级导航
         },
+        {
+          label: "🇵🇰 巴基斯坦",
+          translations: {
+            zh: "🇵🇰 巴基斯坦",
+          },
+          items: [
+            {
+              label: "Payin",
+              translations: {
+                zh: "代收",
+              },
+              items: [
+                {
+                  label: "Create Payin",
+                  translations: {
+                    zh: "创建代收",
+                  },
+                  link: "/pk/payin/create",
+                },
+                {
+                  label: "Payin callback",
+                  translations: {
+                    zh: "代收回调",
+                  },
+                  link: "/pk/payin/callback",
+                },
+                {
+                  label: "Payin Query",
+                  translations: {
+                    zh: "代收查询",
+                  },
+                  link: "/pk/payin/query",
+                },
+              ],
+            },
+            {
+              label: "Inquire",
+              translations: {
+                zh: "查询",
+              },
+              items: [
+                {
+                  label: "Balance Inquire",
+                  translations: {
+                    zh: "余额查询",
+                  },
+                  link: "/pk/inquire/balance",
+                },
+                {
+                  label: "Bill Inquiry",
+                  translations: {
+                    zh: "账单查询",
+                  },
+                  link: "/pk/inquire/bill",
+                },
+              ],
+            },
+          ], // 二级导航
+        }
       ],
       // 重新组件
       components: {
