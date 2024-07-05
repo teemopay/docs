@@ -34,7 +34,7 @@ description: 商户请求提交一个代收订单
     "methodName": "jazzcash",
     "accountNum": "3234567891",
     "idCardNumber": "1234567890987",
-    "tradeNo": "TS2405210001MX0000075312734955"
+    "tradeNo": "TS2405210001MX0000075312734955",
      "sign": "TeemoPay_SIGN"
 }
 ```
