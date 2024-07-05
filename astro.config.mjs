@@ -386,6 +386,13 @@ export default defineConfig({
                   link: "/pk/payin/create",
                 },
                 {
+                  label: "Submit Payin",
+                  translations: {
+                    zh: "提交代收",
+                  },
+                  link: "/pk/payin/submit",
+                },
+                {
                   label: "Payin callback",
                   translations: {
                     zh: "代收回调",

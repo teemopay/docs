@@ -1,0 +1,56 @@
+---
+title: 提交代收
+description: 商户请求提交一个代收订单
+---
+
+### 请求地址
+
+| method | url                     |
+| ------ |-------------------------|
+| POST   | /api/pay/payment/submit |
+
+## 头部信息（header）
+
+| header参数                  | 入参参数描述  |
+|---------------------------|---------|
+| timestamp                 | 请求时间戳   |
+| nonce                     | 随机值     |
+| country                   | 国家码(PK) |
+| app_code                  | app编号   |
+
+
+### 请求参数
+
+| 字段            | 类型   | 必需  | 长度  | 描述                                     |
+| --------------- | ------ |-----|-----|----------------------------------------|
+| methodName | String | yes |   | 创建接口返回additionalInfo中availableChannels |
+| accountNum     | String    | yes |  10   | 客户账号，通常为手机号，10位整数，且3开头                 |
+| idCardNumber    | String    | yes | 13  | 客户身份证ID 13位整数                          |
+| tradeNo          | String | yes |   | 平台订单号                              |
+| sign            | String | yes |     | 签名                                     |
+
+```json title="请求示例"
+{
+    "methodName": "jazzcash",
+    "accountNum": "3234567891",
+    "idCardNumber": "1234567890987",
+    "tradeNo": "TS2405210001MX0000075312734955"
+     "sign": "TeemoPay_SIGN"
+}
+```
+
+### 返回参数
+
+| 字段            | 类型       | 必需 | 长度 | 描述                           |
+| --------------- | ---------- | ---- | ---- |------------------------------|
+| merchantOrderNo | String     | yes  | 32   | 商户订单号                        |
+
+#### 不同支付方式的响应示例：
+
+#### 当 PaymentType 为 302 ：
+
+```json
+
+```
+
+####

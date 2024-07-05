@@ -43,7 +43,7 @@ description: 商户请求创建一个代收订单
 | paymentType     | Int    | yes |     | 支付方式: 支付方式列表                    |
 | amount          | String | yes | 20  | 代收金额(索尔)                           |
 | expirationTime  | Long   | yes |     | 过期时间                                |
-| realName        | String | yes | 50  | 用户姓名：大写，不包含特殊字符，50 个字符以内 |
+| realName        | String | yes | 40  | 用户姓名：大写，不包含特殊字符，40 个字符以内 |
 | email           | String | yes | 50  | 用户邮箱：满足正则表达式即可                |
 | phone           | String | yes | 50  | 电话号码 9 位数不包含区号                  |
 | sign            | String | yes |     | 签名                                    |
