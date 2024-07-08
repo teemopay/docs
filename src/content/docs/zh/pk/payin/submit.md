@@ -48,10 +48,7 @@ description: 商户请求提交一个代收订单
 | tradeNo         | String  | yes | 32  | 平台订单号                                             |
 | status          | Integer | yes | 2   | 订单状态 0-受理成功 1-订单创建成功  2-支付成功  3-失败 4-退款| 
 | errorMsg        | String  | no  | 200 | 错误原因                                               |
-#### 不同支付方式的响应示例：
-
-#### 当 PaymentType 为 302 ，成功返回：
-
+#### 成功响应示例：
 ```json
 {
     "code": 200,
@@ -65,9 +62,8 @@ description: 商户请求提交一个代收订单
     }
 }
 ```
-####
 
-#### 当 PaymentType 为 302 ，失败返回：
+### 失败响应示例
 ```json
 {
     "code": 200,
@@ -81,5 +77,3 @@ description: 商户请求提交一个代收订单
     }
 }
 ```
-
-####
