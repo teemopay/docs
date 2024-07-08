@@ -50,9 +50,9 @@ description: 商户请求提交一个代收订单
 | errorMsg        | String  | no  | 200 | 错误原因                                               |
 #### 不同支付方式的响应示例：
 
-#### 当 PaymentType 为 302 ：
+#### 当 PaymentType 为 302 ，成功返回：
 
-```Success json
+```json
 {
     "code": 200,
     "msg": "success",
@@ -65,8 +65,10 @@ description: 商户请求提交一个代收订单
     }
 }
 ```
+####
 
-```Fail json
+#### 当 PaymentType 为 302 ，失败返回：
+```json
 {
     "code": 200,
     "msg": "success",
@@ -74,7 +76,7 @@ description: 商户请求提交一个代收订单
         "merchantOrderNo" : "1234567890",
         "amount": "100.00",
         "tradeNo" : "TS2405210001MX0000075312734955",
-        "status": 3
+        "status": 3,
         "errorMsg": "error msg"
     }
 }
