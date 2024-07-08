@@ -52,8 +52,32 @@ description: 商户请求提交一个代收订单
 
 #### 当 PaymentType 为 302 ：
 
-```json
+```Success json
+{
+    "code": 200,
+    "msg": "success",
+    "data": {
+        "merchantOrderNo" : "1234567890",
+        "amount": "100.00",
+        "tradeNo" : "TS2405210001MX0000075312734955",
+        "status": 1
+        "errorMsg": ""
+    }
+}
+```
 
+```Fail json
+{
+    "code": 200,
+    "msg": "success",
+    "data": {
+        "merchantOrderNo" : "1234567890",
+        "amount": "100.00",
+        "tradeNo" : "TS2405210001MX0000075312734955",
+        "status": 3
+        "errorMsg": "error msg"
+    }
+}
 ```
 
 ####
