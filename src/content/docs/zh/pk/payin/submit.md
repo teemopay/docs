@@ -60,7 +60,7 @@ description: 商户请求提交一个代收订单
         "merchantOrderNo" : "1234567890",
         "amount": "100.00",
         "tradeNo" : "TS2405210001MX0000075312734955",
-        "status": 1
+        "status": 1,
         "errorMsg": ""
     }
 }
