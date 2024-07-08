@@ -51,29 +51,21 @@ description: 商户请求提交一个代收订单
 #### 成功响应示例：
 ```json
 {
-    "code": 200,
-    "msg": "success",
-    "data": {
-        "merchantOrderNo" : "1234567890",
-        "amount": "100.00",
-        "tradeNo" : "TS2405210001MX0000075312734955",
-        "status": 1,
-        "errorMsg": ""
-    }
+  "merchantOrderNo" : "1234567890",
+  "amount": "100.00",
+  "tradeNo" : "TS2405210001MX0000075312734955",
+  "status": 1,
+  "errorMsg": ""
 }
 ```
 
 ### 失败响应示例
 ```json
 {
-    "code": 200,
-    "msg": "success",
-    "data": {
-        "merchantOrderNo" : "1234567890",
-        "amount": "100.00",
-        "tradeNo" : "TS2405210001MX0000075312734955",
-        "status": 3,
-        "errorMsg": "error msg"
-    }
+  "merchantOrderNo" : "1234567890",
+  "amount": "100.00",
+  "tradeNo" : "TS2405210001MX0000075312734955",
+  "status": 3,
+  "errorMsg": "error msg"
 }
 ```
