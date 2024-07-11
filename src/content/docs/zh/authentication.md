@@ -32,7 +32,7 @@ description: 鉴权和加密说明
 
 | 字段           | 类型             | 必需 | 长度                                                   | 签名                   |
 |--------------| ---------------- | ---- | ------------------------------------------------------ |----------------------|
-| Context-Type | application/json | yes  | 固定值.所有请求参数必须为 POST, 数据都必须放在 body 中 |
+| Content-Type | application/json | yes  | 固定值.所有请求参数必须为 POST, 数据都必须放在 body 中 |
 | app_code     | String           | yes  | 32                                                     | 分配给商户应用的 code        |
 | country      | String           | yes  | 2                                                      | MX-墨西哥 PE-秘鲁 CO-哥伦比亚 |
 | nonce        | String           | yes  | 32                                                     | 必须为 32 位不重复字符串       |

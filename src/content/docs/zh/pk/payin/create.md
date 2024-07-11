@@ -40,12 +40,12 @@ description: 商户请求创建一个代收订单
 | 字段            | 类型   | 必需  | 长度  | 描述                       |
 | --------------- | ------ |-----|-----|--------------------------|
 | merchantOrderNo | String | yes | 32  | 商户订单号                    |
-| paymentType     | Int    | yes |     | 支付方式: 302            |
-| idCardNumber    | String    | yes | 13  | 客户身份证ID 13位整数 |
-| amount          | String | yes | 20  | 代收金额(巴基斯坦卢比) 金额需传整数       |
+| paymentType     | Int    | yes |     | 支付方式: 302                |
+| idCardNumber    | String    | yes | 13  | 客户身份证ID 13位整数            |
+| amount          | String | yes | 20  | 代收金额(巴基斯坦卢比) 金额需传整数      |
 | realName        | String | yes | 40  | 用户姓名：大写，不包含特殊字符，40 个字符以内 |
 | email           | String | yes | 50  | 用户邮箱：满足正则表达式即可           |
-| phone           | String | yes | 9   | 电话号码 9 位数不包含区号           |
+| phone           | String | yes | 10  | 电话号码 10 位数不包含区号          |
 | sign            | String | yes |     | 签名                       |
 | callbackUrl     | String | no  | 200 | 回调地址                     |
 
@@ -84,7 +84,7 @@ description: 商户请求创建一个代收订单
   "amount": "300000",
   "tradeNo": "TS2405210000MX0000075312734955",
   "paymentType": 302,
-  "paymentInfo": "221947854638473216",
+  "paymentInfo": "",
   "additionalInfo": {
     "availableChannels": [
       "easypaisa",
