@@ -45,3 +45,82 @@ description: 鉴权和加密说明
 | code | int    | yes  | 状态码   |
 | msg  | String | yes  | 返回信息 |
 | data | Object | no   | 返回数据 |
+
+
+
+```java title=签名示例
+import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+
+import java.security.KeyFactory;
+import java.security.PrivateKey;
+import java.security.Signature;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.util.*;
+
+@Slf4j
+public class SignUtils {
+
+    public static void main(String[] args) throws Exception {
+        // 替换成商户私钥
+        String privateKey = "privateKey";
+        String nonce = UUID.randomUUID().toString().replace("-", "");
+
+        // 构建请求参数
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("merchantOrderNo", "TEST" + 1234567890);
+        jsonObject.put("idCardNumber", "1234567890");
+        jsonObject.put("realName", "TEST");
+        jsonObject.put("amount", "1000");
+        jsonObject.put("callbackUrl", "https://www.teemopay.com");
+        jsonObject.put("paymentType", 1);
+        jsonObject.put("email", "test@gmail.com");
+        jsonObject.put("phone", "1234567890");
+
+        // 计算签名
+        String sign = signature(jsonObject, nonce, privateKey);
+        jsonObject.put("sign", sign);
+
+        log.info("nonce={},timestamp={},requestBody={}", nonce, System.currentTimeMillis(), jsonObject.toJSONString());
+    }
+
+    public static String signature(Map<String, Object> param, String nonce, String privateKey) throws Exception {
+        // 计算SHA-1
+        String signatureStr = paramHandler(param, nonce);
+        log.debug("signatureStr = {}", signatureStr);
+        return sign(signatureStr.getBytes(), privateKey, "SHA1WithRSA");
+    }
+
+
+    public static String sign(byte[] data, String privateKey, String arithmetic) throws Exception {
+        byte[] keyBytes = Base64.getDecoder().decode(privateKey);
+        PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(keyBytes);
+        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+        PrivateKey privateK = keyFactory.generatePrivate(pkcs8KeySpec);
+        Signature signature = Signature.getInstance(arithmetic);
+        signature.initSign(privateK);
+        signature.update(data);
+        return Base64.getEncoder().encodeToString(signature.sign());
+    }
+
+    private static String paramHandler(Map<String, Object> param, String nonce) {
+        Map<String, Object> sortedParameters = new TreeMap<>(param);
+        // 构建参数字符串
+        StringBuilder paramStringBuilder = new StringBuilder();
+        for (Map.Entry<String, Object> entry : sortedParameters.entrySet()) {
+            if ("sign".equals(entry.getKey())) {
+                continue;
+            }
+            Object value = entry.getValue();
+            if (Objects.isNull(value) || (value instanceof String && StringUtils.isBlank((String) value))) {
+                continue;
+            }
+            paramStringBuilder.append(entry.getKey()).append("=").append(entry.getValue()).append("&");
+        }
+        // 添加API密钥
+        paramStringBuilder.append("nonce").append("=").append(nonce);
+        return paramStringBuilder.toString();
+    }
+}
+```
