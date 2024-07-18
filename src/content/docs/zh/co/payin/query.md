@@ -38,7 +38,7 @@ description: 商户查询一个代收订单的状态
 | ----------------------------- | ------ | ---- | ---- | ---------------------------------------------- |
 | merchantOrderNo               | String | yes  | 32   | 商户订单号                                     |
 | tradeNo                       | String | yes  |      | 平台订单号                                     |
-| paymentType                   | int    | yes  | 1    | 代收方式: 1-clabe 2-收银台                     |
+| paymentType                   | int    | yes  | 1    | 代收方式                     |
 | amount                        | String | yes  |      | 订单交易金额                                   |
 | status                        | String | yes  |      | 2-成功 3-失败 4-退款                           |
 | remark                        | String | no   |      | 商户创建订单传的值                             |
@@ -68,7 +68,6 @@ description: 商户查询一个代收订单的状态
     }
   ],
   "sign": "TEEMO_SIGN",
-  "present": true,
   "success": true
 }
 ```

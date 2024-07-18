@@ -70,7 +70,6 @@ description: 商户请求创建一个代付订单
         "status": 1
     },
     "msg": "success",
-    "present": true,
     "success": true
 }
 ```

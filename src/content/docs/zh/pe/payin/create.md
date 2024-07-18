@@ -74,7 +74,8 @@ description: 商户请求创建一个代收订单
 | paymentType     | Int        | yes  | 10   | 支付方式：101 checkout（支付链接收银台）                 |
 | paymentInfo     | String     | yes  | 32   | 主要付款信息，返回的是实际用于付款的信息，例如：付款编号 |
 | additionalInfo  | JSONObject | No   |      | 附加信息                                                 |
-
+| status          | Int        | yes |    | 1-订单创建成功  3-失败               |
+| errorMsg        | String     | no  |    | 错误信息,失败时返回                   |
 #### 不同支付方式的响应示例：
 
 #### 当 PaymentType 为 101 ：checkout（支付链接收银台）时：
@@ -95,7 +96,6 @@ description: 商户请求创建一个代收订单
     "status": 1
   },
   "success": true,
-  "present": true
 }
 ```
 

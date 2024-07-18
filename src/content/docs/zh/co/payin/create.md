@@ -29,9 +29,9 @@ description: 商户请求创建一个代收订单
 
 #### additionalInfo （附加字段）字段说明：
 
-| 字段名       | 类型       | 是否必传  |说明      |
-| ----------- | ----------|----------|-------- |
-| paymentLink | String(32) |是       | 支付链接  |
+| 字段名 | 类型  | 是否必传 | 说明  |
+|-----|-----|------|-----|
+| -   | -   | -    | -   |
 
 ##### 
 
@@ -65,15 +65,16 @@ description: 商户请求创建一个代收订单
 
 ### 返回参数
 
-| 字段            | 类型       | 必需  | 长度 | 描述                                          |
-| --------------- | ---------- |-----|----| -----------------------------------------------|
-| merchantOrderNo | String     | yes | 32 | 商户订单号                                       |
-| tradeNo         | String     | yes | 32 | 平台订单号                                       |
-| amount          | String     | yes | 32 | 交易金额                                         |
-| paymentType     | Int        | yes | 3  | 支付方式                                         |
+| 字段              | 类型         | 必需  | 长度 | 描述                           |
+|-----------------|------------|-----|----|------------------------------|
+| merchantOrderNo | String     | yes | 32 | 商户订单号                        |
+| tradeNo         | String     | yes | 32 | 平台订单号                        |
+| amount          | String     | yes | 32 | 交易金额                         |
+| paymentType     | Int        | yes | 3  | 支付方式                         |
 | paymentInfo     | String     | yes | 32 | 主要付款信息，返回的是实际用于付款的信息，例如：付款编号 |
-| additionalInfo  | JSONObject | no  |    | 附加信息                                         |
-
+| additionalInfo  | JSONObject | no  |    | 扩展信息                         |
+| status          | Int        | yes |    | 1-订单创建成功  3-失败               |
+| errorMsg        | String     | no  |    | 错误信息,失败时返回                   |
 ```json
 {
   "msg": "success",
@@ -84,13 +85,11 @@ description: 商户请求创建一个代收订单
     "merchantOrderNo": "C31412415HkF6U9SnXRrxitBWD647lw7",
     "paymentType": 204,
     "additionalInfo": {
-      "paymentLink": "Xsdsadsadsad.com"
     },
-    "paymentInfo": "awqewqewqewqe",
+    "paymentInfo": "Xsdsadsadsad.com",
     "status": 1
   },
   "success": true,
-  "present": true
 }
 ```
 

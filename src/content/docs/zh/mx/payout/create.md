@@ -55,7 +55,7 @@ description: 商户请求创建一个代付订单
 | merchantOrderNo | String | yes  | 32   | 商户订单号                    |
 | tradeNo         | String | yes  |      | 平台订单号                    |
 | status          | String | yes  |      | 1-支付中 3-失败(可以重新发起) |
-| sign            | String | yes  |      | 签名                          |
+| amount          | String | yes  |      | 交易金额                      |
 
 ```json title=返回示例
 {
