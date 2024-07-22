@@ -20,21 +20,22 @@ description: 商户请求创建一个代付订单
 
 ### 请求参数
 
-| 字段              | 类型   | 必需  | 长度  | 描述                           |
-|-----------------| ------ |-----|-----|------------------------------|
-| merchantOrderNo | String | yes | 32  | 商户订单号                        |
-| amount          | String | yes | 20  | 代付金额 (巴基斯坦卢比) 金额需传整数         |
-| bankCode        | String | yes | 50  | 银行编码  301时取银行编码，302时取钱包编码    |
-| bankName        | String | yes | 50  | 银行名称 与银行编码字段相同               |
-| accountType     | int    | yes |     | 账户类型 301(BANK) 302(E-Wallet) |
-| bankAccount     | String | yes | 13  | 客户身份证ID 13位整数                      |
-| realName        | String | yes | 255 | 客户姓名                         |
-| idCardNumber    | String | yes | 50  | 收款人证件号码                      |
-| idType          | Stirng | yes | 32  | 固定传CERT                      |
-| email           | Stirng | no  | 64  | 用户邮箱                         |
-| userIBAN        | Stirng | no  | 64  | 国际银行账号                       |
-| callbackUrl     | String | no  | 200 | 代付回调地址，若不传, 则以商户配置为准         |
-| sign            | String | yes |     | 签名                           |
+| 字段              | 类型   | 必需  | 最大长度 | 描述                              |
+|-----------------| ------ |-----|------|---------------------------------|
+| merchantOrderNo | String | yes | 32   | 商户订单号                           |
+| amount          | String | yes | 20   | 代付金额 巴基斯坦卢比 需传整数                |
+| bankCode        | String | yes | 50   | 银行编码  301取bankCode，302时取WalletCode |
+| bankName        | String | yes | 50   | 银行名称 与银行编码字段相同                  |
+| accountType     | int    | yes |      | 账户类型 301(BANK) 302(E-Wallet)    |
+| bankAccount     | String | yes | 255  | 银行/钱包账户                         |
+| realName        | String | yes | 255  | 客户姓名                            |
+| idCardNumber    | String | yes | 13   | 证件号   13位数字                     |
+| idType          | Stirng | yes | 32   | 固定传CERT                         |
+| phone           | Stirng | yes | 10   | 用户电话  10位数字                     |
+| email           | Stirng | no  | 64   | 用户邮箱                            |
+| userIBAN        | Stirng | no  | 64   | 国际银行账号                          |
+| callbackUrl     | String | no  | 200  | 代付回调地址，若不传, 则以商户配置为准            |
+| sign            | String | yes |      | 签名                              |
 
 ```json title=请求示例
 {
@@ -43,6 +44,7 @@ description: 商户请求创建一个代付订单
     "bankCode": "ALBARAKA_ISLAMIC_BANK",
     "bankName": "ALBARAKA_ISLAMIC_BANK",
     "accountType": "301",
+    "bankAccount": "1234567890",
     "realName": "TEST",
     "idCardNumber": "1234567890123",
     "idType": "CERT",
