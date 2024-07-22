@@ -373,6 +373,42 @@ export default defineConfig({
           },
           items: [
             {
+              label: "Payout",
+              translations: {
+                zh: "代付",
+              },
+              items: [
+                {
+                  label: "Create Payout",
+                  translations: {
+                    zh: "创建代付",
+                  },
+                  link: "/pk/payout/create",
+                },
+                {
+                  label: "Payout callback",
+                  translations: {
+                    zh: "代付回调",
+                  },
+                  link: "/pk/payout/callback",
+                },
+                {
+                  label: "Payout Query",
+                  translations: {
+                    zh: "代付查询",
+                  },
+                  link: "/pk/payout/query",
+                },
+                {
+                  label: "Bank",
+                  translations: {
+                    zh: "银行列表",
+                  },
+                  link: "/pk/payout/bank",
+                },
+              ],
+            },
+            {
               label: "Payin",
               translations: {
                 zh: "代收",
