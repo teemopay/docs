@@ -30,13 +30,11 @@ description: 商户请求创建一个代收订单
 | 206          | 支付链接包含(pse，nequi，efecty，efectivo，daviplata)                           |
 | 207          | DAVIPLATA (电子钱包)                                                            |
 
-#### additionalInfo （附加字段）字段说明：
+### additionalInfo （附加字段）字段说明
 
 | 字段名 | 类型 | 是否必传 | 说明 |
 | ------ | ---- | -------- | ---- |
 | -      | -    | -        | -    |
-
-#####
 
 ### 请求参数
 
@@ -97,5 +95,3 @@ description: 商户请求创建一个代收订单
   "success": true
 }
 ```
-
-####
