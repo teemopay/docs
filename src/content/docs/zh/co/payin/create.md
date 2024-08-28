@@ -25,7 +25,10 @@ description: 商户请求创建一个代收订单
 | 201          | PSE (网银)                |
 | 202          | NEQUI （电子钱包）          |
 | 203          | BANCOLOMBIA (线下)        |
-| 204          | 展示全部                   |
+| 204          | 支付链接包含（pse，nequi，bancolombia button，bancolombia collection，paycash） |
+| 205 | EFECTY(线下) |
+| 206 | 支付链接包含(pse，nequi，efecty，efectivo，daviplata) |
+| 207 | DAVIPLATA (电子钱包) |
 
 #### additionalInfo （附加字段）字段说明：
 

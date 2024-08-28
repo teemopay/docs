@@ -50,6 +50,7 @@ description: 代付支持的银行列表
 | 1804     | WALA                           |
 | 1023     | WESTERN BANK                   |
 | 1047     | WOMEN'S WORLD BANK             |
+| 1097     | DALE                           |
 
 账户类型：
 
