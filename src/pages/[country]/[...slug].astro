@@ -13,13 +13,13 @@ interface Props {
 export const getStaticPaths = (async () => {
   const docs = await getCollection('docs');
   return docs
-    .filter(doc => doc.slug.includes('/')) // 排除根目录下的直接文件
+    .filter((doc: CollectionEntry<'docs'>) => doc.slug.includes('/')) // 排除根目录下的直接文件
     .map((doc: CollectionEntry<'docs'>) => {
       const parts = doc.slug.split('/');
       const country = parts[0];
       const slug = parts.slice(1).join('/');
       // 获取同国家下的文档作为目录，不包括根目录文档
-      const countryDocs = docs.filter((d) => d.slug.startsWith(country + '/'));
+      const countryDocs = docs.filter((d: CollectionEntry<'docs'>) => d.slug.startsWith(country + '/'));
       return {
         params: { country, slug },
         props: { doc, countryDocs },
@@ -29,7 +29,7 @@ export const getStaticPaths = (async () => {
 
 const { doc, countryDocs } = Astro.props as Props;
 const { Content } = await doc.render();
-const headings = await doc.render().then(({ headings }) => headings); // 提取文档标题
+const headings = await doc.render().then(({ headings }: { headings: any }) => headings); // 提取文档标题
 
 // 对文档进行分组
 const groupedDocs = countryDocs.reduce((acc, doc) => {
@@ -44,7 +44,7 @@ const groupedDocs = countryDocs.reduce((acc, doc) => {
 
 // 对每个分组内的文档按照文件名排序
 Object.keys(groupedDocs).forEach(category => {
-  groupedDocs[category].sort((a, b) => a.slug.localeCompare(b.slug));
+  groupedDocs[category].sort((a: CollectionEntry<'docs'>, b: CollectionEntry<'docs'>) => a.slug.localeCompare(b.slug));
 });
 ---
 
@@ -55,7 +55,7 @@ Object.keys(groupedDocs).forEach(category => {
       <div class="mb-4">
         <h3 class="text-lg font-semibold mb-2">{category}</h3>
         <ul class="space-y-1">
-          {docs.map((d) => (
+          {docs.map((d: CollectionEntry<'docs'>) => (
             <li>
               <a 
                 href={`/${d.slug}`} 
@@ -84,7 +84,7 @@ Object.keys(groupedDocs).forEach(category => {
     <nav class="toc">
       <h3 class="text-xl font-bold mb-4 pb-2 border-b border-border">本页内容</h3>
       <ul class="space-y-1">
-        {headings.map((heading) => (
+        {headings.map((heading: any) => (
           <li>
             <a 
               href={`#${heading.slug}`}

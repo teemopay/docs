@@ -47,7 +47,7 @@ if (Astro.request.method === "POST") {
     errorMessage = "Invalid username or password";
   } else {
     // 从环境变量中获取对应的用户名和密码
-    const userPassword = import.meta.env[`${username.toUpperCase()}`];
+    const userPassword = import.meta.env[`PUBLIC_${username.toUpperCase()}`];
     console.log(username, userPassword);
     // 如果用户名不存在或密码不匹配
     if (!userPassword || userPassword !== password) {

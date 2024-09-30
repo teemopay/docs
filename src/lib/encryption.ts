@@ -10,7 +10,7 @@ const scryptAsync = promisify(scrypt);
 // 生成加密密钥
 async function getKey(): Promise<Buffer> {
   // 使用 scrypt 函数生成密钥，salt 为固定值 'salt'，密钥长度为 32 字节
-  return scryptAsync(import.meta.env.ENCRYPTION_SECRET_KEY, 'salt', 32) as Promise<Buffer>;
+  return scryptAsync(import.meta.env.PUBLIC_ENCRYPTION_SECRET_KEY, 'salt', 32) as Promise<Buffer>;
 }
 
 // 加密函数
