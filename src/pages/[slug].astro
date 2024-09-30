@@ -12,20 +12,14 @@ interface Props {
 
 export const getStaticPaths = (async () => {
   const docs = await getCollection('docs');
-  return docs.map((doc: CollectionEntry<'docs'>) => {
-    // 获取当前文档的目录路径
-    const currentDir = doc.slug.split('/').slice(0, -1).join('/');
-    // 获取同目录下的文档作为目录
-    const siblings = docs.filter((d) => {
-      const dirPath = d.slug.split('/').slice(0, -1).join('/');
-      return dirPath === currentDir;
+  return docs
+    .filter((doc) => !doc.slug.includes('/')) // 只选择第一级文档
+    .map((doc: CollectionEntry<'docs'>) => {
+      return {
+        params: { slug: doc.slug },
+        props: { doc, siblings: docs.filter((d) => !d.slug.includes('/')) },
+      };
     });
-
-    return {
-      params: { slug: doc.slug },
-      props: { doc, siblings },
-    };
-  });
 }) satisfies GetStaticPaths;
 
 const { doc, siblings } = Astro.props as Props;
