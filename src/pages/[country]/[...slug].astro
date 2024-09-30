@@ -12,16 +12,19 @@ interface Props {
 
 export const getStaticPaths = (async () => {
   const docs = await getCollection('docs');
-  return docs.map((doc: CollectionEntry<'docs'>) => {
-    const country = doc.slug.split('/')[0]; // 获取国家
-    const slug = doc.slug.slice(country.length + 1); // 获取文档 slug
-    // 获取同国家下的文档作为目录
-    const countryDocs = docs.filter((d) => d.slug.startsWith(country));
-    return {
-      params: { country, slug },
-      props: { doc, countryDocs },
-    };
-  });
+  return docs
+    .filter(doc => doc.slug.includes('/')) // 排除根目录下的直接文件
+    .map((doc: CollectionEntry<'docs'>) => {
+      const parts = doc.slug.split('/');
+      const country = parts[0];
+      const slug = parts.slice(1).join('/');
+      // 获取同国家下的文档作为目录，不包括根目录文档
+      const countryDocs = docs.filter((d) => d.slug.startsWith(country + '/'));
+      return {
+        params: { country, slug },
+        props: { doc, countryDocs },
+      };
+    });
 }) satisfies GetStaticPaths;
 
 const { doc, countryDocs } = Astro.props as Props;

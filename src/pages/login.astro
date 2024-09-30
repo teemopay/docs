@@ -9,7 +9,7 @@ import { decrypt, encrypt } from "@lib/encryption";
 const currentLanguage = Astro.url.pathname.split("/")?.[1] === 'zh' ? 'zh' : 'en';
 
 // 获取 from 查询参数
-const fromUrl = Astro.url.searchParams.get("from");
+const fromUrl = Astro.url.searchParams.get("from"); 
 
 // 获取当前用户
 const currentUser = Astro.cookies.get("teemo_docs_user");
@@ -23,7 +23,7 @@ if (currentUser) {
     if (sessionObj.expired_at < new Date()) {
       Astro.cookies.delete("teemo_docs_user") // 删除过期的 cookie
     } else {
-      return Astro.redirect(fromUrl || "/"); // 重定向到首页
+      return Astro.redirect(fromUrl || "/"); // 重定向到查询参数页或首页
     }
   } catch (error) {
     // console.error("解密错误:", error);
@@ -48,6 +48,7 @@ if (Astro.request.method === "POST") {
   } else {
     // 从环境变量中获取对应的用户名和密码
     const userPassword = import.meta.env[`${username.toUpperCase()}`];
+    console.log(username, userPassword);
     // 如果用户名不存在或密码不匹配
     if (!userPassword || userPassword !== password) {
       errorMessage = "username or password is incorrect";
