@@ -1,0 +1,28 @@
+---
+import { Button } from "@components/ui/button";
+import { t } from "i18next";
+
+// 获取当前语言
+const currentLanguage = Astro.url.pathname.split("/")?.[1];
+---
+
+<div>
+  <div class="flex gap-10 items-center justify-between">
+    <div class="flex flex-col gap-6">
+      <h1 class="text-6xl font-bold">
+        <span class="text-green-600 underline mr-2">Teemopay</span>
+        <span class="text-5xl">{t("hero.title")}</span>
+      </h1>
+      <p class="text-2xl">{t("hero.description")}</p>
+      <div class="flex gap-4">
+        <Button>
+          <a href={currentLanguage === 'zh' ?  '/zh/start' : '/start'}>{t("hero.button")}</a>
+        </Button>
+        <Button variant="outline">
+          <a href='https://teemopay.com' target="_blank">{t("hero.button_outline")}</a>
+        </Button>
+      </div>
+    </div>
+    <img src="/teemo.png" alt="Teemopay Logo" class="w-96" />
+  </div>
+</div>

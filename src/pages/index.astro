@@ -1,7 +1,32 @@
 ---
-import SpeedInsights from "@vercel/speed-insights/astro";
+export const prerender = true; // 预渲染
+
+import DefaultLayout from '@layouts/DefaultLayout.astro';
+import Hero from "@components/view/Hero.astro";
+import { t ,changeLanguage} from "i18next";
+// import { getCollection, type CollectionEntry } from 'astro:content';
+
+// interface Props {
+//   docs: CollectionEntry<'docs'>;
+// }
+
+// const allDocs: CollectionEntry<'docs'>[] = await getCollection('docs');
+// console.log("allDocs:", allDocs.map((doc: CollectionEntry<'docs'>) => doc.slug));
+
+changeLanguage("en")
 ---
 
-<!-- 自动重定向到 /en 页面 -->
-<meta http-equiv="refresh" content="0;url=/zh" />
-<SpeedInsights />
+<DefaultLayout>
+  <Hero />
+</DefaultLayout>
+
+
+<!-- <div class="mx-2 flex flex-col gap-2">
+	{allDocs.map((doc: CollectionEntry<'docs'>) => (
+		<a href={`/doc/${doc.slug}`} class="p-4 border border-gray-500 rounded-md">
+			<h2 class="text-2xl font-bold">{doc.data.title}</h2>
+			<p class="text-gray-500">{doc.data.description}</p>
+			<a href={`/edit/${doc.slug}`} class="text-blue-500">edit</a>
+		</a>
+	))}
+</div> -->

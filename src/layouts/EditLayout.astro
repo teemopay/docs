@@ -1,0 +1,31 @@
+---
+import "@styles/globals.css";
+import Themes from "astro-themes";
+import Head from "./BaseHead.astro";
+import i18next, { t } from "i18next";
+import { HeadHrefLangs } from "astro-i18next/components";
+
+// 定义 Props 接口
+export interface Props {
+  title?: string; // 标题
+  description?: string; // 描述
+}
+
+// 获取 Props
+const { title = t("site.title") || "Teemopay Docs", description = t("site.description") || "Teemopay Docs" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={i18next.language}>
+  <head>
+    <Head title={title} description={description} permalink="" />
+    <Themes defaultTheme="dark" />
+    <title>{title}</title>
+    <HeadHrefLangs />
+  </head>
+  <body>
+    <main class="mx-auto mt-12 px-6">
+      <slot />
+    </main>
+  </body>
+</html>

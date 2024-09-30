@@ -1,0 +1,41 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import LoadingIndicator from "astro-loading-indicator/component";
+
+export interface Props {
+  title: string; // 标题
+  description: string; // 描述
+  permalink: string; // 永久链接
+}
+
+const { title, description, permalink } = Astro.props;
+const socialUrl = Astro.site?.href + "assets/social.png";
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Primary Meta Tags -->
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="keywords" content="teemopay,teemopay docs,teemo,pay,teemo pay,teemo pay docs,teemo pay api,teemo pay sdk,teemo pay sdk docs" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={permalink} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={socialUrl} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={permalink} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={socialUrl} />
+
+<ViewTransitions />
+<LoadingIndicator color="#7e57c2" height="3px" animationDuration={500} />

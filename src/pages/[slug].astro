@@ -1,0 +1,130 @@
+---
+export const prerender = true; // 预渲染
+
+import type { GetStaticPaths } from "astro";
+import DocLayout from '@layouts/DocLayout.astro';
+import { type CollectionEntry, getCollection } from 'astro:content';
+
+interface Props {
+  doc: CollectionEntry<'docs'>;
+  siblings: CollectionEntry<'docs'>[];
+}
+
+export const getStaticPaths = (async () => {
+  const docs = await getCollection('docs');
+  return docs.map((doc: CollectionEntry<'docs'>) => {
+    // 获取当前文档的目录路径
+    const currentDir = doc.slug.split('/').slice(0, -1).join('/');
+    // 获取同目录下的文档作为目录
+    const siblings = docs.filter((d) => {
+      const dirPath = d.slug.split('/').slice(0, -1).join('/');
+      return dirPath === currentDir;
+    });
+
+    return {
+      params: { slug: doc.slug },
+      props: { doc, siblings },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const { doc, siblings } = Astro.props as Props;
+const { Content } = await doc.render();
+const headings = await doc.render().then(({ headings }) => headings); // 提取文档标题
+---
+
+
+<DocLayout title={doc.data.title}>
+  <div slot="sidebar" class="doc-sidebar">
+    <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-border">目录</h2>
+    <ul class="space-y-1">
+      {siblings.map((d) => (
+        <li>
+          <a 
+            href={`/${d.slug}`} 
+            class={`block hover:bg-secondary rounded px-3 py-1.5 transition-colors duration-200 text-sm ${
+              d.slug === doc.slug ? 'bg-primary text-primary-foreground font-medium' : 'text-foreground'
+            }`}
+          >
+            {d.data.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+	<div slot="content">
+    <h1 class="text-4xl font-bold mb-4">{doc.data.title}</h1>
+		<div id="mkd">
+			<Content />
+			</div>
+	</div>
+
+  <div slot="edit">
+    <!-- 文档内导航 -->
+    <nav class="toc">
+      <h3 class="text-xl font-bold mb-4 pb-2 border-b border-border">本页内容</h3>
+      <ul class="space-y-1">
+        {headings.map((heading) => (
+          <li>
+            <a 
+              href={`#${heading.slug}`}
+              class={`block py-1 px-2 rounded transition-colors duration-200 hover:bg-secondary text-foreground hover:underline underline-offset-4
+                ${heading.depth === 1 ? 'font-semibold' : ''}
+                ${heading.depth > 1 ? `ml-${(heading.depth - 1) * 3}` : ''}`}
+            >
+              {heading.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- 编辑文档的按钮 -->
+    <a href={`/edit?path=${doc.slug}`} class="flex items-center gap-2 mt-4 px-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-pen-line"><path d="m18 5-2.414-2.414A2 2 0 0 0 14.172 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2"/><path d="M21.378 12.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/><path d="M8 18h1"/></svg>
+      <span class="text-xs">编辑文档</span>
+    </a>
+  </div>
+</DocLayout>
+
+<style>
+  .doc-sidebar {
+    @apply bg-background rounded-lg;
+    max-height: 100vh;
+    overflow-y: auto;
+    padding-right: 1rem;
+  }
+
+  .doc-sidebar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .doc-sidebar::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded;
+  }
+
+  .doc-sidebar::-webkit-scrollbar-track {
+    @apply bg-secondary;
+  }
+
+  .toc {
+    @apply bg-background rounded-lg;
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+
+  .toc::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .toc::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded;
+  }
+
+  .toc::-webkit-scrollbar-track {
+    @apply bg-secondary;
+  }
+</style>

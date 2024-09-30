@@ -1,0 +1,60 @@
+---
+import EditFile from "@components/view/EditFile.vue";
+import EditLayout from "@layouts/EditLayout.astro";
+import { decrypt } from "@lib/encryption";
+import { getCollection } from "astro:content";
+import fs from 'node:fs/promises';
+
+// 编辑页面 /edit?path=pe/payin/create
+const path = Astro.url.searchParams.get("path");
+if (!path) return Astro.redirect('/404');
+// console.log("path:", path);
+
+// 获取当前用户
+const currentUser = Astro.cookies.get("teemo_docs_user");
+
+// 校验登录状态，如果未登录或 cookie 过期，则跳转到登录页面
+if (!currentUser) {
+  return Astro.redirect('/login?from=/edit?path=' + path);
+} else {
+  try {
+    const session = await decrypt(currentUser.value);
+    const sessionObj = JSON.parse(session);
+    if (sessionObj.expired_at < new Date()) {
+      Astro.cookies.delete("teemo_docs_user") // 删除过期的 cookie
+    } else {
+      return Astro.redirect(fromUrl || "/"); // 重定向到首页
+    }
+  } catch (error) {
+    // console.error("解密错误:", error);
+    Astro.cookies.delete("teemo_docs_user") // 删除过期的 cookie
+  }
+}
+
+// 获取文档内容
+const docList = await getCollection('docs', ({ id }: { id: string }) => id === `${path}.md`);
+if (docList.length === 0) return Astro.redirect('/404');
+
+// const allFiles = await Astro.glob("../content/docs/**/*.md") || [];  // 文件路径
+// const currentFile = allFiles.find((file) => {
+//   console.log("file:", file.file);
+//   // const filePath = file.file.split("/");
+//   // const fileName = filePath[filePath.length - 1];
+//   return file.file === path;
+// });
+// if (!currentFile) return Astro.redirect('/404');
+// const content = await fs.readFile(currentFile?.file as string, 'utf-8');
+// const { rawContent, getHeadings } = currentFile;
+// console.log("rawContent:", rawContent());
+// console.log("getHeadings:", getHeadings());
+
+// 获取文档内容
+const content = await fs.readFile(`src/content/docs/${path}.md`, 'utf-8');
+// const docList = await getCollection('docs', ({ id }: { id: string }) => id === `${path}.md`);
+// const { Content } = await docList[0].render();
+// console.log("docList:", docList);
+---
+
+<EditLayout title={`编辑 ${path}`}>
+  <EditFile client:load path={path} content={content} />
+</EditLayout>

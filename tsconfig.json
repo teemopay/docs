@@ -1,13 +1,14 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "strictNullChecks": true,
+    "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@assets/*": ["src/assets/*"]
-    }
+      "@*": [
+        "src/*"
+      ]
+    },
+    "jsx": "preserve"
   }
 }

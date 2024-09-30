@@ -1,0 +1,94 @@
+---
+import { Button } from "@components/ui/button";
+import { Input } from "@components/ui/input";
+import { Label } from "@components/ui/label";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { decrypt, encrypt } from "@lib/encryption";
+
+// 获取当前语言
+const currentLanguage = Astro.url.pathname.split("/")?.[1] === 'zh' ? 'zh' : 'en';
+
+// 获取 from 查询参数
+const fromUrl = Astro.url.searchParams.get("from");
+
+// 获取当前用户
+const currentUser = Astro.cookies.get("teemo_docs_user");
+
+// 如果当前用户存在，重定向到首页
+if (currentUser) {
+  // 检查 session 是否过期
+  try {
+    const session = await decrypt(currentUser.value);
+    const sessionObj = JSON.parse(session);
+    if (sessionObj.expired_at < new Date()) {
+      Astro.cookies.delete("teemo_docs_user") // 删除过期的 cookie
+    } else {
+      return Astro.redirect(fromUrl || "/"); // 重定向到首页
+    }
+  } catch (error) {
+    // console.error("解密错误:", error);
+    Astro.cookies.delete("teemo_docs_user") // 删除过期的 cookie
+  }
+}
+
+// 错误消息
+let errorMessage: string = "";
+let username: string = "";
+let password: string = "";
+
+// 处理登录请求
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData();
+  username = formData.get("username") as string;
+  password = formData.get("password") as string;
+
+  // 检查用户名和密码是否正确
+  if (!username || !password || typeof username !== "string" || typeof password !== "string") {
+    errorMessage = "Invalid username or password";
+  } else {
+    // 从环境变量中获取对应的用户名和密码
+    const userPassword = import.meta.env[`${username.toUpperCase()}`];
+    // 如果用户名不存在或密码不匹配
+    if (!userPassword || userPassword !== password) {
+      errorMessage = "username or password is incorrect";
+    } else {
+      // 创建一个包含用户信息的会话对象
+      const session = {
+        username: username.toUpperCase(),
+        created_at: new Date(),
+        expired_at: new Date(Date.now() + 60 * 60 * 24 * 7 * 1000), // 7 天过期
+      }
+      // 加密 session 将其存储在 cookie 中
+      const encryptedSession = await encrypt(JSON.stringify(session));
+      Astro.cookies.set("teemo_docs_user", encryptedSession, {
+        path: "/", // 保证所有页面都可以访问
+        maxAge: 60 * 60 * 24 * 7, // 7 天过期
+        httpOnly: true, // 只在 HTTPS 连接中发送
+        sameSite: "strict", // 防止 CSRF 攻击
+      });
+      // 重定向到首页
+      return Astro.redirect(fromUrl || "/");
+    }
+  }
+}
+---
+
+<BaseLayout title="Login Teemopay Docs">
+  <a href={currentLanguage === 'zh' ? `/${currentLanguage}` : '/'}>
+    <img src="/logo-dark.png" alt="Teemopay Logo" class="h-8 hidden dark:block" />
+    <img src="/logo-light.png" alt="Teemopay Logo" class="h-8 block dark:hidden" />
+  </a>
+
+  <p class="text-center text-sm text-gray-500 my-6">Login to access the Teemopay Docs</p>
+
+  <form class="flex flex-col gap-6 w-72" method="post">
+    <div class="flex flex-col gap-4">
+      <Label for="username">Username</Label>
+      <Input id="username" name="username" modelValue={username} />
+      <Label for="password">Password</Label>
+      <Input id="password" name="password" type="password" modelValue={password} />
+    </div>
+    {errorMessage && <p class="text-red-500 text-center">{errorMessage}</p>}
+    <Button type="submit">Login</Button>
+  </form>
+</BaseLayout>

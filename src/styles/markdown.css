@@ -1,0 +1,79 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold mb-3;
+}
+h1 {
+  @apply text-3xl pb-2;
+}
+h2 {
+  @apply text-2xl;
+}
+h3 {
+  @apply text-xl;
+}
+h4 {
+  @apply text-lg;
+}
+h5 {
+  @apply text-base;
+}
+h6 {
+  @apply text-sm;
+}
+p {
+  @apply mb-3 leading-relaxed text-base;
+}
+ul,
+ol {
+  @apply ml-5 mb-5;
+}
+ul {
+  @apply list-disc;
+}
+ol {
+  @apply list-decimal;
+}
+li {
+  @apply mb-1.5 text-base;
+}
+a {
+  @apply text-blue-600 hover:underline transition-colors duration-200 dark:text-blue-400;
+}
+blockquote {
+  @apply border-l-4 border-gray-300 pl-4 italic my-5 py-2 text-gray-600 dark:border-gray-600 dark:text-gray-400 text-sm;
+}
+code {
+  @apply rounded py-0.5 font-mono text-xs dark:bg-gray-800;
+}
+pre {
+  @apply bg-gray-100 rounded p-3 overflow-x-auto mb-5 font-mono text-xs dark:bg-gray-800;
+}
+img {
+  @apply max-w-full h-auto my-5 rounded-lg shadow-md;
+}
+hr {
+  @apply my-6 border-t border-gray-300 dark:border-gray-700;
+}
+table {
+  @apply w-full border-collapse mb-5 text-sm;
+}
+th,
+td {
+  @apply border border-gray-300 px-3 py-1.5 dark:border-gray-700;
+}
+th {
+  @apply bg-gray-100 font-semibold dark:bg-gray-800;
+}
+tr:nth-child(even) {
+  @apply bg-gray-50 dark:bg-gray-900;
+}
+.task-list-item {
+  @apply list-none;
+}
+.task-list-item input[type="checkbox"] {
+  @apply mr-2;
+}

@@ -1,0 +1,66 @@
+---
+import "@styles/globals.css";
+import Themes from "astro-themes";
+import Head from "./BaseHead.astro";
+import i18next, { t } from "i18next";
+import { HeadHrefLangs } from "astro-i18next/components";
+import Navbar from "@components/view/Navbar.astro";
+
+// 定义 Props 接口
+export interface Props {
+  title?: string; // 标题
+  description?: string; // 描述
+}
+
+// 获取 Props
+const { title = t("site.title") || "Teemopay Docs", description = t("site.description") || "Teemopay Docs" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={i18next.language}>
+  <head>
+    <Head title={title} description={description} permalink="" />
+    <Themes defaultTheme="dark" />
+    <title>{title}</title>
+    <HeadHrefLangs />
+  </head>
+  <body>
+    <Navbar />
+    <main class="mx-auto mt-12 px-6">
+      <div class="grid grid-cols-1 md:grid-cols-[250px_1fr] lg:grid-cols-[250px_1fr_250px] gap-4">
+        <!-- 左侧区域 -->
+        <div class="hidden md:block">
+          <div class="sticky top-0 overflow-y-auto max-h-screen pr-4">
+            <slot name="sidebar" />
+          </div>
+        </div>
+
+        <!-- 内容区域 -->
+        <div class="min-w-0">
+          <slot name="content" />
+        </div>
+
+        <!-- 右侧区域 -->
+        <div class="hidden lg:block text-sm">
+          <div class="sticky top-0 overflow-y-auto max-h-screen pl-4">
+            <slot name="edit" />
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <style>
+      @media (max-width: 768px) {
+        .md\:grid-cols-\[250px_1fr\] {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .lg\:grid-cols-\[250px_1fr_250px\] {
+          grid-template-columns: 250px 1fr;
+        }
+      }
+    </style>
+  </body>
+</html>
