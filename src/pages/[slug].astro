@@ -24,7 +24,7 @@ export const getStaticPaths = (async () => {
 
 const { doc, siblings } = Astro.props as Props;
 const { Content } = await doc.render();
-const headings = await doc.render().then(({ headings }) => headings); // 提取文档标题
+const headings = await doc.render().then(({ headings }) => headings.filter(h => h.depth === 2 || h.depth === 3)); // 只提取2级和3级标题
 ---
 
 
