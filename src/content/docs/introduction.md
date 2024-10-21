@@ -1,6 +1,8 @@
 ---
 title: 简介
 description: 简介
+slug: introduction
+lang: zh
 ---
 
 Teemopay 是一个全球化的支付平台，为全球的商户提供支付解决方案。

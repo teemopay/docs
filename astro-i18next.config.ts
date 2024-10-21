@@ -34,31 +34,33 @@ export default {
         },
       },
       zh: {
-        "site": {
-          "title": "Teemopay Docs",
-          "description": "Teemopay 文档"
-        },
-        "nav": {
-          "start": "🙋 快速接入",
-          "menu": {
-            "country": "🌍 选择国家",
-            "mx": "🇲🇽 墨西哥",
-            "pe": "🇵🇪 秘鲁",
-            "co": "🇨🇴 哥伦比亚",
-            "pk": "🇵🇰 巴基斯坦"
+        translation: {
+          "site": {
+            "title": "Teemopay Docs",
+            "description": "Teemopay 文档"
+          },
+          "nav": {
+            "start": "🙋 快速接入",
+            "menu": {
+              "country": "🌍 选择国家",
+              "mx": "🇲🇽 墨西哥",
+              "pe": "🇵🇪 秘鲁",
+              "co": "🇨🇴 哥伦比亚",
+              "pk": "🇵🇰 巴基斯坦"
+            }
+          },
+          "hero": {
+            "title": "文档中心",
+            "description": "Teemopay 是拉美地区优秀的支付服务提供商",
+            "button": "快速接入",
+            "button_outline": "查看官网"
+          },
+          "counter": {
+            "countText": "计数",
+            "incrementButtonText": "增加",
+            "decrementButtonText": "减少"
           }
         },
-        "hero": {
-          "title": "文档中心",
-          "description": "Teemopay 是拉美地区优秀的支付服务提供商",
-          "button": "快速接入",
-          "button_outline": "查看官网"
-        },
-        "counter": {
-          "countText": "计数",
-          "incrementButtonText": "增加",
-          "decrementButtonText": "减少"
-        }
       },
     },
   },

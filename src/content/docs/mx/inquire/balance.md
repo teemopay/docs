@@ -1,6 +1,8 @@
 ---
 title: 余额查询
 description: 余额查询
+# slug: inquire-balance
+lang: zh
 ---
 
 ### 请求地址

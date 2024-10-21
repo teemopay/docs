@@ -6,33 +6,45 @@ import DocLayout from '@layouts/DocLayout.astro';
 import { type CollectionEntry, getCollection } from 'astro:content';
 
 interface Props {
-  doc: CollectionEntry<'docs'>; // 当前文档
-  countryDocs: CollectionEntry<'docs'>[]; // 同国家下的文档
+  doc: CollectionEntry<'docs'>;
+  siblings: CollectionEntry<'docs'>[];
+  countryDocs?: CollectionEntry<'docs'>[]; // 可选,用于二级页面
 }
 
 export const getStaticPaths = (async () => {
   const docs = await getCollection('docs');
-  return docs
-    .filter((doc: CollectionEntry<'docs'>) => doc.slug.includes('/')) // 排除根目录下的直接文件
-    .map((doc: CollectionEntry<'docs'>) => {
+  
+  // 处理一级页面
+  const rootPages = docs
+    .filter((doc) => !doc.slug.includes('/'))
+    .map((doc) => ({
+      params: { slug: doc.slug },
+      props: { doc, siblings: docs.filter((d) => !d.slug.includes('/')) },
+    }));
+
+  // 处理二级及以下页面
+  const nestedPages = docs
+    .filter((doc) => doc.slug.includes('/'))
+    .map((doc) => {
       const parts = doc.slug.split('/');
       const country = parts[0];
       const slug = parts.slice(1).join('/');
-      // 获取同国家下的文档作为目录，不包括根目录文档
-      const countryDocs = docs.filter((d: CollectionEntry<'docs'>) => d.slug.startsWith(country + '/'));
+      const countryDocs = docs.filter((d) => d.slug.startsWith(country + '/'));
       return {
-        params: { country, slug },
-        props: { doc, countryDocs },
+        params: { slug: doc.slug },
+        props: { doc, countryDocs, siblings: [] }, // siblings为空,因为二级页面使用countryDocs
       };
     });
+
+  return [...rootPages, ...nestedPages];
 }) satisfies GetStaticPaths;
 
-const { doc, countryDocs } = Astro.props as Props;
+const { doc, siblings, countryDocs } = Astro.props as Props;
 const { Content } = await doc.render();
-const headings = await doc.render().then(({ headings }) => headings.filter(h => h.depth === 2 || h.depth === 3)); // 只提取2级和3级标题
+const headings = await doc.render().then(({ headings }) => headings.filter(h => h.depth === 2 || h.depth === 3));
 
-// 对文档进行分组
-const groupedDocs = countryDocs.reduce((acc, doc) => {
+// 对二级及以下文档进行分组
+const groupedDocs = countryDocs ? countryDocs.reduce((acc, doc) => {
   const parts = doc.slug.split('/');
   const category = parts.length > 2 ? parts[1] : '其他';
   if (!acc[category]) {
@@ -40,51 +52,72 @@ const groupedDocs = countryDocs.reduce((acc, doc) => {
   }
   acc[category].push(doc);
   return acc;
-}, {} as Record<string, CollectionEntry<'docs'>[]>);
+}, {} as Record<string, CollectionEntry<'docs'>[]>) : {};
 
 // 对每个分组内的文档按照文件名排序
-Object.keys(groupedDocs).forEach(category => {
-  groupedDocs[category].sort((a: CollectionEntry<'docs'>, b: CollectionEntry<'docs'>) => a.slug.localeCompare(b.slug));
-});
+if (countryDocs) {
+  Object.keys(groupedDocs).forEach(category => {
+    groupedDocs[category].sort((a, b) => a.slug.localeCompare(b.slug));
+  });
+}
 ---
 
 <DocLayout title={doc.data.title}>
   <div slot="sidebar" class="doc-sidebar">
     <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-border">目录</h2>
-    {Object.entries(groupedDocs).map(([category, docs]) => (
-      <div class="mb-4">
-        <h3 class="text-lg font-semibold mb-2">{category}</h3>
-        <ul class="space-y-1">
-          {docs.map((d: CollectionEntry<'docs'>) => (
-            <li>
-              <a 
-                href={`/${d.slug}`} 
-                class={`block hover:bg-secondary rounded px-3 py-1.5 transition-colors duration-200 text-sm ${
-                  d.slug === doc.slug ? 'bg-primary text-primary-foreground font-medium' : 'text-foreground'
-                }`}
-              >
-                {d.data.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    ))}
+    {countryDocs ? (
+      // 二级及以下页面的菜单
+      Object.entries(groupedDocs).map(([category, docs]) => (
+        <div class="mb-4">
+          <h3 class="text-lg font-semibold mb-2">{category}</h3>
+          <ul class="space-y-1">
+            {docs.map((d) => (
+              <li>
+                <a 
+                  href={`/${d.slug}`} 
+                  class={`block hover:bg-secondary rounded px-3 py-1.5 transition-colors duration-200 text-sm ${
+                    d.slug === doc.slug ? 'bg-primary text-primary-foreground font-medium' : 'text-foreground'
+                  }`}
+                >
+                  {d.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    ) : (
+      // 一级页面的菜单
+      <ul class="space-y-1">
+        {siblings.map((d) => (
+          <li>
+            <a 
+              href={`/${d.slug}`} 
+              class={`block hover:bg-secondary rounded px-3 py-1.5 transition-colors duration-200 text-sm ${
+                d.slug === doc.slug ? 'bg-primary text-primary-foreground font-medium' : 'text-foreground'
+              }`}
+            >
+              {d.data.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
   </div>
 
-	<div slot="content">
+  <div slot="content">
     <h1 class="text-4xl font-bold mb-4">{doc.data.title}</h1>
-		<div id="mkd">
-			<Content />
-		</div>
-	</div>
+    <div id="mkd">
+      <Content />
+    </div>
+  </div>
 
   <div slot="edit">
     <!-- 文档内导航 -->
     <nav class="toc">
       <h3 class="text-xl font-bold mb-4 pb-2 border-b border-border">本页内容</h3>
       <ul class="space-y-1">
-        {headings.map((heading: any) => (
+        {headings.map((heading) => (
           <li>
             <a 
               href={`#${heading.slug}`}
