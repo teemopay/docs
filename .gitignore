@@ -12,6 +12,7 @@ public/*.xml
 
 # dependencies
 node_modules/
+*-lock.json
 
 # logs
 npm-debug.log*
