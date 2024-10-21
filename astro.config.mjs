@@ -445,6 +445,28 @@ export default defineConfig({
               ],
             },
             {
+              label: "Cashier",
+              translations: {
+                zh: "收银台",
+              },
+              items: [
+                {
+                  label: "Create Cashier",
+                  translations: {
+                    zh: "创建收银台",
+                  },
+                  link: "/pk/cashier/create",
+                },
+                {
+                  label: "Cashier Query",
+                  translations: {
+                    zh: "收银台查询",
+                  },
+                  link: "/pk/cashier/query",
+                },
+              ],
+            },
+            {
               label: "Inquire",
               translations: {
                 zh: "查询",
@@ -467,7 +489,7 @@ export default defineConfig({
               ],
             },
           ], // 二级导航
-        }
+        },
       ],
       // 重新组件
       components: {

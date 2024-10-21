@@ -1,6 +1,6 @@
 ---
-title: 代收查询
-description: 商户查询一个代收订单的状态
+title: 收银台查询
+description: 商户查询一个收银台订单的状态
 ---
 
 ### 请求地址
