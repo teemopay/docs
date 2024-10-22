@@ -13,8 +13,9 @@ description: 商户创建收银台
 
 | header 参数   | 入参参数描述    |
 |-------------|-----------|
-| timestamp   | 请求时间戳  |
-| nonce       | 随机值      |
+| timestamp   | 请求时间戳     |
+| nonce       | 随机值       |
+| country     | 国家码(PK)   |
 | app_code    | app 编号    |
 
 ### 请求参数
