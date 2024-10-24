@@ -9,7 +9,7 @@ description: 商户创建收银台
 | ------ |-----------------------------|
 | POST   | api/checkout/payment/create |
 
-## 头部信息（header）
+### 头部信息（header）
 
 | header 参数   | 入参参数描述    |
 |-------------|-----------|
