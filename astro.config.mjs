@@ -458,6 +458,13 @@ export default defineConfig({
                   link: "/pk/cashier/create",
                 },
                 {
+                  label: "Cashier Callback",
+                  translations: {
+                    zh: "收银台回调",
+                  },
+                  link: "/pk/cashier/callback",
+                },
+                {
                   label: "Cashier Query",
                   translations: {
                     zh: "收银台查询",

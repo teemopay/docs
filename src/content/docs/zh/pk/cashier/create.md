@@ -5,18 +5,18 @@ description: 商户创建收银台
 
 ### 请求地址
 
-| method | url                         |
-| ------ |-----------------------------|
-| POST   | api/checkout/payment/create |
+| method | url                          |
+| ------ |------------------------------|
+| POST   | /api/checkout/payment/create |
 
 ### 头部信息（header）
 
-| header 参数   | 入参参数描述    |
-|-------------|-----------|
-| timestamp   | 请求时间戳     |
-| nonce       | 随机值       |
-| country     | 国家码(PK)   |
-| app_code    | app 编号    |
+| header 参数   | 入参参数描述   |
+|-------------|----------|
+| timestamp   | 请求时间戳    |
+| nonce       | 随机值      |
+| country     | 国家码(PK)  |
+| app_code    | app编号    |
 
 ### 请求参数
 
