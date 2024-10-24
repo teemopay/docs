@@ -29,7 +29,7 @@ description: 商户接受一个代收结果的回调
 | errorMessage     | String |    |     | 错误信息,失败时返回     |
 | sign       | String | yes  |     | 签名             |
 
-```json title=回调示例
+```json title=成功回调示例
 {
     "tradeNo": "TS2404000001MX0000075277250508",
     "sign": "TEEMO_SIGN",
@@ -38,8 +38,9 @@ description: 商户接受一个代收结果的回调
     "paymentOrderNo": "TSOcqgv0fepo103dmt3uuu233s1136",
     "status": 2
 }
+```
 
-----------------------------
+```json title=失败回调示例
 
 {
     "tradeNo": "TS2404000001MX0000075277250508",
