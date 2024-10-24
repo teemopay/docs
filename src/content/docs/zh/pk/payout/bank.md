@@ -2,10 +2,11 @@
 title: 银行列表
 description: 代付支持的银行列表
 ---
-BANK
+
+### BANK
 
 | bankCode/bankName                   |
-|-------------------------------------|
+| ----------------------------------- |
 | ALBARAKA_ISLAMIC_BANK               |
 | ALLIED_BANK_LIMITED                 |
 | APNA_MICRO_FINANCE_BANK             |
@@ -39,13 +40,9 @@ BANK
 | U_MICRO_FINANCE_BANK                |
 | UNITED_BANK_LIMITED                 |
 
+### E-Wallet
 
-
-E-Wallet
-
-| code    | 
-|---------|
-| EASYPAISA | 
-| JAZZCASH | 
-
-
+| code      |
+| --------- |
+| EASYPAISA |
+| JAZZCASH  |
