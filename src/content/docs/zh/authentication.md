@@ -130,10 +130,37 @@ public class SignUtils {
             return false;
         } else {
             try {
-                return RsaUtil.verifySha1(paramHandler(param, nonce).getBytes(), publicKey, signature);
+                return RsaUtil.verifySha1(paramHandlerVerify(param, nonce).getBytes(), publicKey, signature);
             } catch (Exception var6) {
                 log.error("RSA验签异常:{}", JSON.toJSONString(param), var6);
                 return false;
+            }
+        }
+    }
+
+    private static String paramHandlerVerify(Map<String, Object> param, String nonce) {
+        SortedMap<String, Object> sortedParameters = new TreeMap(param);
+        StringBuilder paramStringBuilder = new StringBuilder();
+        Iterator var4 = sortedParameters.entrySet().iterator();
+
+        while(true) {
+            Map.Entry entry;
+            Object value;
+            do {
+                do {
+                    if (!var4.hasNext()) {
+                        paramStringBuilder.append("nonce").append("=").append(nonce);
+                        return paramStringBuilder.toString();
+                    }
+
+                    entry = (Map.Entry)var4.next();
+                } while("sign".equals(entry.getKey()));
+
+                value = entry.getValue();
+            } while(value instanceof String && StringUtils.isBlank((String)value));
+
+            if (!Objects.isNull(value)) {
+                paramStringBuilder.append((String)entry.getKey()).append("=").append(entry.getValue()).append("&");
             }
         }
     }
