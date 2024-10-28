@@ -130,30 +130,11 @@ public class SignUtils {
             return false;
         }
         try {
-            String paramData = paramHandlerVerify(param, nonce);
-            return RsaUtil.verifySha1(paramData.getBytes(), publicKey, signature);
+            return RsaUtil.verifySha1(paramHandler(param, nonce).getBytes(), publicKey, signature);
         } catch (Exception e) {
             log.error("RSA验签异常: {}", JSON.toJSONString(param), e);
             return false;
         }
-    }
-
-    private static String paramHandlerVerify(Map<String, Object> param, String nonce) {
-        SortedMap<String, Object> sortedParameters = new TreeMap<>(param);
-        StringBuilder paramStringBuilder = new StringBuilder();
-        for (Map.Entry<String, Object> entry : sortedParameters.entrySet()) {
-            String key = entry.getKey();
-            Object value = entry.getValue();
-            if (!"sign".equals(key) && !isNullOrBlank(value)) {
-                paramStringBuilder.append(key).append("=").append(value).append("&");
-            }
-        }
-        paramStringBuilder.append("nonce").append("=").append(nonce);
-        return paramStringBuilder.toString();
-    }
-
-    private static boolean isNullOrBlank(Object value) {
-        return value == null || (value instanceof String && StringUtils.isBlank((String) value));
     }
 }
 ```
