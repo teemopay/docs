@@ -130,11 +130,21 @@ public class SignUtils {
             return false;
         }
         try {
-            return RsaUtil.verifySha1(paramHandler(param, nonce).getBytes(), publicKey, signature);
+            return verifySha1(paramHandler(param, nonce).getBytes(), publicKey, signature);
         } catch (Exception e) {
             log.error("RSA验签异常: {}", JSON.toJSONString(param), e);
             return false;
         }
     }
+
+    public static boolean verifySha1(byte[] data, String publicKey, String sign) throws Exception {
+            X509EncodedKeySpec keySpec = new X509EncodedKeySpec(org.apache.commons.codec.binary.Base64.decodeBase64(publicKey));
+            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            PublicKey publicK = keyFactory.generatePublic(keySpec);
+            Signature signature = Signature.getInstance("SHA1WithRSA");
+            signature.initVerify(publicK);
+            signature.update(data);
+            return signature.verify(Base64.decodeBase64(sign));
+        }
 }
 ```
