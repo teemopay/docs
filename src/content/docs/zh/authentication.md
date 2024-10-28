@@ -122,5 +122,20 @@ public class SignUtils {
         paramStringBuilder.append("nonce").append("=").append(nonce);
         return paramStringBuilder.toString();
     }
+
+    // 验签
+    public static boolean verifySign(Map<String, Object> param, String nonce, String publicKey, String signature) {
+        String commercialSign = (String)param.get("sign");
+        if (StringUtils.isBlank(commercialSign)) {
+            return false;
+        } else {
+            try {
+                return RsaUtil.verifySha1(paramHandler(param, nonce).getBytes(), publicKey, signature);
+            } catch (Exception var6) {
+                log.error("RSA验签异常:{}", JSON.toJSONString(param), var6);
+                return false;
+            }
+        }
+    }
 }
 ```
