@@ -408,7 +408,7 @@ export default defineConfig({
                 },
               ],
             },
-            {
+            /*{
               label: "Payin",
               translations: {
                 zh: "代收",
@@ -443,7 +443,7 @@ export default defineConfig({
                   link: "/pk/payin/query",
                 },
               ],
-            },
+            },*/
             {
               label: "Cashier",
               translations: {
