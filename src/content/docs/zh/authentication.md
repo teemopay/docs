@@ -122,5 +122,29 @@ public class SignUtils {
         paramStringBuilder.append("nonce").append("=").append(nonce);
         return paramStringBuilder.toString();
     }
+
+    // 验签
+    public static boolean verifySign(Map<String, Object> param, String nonce, String publicKey, String signature) {
+        String commercialSign = (String) param.get("sign");
+        if (StringUtils.isBlank(commercialSign)) {
+            return false;
+        }
+        try {
+            return verifySha1(paramHandler(param, nonce).getBytes(), publicKey, signature);
+        } catch (Exception e) {
+            log.error("RSA验签异常: {}", JSON.toJSONString(param), e);
+            return false;
+        }
+    }
+
+    public static boolean verifySha1(byte[] data, String publicKey, String sign) throws Exception {
+            X509EncodedKeySpec keySpec = new X509EncodedKeySpec(org.apache.commons.codec.binary.Base64.decodeBase64(publicKey));
+            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            PublicKey publicK = keyFactory.generatePublic(keySpec);
+            Signature signature = Signature.getInstance("SHA1WithRSA");
+            signature.initVerify(publicK);
+            signature.update(data);
+            return signature.verify(Base64.decodeBase64(sign));
+        }
 }
 ```
