@@ -1,0 +1,45 @@
+---
+title: Teemopay docs
+description: Latin America's leading payment provider.
+template: splash
+hero:
+  title: |
+    Welcome to docs site with
+    <span
+      class="font-black text-transparent
+        bg-clip-text bg-gradient-to-b
+        from-green-700 to-green-400
+        dark:from-green-500 dark:to-green-200"
+    >
+      Teemopay
+    </span>
+  tagline: Teemopay is latin America's leading payment provider!
+  image:
+    file: /src/assets/teemo.png
+  actions:
+    - text: Get started
+      link: /en/introduction
+      icon: right-arrow
+      variant: primary
+    - text: Business
+      link: "https://teemopay.com"
+      icon: external
+---
+
+import { Card, CardGrid } from "@astrojs/starlight/components";
+
+<CardGrid stagger>
+  <Card title="Quick and Easy" icon="add-document">
+    Easy-to-use API interface allows you to easily complete the payment process
+  </Card>
+  <Card title="Stable Service" icon="setting">
+    Adopts advanced distributed technology to support high-concurrency payment
+    requests
+  </Card>
+  <Card title="Customer Service" icon="open-book">
+    24/7 stable customer service to make your payment process smoother
+  </Card>
+  <Card title="Documentation" icon="pencil">
+    Written and maintained by product managers and developers together
+  </Card>
+</CardGrid>

@@ -1,0 +1,17 @@
+---
+export interface Props {
+  method: string;
+  url: string;
+}
+
+const { method, url } = Astro.props;
+---
+
+<div
+  class="flex gap-4 items-center border border-gray-300 dark:border-gray-700 rounded"
+>
+  <span class="bg-teal-400 dark:bg-teal-600 py-1 px-3 font-bold rounded-l">
+    {method}
+  </span>
+  <span>{url}</span>
+</div>

@@ -1,0 +1,44 @@
+---
+title: Teemopay docs
+description: Latin America's leading payment provider.
+template: splash
+hero:
+  title: |
+    欢迎来到
+    <span
+      class="font-black text-transparent
+        bg-clip-text bg-gradient-to-b
+        from-green-700 to-green-400
+        dark:from-green-500 dark:to-green-200"
+    >
+      Teemopay
+    </span> 的文档站点
+  tagline: Teemopay 是拉美地区优秀的支付服务提供商!
+  image:
+    file: /src/assets/teemo.png
+  actions:
+    - text: 开始接入
+      link: /zh/introduction
+      icon: right-arrow
+      variant: primary
+    - text: 开通商户
+      link: "https://teemopay.com"
+      icon: external
+---
+
+import { Card, CardGrid } from "@astrojs/starlight/components";
+
+<CardGrid stagger>
+  <Card title="快速便捷" icon="add-document">
+    简单易用的API接口，让您可以轻松完成支付流程
+  </Card>
+  <Card title="服务稳定" icon="setting">
+    采用了先进的分布式技术，可以支持大并发量的支付请求
+  </Card>
+  <Card title="客户服务" icon="open-book">
+    7x24 小时稳定的客户服务，让您的支付流程更加顺畅
+  </Card>
+  <Card title="文档编撰" icon="pencil">
+    由产品经理和开发人员共同编撰和维护
+  </Card>
+</CardGrid>
