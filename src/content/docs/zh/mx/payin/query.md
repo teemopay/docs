@@ -39,7 +39,8 @@ description: 商户查询一个代收订单的状态
 | merchantOrderNo               | String | yes  | 32 | 商户订单号                        |
 | tradeNo                       | String | yes  |   | 平台订单号                        |
 | paymentType                   | Int    | yes  |   | 支付方式: 1-还款码 2-收银台 3-BankTransfer（线上收款单次）4-PayCashOnce（线下收款单次）5-PayCashRecurrent（线下多次）     |
-| amount                        | String | yes  |   | 订单交易金额                       |
+| transactionAmount             | String | yes  |   | 订单交易金额                       |
+| amount                        | String | yes  |   | 收款金额                       |
 | status                        | String | yes  |   | 2-成功 3-失败 4-退款               |
 | remark                        | String | no   |   | 备注                           |
 | statementList                 | Object | no   |   | 代收流水信息                       |

@@ -39,8 +39,8 @@ description: 商户查询一个收银台订单的状态
 | merchantOrderNo               | String | yes  | 32   | 商户订单号                        |
 | tradeNo                       | String | yes  |      | 平台订单号                        |
 | paymentType                   | Int    | yes  |      | 代收方式: 固定0                    |
-| amount                        | String | yes  |      | 订单交易金额                       |
-| status                        | Int | yes  |      | 2-成功 3-失败 4-退款               |
+| transactionAmount             | String | yes  |   | 订单交易金额                       |
+| amount                        | String | yes  |   | 收款金额                       || status                        | Int | yes  |      | 2-成功 3-失败 4-退款               |
 | remark                        | String | no   |      | 备注                           |
 | statementList                 | Object | no   |      | 代收流水信息                       |
 | -- paymentSingleOrderNo       | String | yes  |      | 单次支付流水号                      |
