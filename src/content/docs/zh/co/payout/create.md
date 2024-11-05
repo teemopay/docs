@@ -26,7 +26,7 @@ description: 商户请求创建一个代付订单
 | amount          | String | yes | 20 | 代付金额(比索)                                               |
 | bankCode        | String | yes | 50 | 银行编码                                                     |
 | bankName        | String | yes | 50 | 银行名称                                                     |
-| accountType     | int    | yes |    | 账户类型 201-AHORRO(储蓄) 202-CORRIENTE(活期)                |
+| accountType     | Int    | yes |    | 账户类型 201-AHORRO(储蓄) 202-CORRIENTE(活期)                |
 | bankAccount     | String | yes | 50 | 收款账号                                                     |
 | realName        | String | yes | 40 | 客户姓名                                                     |
 | idCardNumber    | String | yes | 50 | 收款人证件号码                                               |

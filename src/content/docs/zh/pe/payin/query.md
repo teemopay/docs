@@ -38,7 +38,7 @@ description: 商户查询一个代收订单的状态
 | ----------------------------- | ------ | ---- | --- | ---------------------------------------------- |
 | merchantOrderNo               | String | yes  | 32  | 商户订单号                                     |
 | tradeNo                       | String | yes  |     | 平台订单号                                     |
-| paymentType                   | int    | yes  |     | 代收方式: 1-clabe 2-收银台                     |
+| paymentType                   | Int    | yes  |     | 支付方式: 101 ：checkout（支付链接收银台）                    |
 | amount                        | String | yes  |     | 订单交易金额                                   |
 | status                        | Int | yes  |     | 2-成功 3-失败 4-退款                           |
 | remark                        | String | no   |     | 备注                             |

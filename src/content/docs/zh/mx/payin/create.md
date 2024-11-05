@@ -92,7 +92,7 @@ description: 商户请求创建一个代收订单
 | merchantOrderNo | String     | yes  | 32   | 商户订单号                                                                              |
 | tradeNo         | String     | yes  | 32   | 平台订单号                                                                              |
 | amount          | String     | yes  | 32   | 交易金额                                                                                |
-| paymentType     | Int        | yes  | 10   | 支付方式：1 （VA）2（PaymenLink）3（BankTransfer）4（PaycashOnce）5（PaycashRecurrent） |
+| paymentType     | Int        | yes  | 10   | 支付方式: 1-还款码 2-收银台 3-BankTransfer（线上收款单次）4-PayCashOnce（线下收款单次）5-PayCashRecurrent（线下多次） |
 | paymentInfo     | String     | yes  | 32   | 主要付款信息，返回的是实际用于付款的信息，例如：Va 账号，付款编号                       |
 | additionalInfo  | JSONObject | No   |      | 附加信息：当 2，3，4，5 辅助主要信息使用                                                |
 | status          | Int        | yes |    | 1-订单创建成功  3-失败               |

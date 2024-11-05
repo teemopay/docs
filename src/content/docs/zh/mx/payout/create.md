@@ -26,7 +26,7 @@ description: 商户请求创建一个代付订单
 | amount          | String | yes | 20  | 代付金额(比索)             |
 | bankCode        | String | yes | 50  | 银行编码                 |
 | bankName        | String | yes | 50  | 银行名称                 |
-| accountType     | int    | yes |     | 账户类型 3-借记卡 40-CLABE  |
+| accountType     | Int    | yes |     | 账户类型 3-借记卡 40-CLABE  |
 | bankAccount     | String | yes | 50  | 收款账号                 |
 | realName        | String | yes | 40  | 客户姓名                 |
 | IdCardNumber    | String | yes | 50  | 收款人 ID 号码            |
