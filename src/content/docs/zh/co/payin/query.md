@@ -41,7 +41,7 @@ description: 商户查询一个代收订单的状态
 | paymentType                   | int    | yes  | 1    | 代收方式                     |
 | amount                        | String | yes  |      | 订单交易金额                                   |
 | status                        | Int | yes  |      | 2-成功 3-失败 4-退款                           |
-| remark                        | String | no   |      | 商户创建订单传的值                             |
+| remark                        | String | no   |      | 备注                             |
 | statementList                 | Object | no   |      | 代收流水信息                                   |
 | -- paymentSingleOrderNo       | String | yes  |      | 单次支付流水号                                 |
 | -- paymentStatementAmount     | String | yes  |      | 单次代收金额                                   |
