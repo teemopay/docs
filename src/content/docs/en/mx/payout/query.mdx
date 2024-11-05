@@ -36,7 +36,7 @@ import Table from "@components/Table.astro";
     ["tradeNo", "String", "yes", "平台订单号"],
     ["remark", "String", "yes", "商户创建订单传的备注"],
     ["amount", "String", "yes", "代付金额"],
-    ["status", "String", "yes", "1-支付中 2-代付成功 3-代付失败 4-退款"],
+    ["status", "Int", "yes", "1-支付中 2-代付成功 3-代付失败 4-退款"],
     ["sign", "String", "yes", "签名"],
   ]}
 />
@@ -49,7 +49,7 @@ import Table from "@components/Table.astro";
       "merchantOrderNo": "201806251011",
       "tradeNo": "TF201806251011",
       "remark": "代付备注",
-      "status": "1",
+      "status": 1,
       "sign": "TEEMO_SIGN"
     },
    "present": true,

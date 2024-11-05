@@ -46,7 +46,7 @@ description: 商户请求提交一个代收订单
 | merchantOrderNo | String  | yes | 32  | 商户订单号                                             |
 | amount          | String  | yes | 30  | 交易金额                                               |
 | tradeNo         | String  | yes | 32  | 平台订单号                                             |
-| status          | Integer | yes | 2   | 订单状态 0-受理成功 1-订单创建成功  2-支付成功  3-失败 4-退款| 
+| status          | Int | yes | 2   | 订单状态 0-受理成功 1-订单创建成功  2-支付成功  3-失败 4-退款| 
 | errorMsg        | String  | no  | 200 | 错误原因                                               |
 #### 成功响应示例：
 ```json

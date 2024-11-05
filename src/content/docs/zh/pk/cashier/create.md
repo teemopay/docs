@@ -49,7 +49,7 @@ description: 商户创建收银台
 | merchantOrderNo | String | yes | 32   | 商户订单号               |
 | tradeNo         | String | yes |      | 平台订单号               |
 | amount          | String | yes |      | 订单交易金额              |
-| status          | String | yes |      | 0-受理 3-失败           |
+| status          | Int | yes |      | 0-受理 3-失败           |
 | checkoutLink    | String | no  |      | 收银台地址               |
 | expirationTime  | String | no  |      | 收银台地址过期时间           |
 | errorMsg        | String | no  |      | 错误信息,失败时返回          |

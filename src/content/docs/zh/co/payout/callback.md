@@ -17,7 +17,7 @@ description: 商户接受一个代付结果的回调
 | tradeNo         | String | yes  |      | 平台订单号                                                              |
 | amount          | String | yes  |      | 交易金额                                            |
 | remark          | String | yes  |      | 商户创建订单传的值                                                      |
-| status          | String | yes  |      | 2-代付成功 3-代付失败 4-已退款                                          |
+| status          | String | Int  |      | 2-代付成功 3-代付失败 4-已退款                                          |
 | errorCode       | number | yes  |      | 订单失败状态错误码                                                      |
 | errorMessage    | String | yes  |      | 订单失败错误信息：1000-卡有误或限额 1001-已退款 1002-通道波动 9999-其他 |
 | sign            | String | yes  |      | 签名                                                                    |
@@ -27,7 +27,7 @@ description: 商户接受一个代付结果的回调
   "merchantOrderNo": "201806251011",
   "tradeNo": "TF201806251011",
   "remark": "代付备注",
-  "status": "2",
+  "status": 2,
   "sign": "TEEMO_SIGN"
 }
 ```

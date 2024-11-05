@@ -27,7 +27,7 @@ description: 商户接受一个代付结果的回调
   "merchantOrderNo": "201806251011",
   "tradeNo": "TF201806251011",
   "remark": "代付备注",
-  "status": "2",
+  "status": 2,
   "sign": "TEEMO_SIGN"
 }
 ```

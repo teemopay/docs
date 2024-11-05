@@ -54,14 +54,14 @@ description: 商户请求创建一个代付订单
 | --------------- | ------ | ---- | ---- | ----------------------------- |
 | merchantOrderNo | String | yes  | 32   | 商户订单号                    |
 | tradeNo         | String | yes  |      | 平台订单号                    |
-| status          | String | yes  |      | 1-支付中 3-失败(可以重新发起) |
+| status          | Int | yes  |      | 1-支付中 3-失败(可以重新发起) |
 | amount          | String | yes  |      | 交易金额                      |
 
 ```json title=返回示例
 {
   "merchantOrderNo": "201806251011",
   "tradeNo": "TF201806251011",
-  "status": "1",
+  "status": 1,
   "sign": "TEEMO_SIGN"
 }
 ```

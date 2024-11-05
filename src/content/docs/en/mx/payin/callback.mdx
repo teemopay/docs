@@ -20,7 +20,7 @@ import Table from "@components/Table.astro";
     ["method", "String", "yes", "支付方式: VA-线上 store-线下 url-收银台"],
     ["paymentOrderNo", "String", "yes", "当次代收流水号"],
     ["paymentAmount", "String", "yes", "实际代收金额"],
-    ["status", "String", "yes", "1-成功 2-失败 3-退款"],
+    ["status", "Int", "yes", "1-成功 2-失败 3-退款"],
     ["remark", "String", "no", "商户创建订单传的值"],
     ["sign", "String", "yes", "签名"],
   ]}
@@ -33,7 +33,7 @@ import Table from "@components/Table.astro";
   "method": "VA",
   "paymentOrderNo": "201806251011",
   "paymentAmount": "100",
-  "status": "1",
+  "status": 1,
   "remark": "代收备注",
   "sign": "TEEMO_SIGN"
 }
