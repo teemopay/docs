@@ -11,3 +11,4 @@ description: 变更记录
 | 2024.07.22 | 修订巴基斯坦国家文档                                 | Justin |
 | 2024.10.24 | 文档补充回调时header中nonce字段,优化格式                 | Justin |
 | 2024.11.05 | 代收查询新增transactionAmount订单交易金额字段,修订部分文档     | Justin |
+| 2024.11.07 | 秘鲁收银台多次还款的回调的文档修订                          | Justin |
