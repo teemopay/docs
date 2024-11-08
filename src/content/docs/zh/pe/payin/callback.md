@@ -40,12 +40,12 @@ description: 商户接受一个代收结果的回调
 ```
 
 ```json title=多次还款回调示例
-// 一笔订单金额为2000.00, 第一次还款500,第二次还款1500
+// 一笔订单金额为200.00, 第一次还款50.00,第二次还款150.00
 {
     "tradeNo": "TS2404000001PE0000075277250508",
     "sign": "TEEMO_SIGN",
     "merchantOrderNo": "123456780",
-    "paymentAmount": "500.00",
+    "paymentAmount": "50.00",
     "paymentOrderNo": "TSO0000000001",
     "status": 2
 }
@@ -54,7 +54,7 @@ description: 商户接受一个代收结果的回调
     "tradeNo": "TS2404000001PE0000075277250508",
     "sign": "TEEMO_SIGN",
     "merchantOrderNo": "123456780",
-    "paymentAmount": "1000.00",
+    "paymentAmount": "150.00",
     "paymentOrderNo": "TSO0000000002",
     "status": 2
 }
