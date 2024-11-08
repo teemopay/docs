@@ -18,14 +18,14 @@ description: 商户接受一个代收结果的回调
 
 ### 代收回调
 
-| 参数       | 类型   | 必需 | 长度  | 描述             |
-| ---------- | ------ | ---- |-----|----------------|
-| merchantOrderNo | String | yes  | 32  | 商户订单号          |
-| tradeNo    | String | yes  |     | 平台订单号          |
-| paymentOrderNo | String | yes  | 30  | 平台代收当次支付流水号    |
-| status     | Int | yes  |     |  2:成功 3:失败 4:退款 |
-| paymentAmount     | String | yes   |     | 当次实际支付金额           |
-| sign       | String | yes  |     | 签名             |
+| 参数       | 类型   | 必需 | 长度  | 描述                                  |
+| ---------- | ------ | ---- |-----|-------------------------------------|
+| merchantOrderNo | String | yes  | 32  | 商户订单号                               |
+| tradeNo    | String | yes  |     | 平台订单号                               |
+| paymentOrderNo | String | yes  | 30  | 平台代收当次支付流水号,当订单可以多次还款时,每次还款时该流水号不同. |
+| status     | Int | yes  |     | 2:成功 3:失败 4:退款                      |
+| paymentAmount     | String | yes   |     | 当次实际支付金额                            |
+| sign       | String | yes  |     | 签名                                  |
 
 ```json title=回调示例
 {
@@ -39,6 +39,26 @@ description: 商户接受一个代收结果的回调
 
 ```
 
+```json title=多次还款回调示例
+// 一笔订单金额为2000.00, 第一次还款500,第二次还款1500
+{
+    "tradeNo": "TS2404000001PE0000075277250508",
+    "sign": "TEEMO_SIGN",
+    "merchantOrderNo": "123456780",
+    "paymentAmount": "500.00",
+    "paymentOrderNo": "TSO0000000001",
+    "status": 2
+}
+
+{
+    "tradeNo": "TS2404000001PE0000075277250508",
+    "sign": "TEEMO_SIGN",
+    "merchantOrderNo": "123456780",
+    "paymentAmount": "1000.00",
+    "paymentOrderNo": "TSO0000000002",
+    "status": 2
+}
+```
 ### 回调返回
 
 <Table
