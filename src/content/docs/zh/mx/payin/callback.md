@@ -23,7 +23,7 @@ description: 商户接受一个代收结果的回调
 | merchantOrderNo | String | yes  | 32  | 商户订单号          |
 | tradeNo    | String | yes  |     | 平台订单号          |
 | paymentOrderNo | String | yes  | 30  | 平台代收当次支付流水号    |
-| status     | Int | yes  |     | 2:成功 3:失败 4:退款 |
+| status     | Int | yes  |     | 2:成功  |
 | paymentAmount     | String | yes   |     | 当次实际支付金额           |
 | sign       | String | yes  |     | 签名             |
 
