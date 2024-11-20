@@ -114,8 +114,7 @@ description: 商户请求创建一个代收订单
     "paymentInfo": "6841800930023213210",
     "status": 1
   },
-  "success": true,
-  "present": true
+  "success": true
 }
 ```
 
@@ -134,8 +133,7 @@ description: 商户请求创建一个代收订单
     "paymentInfo": "http:wwww.baidu.com",
     "status": 1
   },
-  "success": true,
-  "present": true
+  "success": true
 }
 ```
 

@@ -57,7 +57,6 @@ description: 商户查询一个代付订单的状态
       "status": "1",
       "sign": "TEEMO_SIGN"
     },
-    "present": true, 
     "success": true
 }
 ```
@@ -65,7 +64,6 @@ description: 商户查询一个代付订单的状态
 {
     "code": 400,
     "msg":"Order not found",
-    "present": false,
     "success": false
 }
 ```

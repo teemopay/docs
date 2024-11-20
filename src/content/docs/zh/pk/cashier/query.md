@@ -68,7 +68,6 @@ description: 商户查询一个收银台订单的状态
     }
   ],
   "sign": "TEEMO_SIGN",
-  "present": true,
   "success": true
 }
 ```
