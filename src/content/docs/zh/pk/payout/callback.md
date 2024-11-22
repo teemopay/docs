@@ -26,6 +26,7 @@ description: 商户接受一个代付结果的回调
 | merchantOrderNo | String | yes  | 32   | 商户订单号                                           |
 | tradeNo         | String | yes  |      | 平台订单号                                           |
 | amount          | String | yes  |      | 交易金额                                            |
+| serviceAmount   | String | yes   |     | 服务费用  eg:18.02 |
 | remark          | String | yes  |      | 备用                                              |
 | status          | Int | yes  |      | 2-代付成功 3-代付失败 4-已退款                             |
 | errorCode       | number | yes  |      | 订单失败状态错误码                                       |

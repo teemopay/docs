@@ -27,6 +27,9 @@ description: 商户接受一个代收结果的回调
 | paymentOrderNo | String | yes  | 30  | 平台代收当次支付流水号    |
 | status     | Int | yes  |     | 2:成功  |
 | paymentAmount     | String | yes   |     | 当次实际支付金额           |
+| serviceAmount   | String | yes   |     | 服务费用  eg:18.02 |
+| paymentInfo     | String | yes   |     | 主要付款信息，返回的是实际用于付款的信息           |
+| paymentType     | Int | yes   |     | 支付方式           |
 | sign       | String | yes  |     | 签名             |
 
 ```json title=回调示例
