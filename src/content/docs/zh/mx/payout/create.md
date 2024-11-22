@@ -29,7 +29,7 @@ description: 商户请求创建一个代付订单
 | accountType     | Int    | yes |     | 账户类型 3-借记卡 40-CLABE  |
 | bankAccount     | String | yes | 50  | 收款账号                 |
 | realName        | String | yes | 40  | 客户姓名                 |
-| IdCardNumber    | String | yes | 50  | 收款人 ID 号码            |
+| idCardNumber    | String | yes | 50  | 收款人 ID 号码            |
 | callbackUrl     | String | no  | 200 | 代付回调地址，若不传, 则以商户配置为准 |
 | sign            | String | yes |     | 签名                   |
 
@@ -42,7 +42,7 @@ description: 商户请求创建一个代付订单
   "accountType": 3,
   "bankAccount": "1234567890",
   "realName": "张三",
-  "IdCardNumber": "1234567890",
+  "idCardNumber": "1234567890",
   "callbackUrl": "https://merchant.com/api/payout/callback",
   "sign": "YOUR_SIGN"
 }
