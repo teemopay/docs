@@ -38,6 +38,9 @@ description: 商户接受一个代收结果的回调
     "sign": "TEEMO_SIGN",
     "merchantOrderNo": "123456780",
     "paymentAmount": "1000.00",
+    "serviceAmount": "10.00",
+    "paymentInfo": "https://dev-cashier.teemopay.com/#/?tradeNo=TS2405210001MX0000142911043800",
+    "paymentType": 303,
     "paymentOrderNo": "TSOcqgv0fepo103dmt3uuu233s1136",
     "status": 2
 }
@@ -50,6 +53,9 @@ description: 商户接受一个代收结果的回调
     "sign": "TEEMO_SIGN",
     "merchantOrderNo": "123456780",
     "paymentAmount": "1000.00",
+    "serviceAmount": "10.00",
+    "paymentInfo": "https://dev-cashier.teemopay.com/#/?tradeNo=TS2405210001MX0000142911043800",
+    "paymentType": 303,
     "paymentOrderNo": "TSOcqgv0fepo103dmt3uuu233s1136",
     "errorMessage": "network is unstable, please try again later",
     "status": 3
