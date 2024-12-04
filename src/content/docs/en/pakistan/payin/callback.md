@@ -1,6 +1,7 @@
 ---
 title: 代收回调
 description: 商户接受一个代收结果的回调
+topic: pakistan # 添加这一行，指定所属主题
 ---
 
 ### 回调地址
@@ -11,38 +12,36 @@ description: 商户接受一个代收结果的回调
 
 ### 头部信息（header）
 
-| header参数 | 入参参数描述 |
-|----------|--------|
-| timestamp | 请求时间戳  |
-| nonce    | 随机值    |
-| country  | 国家码    |
-| appCode  | 应用编码   |
-
+| header 参数 | 入参参数描述 |
+| ----------- | ------------ |
+| timestamp   | 请求时间戳   |
+| nonce       | 随机值       |
+| country     | 国家码       |
+| appCode     | 应用编码     |
 
 ### 代收回调
 
-| 参数       | 类型   | 必需 | 长度  | 描述            |
-| ---------- | ------ | ---- |-----|---------------|
-| merchantOrderNo | String | yes  | 32  | 商户订单号         |
-| tradeNo    | String | yes  |     | 平台订单号         |
-| paymentOrderNo | String | yes  | 30  | 平台代收当次支付流水号   |
-| status     | Int | yes  |     | 2:成功 3:失败 |
-| paymentAmount     | String | yes   |     | 当次实际支付金额          |
-| serviceAmount   | String | yes   |     | 服务费用  eg:18.02 |
-| paymentInfo     | String | yes   |     | 主要付款信息，返回的是实际用于付款的信息           |
-| paymentType     | Int | yes   |     | 支付方式           |
-| sign       | String | yes  |     | 签名            |
+| 参数            | 类型   | 必需 | 长度 | 描述                                     |
+| --------------- | ------ | ---- | ---- | ---------------------------------------- |
+| merchantOrderNo | String | yes  | 32   | 商户订单号                               |
+| tradeNo         | String | yes  |      | 平台订单号                               |
+| paymentOrderNo  | String | yes  | 30   | 平台代收当次支付流水号                   |
+| status          | Int    | yes  |      | 2:成功 3:失败                            |
+| paymentAmount   | String | yes  |      | 当次实际支付金额                         |
+| serviceAmount   | String | yes  |      | 服务费用 eg:18.02                        |
+| paymentInfo     | String | yes  |      | 主要付款信息，返回的是实际用于付款的信息 |
+| paymentType     | Int    | yes  |      | 支付方式                                 |
+| sign            | String | yes  |      | 签名                                     |
 
 ```json title=回调示例
 {
-    "tradeNo": "TS2404000001MX0000075277250508",
-    "sign": "TEEMO_SIGN",
-    "merchantOrderNo": "123456780",
-    "paymentAmount": "1000.00",
-    "paymentOrderNo": "TSOcqgv0fepo103dmt3uuu233s1136",
-    "status": 2
+  "tradeNo": "TS2404000001MX0000075277250508",
+  "sign": "TEEMO_SIGN",
+  "merchantOrderNo": "123456780",
+  "paymentAmount": "1000.00",
+  "paymentOrderNo": "TSOcqgv0fepo103dmt3uuu233s1136",
+  "status": 2
 }
-
 ```
 
 ### 回调返回

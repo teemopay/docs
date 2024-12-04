@@ -62,6 +62,7 @@ export default defineConfig({
       plugins: [
         starlightSidebarTopics([
           {
+            id: "integration-guide",
             label: {
               en: "Integration Guide",
               zh: "接入指南",
@@ -72,6 +73,7 @@ export default defineConfig({
             items: ["guides/getting-started", "guides/changes", "guides/authentication"],
           },
           {
+            id: "mexico",
             label: {
               en: "🇲🇽 Mexico",
               zh: "🇲🇽 墨西哥",
@@ -102,6 +104,7 @@ export default defineConfig({
             ],
           },
           {
+            id: "peru",
             label: {
               en: "🇵🇪 Peru",
               zh: "🇵🇪 秘鲁",
@@ -132,6 +135,7 @@ export default defineConfig({
             ],
           },
           {
+            id: "colombia",
             label: {
               en: "🇨🇴 Colombia",
               zh: "🇨🇴 哥伦比亚",
@@ -162,12 +166,20 @@ export default defineConfig({
             ],
           },
           {
+            id: "pakistan",
             label: {
               en: "🇵🇰 Pakistan",
               zh: "🇵🇰 巴基斯坦",
             },
             link: "/pakistan/payin/create",
             items: [
+              {
+                label: "Payin",
+                translations: {
+                  zh: "代收",
+                },
+                items: ["pakistan/payin/create", "pakistan/payin/callback", "pakistan/payin/query", "pakistan/payin/submit"],
+              },
               {
                 label: "Cashier",
                 translations: {
