@@ -1,40 +1,40 @@
 ---
-title: 创建代付
-description: 商户请求创建一个代付订单
+title: Create Payout
+description: Merchant requests to create a payout order
 ---
 
-### 请求地址
+### Request URL
 
 | method | url                       |
 | ------ | ------------------------- |
 | POST   | /api/pay/payout/create/v1 |
 
-### 头部信息（header）
+### Header Information
 
-| header参数                  | 入参参数描述  |
-|---------------------------|---------|
-| timestamp                 | 请求时间戳   |
-| nonce                     | 随机值     |
-| country                   | 国家码(CO) |
-| app_code                  | app编号   |
+| Header Parameter | Description       |
+|-----------------|-------------------|
+| timestamp       | Request timestamp |
+| nonce          | Random value      |
+| country        | Country code (CO) |
+| app_code       | App number        |
 
-### 请求参数
+### Request Parameters
 
-| 字段            | 类型   | 必需  | 长度 | 描述                                                         |
-| --------------- | ------ |-----|----| ------------------------------------------------------------ |
-| merchantOrderNo | String | yes | 32 | 商户订单号                                                   |
-| amount          | String | yes | 20 | 代付金额(比索)                                               |
-| bankCode        | String | yes | 50 | 银行编码                                                     |
-| bankName        | String | yes | 50 | 银行名称                                                     |
-| accountType     | Int    | yes |    | 账户类型 201-AHORRO(储蓄) 202-CORRIENTE(活期)                |
-| bankAccount     | String | yes | 50 | 收款账号                                                     |
-| realName        | String | yes | 40 | 客户姓名                                                     |
-| idCardNumber    | String | yes | 50 | 收款人证件号码                                               |
-| idType          | Stirng | yes | 32 | CC(6-10位数；身份证) ,  CE（6-10位数）, NIT（9位数；税号）, PA（9位数；护照） |
-| callbackUrl     | String | no  | 200 | 代付回调地址，若不传, 则以商户配置为准                       |
-| sign            | String | yes   |    | 签名                                                         |
+| Field           | Type   | Required | Length | Description                                                                                     |
+| --------------- | ------ |----------|--------| ------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String | yes      | 32     | Merchant order number                                                                           |
+| amount          | String | yes      | 20     | Payout amount (in Pesos)                                                                        |
+| bankCode        | String | yes      | 50     | Bank code                                                                                       |
+| bankName        | String | yes      | 50     | Bank name                                                                                       |
+| accountType     | Int    | yes      |        | Account type 201-AHORRO(Savings) 202-CORRIENTE(Current)                                         |
+| bankAccount     | String | yes      | 50     | Recipient account number                                                                        |
+| realName        | String | yes      | 40     | Customer name                                                                                   |
+| idCardNumber    | String | yes      | 50     | Recipient ID number                                                                             |
+| idType          | String | yes      | 32     | CC(6-10 digits; Citizen ID), CE(6-10 digits), NIT(9 digits; Tax ID), PA(9 digits; Passport)    |
+| callbackUrl     | String | no       | 200    | Payout callback URL, if not provided, merchant configuration will be used                        |
+| sign            | String | yes      |        | Signature                                                                                       |
 
-```json title=请求示例
+```json title="Request Example"
 {
                 "merchantOrderNo": "ds111ad111022911111111111131",
                 "realName": "Carlos",
@@ -51,16 +51,16 @@ description: 商户请求创建一个代付订单
 }
 ```
 
-### 返回参数
+### Response Parameters
 
-| 参数            | 类型   | 必需 | 长度 | 描述                          |
-| --------------- | ------ | ---- | ---- | ----------------------------- |
-| merchantOrderNo | String | yes  | 32   | 商户订单号                    |
-| tradeNo         | String | yes  |      | 平台订单号                    |
-| status          | Int | yes  |      | 1-支付中 3-失败(可以重新发起) |
-| amount          | String | yes  |      | 交易金额                      |
+| Parameter       | Type   | Required | Length | Description                                    |
+| --------------- | ------ | -------- | ------ | ---------------------------------------------- |
+| merchantOrderNo | String | yes      | 32     | Merchant order number                          |
+| tradeNo        | String | yes      |        | Platform order number                          |
+| status         | Int    | yes      |        | 1-Processing 3-Failed(can be initiated again)  |
+| amount         | String | yes      |        | Transaction amount                             |
 
-```json title=返回示例
+```json title="Response Example"
 {
     "code": 200,
     "data": {

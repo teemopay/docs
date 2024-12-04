@@ -1,38 +1,37 @@
 ---
-title: 余额查询
-description: 余额查询
+title: Balance Query
+description: Balance Query
 ---
 
-### 请求地址
+### Request URL
 
 | method | url                       |
 | ------ | ------------------------- |
 | POST   | /api/pay/merchant/balance |
 
-### 请求参数
+### Request Parameters
 
-| 字段 | 类型   | 必需 | 长度 | 描述 |
-| ---- | ------ | ---- | ---- | ---- |
-| sign | String | yes  |      | 签名 |
+| Field | Type   | Required | Length | Description |
+| ----- | ------ | -------- | ------ | ----------- |
+| sign  | String | yes      |        | Signature   |
 
-```json title=请求示例
+```json title="Request Example"
 {
   "sign": "YOUR_SIGN"
 }
 ```
 
-### 返回参数
+### Response Parameters
 
-| 参数         | 类型   | 必需 | 长度 | 描述     |
-| ------------ | ------ | ---- | ---- | -------- |
-| totalAmount  | String | yes  |      | 总金额   |
-| frozenAmount | String | yes  |      | 冻结金额 |
-| availAmount  | String | yes  |      | 可用金额 |
+| Parameter    | Type   | Required | Length | Description        |
+| ------------ | ------ | -------- | ------ | ------------------ |
+| totalAmount  | String | yes      |        | Total Amount       |
+| frozenAmount | String | yes      |        | Frozen Amount      |
+| availAmount  | String | yes      |        | Available Amount   |
 
-```json title=返回示例
+```json title="Response Example"
 {
   "totalAmount": "1009962.02",
   "frozenAmount": "33161.70",
   "availAmount": "976800.32"
 }
-```
