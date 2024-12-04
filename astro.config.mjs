@@ -171,15 +171,8 @@ export default defineConfig({
               en: "🇵🇰 Pakistan",
               zh: "🇵🇰 巴基斯坦",
             },
-            link: "/pakistan/payin/create",
+            link: "/pakistan/cashier/create",
             items: [
-              {
-                label: "Payin",
-                translations: {
-                  zh: "代收",
-                },
-                items: ["pakistan/payin/create", "pakistan/payin/callback", "pakistan/payin/query", "pakistan/payin/submit"],
-              },
               {
                 label: "Cashier",
                 translations: {
