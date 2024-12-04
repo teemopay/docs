@@ -1,13 +1,22 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import starlightSidebarTopics from "starlight-sidebar-topics";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://docs.teemopay.com",
   integrations: [
     starlight({
+      // 文档标题
+      title: "Teemopay Docs",
+      // 用 logo 替换标题
+      logo: {
+        light: "/src/assets/logo-357.png",
+        dark: "/src/assets/logo-371.png",
+        replacesTitle: true,
+      },
+      // 头部信息
       head: [
         {
           tag: "link",
@@ -23,7 +32,7 @@ export default defineConfig({
             rel: "sitemap",
             href: "/sitemap-index.xml",
           },
-        }, // SEO
+        },
         {
           tag: "meta",
           attrs: {
@@ -32,18 +41,11 @@ export default defineConfig({
           },
         },
       ],
-      // 网站左上角标题和右侧 GitHub 链接
-      title: "Teemopay Docs",
-      // 用 logo 替换标题
-      logo: {
-        light: "/src/assets/logo-357.png",
-        dark: "/src/assets/logo-371.png",
-        replacesTitle: true,
-      },
-      social: {
-        github: "https://github.com/teemopay/docs",
-      },
-      // 多语言支持
+      // 社交链接
+      // social: {
+      //   github: "https://github.com/teemopay/docs",
+      // },
+      // 为此网站设置英语为默认语言。
       defaultLocale: "en",
       // 默认语言
       locales: {
@@ -51,461 +53,155 @@ export default defineConfig({
           label: "English",
           lang: "en",
         },
-        // 英文文档
         zh: {
           label: "中文",
           lang: "zh",
-        }, // 中文文档
+        },
       },
       // 侧边栏导航
-      // 侧边栏导航
-      sidebar: [
-        {
-          label: "Introduction",
-          translations: {
-            zh: "简介",
+      plugins: [
+        starlightSidebarTopics([
+          {
+            label: {
+              en: "Integration Guide",
+              zh: "接入指南",
+            },
+            link: "/guides/getting-started",
+            icon: "open-book",
+            badge: { text: "READ", variant: "success" },
+            items: ["guides/getting-started", "guides/changes", "guides/authentication"],
           },
-          link: "/introduction",
-        },
-        {
-          label: "changes",
-          translations: {
-            zh: "变更",
+          {
+            label: {
+              en: "🇲🇽 Mexico",
+              zh: "🇲🇽 墨西哥",
+            },
+            link: "/mexico/payin/create",
+            items: [
+              {
+                label: "Payin",
+                translations: {
+                  zh: "代收",
+                },
+                items: ["mexico/payin/create", "mexico/payin/callback", "mexico/payin/query"],
+              },
+              {
+                label: "Payout",
+                translations: {
+                  zh: "代付",
+                },
+                items: ["mexico/payout/create", "mexico/payout/callback", "mexico/payout/query", "mexico/payout/bank"],
+              },
+              {
+                label: "Inquire",
+                translations: {
+                  zh: "查询",
+                },
+                items: ["mexico/inquire/balance", "mexico/inquire/bill"],
+              },
+            ],
           },
-          link: "/changes",
-        },
-        {
-          label: "Authentication",
-          translations: {
-            zh: "鉴权",
+          {
+            label: {
+              en: "🇵🇪 Peru",
+              zh: "🇵🇪 秘鲁",
+            },
+            link: "/peru/payin/create",
+            items: [
+              {
+                label: "Payin",
+                translations: {
+                  zh: "代收",
+                },
+                items: ["peru/payin/create", "peru/payin/callback", "peru/payin/query"],
+              },
+              {
+                label: "Payout",
+                translations: {
+                  zh: "代付",
+                },
+                items: ["peru/payout/create", "peru/payout/callback", "peru/payout/query", "peru/payout/bank"],
+              },
+              {
+                label: "Inquire",
+                translations: {
+                  zh: "查询",
+                },
+                items: ["peru/inquire/balance", "peru/inquire/bill"],
+              },
+            ],
           },
-          link: "/authentication",
-        },
-        {
-          label: "🇲🇽 Mexico",
-          translations: {
-            zh: "🇲🇽 墨西哥",
+          {
+            label: {
+              en: "🇨🇴 Colombia",
+              zh: "🇨🇴 哥伦比亚",
+            },
+            link: "/colombia/payin/create",
+            items: [
+              {
+                label: "Payin",
+                translations: {
+                  zh: "代收",
+                },
+                items: ["colombia/payin/create", "colombia/payin/callback", "colombia/payin/query"],
+              },
+              {
+                label: "Payout",
+                translations: {
+                  zh: "代付",
+                },
+                items: ["colombia/payout/create", "colombia/payout/callback", "colombia/payout/query", "colombia/payout/bank"],
+              },
+              {
+                label: "Inquire",
+                translations: {
+                  zh: "查询",
+                },
+                items: ["colombia/inquire/balance", "colombia/inquire/bill"],
+              },
+            ],
           },
-          items: [
-            {
-              label: "Payout",
-              translations: {
-                zh: "代付",
-              },
-              items: [
-                {
-                  label: "Create Payout",
-                  translations: {
-                    zh: "创建代付",
-                  },
-                  link: "/mx/payout/create",
-                },
-                {
-                  label: "Payout callback",
-                  translations: {
-                    zh: "代付回调",
-                  },
-                  link: "/mx/payout/callback",
-                },
-                {
-                  label: "Payout Query",
-                  translations: {
-                    zh: "代付查询",
-                  },
-                  link: "/mx/payout/query",
-                },
-                {
-                  label: "Bank",
-                  translations: {
-                    zh: "银行列表",
-                  },
-                  link: "/mx/payout/bank",
-                },
-              ],
+          {
+            label: {
+              en: "🇵🇰 Pakistan",
+              zh: "🇵🇰 巴基斯坦",
             },
-            {
-              label: "Payin",
-              translations: {
-                zh: "代收",
+            link: "/pakistan/payin/create",
+            items: [
+              {
+                label: "Cashier",
+                translations: {
+                  zh: "收银台",
+                },
+                items: ["pakistan/cashier/create", "pakistan/cashier/callback", "pakistan/cashier/query"],
               },
-              items: [
-                {
-                  label: "Create Payin",
-                  translations: {
-                    zh: "创建代收",
-                  },
-                  link: "/mx/payin/create",
+              {
+                label: "Payout",
+                translations: {
+                  zh: "代付",
                 },
-                {
-                  label: "Payin callback",
-                  translations: {
-                    zh: "代收回调",
-                  },
-                  link: "/mx/payin/callback",
-                },
-                {
-                  label: "Payin Query",
-                  translations: {
-                    zh: "代收查询",
-                  },
-                  link: "/mx/payin/query",
-                },
-              ],
-            },
-            {
-              label: "Inquire",
-              translations: {
-                zh: "查询",
+                items: ["pakistan/payout/create", "pakistan/payout/callback", "pakistan/payout/query", "pakistan/payout/bank"],
               },
-              items: [
-                {
-                  label: "Balance Inquire",
-                  translations: {
-                    zh: "余额查询",
-                  },
-                  link: "/mx/inquire/balance",
+              {
+                label: "Inquire",
+                translations: {
+                  zh: "查询",
                 },
-                {
-                  label: "Bill Inquiry",
-                  translations: {
-                    zh: "账单查询",
-                  },
-                  link: "/mx/inquire/bill",
-                },
-              ],
-            },
-          ], // 二级导航
-        },
-        {
-          label: "🇵🇪 Peru",
-          translations: {
-            zh: "🇵🇪 秘鲁",
+                items: ["pakistan/inquire/balance", "pakistan/inquire/bill"],
+              },
+            ],
           },
-          items: [
-            {
-              label: "Payout",
-              translations: {
-                zh: "代付",
-              },
-              items: [
-                {
-                  label: "Create Payout",
-                  translations: {
-                    zh: "创建代付",
-                  },
-                  link: "/pe/payout/create",
-                },
-                {
-                  label: "Payout callback",
-                  translations: {
-                    zh: "代付回调",
-                  },
-                  link: "/pe/payout/callback",
-                },
-                {
-                  label: "Payout Query",
-                  translations: {
-                    zh: "代付查询",
-                  },
-                  link: "/pe/payout/query",
-                },
-                {
-                  label: "Bank",
-                  translations: {
-                    zh: "银行列表",
-                  },
-                  link: "/pe/payout/bank",
-                },
-              ],
-            },
-            {
-              label: "Payin",
-              translations: {
-                zh: "代收",
-              },
-              items: [
-                {
-                  label: "Create Payin",
-                  translations: {
-                    zh: "创建代收",
-                  },
-                  link: "/pe/payin/create",
-                },
-                {
-                  label: "Payin callback",
-                  translations: {
-                    zh: "代收回调",
-                  },
-                  link: "/pe/payin/callback",
-                },
-                {
-                  label: "Payin Query",
-                  translations: {
-                    zh: "代收查询",
-                  },
-                  link: "/pe/payin/query",
-                },
-              ],
-            },
-            {
-              label: "Inquire",
-              translations: {
-                zh: "查询",
-              },
-              items: [
-                {
-                  label: "Balance Inquire",
-                  translations: {
-                    zh: "余额查询",
-                  },
-                  link: "/pe/inquire/balance",
-                },
-                {
-                  label: "Bill Inquiry",
-                  translations: {
-                    zh: "账单查询",
-                  },
-                  link: "/pe/inquire/bill",
-                },
-              ],
-            },
-          ], // 二级导航
-        },
-        {
-          label: "🇨🇴 Columbia",
-          translations: {
-            zh: "🇨🇴 哥伦比亚",
-          },
-          items: [
-            {
-              label: "Payout",
-              translations: {
-                zh: "代付",
-              },
-              items: [
-                {
-                  label: "Create Payout",
-                  translations: {
-                    zh: "创建代付",
-                  },
-                  link: "/co/payout/create",
-                },
-                {
-                  label: "Payout callback",
-                  translations: {
-                    zh: "代付回调",
-                  },
-                  link: "/co/payout/callback",
-                },
-                {
-                  label: "Payout Query",
-                  translations: {
-                    zh: "代付查询",
-                  },
-                  link: "/co/payout/query",
-                },
-                {
-                  label: "Bank",
-                  translations: {
-                    zh: "银行列表",
-                  },
-                  link: "/co/payout/bank",
-                },
-              ],
-            },
-            {
-              label: "Payin",
-              translations: {
-                zh: "代收",
-              },
-              items: [
-                {
-                  label: "Create Payin",
-                  translations: {
-                    zh: "创建代收",
-                  },
-                  link: "/co/payin/create",
-                },
-                {
-                  label: "Payin callback",
-                  translations: {
-                    zh: "代收回调",
-                  },
-                  link: "/co/payin/callback",
-                },
-                {
-                  label: "Payin Query",
-                  translations: {
-                    zh: "代收查询",
-                  },
-                  link: "/co/payin/query",
-                },
-              ],
-            },
-            {
-              label: "Inquire",
-              translations: {
-                zh: "查询",
-              },
-              items: [
-                {
-                  label: "Balance Inquire",
-                  translations: {
-                    zh: "余额查询",
-                  },
-                  link: "/co/inquire/balance",
-                },
-                {
-                  label: "Bill Inquiry",
-                  translations: {
-                    zh: "账单查询",
-                  },
-                  link: "/co/inquire/bill",
-                },
-              ],
-            },
-          ], // 二级导航
-        },
-        {
-          label: "🇵🇰 巴基斯坦",
-          translations: {
-            zh: "🇵🇰 巴基斯坦",
-          },
-          items: [
-            {
-              label: "Payout",
-              translations: {
-                zh: "代付",
-              },
-              items: [
-                {
-                  label: "Create Payout",
-                  translations: {
-                    zh: "创建代付",
-                  },
-                  link: "/pk/payout/create",
-                },
-                {
-                  label: "Payout callback",
-                  translations: {
-                    zh: "代付回调",
-                  },
-                  link: "/pk/payout/callback",
-                },
-                {
-                  label: "Payout Query",
-                  translations: {
-                    zh: "代付查询",
-                  },
-                  link: "/pk/payout/query",
-                },
-                {
-                  label: "Bank",
-                  translations: {
-                    zh: "银行列表",
-                  },
-                  link: "/pk/payout/bank",
-                },
-              ],
-            },
-            /*{
-              label: "Payin",
-              translations: {
-                zh: "代收",
-              },
-              items: [
-                {
-                  label: "Create Payin",
-                  translations: {
-                    zh: "创建代收",
-                  },
-                  link: "/pk/payin/create",
-                },
-                {
-                  label: "Submit Payin",
-                  translations: {
-                    zh: "提交代收",
-                  },
-                  link: "/pk/payin/submit",
-                },
-                {
-                  label: "Payin callback",
-                  translations: {
-                    zh: "代收回调",
-                  },
-                  link: "/pk/payin/callback",
-                },
-                {
-                  label: "Payin Query",
-                  translations: {
-                    zh: "代收查询",
-                  },
-                  link: "/pk/payin/query",
-                },
-              ],
-            },*/
-            {
-              label: "Cashier",
-              translations: {
-                zh: "收银台",
-              },
-              items: [
-                {
-                  label: "Create Cashier",
-                  translations: {
-                    zh: "创建收银台",
-                  },
-                  link: "/pk/cashier/create",
-                },
-                {
-                  label: "Cashier Callback",
-                  translations: {
-                    zh: "收银台回调",
-                  },
-                  link: "/pk/cashier/callback",
-                },
-                {
-                  label: "Cashier Query",
-                  translations: {
-                    zh: "收银台查询",
-                  },
-                  link: "/pk/cashier/query",
-                },
-              ],
-            },
-            {
-              label: "Inquire",
-              translations: {
-                zh: "查询",
-              },
-              items: [
-                {
-                  label: "Balance Inquire",
-                  translations: {
-                    zh: "余额查询",
-                  },
-                  link: "/pk/inquire/balance",
-                },
-                {
-                  label: "Bill Inquiry",
-                  translations: {
-                    zh: "账单查询",
-                  },
-                  link: "/pk/inquire/bill",
-                },
-              ],
-            },
-          ], // 二级导航
-        },
+        ]),
       ],
-      // 重新组件
+      // 重新渲染组件
       components: {
-        // Head: "./src/components/Head.astro",
-        ContentPanel: "/src/components/ContentPanel.astro",
+        ContentPanel: "./src/components/ContentPanel.astro",
       },
+      // 自定义 css
       customCss: ["./src/tailwind.css"],
     }),
     tailwind({
+      // 禁用默认的基础样式
       applyBaseStyles: false,
     }),
     sitemap(),
