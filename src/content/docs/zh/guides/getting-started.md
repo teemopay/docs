@@ -1,6 +1,6 @@
 ---
 title: 快速开始
-description: 快速开始使用Teemopay
+description: 快速开始使用 Teemopay
 ---
 
 ## 简介

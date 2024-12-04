@@ -1,16 +1,17 @@
 ---
-title: 变更记录
-description: 变更记录
+title: Change Log
+description: Change Log
 ---
 
-| 日期       | 变更内容                                                            | 编撰人 |
-| ---------- | ------------------------------------------------------------------- | ------ |
-| 2023.12.04 | 初版文档，主要面向墨西哥的代付、代收和相关查询接口                  | 奇宫   |
-| 2024.04.11 | 文档格式调整，示例补充                                              | 習武   |
-| 2024.04.23 | 代付回调增加 errorCode 和 errorMessage 参数，并增加建议说明         | 習武   |
-| 2024.07.22 | 修订巴基斯坦国家文档                                                | Justin |
-| 2024.10.24 | 文档补充回调时 header 中 nonce 字段,优化格式                        | Justin |
-| 2024.11.05 | 代收查询新增 transactionAmount 订单交易金额字段,修订部分文档        | Justin |
-| 2024.11.07 | 秘鲁收银台多次还款的回调的文档修订                                  | Justin |
-| 2024.11.20 | 代收回调状态的修订                                                  | Justin |
-| 2024.11.22 | 回调 header 新增 appCode、country 字段，代收新增 paymentInfo 等字段 | Justin |
+| Date       | Change Content                                                                                         | Author  |
+| ---------- | ------------------------------------------------------------------------------------------------------ | ------- |
+| 2023.12.04 | Initial documentation, mainly focusing on Mexico's payout, collection and related APIs                 | Qigong  |
+| 2024.04.11 | Document format adjustment, example supplementation                                                    | Sherwin |
+| 2024.04.23 | Added errorCode and errorMessage parameters to payout callback, with additional guidance               | Sherwin |
+| 2024.07.22 | Revised Pakistan country documentation                                                                 | Justin  |
+| 2024.10.24 | Added nonce field in callback header, optimized format                                                 | Justin  |
+| 2024.11.05 | Added transactionAmount field in collection query, revised partial documentation                       | Justin  |
+| 2024.11.07 | Revised documentation for multiple repayment callbacks in Peru checkout                                | Justin  |
+| 2024.11.20 | Revised collection callback status                                                                     | Justin  |
+| 2024.11.22 | Added appCode and country fields in callback header, added paymentInfo and other fields for collection | Justin  |
+| 2024.12.04 | Adjusted document directory structure and layout, added English document translation                   | Sherwin |

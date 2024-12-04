@@ -1,79 +1,38 @@
 ---
-title: 创建代付
-description: 商户请求创建一个代付订单
+title: Create Payout
+description: Merchant requests to create a payout order
 ---
 
-### 请求地址
+### Request URL
 
 | method | url                       |
 | ------ | ------------------------- |
 | POST   | /api/pay/payout/create/v1 |
 
-### 头部信息（header）
+### Header Information
 
-| header参数                  | 入参参数描述  |
-|---------------------------|---------|
-| timestamp                 | 请求时间戳   |
-| nonce                     | 随机值     |
-| country                   | 国家码(PK) |
-| app_code                  | app编号   |
+| Header Parameter | Description       |
+| ---------------- | ----------------- |
+| timestamp        | Request timestamp |
+| nonce            | Random value      |
+| country          | Country code (PK) |
+| app_code         | App code          |
 
-### 请求参数
+### Request Parameters
 
-| 字段              | 类型   | 必需  | 最大长度 | 描述                              |
-|-----------------| ------ |-----|------|---------------------------------|
-| merchantOrderNo | String | yes | 32   | 商户订单号                           |
-| amount          | String | yes | 20   | 代付金额 巴基斯坦卢比 需传整数                |
-| bankCode        | String | yes | 50   | 银行编码  301取bankCode，302时取WalletCode |
-| bankName        | String | yes | 50   | 银行名称 与银行编码字段相同                  |
-| accountType     | Int    | yes |      | 账户类型 301(BANK) 302(E-Wallet)    |
-| bankAccount     | String | yes | 255  | 银行/钱包账户                         |
-| realName        | String | yes | 255  | 客户姓名                            |
-| idCardNumber    | String | yes | 13   | 证件号   13位数字                     |
-| idType          | Stirng | yes | 32   | 固定传CERT                         |
-| phone           | Stirng | yes | 10   | 用户电话  10位数字                     |
-| email           | Stirng | no  | 64   | 用户邮箱                            |
-| userIBAN        | Stirng | no  | 64   | 国际银行账号                          |
-| callbackUrl     | String | no  | 200  | 代付回调地址，若不传, 则以商户配置为准            |
-| sign            | String | yes |      | 签名                              |
-
-```json title=请求示例
-{
-    "merchantOrderNo": "TEST1234567890",
-    "amount": "1000.00",
-    "bankCode": "ALBARAKA_ISLAMIC_BANK",
-    "bankName": "ALBARAKA_ISLAMIC_BANK",
-    "accountType": "301",
-    "bankAccount": "1234567890",
-    "realName": "TEST",
-    "idCardNumber": "1234567890123",
-    "idType": "CERT",
-    "email": "test@gmail.com",
-    "callbackUrl": "https://www.teemopay.com",
-    "phone": "1234567890",
-    "sign": "MERCHANT_SIGN"
-}
-```
-
-### 返回参数
-
-| 参数            | 类型   | 必需 | 长度 | 描述                          |
-| --------------- | ------ | ---- | ---- | ----------------------------- |
-| merchantOrderNo | String | yes  | 32   | 商户订单号                    |
-| tradeNo         | String | yes  |      | 平台订单号                    |
-| status          | Int | yes  |      | 1-支付中 3-失败(可以重新发起) |
-| amount          | String | yes  |      | 交易金额                      |
-
-```json title=返回示例
-{
-    "code": 200,
-    "data": {
-        "merchantOrderNo": "TEST1234567890",
-        "tradeNo": "TF0000000000PK0000000000000000",
-        "amount": "1000.00",
-        "status": 1
-    },
-    "msg": "success",
-    "success": true
-}
-```
+| Field           | Type   | Required | Length | Description                                               |
+| --------------- | ------ | -------- | ------ | --------------------------------------------------------- |
+| merchantOrderNo | String | yes      | 32     | Merchant order number                                     |
+| amount          | String | yes      | 20     | Payout amount in Pakistani Rupees (must be integer)       |
+| bankCode        | String | yes      | 50     | Bank code (use bankCode for 301, WalletCode for 302)      |
+| bankName        | String | yes      | 50     | Bank name (same as bank code field)                       |
+| accountType     | Int    | yes      |        | Account type: 301(BANK) 302(E-Wallet)                     |
+| bankAccount     | String | yes      | 255    | Bank/Wallet account                                       |
+| realName        | String | yes      | 255    | Customer name                                             |
+| idCardNumber    | String | yes      | 13     | ID number (13 digits)                                     |
+| idType          | String | yes      | 32     | Fixed value: CERT                                         |
+| phone           | String | yes      | 10     | User phone number (10 digits)                             |
+| email           | String | no       | 64     | User email                                                |
+| userIBAN        | String | no       | 64     | International Bank Account Number                         |
+| callbackUrl     | String | no       | 200    | Payout callback URL, if not provided uses merchant config |
+| sign            | String | yes      |        | Signature                                                 |

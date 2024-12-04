@@ -1,11 +1,12 @@
 ---
-title: Example Guide
-description: A guide in my new Starlight docs site.
+title: Getting Started
+description: Getting started with Teemopay
 ---
 
-Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
-Writing a good guide requires thinking about what your users are trying to do.
+## Introduction
 
-## Further reading
+Teemopay is a global payment platform providing payment solutions for merchants worldwide.
+Our goal is to provide merchants with a simple, secure and efficient payment solution to help them quickly enter the global market.
 
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
+As the first step in realizing our vision, we have chosen to enter the South American market. As our business grows, we will gradually expand.
+Thank you for your support and companionship. We will continue to work hard to provide you with better services.

@@ -3,37 +3,37 @@ title: create a payout order
 description: Create a payout order
 ---
 
-### 请求地址
+### Request URL
 
 | method | url                       |
 | ------ | ------------------------- |
 | POST   | /api/pay/payout/create/v1 |
 
-### 头部信息（header）
+### Header Information
 
-| header 参数 | 入参参数描述 |
-| ----------- | ------------ |
-| timestamp   | 请求时间戳   |
-| nonce       | 随机值       |
-| country     | 国家码(MX)   |
-| app_code    | app 编号     |
+| Header Parameter | Parameter Description |
+| ---------------- | --------------------- |
+| timestamp        | Request timestamp     |
+| nonce            | Random value          |
+| country          | Country code (MX)     |
+| app_code         | App number            |
 
-### 请求参数
+### Request Parameters
 
-| 字段            | 类型   | 必需 | 长度 | 描述                                   |
-| --------------- | ------ | ---- | ---- | -------------------------------------- |
-| merchantOrderNo | String | yes  | 32   | 商户订单号                             |
-| amount          | String | yes  | 20   | 代付金额(比索)                         |
-| bankCode        | String | yes  | 50   | 银行编码                               |
-| bankName        | String | yes  | 50   | 银行名称                               |
-| accountType     | Int    | yes  |      | 账户类型 3-借记卡 40-CLABE             |
-| bankAccount     | String | yes  | 50   | 收款账号                               |
-| realName        | String | yes  | 40   | 客户姓名                               |
-| idCardNumber    | String | yes  | 50   | 收款人 ID 号码                         |
-| callbackUrl     | String | no   | 200  | 代付回调地址，若不传, 则以商户配置为准 |
-| sign            | String | yes  |      | 签名                                   |
+| Field           | Type   | Required | Length | Description                                                                   |
+| --------------- | ------ | -------- | ------ | ----------------------------------------------------------------------------- |
+| merchantOrderNo | String | yes      | 32     | Merchant order number                                                         |
+| amount          | String | yes      | 20     | Payout amount (in pesos)                                                      |
+| bankCode        | String | yes      | 50     | Bank code                                                                     |
+| bankName        | String | yes      | 50     | Bank name                                                                     |
+| accountType     | Int    | yes      |        | Account type 3-Debit card 40-CLABE                                            |
+| bankAccount     | String | yes      | 50     | Recipient account number                                                      |
+| realName        | String | yes      | 40     | Customer name                                                                 |
+| idCardNumber    | String | yes      | 50     | Recipient ID number                                                           |
+| callbackUrl     | String | no       | 200    | Payout callback URL, if not provided, the merchant configuration will be used |
+| sign            | String | yes      |        | Signature                                                                     |
 
-```json title=请求示例
+```json title=Request Example
 {
   "outTradeNo": "201806251011",
   "amount": "100",
@@ -41,23 +41,23 @@ description: Create a payout order
   "bankName": "STP",
   "accountType": 3,
   "bankAccount": "1234567890",
-  "realName": "张三",
+  "realName": "John Doe",
   "idCardNumber": "1234567890",
   "callbackUrl": "https://merchant.com/api/payout/callback",
   "sign": "YOUR_SIGN"
 }
 ```
 
-### 返回参数
+### Return Parameters
 
-| 参数            | 类型   | 必需 | 长度 | 描述                          |
-| --------------- | ------ | ---- | ---- | ----------------------------- |
-| merchantOrderNo | String | yes  | 32   | 商户订单号                    |
-| tradeNo         | String | yes  |      | 平台订单号                    |
-| status          | Int    | yes  |      | 1-支付中 3-失败(可以重新发起) |
-| amount          | String | yes  |      | 交易金额                      |
+| Parameter       | Type   | Required | Length | Description                         |
+| --------------- | ------ | -------- | ------ | ----------------------------------- |
+| merchantOrderNo | String | yes      | 32     | Merchant order number               |
+| tradeNo         | String | yes      |        | Platform order number               |
+| status          | Int    | yes      |        | 1-Pending 3-Failed (can be retried) |
+| amount          | String | yes      |        | Transaction amount                  |
 
-```json title=返回示例
+```json title=Return Example
 {
   "merchantOrderNo": "201806251011",
   "tradeNo": "TF201806251011",

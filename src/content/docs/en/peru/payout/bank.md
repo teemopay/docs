@@ -1,36 +1,27 @@
 ---
-title: 银行列表
-description: 代付支持的银行列表
+title: Bank List
+description: Supported bank list for payout
 ---
 
-| 银行编码 | 银行名称   | 账户类型              | 卡号长度  |
-| -------- | ---------- | --------------------- | --------- |
-| 1        | BCP        | AHORRO<br />CORRIENTE | 14<br/>13 |
-| 2        | INTERBANK  | 全部                  | 13        |
-| 3        | BBVA       | 全部                  | 18        |
-| 4        | SCOTIABANK | 全部                  | 10        |
+| Bank Code | Bank Name  | Account Type          | Card Length |
+| --------- | ---------- | --------------------- | ----------- |
+| 1         | BCP        | AHORRO<br />CORRIENTE | 14<br/>13   |
+| 2         | INTERBANK  | ALL                   | 13          |
+| 3         | BBVA       | ALL                   | 18          |
+| 4         | SCOTIABANK | ALL                   | 10          |
 
+Account Type:
 
+| ID  | Description |
+| --- | ----------- |
+| 101 | AHORRO      |
+| 102 | CORRIENTE   |
 
+ID Type:
 
-
-账户类型：
-
-| ID   | 描述      |
-| ---- | --------- |
-| 101    | AHORRO    |
-| 102    | CORRIENTE |
-
-
-
-证件信息：
-
-
-
-| ID   | 类型                | 长度 |
-| ---- | ------------------- | ---- |
-| 1    | DNI (个人身份证)    | 8    |
-| 2    | RUC（税号）         | 11   |
-| 3    | CE （外国人身份证） | 9    |
-| 4    | PA （护照）         | 9    |
-
+| ID  | Type              | Length |
+| --- | ----------------- | ------ |
+| 1   | DNI (National ID) | 8      |
+| 2   | RUC (Tax ID)      | 11     |
+| 3   | CE (Foreigner ID) | 9      |
+| 4   | PA (Passport)     | 9      |

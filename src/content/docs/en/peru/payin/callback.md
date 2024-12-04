@@ -1,82 +1,33 @@
 ---
-title: 代收回调
-description: 商户接受一个代收结果的回调
+title: Payment Callback
+description: Merchant receives a payment result callback
 ---
 
-### 回调地址
+### Callback URL
 
-| method | url                |
-| ------ | ------------------ |
-| POST   | 商户提供的回调地址 |
+| method | url                            |
+| ------ | ------------------------------ |
+| POST   | Merchant provided callback URL |
 
-### 头部信息（header）
+### Header Information
 
-| header参数 | 入参参数描述 |
-|----------|--------|
-| timestamp | 请求时间戳  |
-| nonce    | 随机值    |
-| country  | 国家码    |
-| appCode  | 应用编码   |
+| Header Parameter | Description       |
+| ---------------- | ----------------- |
+| timestamp        | Request timestamp |
+| nonce            | Random value      |
+| country          | Country code      |
+| appCode          | App code          |
 
-### 代收回调
+### Payment Callback Parameters
 
-| 参数       | 类型   | 必需 | 长度  | 描述                               |
-| ---------- | ------ | ---- |-----|----------------------------------|
-| merchantOrderNo | String | yes  | 32  | 商户订单号                            |
-| tradeNo    | String | yes  |     | 平台订单号                            |
-| paymentOrderNo | String | yes  | 30  | 平台代收当次支付流水号 当订单可以多次还款时每次还款该流水号不同 |
-| status     | Int | yes  |     | 2:成功                    |
-| paymentAmount     | String | yes   |     | 当次实际支付金额                         |
-| serviceAmount   | String | yes   |     | 服务费用  eg:18.02 |
-| paymentInfo     | String | yes   |     | 主要付款信息，返回的是实际用于付款的信息           |
-| paymentType     | Int | yes   |     | 支付方式           |
-| sign       | String | yes  |     | 签名                               |
-
-```json title=回调示例
-{
-    "tradeNo": "TS2404000001MX0000075277250508",
-    "sign": "TEEMO_SIGN",
-    "merchantOrderNo": "123456780",
-    "paymentAmount": "1000.00",
-    "paymentOrderNo": "TSOcqgv0fepo103dmt3uuu233s1136",
-    "status": 2
-}
-
-```
-
-```json title=多次还款回调示例
-// 一笔订单金额为200.00, 第一次还款50.00,第二次还款150.00
-{
-    "tradeNo": "TS2404000001PE0000075277250508",
-    "sign": "TEEMO_SIGN",
-    "merchantOrderNo": "123456780",
-    "paymentAmount": "50.00",
-    "paymentOrderNo": "TSO0000000001",
-    "status": 2
-}
-
-{
-    "tradeNo": "TS2404000001PE0000075277250508",
-    "sign": "TEEMO_SIGN",
-    "merchantOrderNo": "123456780",
-    "paymentAmount": "150.00",
-    "paymentOrderNo": "TSO0000000002",
-    "status": 2
-}
-```
-### 回调返回
-
-<Table
-thead={["字段", "类型", "必需", "描述"]}
-tbody={[["SUCCESS", "String", "yes", '必须返回"SUCCESS"否则会重复回调']]}
-/>
-
-| 参数    | 类型   | 必需 | 长度 | 描述                            |
-| ------- | ------ | ---- | ---- | ------------------------------- |
-| SUCCESS | String | yes  |      | 必须返回"SUCCESS"否则会重复回调 |
-
-```json title=回调示例
-{
-  "SUCCESS": "SUCCESS"
-}
-```
+| Field           | Type   | Required | Length | Description                                                                    |
+| --------------- | ------ | -------- | ------ | ------------------------------------------------------------------------------ |
+| merchantOrderNo | String | yes      | 32     | Merchant order number                                                          |
+| tradeNo         | String | yes      |        | Platform order number                                                          |
+| paymentOrderNo  | String | yes      | 30     | Platform payment transaction number (different for each payment of same order) |
+| status          | Int    | yes      |        | 2: Success                                                                     |
+| paymentAmount   | String | yes      |        | Actual payment amount for this transaction                                     |
+| serviceAmount   | String | yes      |        | Service fee e.g: 18.02                                                         |
+| paymentInfo     | String | yes      |        | Main payment information, returns actual information used for payment          |
+| paymentType     | Int    | yes      |        | Payment method                                                                 |
+| sign            | String | yes      |        | Signature                                                                      |

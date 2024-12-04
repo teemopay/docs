@@ -1,6 +1,6 @@
 ---
-title: 银行列表
-description: 代付支持的银行列表
+title: Bank List
+description: List of supported banks for payout
 ---
 
 ### BANK

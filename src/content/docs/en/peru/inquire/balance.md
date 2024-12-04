@@ -1,38 +1,16 @@
 ---
-title: 余额查询
-description: 余额查询
+title: Balance Query
+description: Balance Query
 ---
 
-### 请求地址
+### Request URL
 
 | method | url                       |
 | ------ | ------------------------- |
 | POST   | /api/pay/merchant/balance |
 
-### 请求参数
+### Request Parameters
 
-| 字段 | 类型   | 必需 | 长度 | 描述 |
-| ---- | ------ | ---- | ---- | ---- |
-| sign | String | yes  |      | 签名 |
-
-```json title=请求示例
-{
-  "sign": "YOUR_SIGN"
-}
-```
-
-### 返回参数
-
-| 参数         | 类型   | 必需 | 长度 | 描述     |
-| ------------ | ------ | ---- | ---- | -------- |
-| totalAmount  | String | yes  |      | 总金额   |
-| frozenAmount | String | yes  |      | 冻结金额 |
-| availAmount  | String | yes  |      | 可用金额 |
-
-```json title=返回示例
-{
-  "totalAmount": "1009962.02",
-  "frozenAmount": "33161.70",
-  "availAmount": "976800.32"
-}
-```
+| Field | Type   | Required | Length | Description |
+| ----- | ------ | -------- | ------ | ----------- |
+| sign  | String | yes      |        | Signature   |

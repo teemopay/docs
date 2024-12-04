@@ -1,76 +1,36 @@
 ---
-title: 创建代付
-description: 商户请求创建一个代付订单
+title: Create Payout
+description: Merchant requests to create a payout order
 ---
 
-### 请求地址
+### Request URL
 
 | method | url                       |
 | ------ | ------------------------- |
 | POST   | /api/pay/payout/create/v1 |
 
-### 头部信息（header）
+### Header Information
 
-| header参数                  | 入参参数描述  |
-|---------------------------|---------|
-| timestamp                 | 请求时间戳   |
-| nonce                     | 随机值     |
-| country                   | 国家码(PE) |
-| app_code                  | app编号   |
+| Header Parameter | Description       |
+| ---------------- | ----------------- |
+| timestamp        | Request timestamp |
+| nonce            | Random value      |
+| country          | Country code (PE) |
+| app_code         | App code          |
 
-### 请求参数
+### Request Parameters
 
-| 字段              | 类型   | 必需  | 长度  | 描述                                                       |
-|-----------------| ------ |-----|-----|----------------------------------------------------------|
-| merchantOrderNo | String | yes | 32  | 商户订单号                                                    |
-| amount          | String | yes | 20  | 代付金额(比索)                                                 |
-| phone           | String |  no | 9   | 9开头 9位数字                                         |
-| bankCode        | String | yes | 50  | 银行编码                                                     |
-| bankName        | String | yes | 50  | 银行名称                                                     |
-| accountType     | Int    | yes |     | 账户类型 101-AHORRO(储蓄) 102-CORRIENTE(活期)                    |
-| bankAccount     | String | yes | 50  | 收款账号                                                     |
-| realName        | String | yes | 40  | 客户姓名                                                     |
-| idCardNumber    | String | yes | 50  | 收款人证件号码                                                  |
-| idType          | Stirng | yes | 32  | DNI(8位数；身份证) ,  RUC（11位数；税号）, CE（9位数；外国人身份证）, PA（9位数；护照） |
-| callbackUrl     | String | no  | 200 | 代付回调地址，若不传, 则以商户配置为准                                     |
-| sign            | String | yes |     | 签名                                                       |
-
-```json title=请求示例
-{
-                "merchantOrderNo": "ds111ad111022911111111111131",
-                "realName": "Carlos",
-                "bankCode": "1",
-                "bankName": "BCP",
-                "accountType": 101,
-                "bankAccount": "1234567890123456",
-                "amount": "100000",
-                "callbackUrl": "http://127.0.0.1:8075/sys/dictionary/test",
-                "sign": "YOUR SIGN",
-                "idType": "DNI",
-                "phone": "13175025118",
-                "idCardNumber": "12345678"
-}
-```
-
-### 返回参数
-
-| 参数            | 类型   | 必需 | 长度 | 描述                          |
-| --------------- | ------ | ---- | ---- | ----------------------------- |
-| merchantOrderNo | String | yes  | 32   | 商户订单号                    |
-| tradeNo         | String | yes  |      | 平台订单号                    |
-| status          | Int | yes  |      | 1-支付中 3-失败(可以重新发起) |
-| amount          | String | yes  |      | 交易金额                      |
-
-```json title=返回示例
-{
-    "code": 200,
-    "data": {
-        "merchantOrderNo": "ds111ad111002911111111111131",
-        "tradeNo": "TF2405220001MX0000048840060444",
-        "amount": "100",
-        "status": 1
-    },
-    "msg": "success",
-    "success": true
-}
-```
+| Field           | Type   | Required | Length | Description                                                                                        |
+| --------------- | ------ | -------- | ------ | -------------------------------------------------------------------------------------------------- |
+| merchantOrderNo | String | yes      | 32     | Merchant order number                                                                              |
+| amount          | String | yes      | 20     | Payout amount (in Soles)                                                                           |
+| phone           | String | no       | 9      | 9 digits starting with 9                                                                           |
+| bankCode        | String | yes      | 50     | Bank code                                                                                          |
+| bankName        | String | yes      | 50     | Bank name                                                                                          |
+| accountType     | Int    | yes      |        | Account type 101-AHORRO(Savings) 102-CORRIENTE(Current)                                            |
+| bankAccount     | String | yes      | 50     | Beneficiary account number                                                                         |
+| realName        | String | yes      | 40     | Customer name                                                                                      |
+| idCardNumber    | String | yes      | 50     | Beneficiary ID number                                                                              |
+| idType          | String | yes      | 32     | DNI(8 digits; ID card), RUC(11 digits; Tax ID), CE(9 digits; Foreigner ID), PA(9 digits; Passport) |
+| callbackUrl     | String | no       | 200    | Payout callback URL, if not provided, merchant configuration will be used                          |
+| sign            | String | yes      |        | Signature                                                                                          |
