@@ -28,7 +28,7 @@ description: 商户请求创建一个代付订单
 | bankName        | String | yes | 50  | 银行名称                 |
 | accountType     | Int    | yes |     | 账户类型 3-借记卡 40-CLABE  |
 | bankAccount     | String | yes | 50  | 收款账号                 |
-| realName        | String | yes | 40  | 客户姓名                 |
+| realName        | String | yes | 40  | 用户姓名 不包含特殊字符，建议全大写                  |
 | idCardNumber    | String | yes | 50  | 收款人 ID 号码            |
 | callbackUrl     | String | no  | 200 | 代付回调地址，若不传, 则以商户配置为准 |
 | sign            | String | yes |     | 签名                   |

@@ -29,7 +29,7 @@ description: 商户请求创建一个代付订单
 | bankName        | String | yes | 50  | 银行名称                                                     |
 | accountType     | Int    | yes |     | 账户类型 101-AHORRO(储蓄) 102-CORRIENTE(活期)                    |
 | bankAccount     | String | yes | 50  | 收款账号                                                     |
-| realName        | String | yes | 40  | 客户姓名                                                     |
+| realName        | String | yes | 50  | 用户姓名 不包含特殊字符，建议全大写                                                  |
 | idCardNumber    | String | yes | 50  | 收款人证件号码                                                  |
 | idType          | Stirng | yes | 32  | DNI(8位数；身份证) ,  RUC（11位数；税号）, CE（9位数；外国人身份证）, PA（9位数；护照） |
 | callbackUrl     | String | no  | 200 | 代付回调地址，若不传, 则以商户配置为准                                     |

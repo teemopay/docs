@@ -38,17 +38,17 @@ description: 商户请求创建一个代收订单
 
 ### 请求参数
 
-| 字段            | 类型   | 必需 | 长度 | 描述                                          |
-| --------------- | ------ | ---- | ---- | --------------------------------------------- |
-| merchantOrderNo | String | yes  | 32   | 商户订单号                                    |
-| paymentType     | Int    | yes  |      | 支付方式: 101 ：checkout（支付链接收银台）    |
-| amount          | String | yes  | 20   | 代收金额(索尔)                                |
-| expirationTime  | Long   | no   |      | 过期时间 默认一天                             |
-| realName        | String | yes  | 50   | 用户姓名：大写，不包含特殊字符，50 个字符以内 |
-| email           | String | yes  | 50   | 用户邮箱：满足正则表达式即可                  |
-| phone           | String | yes  | 9    | 电话号码 9 位数不包含区号                     |
-| sign            | String | yes  |      | 签名                                          |
-| callbackUrl     | String | no   | 200  | 回调地址                                      |
+| 字段            | 类型   | 必需 | 长度  | 描述                                          |
+| --------------- | ------ | ---- |-----| --------------------------------------------- |
+| merchantOrderNo | String | yes  | 32  | 商户订单号                                    |
+| paymentType     | Int    | yes  |     | 支付方式: 101 ：checkout（支付链接收银台）    |
+| amount          | String | yes  | 20  | 代收金额(索尔)                                |
+| expirationTime  | Long   | no   |     | 过期时间 默认一天                             |
+| realName        | String | yes  | 64  | 用户姓名 |
+| email           | String | yes  | 50  | 用户邮箱：满足正则表达式即可                  |
+| phone           | String | yes  | 9   | 电话号码 9 位数不包含区号                     |
+| sign            | String | yes  |     | 签名                                          |
+| callbackUrl     | String | no   | 200 | 回调地址                                      |
 
 ```json title="请求示例"
 {

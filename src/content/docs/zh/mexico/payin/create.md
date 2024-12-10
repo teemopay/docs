@@ -62,7 +62,7 @@ description: 商户请求创建一个代收订单
 |-----------------| ------ |-----|-----|--------------------------------------------------------------------------------------|
 | merchantOrderNo | String | yes | 32  | 商户订单号                                                                                |
 | paymentType     | Int    | yes |     | 支付方式: 1-还款码 3-BankTransfer（线上收款单次）4-PayCashOnce（线下收款单次）5-PayCashRecurrent（线下多次） |
-| realName        | String | yes | 50  | 用户姓名：大写，不包含特殊字符，50 个字符以内                                                             |
+| realName        | String | yes | 64  | 用户姓名                                                            |
 | email           | String | no  | 50  | 用户邮箱：满足正则表达式即可                                                                       |
 | amount          | String | yes | 20  | 代收金额(比索)                                                                             |
 | expirationTime  | Long   | no  |     | 过期时间, 在一定条件下必传，例：1717048800000，当 paymentType 为 4、5 时必传                               |
