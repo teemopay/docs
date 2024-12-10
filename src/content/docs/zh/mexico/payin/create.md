@@ -58,17 +58,17 @@ description: 商户请求创建一个代收订单
 
 ### 请求参数
 
-| 字段              | 类型   | 必需  | 长度  | 描述                                                                                   |
-|-----------------| ------ |-----|-----|--------------------------------------------------------------------------------------|
-| merchantOrderNo | String | yes | 32  | 商户订单号                                                                                |
+| 字段              | 类型   | 必需  | 长度  | 描述                                                                              |
+|-----------------| ------ |-----|-----|---------------------------------------------------------------------------------|
+| merchantOrderNo | String | yes | 32  | 商户订单号                                                                           |
 | paymentType     | Int    | yes |     | 支付方式: 1-还款码 3-BankTransfer（线上收款单次）4-PayCashOnce（线下收款单次）5-PayCashRecurrent（线下多次） |
-| realName        | String | yes | 64  | 用户姓名                                                            |
-| email           | String | no  | 50  | 用户邮箱：满足正则表达式即可                                                                       |
-| amount          | String | yes | 20  | 代收金额(比索)                                                                             |
-| expirationTime  | Long   | no  |     | 过期时间, 在一定条件下必传，例：1717048800000，当 paymentType 为 4、5 时必传                               |
-| phone           | String | no  | 20  | 手机号                                                                                  |
-| callbackUrl     | String | no  | 200 | 代付回调地址，若不传, 则以商户配置为准                                                                 |
-| sign            | String | yes |     | 签名                                                                                   |
+| realName        | String | yes | 64  | 用户姓名                                                                            |
+| email           | String | no  | 50  | 用户邮箱：满足正则表达式即可                                                                  |
+| amount          | String | yes | 20  | 代收金额(比索)                                                                        |
+| expirationTime  | Long   | no  |     | 过期时间 当 paymentType 为 4、5时有效,默认为一天                                               |
+| phone           | String | no  | 20  | 手机号                                                                             |
+| callbackUrl     | String | no  | 200 | 代付回调地址，若不传, 则以商户配置为准                                                            |
+| sign            | String | yes |     | 签名                                                                              |
 
 ```json title="请求示例"
 {
