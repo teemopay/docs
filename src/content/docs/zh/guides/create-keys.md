@@ -107,4 +107,4 @@ ldfIyZPoMCcJuqc=
 
 ### 第三步：接口调用时加密和验签
 
-参考 [鉴权示例](./authentication) 章节。
+参考 [鉴权示例](/zh/guides/authentication) 章节。
