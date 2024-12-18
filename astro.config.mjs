@@ -71,7 +71,7 @@ export default defineConfig({
             link: "/guides/getting-started",
             icon: "open-book",
             badge: { text: "READ", variant: "success" },
-            items: ["guides/getting-started", "guides/changes", "guides/authentication"],
+            items: ["guides/getting-started", "guides/changes", "guides/operation-manual", "guides/create-keys", "guides/authentication"],
           },
           {
             id: "mexico",
