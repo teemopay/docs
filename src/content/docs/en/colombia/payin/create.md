@@ -61,7 +61,7 @@ description: Merchant requests to create a payment order
 | Field           | Type   | Required | Length | Description                                                                                                                                     |
 | --------------- | ------ | -------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | merchantOrderNo | String | Yes      | 32     | Merchant order number                                                                                                                           |
-| paymentType     | Int    | Yes      |        | Payment type: 1-Repayment code 3-BankTransfer(Single online payment) 4-PayCashOnce(Single offline payment) 5-PayCashRecurrent(Multiple offline) |
+| paymentType     | Int    | Yes      |        | Payment type: 1-Repayment code  4-PayCashOnce(Single offline payment) 5-PayCashRecurrent(Multiple offline) |
 | realName        | String | Yes      | 50     | User name: uppercase, no special characters, within 50 characters                                                                               |
 | email           | String | No       | 50     | User email: must match regex pattern                                                                                                            |
 | amount          | String | Yes      | 20     | Payment amount (in pesos)                                                                                                                       |

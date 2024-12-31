@@ -38,7 +38,7 @@ description: Merchant queries the status of a payment order
 | ---------------------------- | ------ | -------- | ------ | -------------------------------------------------------------------------------------------------------------------------- |
 | merchantOrderNo              | String | yes      | 32     | Merchant order number                                                                                                      |
 | tradeNo                      | String | yes      |        | Platform order number                                                                                                      |
-| paymentType                  | Int    | yes      |        | Payment type: 1-Repayment code 3-BankTransfer(Single online payment) 4-PayCashOnce(Single offline) 5-PayCashRecurrent(Multiple offline) |
+| paymentType                  | Int    | yes      |        | Payment type: 1-Repayment code  4-PayCashOnce(Single offline) 5-PayCashRecurrent(Multiple offline) |
 | transactionAmount            | String | yes      |        | Order transaction amount                                                                                                   |
 | amount                       | String | yes      |        | Payment amount                                                                                                             |
 | status                       | String | yes      |        | 2-Success 3-Failed 4-Refund                                                                                                |
