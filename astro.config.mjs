@@ -11,6 +11,8 @@ export default defineConfig({
     starlight({
       // 文档标题
       title: "Teemopay Docs",
+      // 禁用 404 页面
+      disable404Route: true,
       // 用 logo 替换标题
       logo: {
         light: "/src/assets/logo-357.png",
@@ -71,7 +73,7 @@ export default defineConfig({
             link: "/guides/getting-started",
             icon: "open-book",
             badge: { text: "READ", variant: "success" },
-            items: ["guides/getting-started", "guides/changes", "guides/authentication"],
+            items: ["guides/getting-started", "guides/changes", "guides/operation-manual", "guides/create-keys", "guides/authentication"],
           },
           {
             id: "mexico",

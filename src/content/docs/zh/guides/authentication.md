@@ -1,5 +1,5 @@
 ---
-title: 鉴权
+title: 鉴权示例
 description: 鉴权和加密说明
 ---
 

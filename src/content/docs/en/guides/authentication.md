@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: Authentication Example
 description: Authentication and Encryption Guide
 ---
 
