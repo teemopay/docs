@@ -23,6 +23,7 @@ description: 商户请求创建一个代收订单
 | 支付方式名称                     | PaymentType (入参参数) |
 | ------------------------------ | ---------------------- |
 | VA (线上银行转账单次和多次)      | 1                      |
+| BankTranfer （线上银行转账单次） | 3                      |
 | PayCashOnce（现金付款单次）      | 4                      |
 | PayCashRecurrent (现金付款多次)  | 5                      |
 
@@ -106,14 +107,14 @@ description: 商户请求创建一个代收订单
 
 ```json
 {
-  "amount": "100",
-  "tradeNo": "wqewqewqewqewq",
-  "merchantOrderNo": "qewqewqewqewqeqw",
+  "amount": "1000.00",
+  "tradeNo": "TS2404070001MX0000205873135769",
+  "merchantOrderNo": "ABCDEFG",
   "paymentType": 4,
   "additionalInfo": {
-    "expiredTime": 1717048800000
+    "paymentLink": "https://www.paycashglobal.com/formato.php?referencia=ATQyMDY0OTczNDIzMg==&interno=1"
   },
-  "paymentInfo": "1251269870973",
+  "paymentInfo": "1420649734231",
   "status": 1
 }
 ```
@@ -122,14 +123,14 @@ description: 商户请求创建一个代收订单
 
 ```json
 {
-  "amount": "100",
-  "tradeNo": "wqewqewqewqewq",
-  "merchantOrderNo": "qewqewqewqewqeqw",
-  "paymentType": 5,
+  "amount": "1000.00",
+  "tradeNo": "TS2404070001MX0000205873135769",
+  "merchantOrderNo": "ABCDEFG",
+  "paymentType": 4,
   "additionalInfo": {
-    "expiredTime": 1717048800000
+    "paymentLink": "https://www.paycashglobal.com/formato.php?referencia=ATQyMDY0OTczNDIzMg==&interno=1"
   },
-  "paymentInfo": "1251269870973",
+  "paymentInfo": "1420649734231",
   "status": 1
 }
 ```
