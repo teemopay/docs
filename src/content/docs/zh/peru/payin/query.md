@@ -40,7 +40,8 @@ description: 商户查询一个代收订单的状态
 | tradeNo                       | String | yes  |     | 平台订单号                                    |
 | paymentType                   | Int    | yes  |     | 支付方式: 101 ：checkout（支付链接收银台）                   |
 | transactionAmount             | String | yes  |   | 订单交易金额                      |
-| amount                        | String | yes  |   | 收款金额                      || status                        | Int | yes  |     | 2-成功 3-失败 4-退款                           |
+| amount                        | String | yes  |   | 收款金额                      |
+| status                        | Int | yes  |     | 2-成功 3-失败                        |
 | remark                        | String | no   |     | 备注                            |
 | statementList                 | Object | no   |     | 代收流水信息                                  |
 | -- paymentSingleOrderNo       | String | yes  |     | 单次支付流水号                                |
