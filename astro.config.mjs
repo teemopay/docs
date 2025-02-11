@@ -199,6 +199,37 @@ export default defineConfig({
               },
             ],
           },
+          {
+            id: "brazil",
+            label: {
+              en: "🇧🇷 Brazil",
+              zh: "🇧🇷 巴西",
+            },
+            link: "/brazil/payin/create",
+            items: [
+              {
+                label: "Payin",
+                translations: {
+                  zh: "代收",
+                },
+                items: ["brazil/payin/create", "brazil/payin/callback", "brazil/payin/query"],
+              },
+              {
+                label: "Payout",
+                translations: {
+                  zh: "代付",
+                },
+                items: ["brazil/payout/create", "brazil/payout/callback", "brazil/payout/query"],
+              },
+              {
+                label: "Inquire",
+                translations: {
+                  zh: "查询",
+                },
+                items: ["brazil/inquire/balance", "brazil/inquire/bill"],
+              },
+            ],
+          },
         ]),
       ],
       // 重新渲染组件
