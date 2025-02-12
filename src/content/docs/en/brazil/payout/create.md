@@ -24,7 +24,7 @@ description: Merchant requests to create a payout order
 | -----------------  | -------- | -------- | ------ | ----------------------------------------------------------------------------------- |
 | merchantOrderNo    | String   | Yes      | 32     | Merchant order number                                                               |
 | amount             | String   | Yes      | 20     | Payout amount (in Brazilian Real), up to 2 decimal places                          |
-| bankCode           | String   | Yes      | 50     | Bank code                                                                           |
+| bankCode           | String   | no      | 50     | Bank code                                                                           |
 | bankName           | String   | No       | 50     | Bank name                                                                           |
 | accountType        | Int      | Yes      |        | CPF-401<br>CNPJ-402<br>PHONE-403<br>EMAIL-404<br>EVP-405 <br>Choose one of these parameters based on actual situation |
 | bankAccount        | String   | Yes      | 255    | Payout bank account                                                                  |

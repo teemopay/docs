@@ -24,7 +24,7 @@ description: 商户请求创建一个代付订单
 | --------------- | ------ | --- | --- | ------------------------------------------------------------------------------ |
 | merchantOrderNo | String | yes | 32  | 商户订单号                                                                          |
 | amount          | String | yes | 20  | 代付金额(雷亚尔),小数点不能超过两位                                                            |
-| bankCode        | String | yes | 50  | 银行编码                                                                           |
+| bankCode        | String | no | 50  | 银行编码                                                                           |
 | bankName        | String | no  | 50  | 银行名称                                                                           |
 | accountType     | Int    | yes |     | CPF-401<br>CNPJ-402 <br>PHONE-403 <br>EMAIL-404 <br>EVP-405 <br>五个参数根据实际情况选择一个 |
 | bankAccount     | String | yes | 255 | 收款账号                                                                           |
