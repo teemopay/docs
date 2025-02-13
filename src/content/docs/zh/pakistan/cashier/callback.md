@@ -63,6 +63,24 @@ description: 商户接受一个代收结果的回调
 
 ```
 
+> errorMessage 说明：
+
+| errorMessage                                |    补充说明                            |
+| ------------------------------------------- |--------------------------------|
+| Wallet limit exceeded, kindly contact user to upgrade or restore limit. | EP/JZ超过日/月/年限额 |
+| Transaction amount exceeds limit, kindly retry within allowed range. | 请求金额100-50000超限 |
+| Wallet account frozen, kindly contact user to change card and retry. | 用户钱包被风控（冻结、休眠、临时管控） |
+| Wallet account abnormal, kindly contact user to verify account and retry. | 用户钱包信息错误（卡号或CNIC填错、未激活、未通过认证） |
+| Request field error, kindly verify and retry. | 上传技术参数有误，未按文档要求 |
+| Channel request error, technicians will fix ASAP. | 维护 |
+| Unstable network, kindly retry later. | 网络波动 |
+| User canceled the payment on wallet. | 订单已提交，但用户未通过钱包支付 |
+| Account inexist or CNIC mismatch, kindly verify or register wallet then retry. | 用户钱包信息错误（卡号或CNIC填错、未激活、未通过认证） |
+| Parameter validation error, kindly verify and retry. | 上传技术参数有误，未按文档要求 |
+| Insufficient balance, kindly contact user to recharge and retry. | 余额不足 |
+| Other | 由于银行端给定信息不足而导致的其他不明因素 |
+
+
 ### 回调返回
 
 <Table
@@ -77,3 +95,4 @@ tbody={[["SUCCESS", "String", "yes", '必须返回"SUCCESS"否则会重复回调
 ```json title=回调示例
 SUCCESS
 ```
+
