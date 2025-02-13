@@ -58,22 +58,22 @@ description: 商户接受一个代付结果的回调
 
 > errorCode 说明：
 
-| errorCode | errorMessage                                |    补充说明                            |
-| --------- | ------------------------------------------- |--------------------------------|
+| errorCode | errorMessage                                                                                                                  |    补充说明                            |
+| --------- |-------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | 1003 | Multiple failures within 30 minutes. Kindly refer to the previous reason, contact the user to change the card or retry later. | 前述原因是指，最近两次的失败原因，需要根据此原因决定改卡或重试 |
-| 1004 | Wallet limit exceeded, kindly contact user to upgrade or restore limit. | EP/JZ超过日/月/年限额 |
-| 1005 | Transaction amount exceeds limit, kindly retry within allowed range. | 请求金额100-50000超限 |
-| 1006 | Wallet account frozen, kindly contact user to change card and retry. | 用户钱包被风控（冻结、休眠、临时管控） |
-| 1007 | Wallet account abnormal, kindly contact user to verify account and retry. | 用户钱包信息错误（卡号或CNIC填错、未激活、未通过认证） |
-| 1008 | Request field error, kindly verify and retry. | 上传技术参数有误，未按文档要求 |
-| 1009 | Channel request error, technicians will fix ASAP. | 维护 |
-| 1010 | Unstable network, kindly retry later. | 网络波动 |
-| 1011 | Parameter validation error, kindly verify and retry. | 上传技术参数有误，未按文档要求 |
-| 1012 | Payment method error, kindly select the right way and try again. | 注意区分钱包账户和银行账户 |
-| 1013 | Invalid receiver information, kindly verify and retry. | 请求用户参数问题，用户信息无效 |
-| 1014 | Account inexist or CNIC mismatch, kindly verify or register wallet then retry. | 用户钱包信息错误（卡号或CNIC填错、未激活、未通过认证） |
-| 1015 | Insufficient balance, kindly contact user to recharge and retry. | 余额不足 |
-| 9999 | Other	| 由于银行端给定信息不足而导致的其他不明因素 |
+| 1004 | Wallet limit exceeded, kindly contact user to upgrade or restore limit.                                                       | EP/JZ超过日/月/年限额 |
+| 1005 | Transaction amount exceeds limit, kindly retry within allowed range.                                                          | 请求金额100-50000超限 |
+| 1006 | Wallet account frozen, kindly contact user to change card and retry.                                                          | 用户钱包被风控（冻结、休眠、临时管控） |
+| 1007 | Wallet account abnormal, kindly contact user to verify account and retry.                                                     | 用户钱包信息错误（卡号或CNIC填错、未激活、未通过认证） |
+| 1008 | Request field error, kindly verify and retry.                                                                                 | 上传技术参数有误，未按文档要求 |
+| 1009 | Channel request error, technicians will fix ASAP.                                                                             | 维护 |
+| 1010 | Unstable network, kindly retry later.                                                                                         | 网络波动 |
+| 1011 | Parameter validation error, kindly verify and retry.                                                                          | 上传技术参数有误，未按文档要求 |
+| 1012 | Payment method error, kindly select the right way and try again.                                                              | 注意区分钱包账户和银行账户 |
+| 1013 | Invalid receiver information, kindly verify and retry.                                                                        | 请求用户参数问题，用户信息无效 |
+| 1014 | Account inexist or CNIC mismatch, kindly verify or register wallet then retry.                                                | 用户钱包信息错误（卡号或CNIC填错、未激活、未通过认证） |
+| 1015 | Insufficient balance, kindly contact user to recharge and retry.                                                              | 余额不足 |
+| 9999 | Others	                        | 由于银行端给定信息不足而导致的其他不明因素 |
 ### 回调返回
 
 | 参数    | 类型   | 必需 | 长度 | 描述                            |
