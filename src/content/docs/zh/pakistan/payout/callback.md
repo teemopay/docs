@@ -73,7 +73,7 @@ description: 商户接受一个代付结果的回调
 | 1013 | Invalid receiver information, kindly verify and retry. | 请求用户参数问题，用户信息无效 |
 | 1014 | Account inexist or CNIC mismatch, kindly verify or register wallet then retry. | 用户钱包信息错误（卡号或CNIC填错、未激活、未通过认证） |
 | 1015 | Insufficient balance, kindly contact user to recharge and retry. | 余额不足 |
-
+| 9999 | Other	| 由于银行端给定信息不足而导致的其他不明因素 |
 ### 回调返回
 
 | 参数    | 类型   | 必需 | 长度 | 描述                            |
