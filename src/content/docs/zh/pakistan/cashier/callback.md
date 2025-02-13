@@ -78,7 +78,7 @@ description: 商户接受一个代收结果的回调
 | Account inexist or CNIC mismatch, kindly verify or register wallet then retry. | 用户钱包信息错误（卡号或CNIC填错、未激活、未通过认证） |
 | Parameter validation error, kindly verify and retry. | 上传技术参数有误，未按文档要求 |
 | Insufficient balance, kindly contact user to recharge and retry. | 余额不足 |
-| Other | 由于银行端给定信息不足而导致的其他不明因素 |
+| Others | 由于银行端给定信息不足而导致的其他不明因素 |
 
 
 ### 回调返回
