@@ -230,6 +230,37 @@ export default defineConfig({
               },
             ],
           },
+          {
+            id: "indonesia",
+            label: {
+              en: "🇮🇩 indonesia",
+              zh: "🇮🇩 印尼",
+            },
+            link: "/indonesia/payin/create",
+            items: [
+              {
+                label: "Payin",
+                translations: {
+                  zh: "代收",
+                },
+                items: ["indonesia/payin/create", "indonesia/payin/callback", "indonesia/payin/query"],
+              },
+              {
+                label: "Payout",
+                translations: {
+                  zh: "代付",
+                },
+                items: ["indonesia/payout/create", "indonesia/payout/callback", "indonesia/payout/query"],
+              },
+              {
+                label: "Inquire",
+                translations: {
+                  zh: "查询",
+                },
+                items: ["indonesia/inquire/balance", "indonesia/inquire/bill"],
+              },
+            ],
+          },
         ]),
       ],
       // 重新渲染组件
