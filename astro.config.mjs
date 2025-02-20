@@ -250,7 +250,7 @@ export default defineConfig({
                 translations: {
                   zh: "代付",
                 },
-                items: ["indonesia/payout/create", "indonesia/payout/callback", "indonesia/payout/query"],
+                items: ["indonesia/payout/create", "indonesia/payout/callback", "indonesia/payout/query", "indonesia/payout/bank"],
               },
               {
                 label: "Inquire",
