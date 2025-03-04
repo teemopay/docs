@@ -15,4 +15,9 @@ description: 变更记录
 | 2024.11.20 | 代收回调状态的修订                                            | Justin |
 | 2024.11.22 | 回调 header 新增 appCode、country 字段，代收新增 paymentInfo 等字段 | Justin |
 | 2024.12.04 | 调整文档目录结构和布局、补充英文文档翻译                                 | 習武   |
-| 2025.02.13 | 修订巴基斯坦代收，代付回调的错误信息和错误码           | Justin   |
+| 2025.02.13 | 修订巴基斯坦代收，代付回调的错误信息和错误码                               | Justin   |
+| 2025.03.04 | 哥伦比亚代付新增accountType为203:PHONE(电话号码)类型                | Justin   |
+
+### 变更说明
+#### 哥伦比亚代付新增accountType为203:PHONE(电话号码)类型
+- 当accountType为203时 bankAccount传输收款人电话号码,3开头10位数字
