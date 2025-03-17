@@ -52,6 +52,24 @@ description: Supported Bank List for Payout
 | 1047      | WOMEN'S WORLD BANK             |
 | 1097      | DALE                           |
 
+周六天能处理交易的银行：
+
+| 银行代码 | 银行名称                          |  
+|----------|-----------------------------------|  
+| 1007     | BANCOLOMBIA                       |  
+| 1507     | NEQUI                             |  
+| 1051     | BANCO DAVIVIENDA S.A.            |  
+| 1551     | DAVIPLATA                         |  
+| 1007     | BANCOLOMBIA ahorro a la mano      |  
+| 1801     | MOVE (Movii)                     |  
+| 1097     | DALE                              |  
+| 1013     | BBVA COLOMBIA                    |  
+| 1014     | ITAU                              |  
+| 1066     | COOPCENTRAL COOPERATIVE BANK      |  
+| 1032     | CAJA SOCIAL BANK BCSC SA          |  
+
+
+
 Account Types:
 
 | ID  | Description |
