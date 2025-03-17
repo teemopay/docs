@@ -52,12 +52,29 @@ description: 代付支持的银行列表
 | 1047     | WOMEN'S WORLD BANK             |
 | 1097     | DALE                           |
 
+周末能处理：
+
+| 银行代码 | 银行名称                         |  
+|------|------------------------------|  
+| 1007 | BANCOLOMBIA                  |  
+| 1507 | NEQUI                        |  
+| 1051 | BANCO DAVIVIENDA S.A.        |  
+| 1551 | DAVIPLATA                    |  
+| 1007 | BANCOLOMBIA ahorro a la mano |  
+| 1801 | MOVE (Movii)                 |  
+| 1097 | DALE                         |  
+| 1013 | BBVA COLOMBIA                |  
+| 1014 | ITAU                         |  
+| 1066 | COOPCENTRAL COOPERATIVE BANK |  
+| 1032 | CAJA SOCIAL BANK BCSC SA     |  
+
 账户类型：
 
-| ID   | 描述      |
-| ---- | --------- |
-| 201 | AHORRO    |
-| 202 | CORRIENTE |
+| ID  | 描述                        |
+|-----|---------------------------|
+| 201 | AHORRO （savings 储蓄）       |
+| 202 | CORRIENTE （checking 活期账户） |
+| 203 | TRNASFIYA  (转账服务)             |
 
 
 
