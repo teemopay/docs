@@ -86,6 +86,4 @@ description: The bank list supported by the payin
 | 90710 | NVIO |
 | 90723 | CUENCA |
 | 90902 | INDEVAL |
-| 90903 | CoDi_Valida |
 | 90706 | ARCUS |
-| 91802 | BANAMEX2 |
