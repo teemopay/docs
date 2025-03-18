@@ -123,13 +123,14 @@ public class SignUtils {
     }
 
     // 验签
-    public static boolean verifySign(Map<String, Object> param, String nonce, String publicKey, String signature) {
-        String commercialSign = (String) param.get("sign");
-        if (StringUtils.isBlank(commercialSign)) {
+    public static boolean verifySign(Map<String, Object> param, String nonce, String publicKey) {
+        String sign = (String) param.get("sign");
+        if (StringUtils.isBlank(sign)) {
+            log.error("请求参数缺少sign: {}", JSON.toJSONString(param));
             return false;
         }
         try {
-            return verifySha1(paramHandler(param, nonce).getBytes(), publicKey, signature);
+            return verifySha1(paramHandler(param, nonce).getBytes(), publicKey, sign);
         } catch (Exception e) {
             log.error("RSA验签异常: {}", JSON.toJSONString(param), e);
             return false;
