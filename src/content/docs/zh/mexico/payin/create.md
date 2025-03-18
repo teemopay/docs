@@ -28,17 +28,17 @@ description: 商户请求创建一个代收订单
 
 ### 请求参数
 
-| 字段              | 类型   | 必需  | 长度  | 描述                                                                             |
-|-----------------| ------ |-----|-----|--------------------------------------------------------------------------------|
-| merchantOrderNo | String | yes | 32  | 商户订单号                                                                          |
-| paymentType     | Int    | yes |     | 支付方式: 1-还款码 4-PayCashOnce（线下收款单次）5-PayCashRecurrent（线下多次） |
-| realName        | String | yes | 64  | 用户姓名                                                                           |
-| email           | String | no  | 50  | 用户邮箱：满足正则表达式即可                                                                 |
-| amount          | String | yes | 20  | 代收金额(比索)                                                                       |
-| expirationTime  | Long   | no  |     | 过期时间 当 paymentType 为 4、5时有效,默认为一天                                              |
-| phone           | String | no  | 20  | 手机号                                                                            |
-| callbackUrl     | String | no  | 200 | 代付回调地址，若不传, 则以商户配置为准                                                           |
-| sign            | String | yes |     | 签名                                                                             |
+| 字段              | 类型   | 必需  | 最大长度 | 描述                                                |
+|-----------------| ------ |-----|------|---------------------------------------------------|
+| merchantOrderNo | String | yes | 32   | 商户订单号                                             |
+| paymentType     | Int    | yes |      | 支付方式: 1:VA 4:PayCashOnce 5:PayCashRecurrent |
+| realName        | String | yes | 64   | 用户姓名                                              |
+| email           | String | no  | 50   | 用户邮箱：满足正则表达式即可                                    |
+| amount          | String | yes | 20   | 代收金额(比索)                                          |
+| expirationTime  | Long   | no  |      | 过期时间 当 paymentType 为 4、5时有效,默认为一天                 |
+| phone           | String | no  | 20   | 手机号                                               |
+| callbackUrl     | String | no  | 200  | 代付回调地址，若不传, 则以商户配置为准                              |
+| sign            | String | yes |      | 签名                                                |
 
 
 ```json title="请求示例"
@@ -56,14 +56,14 @@ description: 商户请求创建一个代收订单
 
 ### 返回参数
 
-| 字段            | 类型       | 必需 | 长度 | 描述                                              |
-| --------------- | ---------- | ---- | ---- |-------------------------------------------------|
-| merchantOrderNo | String     | yes  | 32   | 商户订单号                                           |
-| tradeNo         | String     | yes  | 32   | 平台订单号                                           |
-| amount          | String     | yes  | 32   | 交易金额                                            |
-| paymentType     | Int        | yes  | 10   | 支付方式 1:VA 4:PayCashOnce 5:PayCashRecurrent |
-| paymentInfo     | String     | yes  | 32   | 主要付款信息，返回的是实际用于付款的信息，例如：Va 账号，付款编号              |
-| additionalInfo  | JSONObject | No   |      | 附加信息：当支付方式为4，5 辅助主要信息使用                         |
+| 字段            | 类型       | 必需  | 长度 | 描述                                              |
+| --------------- | ---------- |-----| ---- |-------------------------------------------------|
+| merchantOrderNo | String     | yes | 32   | 商户订单号                                           |
+| tradeNo         | String     | yes | 32   | 平台订单号                                           |
+| amount          | String     | yes | 32   | 交易金额                                            |
+| paymentType     | Int        | yes | 10   | 支付方式 1:VA 4:PayCashOnce 5:PayCashRecurrent |
+| paymentInfo     | String     | yes | 32   | 主要付款信息，返回的是实际用于付款的信息，例如：Va 账号，付款编号              |
+| additionalInfo  | JSONObject | no  |      | 附加信息：当支付方式为4，5 辅助主要信息使用                         |
 | status          | Int        | yes |    | 1-订单创建成功  3-失败                                  |
 | errorMsg        | String     | no  |    | 错误信息,失败时返回                                      |
 
