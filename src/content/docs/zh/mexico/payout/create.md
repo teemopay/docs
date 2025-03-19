@@ -35,16 +35,17 @@ description: 商户请求创建一个代付订单
 
 ```json title=请求示例
 {
-  "outTradeNo": "201806251011",
-  "amount": "100",
-  "bankCode": "646",
-  "bankName": "STP",
-  "accountType": 3,
-  "bankAccount": "1234567890",
-  "realName": "张三",
-  "idCardNumber": "1234567890",
-  "callbackUrl": "https://merchant.com/api/payout/callback",
-  "sign": "YOUR_SIGN"
+    "bankAccount": "123456789987654321",
+    "realName": "TEEMO",
+    "bankCode": "40002",
+    "amount": "1000.00",
+    "phone": "1000000000",
+    "accountType": 40,
+    "idCardNumber": "GAPG00000000000000",
+    "sign": "YOUR_SIGN",
+    "bankName": "BANAMEX",
+    "callbackUrl": "https://www.callbackexample.com",
+    "merchantOrderNo": "OrderNoExample"
 }
 ```
 
@@ -59,9 +60,14 @@ description: 商户请求创建一个代付订单
 
 ```json title=返回示例
 {
-  "merchantOrderNo": "201806251011",
-  "tradeNo": "TF201806251011",
-  "status": 1,
-  "sign": "TEEMO_SIGN"
+    "msg": "success",
+    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298",
+    "code": 200,
+    "data": {
+        "amount": "1000.00",
+        "merchantOrderNo": "OrderNoExample",
+        "status": 1,
+        "tradeNo": "TF2501010001MX0000000000000000"
+    }
 }
 ```
