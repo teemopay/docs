@@ -26,6 +26,9 @@ description: 商户请求创建一个代收订单
 | PayCashOnce（现金付款单次）      | 4                      |
 | PayCashRecurrent (现金付款多次)  | 5                      |
 
+### 注意事项
+1. 当paymentType支付方式为1:VA,还款金额和次数由用户决定,可能出现不足额或者超过期望收款金额的情况,也可能出现多次还款的情况。商户必须正确处理该逻辑。多次还款时回调paymentOrderNo作为每笔还款的唯一标识。
+2. 当paymentType支付方式为5:PayCashRecurrent,可能出现多次还款的情况。多次还款时回调paymentOrderNo作为每笔还款的唯一标识。
 ### 请求参数
 
 | 字段              | 类型   | 必需  | 最大长度 | 描述                                                |
