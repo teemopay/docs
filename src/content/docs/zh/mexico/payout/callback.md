@@ -32,13 +32,41 @@ description: 商户接受一个代付结果的回调
 | errorMessage    | String | yes  |      | 订单失败错误信息：1000-卡有误或限额 1001-已退款 1002-通道波动 9999-其他 |
 | sign            | String | yes  |      | 签名                                              |
 
-```json title=回调示例
+```json title=成功回调示例
 {
-  "merchantOrderNo": "201806251011",
-  "tradeNo": "TF201806251011",
-  "remark": "代付备注",
-  "status": 2,
-  "sign": "TEEMO_SIGN"
+    "amount": "1000.00",
+    "tradeNo": "TF2501010001MX0000000000000000",
+    "sign": "TEEMO_SIGN",
+    "remark": "",
+    "merchantOrderNo": "OrderNoExample",
+    "serviceAmount": "10.00",
+    "status": 2
+}
+```
+
+```json title=失败回调示例
+{
+    "errorCode": 9999,
+    "errorMessage": "Others",
+    "merchantOrderNo": "OrderNoExample",
+    "remark": "",
+    "sign": "TEEMO_SIGN",
+    "status": 3,
+    "tradeNo": "TF2501010001MX0000000000000000"
+}
+```
+
+```json title=退款回调示例
+{
+    "amount": "1000.00",
+    "errorCode": 1000,
+    "errorMessage": "The account does not exist or is restricted",
+    "merchantOrderNo": "OrderNoExample",
+    "remark": "",
+    "serviceAmount": "10.00",
+    "sign": "TEEMO_SIGN",
+    "status": 4,
+    "tradeNo": "TF2501010001MX0000000000000000"
 }
 ```
 
