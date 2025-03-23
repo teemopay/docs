@@ -15,8 +15,8 @@ export default defineConfig({
       disable404Route: true,
       // 用 logo 替换标题
       logo: {
-        light: "/src/assets/logo-357.png",
-        dark: "/src/assets/logo-371.png",
+        light: "/src/assets/light-logo.svg",
+        dark: "/src/assets/dark-logo.svg",
         replacesTitle: true,
       },
       // 头部信息
@@ -25,8 +25,8 @@ export default defineConfig({
           tag: "link",
           attrs: {
             rel: "icon",
-            type: "image/png",
-            href: "/favicon.png",
+            type: "image/svg+xml",
+            href: "/favicon.svg",
           },
         },
         {
