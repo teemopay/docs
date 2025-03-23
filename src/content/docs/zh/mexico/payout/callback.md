@@ -15,7 +15,7 @@ description: 商户接受一个代付结果的回调
 |----------|--------|
 | timestamp | 请求时间戳  |
 | nonce    | 随机值    |
-| country  | 国家码    |
+| country  | MX     |
 | appCode  | 应用编码   |
 
 ### 回调参数

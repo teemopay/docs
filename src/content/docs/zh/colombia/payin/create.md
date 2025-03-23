@@ -12,11 +12,11 @@ description: 商户请求创建一个代收订单
 ### 头部信息（header）
 
 | header 参数 | 入参参数描述 |
-| ----------- | ------------ |
-| timestamp   | 请求时间戳   |
-| nonce       | 随机值       |
-| country     | 国家码(CO)   |
-| app_code    | app 编号     |
+| ----------- | ----------- |
+| timestamp   | 请求时间戳  |
+| nonce       | 随机值      |
+| country     | CO   |
+| app_code    | app 编号    |
 
 ## 支持支付方式列表（paymentType）
 

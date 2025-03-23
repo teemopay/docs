@@ -11,12 +11,12 @@ description: 商户请求创建一个代付订单
 
 ### 头部信息（header）
 
-| header参数  | 入参参数描述  |
-| --------- |---------|
-| timestamp | 请求时间戳   |
-| nonce     | 随机值     |
-| country   | 国家码(ID) |
-| app_code  | app编号   |
+| header参数  | 入参参数描述 |
+| --------- |--------|
+| timestamp | 请求时间戳  |
+| nonce     | 随机值    |
+| country   | ID |
+| app_code  | app编号  |
 
 ### 请求参数
 
