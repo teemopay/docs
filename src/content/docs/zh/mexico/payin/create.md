@@ -71,7 +71,7 @@ description: 商户请求创建一个代收订单
 | errorMsg        | String     | no  |    | 错误信息,失败时返回                                      |
 
 
-#### 不同支付方式的响应示例：
+### 不同支付方式的响应示例
 
 #### 当 PaymentType 为 1 时（VA）：
 

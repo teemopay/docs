@@ -32,35 +32,44 @@ description: 商户接受一个代收结果的回调
 | paymentType     | Int | yes   |     | 支付方式           |
 | sign       | String | yes  |     | 签名                               |
 
-```json title=回调示例
+```json title=单次回调示例
 {
-    "tradeNo": "TS2404000001MX0000075277250508",
+    "tradeNo": "TS2501010001PE0000000000000000",
     "sign": "TEEMO_SIGN",
-    "merchantOrderNo": "123456780",
-    "paymentAmount": "1000.00",
-    "paymentOrderNo": "TSOcqgv0fepo103dmt3uuu233s1136",
+    "merchantOrderNo": "OrderNoExample",
+    "paymentAmount": "10.00",
+    "paymentType": 101,
+    "serviceAmount": "2.00",
+    "paymentOrderNo": "TSOPaymentOrderNoExample",
+    "paymentInfo": "https://www.paymentLinkExample.com",
     "status": 2
 }
-
 ```
 
 ```json title=多次还款回调示例
 // 一笔订单金额为200.00, 第一次还款50.00,第二次还款150.00
+
 {
-    "tradeNo": "TS2404000001PE0000075277250508",
+    "tradeNo": "TS2501010001PE0000000000000000",
     "sign": "TEEMO_SIGN",
-    "merchantOrderNo": "123456780",
-    "paymentAmount": "50.00",
-    "paymentOrderNo": "TSO0000000001",
+    "merchantOrderNo": "OrderNoExample",
+    "paymentAmount": "5.00",
+    "paymentType": 101,
+    "serviceAmount": "1.00",
+    "paymentOrderNo": "TSOPaymentOrderNoExample1",
+    "paymentInfo": "https://www.paymentLinkExample.com",
     "status": 2
 }
 
 {
-    "tradeNo": "TS2404000001PE0000075277250508",
+    "tradeNo": "TS2501010001PE0000000000000000",
     "sign": "TEEMO_SIGN",
-    "merchantOrderNo": "123456780",
-    "paymentAmount": "150.00",
-    "paymentOrderNo": "TSO0000000002",
+    "merchantOrderNo": "OrderNoExample",
+    "paymentAmount": "5.00",
+    "paymentType": 101,
+    "serviceAmount": "1.00",
+    "paymentOrderNo": "TSOPaymentOrderNoExample2",
+    "paymentInfo": "https://www.paymentLinkExample.com",
     "status": 2
 }
 ```
