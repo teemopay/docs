@@ -35,24 +35,26 @@ description: 商户接受一个代付结果的回调
 
 ```json title=回调成功示例
 {
-  "merchantOrderNo": "TEST1234567890",
-  "tradeNo": "TF0000000000PK0000000000000000",
-  "amount": "1000.00",
-  "remark": "",
-  "status": 2,
-  "sign": "TEEMO_SIGN"
+    "amount": "1000.00",
+    "tradeNo": "TF2501010001PK0000000000000000",
+    "sign": "TEEMO_SIGN",
+    "remark": "",
+    "merchantOrderNo": "OrderNoExample",
+    "serviceAmount": "25.50",
+    "status": 2
 }
 ```
 ```json title=回调失败示例
 {
-  "merchantOrderNo": "TEST1234567890",
-  "tradeNo": "TF0000000000PK0000000000000000",
-  "amount": "1000.00",
-  "remark": "",
-  "status": 3,
-  "errorCode": "1000",
-  "errorMessage": "The account does not exist or is restricted",
-  "sign": "TEEMO_SIGN"
+    "amount": "1000.00",
+    "errorCode": 1004,
+    "errorMessage": "Wallet limit exceeded, kindly contact user to upgrade or restore limit.",
+    "merchantOrderNo": "OrderNoExample",
+    "remark": "",
+    "serviceAmount": "25.50",
+    "sign": "TEEMO_SIGN",
+    "status": 3,
+    "tradeNo": "TF2501010001PK0000000000000000"
 }
 ```
 

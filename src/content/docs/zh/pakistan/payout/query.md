@@ -15,7 +15,7 @@ description: 商户查询一个代付订单的状态
 |---------------------------|--------|
 | timestamp                 | 请求时间戳  |
 | nonce                     | 随机值    |
-| country                   | PE |
+| country                   | PK     |
 | app_code                  | app编号  |
 
 ### 请求参数
@@ -27,7 +27,7 @@ description: 商户查询一个代付订单的状态
 
 ```json title=请求示例
 {
-  "merchantOrderNo": "TEST1234567890",
+  "merchantOrderNo": "OrderNoExample",
   "sign": "YOUR_SIGN"
 }
 ```
@@ -49,16 +49,15 @@ description: 商户查询一个代付订单的状态
 ```json title=返回示例
 {
     "code": 200,
-    "msg":"success", 
     "data": {
-      "merchantOrderNo": "TEST1234567890",
-      "tradeNo": "TF0000000000PK0000000000000000",
-      "amount": "1000.00",
-      "remark": "",
-      "status": 2,
-      "sign": "TEEMO_SIGN"
+        "amount": "1000.00",
+        "merchantOrderNo": "OrderNoExample",
+        "sign": "TEEMO_SIGN",
+        "status": 1,
+        "tradeNo": "TF2501010001PL0000000000000000"
     },
-    "success": true
+    "msg": "success",
+    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
 }
 ```
 ```json title=订单不存在返回示例

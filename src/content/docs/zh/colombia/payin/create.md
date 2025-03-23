@@ -25,20 +25,14 @@ description: 商户请求创建一个代收订单
 | 201    | PSE支付链接     |
 | 202    | NEQUI支付链接   |
 | 204    | 所有方式支付链接    |
-| 204    | EFECTY支付链接    |
-
-### additionalInfo （附加字段）字段说明
-
-| 字段名 | 类型 | 是否必传 | 说明 |
-| ------ | ---- | -------- | ---- |
-| -      | -    | -        | -    |
+| 205    | EFECTY支付链接    |
 
 ### 请求参数
 
 | 字段            | 类型   | 必需  | 长度  | 描述                               |
 | --------------- | ------ |-----|-----|----------------------------------|
 | merchantOrderNo | String | yes | 32  | 商户订单号                            |
-| paymentType     | Int    | yes |     | 支付方式: 支付方式列表                     |
+| paymentType     | Int    | yes |     | 支付方式,详见上方支付方式列表                  |
 | amount          | String | yes | 20  | 代收金额,仅支持整数,索尔                    |
 | expirationTime  | Long   | no  |     | 过期时间                             |
 | realName        | String | yes | 64  | 用户姓名                             |

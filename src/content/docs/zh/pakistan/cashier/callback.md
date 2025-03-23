@@ -34,14 +34,14 @@ description: 商户接受一个代收结果的回调
 
 ```json title=成功回调示例
 {
-    "tradeNo": "TS2404000001MX0000075277250508",
+    "tradeNo": "TS2501010001PK0000000000000000",
     "sign": "TEEMO_SIGN",
-    "merchantOrderNo": "123456780",
+    "merchantOrderNo": "OrderNoExample",
     "paymentAmount": "1000.00",
+    "paymentType": 304,
     "serviceAmount": "10.00",
-    "paymentInfo": "https://dev-cashier.teemopay.com/#/?tradeNo=TS2405210001MX0000142911043800",
-    "paymentType": 303,
-    "paymentOrderNo": "TSOcqgv0fepo103dmt3uuu233s1136",
+    "paymentOrderNo": "TSOPaymentOrderNoExample",
+    "paymentInfo": "jazzcash",
     "status": 2
 }
 ```
@@ -49,18 +49,17 @@ description: 商户接受一个代收结果的回调
 ```json title=失败回调示例
 
 {
-    "tradeNo": "TS2404000001MX0000075277250508",
+    "tradeNo": "TS2501010001PK0000000000000000",
+    "errorMessage": "Unstable network, kindly retry later.",
     "sign": "TEEMO_SIGN",
-    "merchantOrderNo": "123456780",
+    "merchantOrderNo": "OrderNoExample",
     "paymentAmount": "1000.00",
-    "serviceAmount": "10.00",
-    "paymentInfo": "https://dev-cashier.teemopay.com/#/?tradeNo=TS2405210001MX0000142911043800",
-    "paymentType": 303,
-    "paymentOrderNo": "TSOcqgv0fepo103dmt3uuu233s1136",
-    "errorMessage": "network is unstable, please try again later",
+    "paymentType": 302,
+    "serviceAmount": "0.00",
+    "paymentOrderNo": "TSOPaymentOrderNoExample",
+    "paymentInfo": "jazzcash",
     "status": 3
 }
-
 ```
 
 ### 错误信息说明

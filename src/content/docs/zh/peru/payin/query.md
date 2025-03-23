@@ -57,7 +57,7 @@ description: 商户查询一个代收订单的状态
     "data": {
         "merchantOrderNo": "OrderNoExample",
         "amount": "10.00",
-        "transactionAmount": "1000.00",
+        "transactionAmount": "10.00",
         "tradeNo": "TS2501010001PE0000000000000000",
         "paymentType": 101,
         "status": 2,
