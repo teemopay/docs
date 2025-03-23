@@ -18,20 +18,22 @@ description: 商户请求创建一个代付订单
 | country                   | 国家码(MX) |
 | app_code                  | app编号   |
 
+### 注意事项
+代付订单有成功转为失败的场景，普遍原因为收款账号格式正确但不存在或者收款账号状态异常。该场景一般在创建订单的五分钟内完成两次回调。此类情况会先回调商户成功状态，再回调商户退款状态，商户必须正确处理改逻辑。
 ### 请求参数
 
-| 字段              | 类型   | 必需  | 长度  | 描述                   |
-|-----------------| ------ |-----|-----|----------------------|
-| merchantOrderNo | String | yes | 32  | 商户订单号                |
-| amount          | String | yes | 20  | 代付金额(比索)             |
-| bankCode        | String | yes | 50  | 银行编码                 |
-| bankName        | String | yes | 50  | 银行名称                 |
-| accountType     | Int    | yes |     | 账户类型 3-借记卡 40-CLABE  |
-| bankAccount     | String | yes | 50  | 收款账号                 |
-| realName        | String | yes | 40  | 用户姓名 不包含特殊字符，建议全大写                  |
-| idCardNumber    | String | yes | 50  | 收款人 ID 号码            |
-| callbackUrl     | String | no  | 200 | 代付回调地址，若不传, 则以商户配置为准 |
-| sign            | String | yes |     | 签名                   |
+| 字段              | 类型   | 必需  | 最大长度 | 描述                   |
+|-----------------| ------ |-----|------|----------------------|
+| merchantOrderNo | String | yes | 32   | 商户订单号                |
+| amount          | String | yes | 20   | 代付金额(比索)             |
+| bankCode        | String | yes | 50   | 银行编码                 |
+| bankName        | String | yes | 50   | 银行名称                 |
+| accountType     | Int    | yes |      | 账户类型 3:借记卡 40:CLABE  |
+| bankAccount     | String | yes | 50   | 收款账号                 |
+| realName        | String | yes | 40   | 用户姓名 不包含特殊字符，建议全大写   |
+| idCardNumber    | String | yes | 50   | 收款人 ID 号码            |
+| callbackUrl     | String | no  | 200  | 代付回调地址，若不传, 则以商户配置为准 |
+| sign            | String | yes |      | 签名                   |
 
 ```json title=请求示例
 {
