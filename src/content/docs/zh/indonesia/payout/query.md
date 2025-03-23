@@ -27,7 +27,7 @@ description: 商户查询一个代付订单的状态
 
 ```json
 {
-  "merchantOrderNo": "201806251011",
+  "merchantOrderNo": "OrderNoExample",
   "sign": "YOUR_SIGN"
 }
 ```
@@ -51,7 +51,7 @@ description: 商户查询一个代付订单的状态
     "code": 200,
     "msg":"success", 
     "data": {
-      "merchantOrderNo": "201806251011",
+      "merchantOrderNo": "OrderNoExample",
       "tradeNo": "TF201806251011",
       "remark": "代付备注",
       "status": 1,

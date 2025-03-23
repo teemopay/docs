@@ -35,7 +35,7 @@ description: Create a payout order
 
 ```json title=Request Example
 {
-  "outTradeNo": "201806251011",
+  "outTradeNo": "OrderNoExample",
   "amount": "100",
   "bankCode": "646",
   "bankName": "STP",
@@ -59,7 +59,7 @@ description: Create a payout order
 
 ```json title=Return Example
 {
-  "merchantOrderNo": "201806251011",
+  "merchantOrderNo": "OrderNoExample",
   "tradeNo": "TF201806251011",
   "status": 1,
   "sign": "TEEMO_SIGN"

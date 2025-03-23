@@ -9,6 +9,16 @@ description: 余额查询
 | ------ | ------------------------- |
 | POST   | /api/pay/merchant/balance |
 
+
+
+### 头部信息（header）
+
+| header 参数 | 入参参数描述 |
+| ----------- |--------|
+| timestamp   | 请求时间戳  |
+| nonce       | 随机值    |
+| country     | ID     |
+| app_code    | app 编号 |
 ### 请求参数
 
 | 字段   | 类型     | 必需  | 长度  | 描述  |
@@ -31,8 +41,13 @@ description: 余额查询
 
 ```json
 {
-  "totalAmount": "1009962.02",
-  "frozenAmount": "33161.70",
-  "availAmount": "976800.32"
+    "code": 200,
+    "data": {
+        "totalAmount": "12000.00",
+        "frozenAmount": "2000.00",
+        "availAmount": "10000.00"
+    },
+    "msg": "success",
+    "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
 }
 ```

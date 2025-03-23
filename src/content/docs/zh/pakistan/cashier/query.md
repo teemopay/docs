@@ -27,7 +27,7 @@ description: 商户查询一个收银台订单的状态
 
 ```json title=请求示例
 {
-  "merchantOrderNo": "201806251011",
+  "merchantOrderNo": "OrderNoExample",
   "sign": "YOUR_SIGN"
 }
 ```
@@ -53,7 +53,7 @@ description: 商户查询一个收银台订单的状态
 
 ```json title=返回示例
 {
-  "merchantOrderNo": "201806251011",
+  "merchantOrderNo": "OrderNoExample",
   "tradeNo": "TF201806251011",
   "paymentType": 1,
   "amount": "100",
@@ -61,7 +61,7 @@ description: 商户查询一个收银台订单的状态
   "remark": "代收备注",
   "statementList": [
     {
-      "paymentSingleOrderNo": "201806251011",
+      "paymentSingleOrderNo": "OrderNoExample",
       "paymentStatementAmount": "100",
       "paymentStatementStatus": 2,
       "paymentStatementStatusName": "代收成功",

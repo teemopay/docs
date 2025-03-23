@@ -27,7 +27,7 @@ description: 商户查询一个代收订单的状态
 
 ```json title=请求示例
 {
-  "merchantOrderNo": "201806251011",
+  "merchantOrderNo": "OrderNoExample",
   "sign": "YOUR_SIGN"
 }
 ```

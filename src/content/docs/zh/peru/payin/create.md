@@ -24,9 +24,12 @@ description: 商户请求创建一个代收订单
 | ------------------------ | ----------- |
 | checkout(支付链接收银台) | 101         |
 
+#### 收银台样式
+![image-20240528105940814](https://image.xiwu.me/2024/903d077857edfdec8deee35a455587f4.png)
+
 ### 注意事项
 部分收银台还款金额由用户输入,可能出现不足额或者超过期望收款金额的情况,也可能出现多次还款的情况。商户必须正确处理该逻辑。多次还款时通过回调报文中paymentOrderNo字段作为每笔还款的唯一标识。
-![image-20240528105940814](https://image.xiwu.me/2024/903d077857edfdec8deee35a455587f4.png)
+
 ### 请求参数
 
 | 字段            | 类型   | 必需 | 长度  | 描述                                          |
@@ -64,7 +67,7 @@ description: 商户请求创建一个代收订单
 | paymentType     | Int        | yes  | 10   | 支付方式,101:checkout |
 | paymentInfo     | String     | yes  | 32   | 主要付款信息,收银台链接      |
 | additionalInfo  | JSONObject | no   |      | 附加信息              |
-| status          | Int        | yes  |      | 1-订单创建成功 3-失败     |
+| status          | Int        | yes  |      | 代收状态, 1:成功 3:失败     |
 | errorMsg        | String     | no   |      | 错误信息,失败时返回        |
 
 

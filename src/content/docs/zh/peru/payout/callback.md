@@ -34,11 +34,13 @@ description: 商户接受一个代付结果的回调
 
 ```json title=回调示例
 {
-  "merchantOrderNo": "201806251011",
-  "tradeNo": "TF201806251011",
-  "remark": "代付备注",
-  "status": 2,
-  "sign": "TEEMO_SIGN"
+    "amount": "100.00",
+    "tradeNo": "TF2501010001PE0000000000000000",
+    "sign": "TEEMO_SIGN",
+    "remark": "",
+    "merchantOrderNo": "OrderNoExample",
+    "serviceAmount": "5.00",
+    "status": 2
 }
 ```
 

@@ -27,7 +27,7 @@ description: 商户查询一个代付订单的状态
 
 ```json title=请求示例
 {
-  "merchantOrderNo": "201806251011",
+  "merchantOrderNo": "OrderNoExample",
   "sign": "YOUR_SIGN"
 }
 ```
@@ -49,21 +49,21 @@ description: 商户查询一个代付订单的状态
 ```json title=返回示例
 {
     "code": 200,
-    "msg":"success", 
     "data": {
-      "merchantOrderNo": "201806251011",
-      "tradeNo": "TF201806251011",
-      "remark": "代付备注",
-      "status": "1",
-      "sign": "TEEMO_SIGN"
+        "amount": "10.00",
+        "merchantOrderNo": "OrderNoExample",
+        "sign": "TEEMO_SIGN",
+        "status": 1,
+        "tradeNo": "TF2501010001PE0000000000000000"
     },
-    "success": true
+    "msg": "success",
+    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
 }
 ```
 ```json title=订单不存在返回示例
 {
     "code": 400,
     "msg":"Order not found",
-    "success": false
+    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
 }
 ```

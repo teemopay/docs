@@ -27,7 +27,7 @@ description: Merchant queries the status of a payment order
 
 ```json title="Request Example"
 {
-  "merchantOrderNo": "201806251011",
+  "merchantOrderNo": "OrderNoExample",
   "sign": "YOUR_SIGN"
 }
 ```
@@ -53,7 +53,7 @@ description: Merchant queries the status of a payment order
 
 ```json title="Response Example"
 {
-  "merchantOrderNo": "201806251011",
+  "merchantOrderNo": "OrderNoExample",
   "tradeNo": "TF201806251011",
   "paymentType": 1,
   "amount": "100",
@@ -61,7 +61,7 @@ description: Merchant queries the status of a payment order
   "remark": "Payment remarks",
   "statementList": [
     {
-      "paymentSingleOrderNo": "201806251011",
+      "paymentSingleOrderNo": "OrderNoExample",
       "paymentStatementAmount": "100",
       "paymentStatementStatus": "2",
       "paymentStatementStatusName": "Payment Success",
