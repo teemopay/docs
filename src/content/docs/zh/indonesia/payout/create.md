@@ -20,33 +20,32 @@ description: 商户请求创建一个代付订单
 
 ### 请求参数
 
-| 字段              | 类型     | 必需  | 长度  | 描述                     |
-| --------------- | ------ |-----| --- |------------------------|
-| merchantOrderNo | String | yes | 32  | 商户订单号                  |
-| amount          | String | yes | 20  | 代付金额(印尼盾) 整数           |
-| bankCode        | String | yes | 50  | 银行编码                   |
-| bankName        | String | yes  | 50  | 银行名称                   |
-| accountType     | Int    | yes |     | 501:BankTransfer       |
-| bankAccount     | String | yes | 255 | 收款账号                   |
-| realName        | String | yes | 255 | 用户姓名                   |
-| phone           | Stirng | yes | 10   | 电话号码 08开头,10~13位                  |
-| email           | Stirng | yes  | 64   | 用户邮箱                            |
-| callbackUrl     | String | no  | 200 | 代付回调地址，若不传, 则以商户配置为准   |
-| sign            | String | yes |     | 签名                     |
+| 字段              | 类型     | 必需  | 最大长度 | 描述                   |
+| --------------- | ------ |-----|------|----------------------|
+| merchantOrderNo | String | yes | 32   | 商户订单号                |
+| amount          | String | yes | 20   | 代付金额,印尼盾,整数          |
+| bankCode        | String | yes | 50   | 银行编码                 |
+| bankName        | String | yes  | 50   | 银行名称                 |
+| accountType     | Int    | yes |      | 501:BankTransfer     |
+| bankAccount     | String | yes | 255  | 收款账号                 |
+| realName        | String | yes | 255  | 用户姓名                 |
+| phone           | Stirng | yes | 13   | 电话号码 08开头,10~13位     |
+| email           | Stirng | yes  | 64   | 用户邮箱                 |
+| callbackUrl     | String | no  | 200  | 代付回调地址，若不传, 则以商户配置为准 |
+| sign            | String | yes |      | 签名                   |
 
 ```json
 {
-                "merchantOrderNo": "ds111ad111022911111111111131",
+                "merchantOrderNo": "OrderNoExample",
                 "realName": "Carlos",
-                "bankCode": "1",
-                "bankName": "BANK",
-                "accountType": 101,
+                "bankCode": "0001",
+                "bankName": "Bank Mandiri",
+                "accountType": 501,
                 "bankAccount": "1234567890123456",
-                "amount": "100000",
-                "callbackUrl": "http://127.0.0.1:8075/sys/dictionary/test",
+                "amount": "10000",
+                "callbackUrl": "https://www.callbackexample.com",
                 "sign": "YOUR SIGN",
-                "idType": "DNI",
-                "phone": "13175025118",
+                "phone": "0800000000",
                 "idCardNumber": "12345678"
 }
 ```
@@ -62,14 +61,14 @@ description: 商户请求创建一个代付订单
 
 ```json
 {
-    "code": 200,
-    "data": {
-        "merchantOrderNo": "ds111ad111002911111111111131",
-        "tradeNo": "TF2405220001MX0000048840060444",
-        "amount": "100",
-        "status": 1
-    },
-    "msg": "success",
-    "success": true
+  "msg": "success",
+  "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298",
+  "code": 200,
+  "data": {
+    "amount": "10000.00",
+    "merchantOrderNo": "OrderNoExample",
+    "status": 1,
+    "tradeNo": "TF2501010001ID0000000000000000"
+  }
 }
 ```

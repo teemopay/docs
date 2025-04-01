@@ -48,23 +48,35 @@ description: 商户查询一个代付订单的状态
 
 ```json
 {
-    "code": 200,
-    "msg":"success", 
-    "data": {
-      "merchantOrderNo": "OrderNoExample",
-      "tradeNo": "TF201806251011",
-      "remark": "代付备注",
-      "status": 1,
-      "sign": "TEEMO_SIGN"
-    },
-    "success": true
+  "code": 200,
+  "data": {
+    "merchantOrderNo": "OrderNoExample",
+    "amount": "10000.00",
+    "transactionAmount": "10000.00",
+    "tradeNo": "TS2501010001ID0000000000000000",
+    "paymentType": 501,
+    "status": 2,
+    "remark": null,
+    "statementList": [
+      {
+        "paymentSingleOrderNo": "TSOPaymentOrderNoExample",
+        "paymentStatementAmount": "10000.00",
+        "paymentStatementStatus": 2,
+        "paymentStatementStatusName": "代收成功",
+        "message": null
+      }
+    ],
+    "sign": "TEEMO_SIGN"
+  },
+  "msg": "success",
+  "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
 }
 ```
 
 ```json
 {
-    "code": 400,
-    "msg":"Order not found",
-    "success": false
+  "code": 400,
+  "msg": "Order not found",
+  "success": false
 }
 ```
