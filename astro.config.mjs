@@ -78,8 +78,8 @@ export default defineConfig({
           {
             id: "crypto",
             label: {
-              en: "加密货币",
-              zh: "crypto",
+              en: "USDT",
+              zh: "USDT",
             },
             link: "/crypto/payin/create",
             items: [
