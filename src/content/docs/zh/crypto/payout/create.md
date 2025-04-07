@@ -20,28 +20,24 @@ description: 商户请求创建一个代付订单
 
 ### 请求参数
 
-| 字段              | 类型   | 必需  | 最大长度 | 描述                  |
-|-----------------| ------ |-----|------|---------------------|
-| merchantOrderNo | String | yes | 32   | 商户订单号               |
-| amount          | String | yes | 20   | 代付金额                |
-| chainType       | String | yes | 50   | 链名                  |
-| address         | String | yes |    | 收款地址                |
+| 字段              | 类型   | 必需  | 最大长度 | 描述                 |
+|-----------------| ------ |-----|------|--------------------|
+| merchantOrderNo | String | yes | 32   | 商户订单号              |
+| amount          | String | yes | 20   | 代付金额               |
+| chain       | String | yes | 50   | 链名: trc20,erc20等   |
+| address         | String | yes |    | 收款地址               |
 | callbackUrl     | String | no  | 200  | 代付回调地址，若不传, 则以商户配置为准 |
-| sign            | String | yes |      | 签名                  |
+| sign            | String | yes |      | 签名                 |
 
 ```json title=请求示例
 {
-    "bankAccount": "123456789987654321",
-    "realName": "TEEMO",
-    "bankCode": "40002",
-    "amount": "1000.00",
-    "phone": "1000000000",
-    "accountType": 40,
-    "idCardNumber": "GAPG00000000000000",
+    "merchantOrderNo": "OrderNoExample",
+    "amount": "10.00",
+    "chain": "trc20",
+    "address": "123456789987654321",
+    "callbackUrl": "https://www.callbackexample.com"
     "sign": "YOUR_SIGN",
-    "bankName": "BANAMEX",
-    "callbackUrl": "https://www.callbackexample.com",
-    "merchantOrderNo": "OrderNoExample"
+
 }
 ```
 
