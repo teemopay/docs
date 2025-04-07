@@ -76,6 +76,37 @@ export default defineConfig({
             items: ["guides/getting-started", "guides/changes", "guides/operation-manual", "guides/create-keys", "guides/authentication"],
           },
           {
+            id: "crypto",
+            label: {
+              en: "加密货币",
+              zh: "crypto",
+            },
+            link: "/crypto/payin/create",
+            items: [
+              {
+                label: "Payin",
+                translations: {
+                  zh: "代收",
+                },
+                items: ["crypto/payin/create", "crypto/payin/callback", "crypto/payin/query"],
+              },
+              {
+                label: "Payout",
+                translations: {
+                  zh: "代付",
+                },
+                items: ["crypto/payout/create", "crypto/payout/callback", "crypto/payout/query", "mexico/payout/bank"],
+              },
+              {
+                label: "Inquire",
+                translations: {
+                  zh: "查询",
+                },
+                items: ["crypto/inquire/balance", "crypto/inquire/bill"],
+              },
+            ],
+          },
+          {
             id: "mexico",
             label: {
               en: "🇲🇽 Mexico",
