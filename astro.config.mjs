@@ -95,7 +95,7 @@ export default defineConfig({
                 translations: {
                   zh: "代付",
                 },
-                items: ["crypto/payout/create", "crypto/payout/callback", "crypto/payout/query", "mexico/payout/bank"],
+                items: ["crypto/payout/create", "crypto/payout/callback", "crypto/payout/query", "crypto/payout/bank"],
               },
               {
                 label: "Inquire",
