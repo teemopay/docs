@@ -20,22 +20,26 @@ description: 商户请求创建一个代收订单
 
 ## 支持支付方式列表（paymentType）
 
-| 支付方式名称      | PaymentType (入参参数) |
-|-------------|--------------------|
-| PaymentLink | 501                |
+| 支付方式名称      | PaymentType (入参参数)            |
+|-------------|-------------------------------|
+| PaymentLink | 501(聚合收银台,包含E-Wallet,VA,QRIS) |
+| E-Wallet | 502(收银台,包含Dana等)              |
+| VA | 503                           |
+| QRIS | 504                           |
+
 
 ### 请求参数
 
-| 字段              | 类型     | 必需  | 最大长度 | 描述             |
-| --------------- | ------ |-----|------|----------------|
-| merchantOrderNo | String | yes | 32   | 商户订单号          |
-| paymentType     | Int    | yes |      | 支付方式: 501      |
-| amount          | String | yes | 20   | 代收金额,印尼盾,整数    |
-| realName        | String | yes | 64   | 用户姓名           |
-| email           | String | yes  | 50   | 用户邮箱：满足正则表达式即可 |
-| phone           | String | yes  | 13   | 电话号码 08开头,10~13位 |
-| sign            | String | yes |      | 签名             |
-| callbackUrl     | String | no  | 200  | 回调地址           |
+| 字段              | 类型     | 必需  | 最大长度 | 描述                    |
+| --------------- | ------ |-----|------|-----------------------|
+| merchantOrderNo | String | yes | 32   | 商户订单号                 |
+| paymentType     | Int    | yes |      | 支付方式: 501,502,503,504 |
+| amount          | String | yes | 20   | 代收金额,印尼盾,整数           |
+| realName        | String | yes | 64   | 用户姓名                  |
+| email           | String | yes  | 50   | 用户邮箱：满足正则表达式即可        |
+| phone           | String | yes  | 13   | 电话号码 08开头,10~13位      |
+| sign            | String | yes |      | 签名                    |
+| callbackUrl     | String | no  | 200  | 回调地址                  |
 
 ```json
 {
