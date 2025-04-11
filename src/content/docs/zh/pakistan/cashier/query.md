@@ -12,11 +12,11 @@ description: 商户查询一个收银台订单的状态
 ### 头部信息（header）
 
 | header 参数 | 入参参数描述 |
-| ----------- | ------------ |
-| timestamp   | 请求时间戳   |
-| nonce       | 随机值       |
-| country     | 国家码(PK)   |
-| app_code    | app 编号     |
+| ----------- | ----------- |
+| timestamp   | 请求时间戳  |
+| nonce       | 随机值      |
+| country     | PK   |
+| app_code    | app 编号    |
 
 ### 请求参数
 
@@ -27,7 +27,7 @@ description: 商户查询一个收银台订单的状态
 
 ```json title=请求示例
 {
-  "merchantOrderNo": "201806251011",
+  "merchantOrderNo": "OrderNoExample",
   "sign": "YOUR_SIGN"
 }
 ```
@@ -53,22 +53,26 @@ description: 商户查询一个收银台订单的状态
 
 ```json title=返回示例
 {
-  "merchantOrderNo": "201806251011",
-  "tradeNo": "TF201806251011",
-  "paymentType": 1,
-  "amount": "100",
-  "status": 2,
-  "remark": "代收备注",
-  "statementList": [
-    {
-      "paymentSingleOrderNo": "201806251011",
-      "paymentStatementAmount": "100",
-      "paymentStatementStatus": 2,
-      "paymentStatementStatusName": "代收成功",
-      "message": "代收成功"
-    }
-  ],
-  "sign": "TEEMO_SIGN",
-  "success": true
+    "code": 200,
+    "data": {
+        "merchantOrderNo": "OrderNoExample",
+        "amount": "1000.00",
+        "transactionAmount": "1000.00",
+        "tradeNo": "TS2501010001PL0000000000000000",
+        "paymentType": 302,
+        "status": 2,
+        "remark": null,
+        "statementList": [
+            {
+                "paymentSingleOrderNo": "TSOPaymentOrderNoExample1",
+                "paymentStatementAmount": "1000.00",
+                "paymentStatementStatus": 2,
+                "paymentStatementStatusName": "代收成功",
+                "message": null
+            }
+        "sign": "TEEMO_SIGN"
+    },
+    "msg": "success",
+    "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
 }
 ```

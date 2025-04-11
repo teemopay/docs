@@ -11,12 +11,12 @@ description: 商户请求创建一个代付订单
 
 ### 头部信息（header）
 
-| header参数                  | 入参参数描述  |
-|---------------------------|---------|
-| timestamp                 | 请求时间戳   |
-| nonce                     | 随机值     |
-| country                   | 国家码(CO) |
-| app_code                  | app编号   |
+| header参数                  | 入参参数描述 |
+|---------------------------|-------|
+| timestamp                 | 请求时间戳 |
+| nonce                     | 随机值   |
+| country                   | CO    |
+| app_code                  | app编号 |
 
 ### 请求参数
 
@@ -38,18 +38,19 @@ description: 商户请求创建一个代付订单
 
 ```json title=请求示例
 {
-                "merchantOrderNo": "ds111ad111022911111111111131",
-                "realName": "Carlos",
-                "bankCode": "1",
-                "bankName": "BCP",
-                "accountType": 101,
-                "bankAccount": "1234567890123456",
-                "amount": "100000",
-                "callbackUrl": "http://127.0.0.1:8075/sys/dictionary/test",
-                "sign": "YOUR SIGN",
-                "idType": "DNI",
-                "phone": "13175025118",
-                "idCardNumber": "12345678"
+    "bankAccount": "3000000000",
+    "bankCode": "1507",
+    "bankName": "NEQUI",
+    "amount": "10000",
+    "idType": "CC",
+    "accountType": 201,
+    "merchantOrderNo": "OrderNoExample",
+    "realName": "TEEMO",
+    "phone": "3000000000",
+    "idCardNumber": "1234567890",
+    "callbackUrl": "https://www.callbackexample.com",
+    "email": "TeemoPay@example.com",
+    "sign": "YOUR_SIGN"
 }
 ```
 
@@ -59,19 +60,19 @@ description: 商户请求创建一个代付订单
 | --------------- | ------ | ---- | ---- | ----------------------------- |
 | merchantOrderNo | String | yes  | 32   | 商户订单号                    |
 | tradeNo         | String | yes  |      | 平台订单号                    |
-| status          | Int | yes  |      | 1-支付中 3-失败(可以重新发起) |
+| status          | Int | yes  |      | 代付状态,1:支付中 3:失败(可以重新发起) |
 | amount          | String | yes  |      | 交易金额                      |
 
 ```json title=返回示例
 {
+    "msg": "success",
+    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298",
     "code": 200,
     "data": {
-        "merchantOrderNo": "ds111ad111002911111111111131",
-        "tradeNo": "TF2405220001MX0000048840060444",
-        "amount": "100",
-        "status": 1
-    },
-    "msg": "success",
-    "success": true
+        "amount": "10000",
+        "merchantOrderNo": "OrderNoExample",
+        "status": 1,
+        "tradeNo": "TF2501010001CO0000000000000000"
+    }
 }
 ```

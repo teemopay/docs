@@ -16,7 +16,7 @@ description: 商户接受一个代收结果的回调
 |----------|--------|
 | timestamp | 请求时间戳  |
 | nonce    | 随机值    |
-| country  | 国家码    |
+| country  | ID     |
 | appCode  | 应用编码   |
 
 ### 代收回调

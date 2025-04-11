@@ -16,7 +16,7 @@ description: 商户接受一个代收结果的回调
 |----------|--------|
 | timestamp | 请求时间戳  |
 | nonce    | 随机值    |
-| country  | 国家码    |
+| country  | ID     |
 | appCode  | 应用编码   |
 
 ### 代收回调
@@ -35,17 +35,16 @@ description: 商户接受一个代收结果的回调
 
 ```json title=回调示例
 {
-    "tradeNo": "TS2404000001MX0000075277250508",
+    "tradeNo": "TS2501010001ID0000000000000000",
     "sign": "TEEMO_SIGN",
-    "merchantOrderNo": "123456780",
-    "paymentAmount": "1000.00",
-    "paymentOrderNo": "TSOcqgv0fepo103dmt3uuu233s1136",
+    "merchantOrderNo": "OrderNoExample",
+    "paymentAmount": "10000.00",
+    "paymentType": 501,
+    "serviceAmount": "2.00",
+    "paymentOrderNo": "TSOPaymentOrderNoExample",
+    "paymentInfo": "https://www.paymentLinkExample.com",
     "status": 2
-    "paymentType":1,
-    "serviceAmount":"60.00",
-    "paymentInfo":"646180503010250443"
 }
-
 ```
 
 ### 回调返回

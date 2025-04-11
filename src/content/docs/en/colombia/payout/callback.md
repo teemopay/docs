@@ -35,7 +35,7 @@ description: Merchant receives a payout result callback
 
 ```json title="Callback Example"
 {
-  "merchantOrderNo": "201806251011",
+  "merchantOrderNo": "OrderNoExample",
   "tradeNo": "TF201806251011",
   "remark": "Payout remarks",
   "status": 2,

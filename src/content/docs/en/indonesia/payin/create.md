@@ -11,12 +11,12 @@ description: 商户请求创建一个代收订单
 
 ### 头部信息（header）
 
-| header 参数 | 入参参数描述  |
-| --------- |---------|
-| timestamp | 请求时间戳   |
-| nonce     | 随机值     |
-| country   | 国家码(ID) |
-| app_code  | app 编号  |
+| header 参数 | 入参参数描述 |
+| --------- |-------|
+| timestamp | 请求时间戳 |
+| nonce     | 随机值   |
+| country   | ID    |
+| app_code  | app 编号 |
 
 ## 支持支付方式列表（paymentType）
 
@@ -68,7 +68,7 @@ description: 商户请求创建一个代收订单
 | paymentType     | Int        | yes | 3   | 支付方式                         |
 | paymentInfo     | String     | yes | 32  | 主要付款信息，返回的是实际用于付款的信息，例如：付款编号 |
 | additionalInfo  | JSONObject | no  |     | 扩展信息                         |
-| status          | Int        | yes |     | 1-订单创建成功 3-失败                |
+| status          | Int        | yes |     | 代收状态, 1:成功 3:失败                |
 | errorMsg        | String     | no  |     | 错误信息,失败时返回                   |
 
 ```json

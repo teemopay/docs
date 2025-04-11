@@ -31,7 +31,12 @@ description: Balance Query
 
 ```json title="Response Example"
 {
-  "totalAmount": "1009962.02",
-  "frozenAmount": "33161.70",
-  "availAmount": "976800.32"
+    "code": 200,
+    "data": {
+        "totalAmount": "12000.00",
+        "frozenAmount": "2000.00",
+        "availAmount": "10000.00"
+    },
+    "msg": "success",
+    "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
 }

@@ -27,7 +27,7 @@ description: Merchant queries the status of a payout order
 
 ```json title="Request Example"
 {
-  "merchantOrderNo": "201806251011",
+  "merchantOrderNo": "OrderNoExample",
   "sign": "YOUR_SIGN"
 }
 ```
@@ -51,7 +51,7 @@ description: Merchant queries the status of a payout order
   "code": 200,
   "msg": "success",
   "data": {
-    "merchantOrderNo": "201806251011",
+    "merchantOrderNo": "OrderNoExample",
     "tradeNo": "TF201806251011",
     "remark": "Payout remarks",
     "status": 1,

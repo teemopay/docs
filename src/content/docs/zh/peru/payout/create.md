@@ -11,12 +11,12 @@ description: 商户请求创建一个代付订单
 
 ### 头部信息（header）
 
-| header参数                  | 入参参数描述  |
-|---------------------------|---------|
-| timestamp                 | 请求时间戳   |
-| nonce                     | 随机值     |
-| country                   | 国家码(PE) |
-| app_code                  | app编号   |
+| header参数                  | 入参参数描述 |
+|---------------------------|--------|
+| timestamp                 | 请求时间戳  |
+| nonce                     | 随机值    |
+| country                   | PE |
+| app_code                  | app编号  |
 
 ### 请求参数
 
@@ -24,32 +24,33 @@ description: 商户请求创建一个代付订单
 |-----------------| ------ |-----|-----|----------------------------------------------------------|
 | merchantOrderNo | String | yes | 32  | 商户订单号                                                    |
 | amount          | String | yes | 20  | 代付金额(比索)                                                 |
-| phone           | String |  no | 9   | 9开头 9位数字                                         |
+| phone           | String |  no | 9   | 9开头 9位数字                                                 |
 | bankCode        | String | yes | 50  | 银行编码                                                     |
 | bankName        | String | yes | 50  | 银行名称                                                     |
-| accountType     | Int    | yes |     | 账户类型 101-AHORRO(储蓄) 102-CORRIENTE(活期)                    |
+| accountType     | Int    | yes |     | 账户类型, AHORRO:101(储蓄) CORRIENTE:102(活期)          |
 | bankAccount     | String | yes | 50  | 收款账号                                                     |
-| realName        | String | yes | 50  | 用户姓名 不包含特殊字符，建议全大写                                                  |
+| realName        | String | yes | 50  | 用户姓名 不包含特殊字符，建议全大写                                       |
 | idCardNumber    | String | yes | 50  | 收款人证件号码                                                  |
-| idType          | Stirng | yes | 32  | DNI(8位数；身份证) ,  RUC（11位数；税号）, CE（9位数；外国人身份证）, PA（9位数；护照） |
+| idType          | Stirng | yes | 32  | 证件类型,身份证:DNI(8位数),税号:RUC(11位数),外国人身份证:CE(9位数）, 护照:PA(9位数） |
 | callbackUrl     | String | no  | 200 | 代付回调地址，若不传, 则以商户配置为准                                     |
 | sign            | String | yes |     | 签名                                                       |
 
 ```json title=请求示例
 {
-                "merchantOrderNo": "ds111ad111022911111111111131",
-                "realName": "Carlos",
-                "bankCode": "1",
-                "bankName": "BCP",
-                "accountType": 101,
-                "bankAccount": "1234567890123456",
-                "amount": "100000",
-                "callbackUrl": "http://127.0.0.1:8075/sys/dictionary/test",
-                "sign": "YOUR SIGN",
-                "idType": "DNI",
-                "phone": "13175025118",
-                "idCardNumber": "12345678"
+    "bankAccount": "1234567899276",
+    "bankCode": "2",
+    "bankName": "INTERBANK",
+    "realName": "TEEMO",
+    "amount": "100.00",
+    "idType": "DNI",
+    "phone": "123456789",
+    "accountType": "101",
+    "idCardNumber": "12345678",
+    "sign": "YOUR_SIGN",
+    "callbackUrl": "https://www.callbackexample.com",
+    "merchantOrderNo": "OrderNoExample"
 }
+
 ```
 
 ### 返回参数
@@ -58,19 +59,19 @@ description: 商户请求创建一个代付订单
 | --------------- | ------ | ---- | ---- | ----------------------------- |
 | merchantOrderNo | String | yes  | 32   | 商户订单号                    |
 | tradeNo         | String | yes  |      | 平台订单号                    |
-| status          | Int | yes  |      | 1-支付中 3-失败(可以重新发起) |
+| status          | Int | yes  |      | 代付状态,1:支付中 3:失败(可以重新发起) |
 | amount          | String | yes  |      | 交易金额                      |
 
 ```json title=返回示例
 {
+    "msg": "success",
+    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298",
     "code": 200,
     "data": {
-        "merchantOrderNo": "ds111ad111002911111111111131",
-        "tradeNo": "TF2405220001MX0000048840060444",
-        "amount": "100",
-        "status": 1
-    },
-    "msg": "success",
-    "success": true
+        "amount": "100.00",
+        "merchantOrderNo": "OrderNoExample",
+        "status": 1,
+        "tradeNo": "TF2501010001PE0000000000000000"
+    }
 }
 ```
