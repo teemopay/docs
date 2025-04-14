@@ -20,11 +20,12 @@ description: 商户请求创建一个代收订单
 
 ## 支持支付方式列表（paymentType）
 
-| 支付方式名称                     | PaymentType (入参参数) |
-| ------------------------------ | ---------------------- |
-| VA (线上银行转账单次和多次)      | 1                      |
-| PayCashOnce（现金付款单次）      | 4                      |
-| PayCashRecurrent (现金付款多次)  | 5                      |
+| 支付方式名称                           | PaymentType (入参参数) |
+|----------------------------------|--------------------|
+| VA (SPEI 线上网银支付)                 | 1                  |
+| PayCashOnce（线下网点现金支付单次）          | 4                  |
+| PayCashRecurrent (线下网点现金支付同金额多次) | 5                  |
+| OXXO (OXXO 线下网点现金支付)             | 6                  |
 
 ### 注意事项
 1. 当paymentType支付方式为1:VA,还款金额和次数由用户决定,可能出现不足额或者超过期望收款金额的情况,也可能出现多次还款的情况。商户必须正确处理该逻辑。多次还款时通过回调报文中paymentOrderNo字段作为每笔还款的唯一标识。
@@ -133,5 +134,20 @@ description: 商户请求创建一个代收订单
     "paymentInfo": "1420000000000",
     "status": 1
   }
+}
+```
+#### 当 PaymentType 为 6 时（OXXO）：
+
+```json
+{
+  "amount": "1000.00",
+  "tradeNo": "TS2404070001MX0000205873135769",
+  "merchantOrderNo": "ABCDEFG",
+  "paymentType": 6,
+  "additionalInfo": {
+    "paymentLink": "https://www.paycashglobXXXXXXXm/formato.php?referencia=ATQyMDY0OTczNDIzMg==&interno=1"
+  },
+  "paymentInfo": "1420649734231",
+  "status": 1
 }
 ```
