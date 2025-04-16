@@ -37,7 +37,7 @@ description: 商户请求创建一个代付订单
 ```json
 {
                 "merchantOrderNo": "OrderNoExample",
-                "realName": "Carlos",
+                "realName": "TeemoPay",
                 "bankCode": "0001",
                 "bankName": "Bank Mandiri",
                 "accountType": 501,
@@ -46,7 +46,7 @@ description: 商户请求创建一个代付订单
                 "callbackUrl": "https://www.callbackexample.com",
                 "sign": "YOUR SIGN",
                 "phone": "0800000000",
-                "idCardNumber": "12345678"
+                "email": "TeemoPay@example.com"
 }
 ```
 
