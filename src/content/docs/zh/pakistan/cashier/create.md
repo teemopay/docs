@@ -41,15 +41,16 @@ description: 商户创建收银台
 
 ### 返回参数
 
-| 参数              | 类型   | 必需  | 长度 | 描述              |
-|-----------------| ------ |-----| ---- |-----------------|
-| merchantOrderNo | String | yes | 32   | 商户订单号           |
-| tradeNo         | String | yes |      | 平台订单号           |
-| amount          | String | yes |      | 订单交易金额          |
-| status          | Int | yes |      | 代收状态,0:受理中 3-失败 |
-| checkoutLink    | String | no  |      | 收银台地址           |
-| expirationTime  | String | no  |      | 收银台地址过期时间       |
-| errorMsg        | String | no  |      | 错误信息,失败时返回      |
+| 参数              | 类型     | 必需  | 长度 | 描述                                                      |
+|-----------------|--------|-----| ---- |---------------------------------------------------------|
+| merchantOrderNo | String | yes | 32   | 商户订单号                                                   |
+| tradeNo         | String | yes |      | 平台订单号                                                   |
+| amount          | String | yes |      | 订单交易金额                                                  |
+| paymentType     | Int    | no  |      | 支付方式，当前交易金额小于等于5W时,用于指定ep或jz.303:easypaisa,304:JazzCash |
+| status          | Int    | yes |      | 代收状态,0:受理中 3-失败                                         |
+| checkoutLink    | String | no  |      | 收银台地址                                                   |
+| expirationTime  | String | no  |      | 收银台地址过期时间                                               |
+| errorMsg        | String | no  |      | 错误信息,失败时返回                                              |
 
 ```json title=返回示例
 {
