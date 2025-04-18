@@ -292,6 +292,37 @@ export default defineConfig({
               },
             ],
           },
+          {
+            id: "chile",
+            label: {
+              en: "🇨🇱 chile",
+              zh: "🇨🇱 智利",
+            },
+            link: "/chile/payin/create",
+            items: [
+              {
+                label: "Payin",
+                translations: {
+                  zh: "代收",
+                },
+                items: ["chile/payin/create", "chile/payin/callback", "chile/payin/query"],
+              },
+              {
+                label: "Payout",
+                translations: {
+                  zh: "代付",
+                },
+                items: ["chile/payout/create", "chile/payout/callback", "chile/payout/query", "chile/payout/bank"],
+              },
+              {
+                label: "Inquire",
+                translations: {
+                  zh: "查询",
+                },
+                items: ["chile/inquire/balance", "chile/inquire/bill"],
+              },
+            ],
+          },
         ]),
       ],
       // 重新渲染组件
