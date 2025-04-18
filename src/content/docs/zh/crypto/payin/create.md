@@ -47,7 +47,7 @@ description: 商户请求创建一个代收订单
 | amount          | String     | yes | 32   | 交易金额                         |
 | paymentType     | Int        | yes | 10   | 支付方式 10001                   |
 | paymentInfo     | String     | yes | 32   | 主要付款信息，返回的是实际用于付款的信息，例如：支付链接 |
-| additionalInfo  | JSONObject | no  |      | 附加信息：辅助主要信息使用      |
+| additionalInfo  | JSONObject | no  |      | 附加信息：地址及币种信息                 |
 | status          | Int        | yes |    | 1-订单创建成功  3-失败               |
 | errorMsg        | String     | no  |    | 错误信息,失败时返回                   |
 
@@ -62,7 +62,12 @@ description: 商户请求创建一个代收订单
     "amount": "1000.00",
     "tradeNo": "TS2501010001BP0000000000000000",
     "additionalInfo": {
-
+      "addresses": [
+        {
+          "coin": "usdt_trc20",
+          "address": "TAX9SYsqbedDyeR6ysS9spx8cXQNC8raR3"
+        }
+      ]
     },
     "merchantOrderNo": "OrderNoExample",
     "paymentInfo": "https://www.linkExample.com",
