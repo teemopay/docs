@@ -29,7 +29,7 @@ description: 商户请求创建一个代收订单
      BANK TRANSFER
      MACH
      PAGO46
-![telegram-cloud-photo-size-1-5184106632890658364-y.jpg](create.assets/telegram-cloud-photo-size-1-5184106632890658364-y.jpg)
+
  
 
 ### 请求参数
