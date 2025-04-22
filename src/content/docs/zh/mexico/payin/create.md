@@ -39,7 +39,7 @@ description: 商户请求创建一个代收订单
 | realName        | String | yes | 64   | 用户姓名                                              |
 | email           | String | no  | 50   | 用户邮箱：满足正则表达式即可                                    |
 | amount          | String | yes | 20   | 代收金额(比索)                                          |
-| expirationTime  | Long   | no  |      | 过期时间 当 paymentType 为 4、5时有效,默认为一天                 |
+| expirationTime  | Long   | no  |      | 过期时间 当 paymentType 为 4、5时有效,默认为一天 毫秒级时间戳 eg:1735660800000                |
 | phone           | String | no  | 20   | 手机号                                               |
 | callbackUrl     | String | no  | 200  | 代付回调地址，若不传, 则以商户配置为准                              |
 | sign            | String | yes |      | 签名                                                |

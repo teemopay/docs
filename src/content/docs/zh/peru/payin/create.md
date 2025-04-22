@@ -37,7 +37,7 @@ description: 商户请求创建一个代收订单
 | merchantOrderNo | String | yes  | 32  | 商户订单号                                    |
 | paymentType     | Int    | yes  |     | 支付方式: 101 ：checkout（支付链接收银台）    |
 | amount          | String | yes  | 20  | 代收金额(索尔)                                |
-| expirationTime  | Long   | no   |     | 过期时间 默认一天                             |
+| expirationTime  | Long   | no   |     | 过期时间,毫秒级时间戳 eg:1735660800000                           |
 | realName        | String | yes  | 64  | 用户姓名 |
 | email           | String | yes  | 50  | 用户邮箱：满足正则表达式即可                  |
 | phone           | String | yes  | 9   | 电话号码 9 位数不包含区号                     |
