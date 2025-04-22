@@ -31,7 +31,6 @@ BANK TRANSFER
 MACH
 PAGO46
 
-![telegram-cloud-photo-size-1-5184106632890658364-y.jpg](create.assets/telegram-cloud-photo-size-1-5184106632890658364-y.jpg)
 
 
 ### additionalInfo (Additional Fields) Description
