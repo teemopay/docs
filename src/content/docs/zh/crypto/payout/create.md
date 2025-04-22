@@ -35,8 +35,8 @@ description: 商户请求创建一个代付订单
     "amount": "10.00",
     "chain": "trc20",
     "address": "123456789987654321",
-    "callbackUrl": "https://www.callbackexample.com"
-    "sign": "YOUR_SIGN",
+    "callbackUrl": "https://www.callbackexample.com",
+    "sign": "YOUR_SIGN"
 
 }
 ```

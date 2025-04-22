@@ -24,7 +24,7 @@ description: 商户请求创建一个代收订单
 | 字段              | 类型   | 必需  | 最大长度 | 描述                                                |
 |-----------------| ------ |-----|------|---------------------------------------------------|
 | merchantOrderNo | String | yes | 32   | 商户订单号                                             |
-| amount          | String | yes | 20   | 代收金额(比索)                                          |
+| amount          | String | yes | 20   | 代收金额                                      |
 | callbackUrl     | String | no  | 200  | 代付回调地址，若不传, 则以商户配置为准                              |
 | sign            | String | yes |      | 签名                                                |
 
