@@ -151,3 +151,12 @@ description: 商户请求创建一个代收订单
   "status": 1
 }
 ```
+
+> errorMsg 说明：
+
+| errorMsg                                | 说明    |
+| ------------------------------------------- |-------|
+| Transaction amount exceeds limit, kindly retry within allowed range. | 请求金额超限 |
+| Channel request error, technicians will fix ASAP. | 渠道维护  |
+| Unstable network, kindly retry later. |渠道网络波动|
+| Parameter validation error, kindly verify and retry. | 参数上传有误|

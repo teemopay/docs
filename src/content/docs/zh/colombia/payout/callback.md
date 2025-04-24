@@ -45,6 +45,7 @@ description: 商户接受一个代付结果的回调
 }
 ```
 
+
 > errorCode 说明：
 
 | errorCode | errorMessage                                | 建议                                                     |
@@ -52,6 +53,9 @@ description: 商户接受一个代付结果的回调
 | 1000      | The account does not exist or is restricted | 建议让用户改卡                                           |
 | 1001      | Return                                      | 已退款，建议收到回调后，发起时间在 24 小时内可以重新放款 |
 | 1002      | Channel server fluctuations                 | 通道波动，建议 10 分钟后重试                             |
+| 1006 | User account frozen, kindly contact user to change card and retry. |   |
+| 1007 | Abnormal user account , kindly contact user to verify account and retry. |   |
+| 1010 | Unstable network, kindly retry later. |   |
 | 9999      | Others                                      | 其他，建议取消订单                                       |
 
 ### 回调返回
