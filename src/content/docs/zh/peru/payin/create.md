@@ -94,4 +94,10 @@ description: 商户请求创建一个代收订单
 }
 ```
 
-####
+
+> errorMsg 说明：
+
+| errorMsg                                | 说明    |
+| ------------------------------------------- |-------|
+| Channel request error, technicians will fix ASAP. | 渠道维护  |
+| Unstable network, kindly retry later. |渠道网络波动|
