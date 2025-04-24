@@ -72,19 +72,19 @@ description: 商户接受一个代付结果的回调
 
 > errorCode 说明：
 
-| errorCode | errorMessage                                                                          | 建议                                                     |
-| --------- |---------------------------------------------------------------------------------------| -------------------------------------------------------- |
-| 1000      | The account does not exist or is restricted                                           | 建议让用户改卡                                           |
+| errorCode | errorMessage                                                                          | 补充说明                          |
+| --------- |---------------------------------------------------------------------------------------|--------------------------------|
+| 1000      | The account does not exist or is restricted                                           | 建议让用户改卡                        |
 | 1001      | Return                                                                                | 已退款，建议收到回调后，发起时间在 24 小时内可以重新放款 |
-| 1002      | Channel server fluctuations                                                           | 通道波动，建议 10 分钟后重试                             |
-| 1004 | Wallet limit exceeded, kindly contact user to upgrade or restore limit.               |   |
-| 1005 | Transaction amount exceeds limit, kindly retry within allowed range.                  |   |
-| 1007 | Abnormal user account , kindly contact user to verify account and retry.              |   |
-| 1010 | Unstable network, kindly retry later.                                                 |   |
-| 1011 | Parameter validation error, kindly verify and retry.                                  |   |
-| 1012 | Payment method error, kindly select the right way and try again.                      |   |
-| 1016 | Refund by the recipient or the recipient's bank，kindly contact user to verify account |   |
-| 9999 | Others                                                                                |   |
+| 1002      | Channel server fluctuations                                                           | 通道波动，建议 10 分钟后重试               |
+| 1004 | Wallet limit exceeded, kindly contact user to upgrade or restore limit.               | 收款账户超过日/月/年限额                  |
+| 1005 | Transaction amount exceeds limit, kindly retry within allowed range.                  | 请求金额超限                         |
+| 1007 | Abnormal user account , kindly contact user to verify account and retry.              | 用户信息错误                         |
+| 1010 | Unstable network, kindly retry later.                                                 | 通道波动                           |
+| 1011 | Parameter validation error, kindly verify and retry.                                  | 上传技术参数有误，未按文档要求                |
+| 1012 | Payment method error, kindly select the right way and try again.                      | 支付方式错误，注意区分钱包账户和银行账户           |
+| 1016 | Refund by the recipient or the recipient's bank，kindly contact user to verify account | 付款被银行拒绝，联系用户更新账户重试             |
+| 9999 | Others                                                                                | 未知异常                           |
 
 ### 回调返回
 
