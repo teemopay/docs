@@ -4,7 +4,7 @@ description: 代付支持的银行列表
 ---
 
 | 银行编码 | 银行名称                             | 账户类型                  | 卡号长度      |
-| ---- | -------------------------------- | --------------------- | --------- |
+|------|----------------------------------|-----------------------| --------- |
 | 1    | BCP                              | AHORRO<br />CORRIENTE | 14<br/>13 |
 | 2    | INTERBANK                        | 全部                    | 13        |
 | 3    | BBVA                             | 全部                    | 18        |
@@ -18,6 +18,7 @@ description: 代付支持的银行列表
 | 12   | BANCO FALABELLA PERU             | 全部                    | 20        |
 | 13   | BANCO RIPLEY                     | 全部                    | 20        |
 | 14   | BANCO SANTANDER PERU             | 全部                    | 20        |
+| 15   | BANCO AZTECA                     | 全部                    |           |
 | 17   | ICBC PERU BANK                   | 全部                    | 20        |
 | 18   | BANCO DE LA NACION               | 全部                    | 20        |
 | 19   | CMAC AREQUIPA                    | 全部                    | 20        |
