@@ -30,16 +30,17 @@ description: 代付支持的银行列表
 | 26   | CMAC SULLANA                     | 全部                    | 20        |
 | 27   | CMAC TACNA                       | 全部                    | 20        |
 | 28   | CMAC TRUJILLO                    | 全部                    | 20        |
-| 043  | CREDISCOTIA FINANCIERA           | 全部                    | 20        |
-| 058  | ALFIN BANCO                      | 全部                    | 20        |
-| 062  | BANK OF CHINA                    | 全部                    | 20        |
-| 063  | BANCO BCI PERU                   | 全部                    | 20        |
-| 091  | COMPARTAMOS FINANCIERA           | 全部                    | 20        |
-| 093  | FINANCIERA QAPAQ                 | 全部                    | 20        |
-| 094  | FINANCIERA OH                    | 全部                    | 20        |
-| 096  | FINANCIERA EFECTIVA              | 全部                    | 20        |
-| 099  | FINANCIERA CONFIANZA             | 全部                    | 20        |
+| 43   | CREDISCOTIA FINANCIERA           | 全部                    | 20        |
+| 58   | ALFIN BANCO                      | 全部                    | 20        |
+| 62   | BANK OF CHINA                    | 全部                    | 20        |
+| 63   | BANCO BCI PERU                   | 全部                    | 20        |
+| 91   | COMPARTAMOS FINANCIERA           | 全部                    | 20        |
+| 93   | FINANCIERA QAPAQ                 | 全部                    | 20        |
+| 94   | FINANCIERA OH                    | 全部                    | 20        |
+| 96   | FINANCIERA EFECTIVA              | 全部                    | 20        |
+| 99   | FINANCIERA CONFIANZA             | 全部                    | 20        |
 | 836  | CAJA RAIZ                        | 全部                    | 20        |
+
 
 
 
