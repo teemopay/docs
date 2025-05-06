@@ -44,7 +44,7 @@ description: 商户查询一个代收订单的状态
 | status                        | String | yes  |   | 2-成功                                        |
 | serviceAmount                 | String | yes  |     | 服务费用  eg:18.02                              |
 | paymentInfo                   | String | yes  |     | 主要付款信息，返回的是实际用于付款的信息                        |
-| errorMessage                  | String | no  |      | 订单失败错误信息，详见下方说明                             |
+| errorMessage                  | String | no  |      | 订单失败错误信息                        |
 | remark                        | String | no   |   | 备注                                          |
 | statementList                 | Object | no   |   | 代收流水信息                                      |
 | -- paymentSingleOrderNo       | String | yes  |   | 单次支付流水号                                     |
