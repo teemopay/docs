@@ -19,6 +19,7 @@ description: 代付支持的银行列表
 | 13   | BANCO RIPLEY                     | 全部                    | 20        |
 | 14   | BANCO SANTANDER PERU             | 全部                    | 20        |
 | 15   | BANCO AZTECA                     | 全部                    | 20        |
+| 16   | BANCO CENCOSUED                  | 全部                    | 20        |
 | 17   | ICBC PERU BANK                   | 全部                    | 20        |
 | 18   | BANCO DE LA NACION               | 全部                    | 20        |
 | 19   | CMAC AREQUIPA                    | 全部                    | 20        |
