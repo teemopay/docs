@@ -120,7 +120,5 @@ description: 代付支持的银行列表
 |0113|Bank COMMONWEALTH|
 |dana|Dana|
 |gopay|Gopay|
-|linkaja|LinkAja|
 |ovo|OVO|
-|shopeepay|ShopeePay|
 
