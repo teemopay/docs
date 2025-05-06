@@ -43,6 +43,7 @@ description: 商户接受一个代收结果的回调
     "serviceAmount": "10.00",
     "paymentOrderNo": "TSOPaymentOrderNoExample",
     "paymentInfo": "684180093000000000",
+    "completeTime": "2025-01-01 00:00:00",
     "status": 2
 }
 ```
