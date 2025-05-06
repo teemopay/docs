@@ -56,7 +56,7 @@ description: 商户查询一个代收订单的状态
 | -- immService                 | String | yes  |     | 固收金额    (20250506新增)                        |
 | -- paymentType                | Int    | yes  |     | 真实支付方式  (20250506新增)                         |
 | -- completeTime               | String    | yes  |     | 该流水的完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式  (20250506新增)   |
-
+| ~~sign~~          | String | yes  |     | 签名             (20250506删除)             |
 ```json title=返回示例
 {
     "code": 200,
@@ -102,8 +102,7 @@ description: 商户查询一个代收订单的状态
                 "immService": "1.00",
                 "paymentType": 1
             }
-        ],
-        "sign": "TEEMO_SIGN"
+        ]
     },
     "msg": "success",
     "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
