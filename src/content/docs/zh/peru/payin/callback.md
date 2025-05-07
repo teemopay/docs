@@ -20,57 +20,64 @@ description: 商户接受一个代收结果的回调
 
 ### 代收回调
 
-| 参数       | 类型   | 必需 | 长度  | 描述                               |
-| ---------- | ------ | ---- |-----|----------------------------------|
-| merchantOrderNo | String | yes  | 32  | 商户订单号                            |
-| tradeNo    | String | yes  |     | 平台订单号                            |
-| paymentOrderNo | String | yes  | 30  | 平台代收当次支付流水号 当订单可以多次还款时每次还款该流水号不同 |
-| status     | Int | yes  |     | 2:成功                    |
-| paymentAmount     | String | yes   |     | 当次实际支付金额                         |
-| serviceAmount   | String | yes   |     | 服务费用  eg:18.02 |
-| paymentInfo     | String | yes   |     | 主要付款信息，返回的是实际用于付款的信息           |
-| paymentType     | Int | yes   |     | 支付方式           |
-| sign       | String | yes  |     | 签名                               |
+| 参数       | 类型   | 必需 | 长度  | 描述                                                 |
+| ---------- | ------ | ---- |-----|----------------------------------------------------|
+| merchantOrderNo | String | yes  | 32  | 商户订单号                                              |
+| tradeNo    | String | yes  |     | 平台订单号                                              |
+| paymentOrderNo | String | yes  | 30  | 平台代收当次支付流水号                                        |
+| status     | Int | yes  |     | 2:成功                                               |
+| paymentAmount     | String | yes   |     | 当次实际支付金额                                           |
+| serviceAmount   | String | yes   |     | 服务费用  eg:18.02                                     |
+| paymentInfo     | String | yes   |     | 主要付款信息，返回的是实际用于付款的信息                               |
+| paymentType     | Int | yes   |     | 支付方式                                               |
+| completeTime     | String | yes  |     | 该流水的完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式 (20250506新增) |
+| errorMessage     | String | yes  |     | 订单失败错误信息 |
+| sign       | String | yes  |     | 签名                                                 |
 
-```json title=单次回调示例
+```json title=回调示例
 {
-    "tradeNo": "TS2501010001PE0000000000000000",
-    "sign": "TEEMO_SIGN",
     "merchantOrderNo": "OrderNoExample",
-    "paymentAmount": "10.00",
-    "paymentType": 101,
-    "serviceAmount": "2.00",
+    "tradeNo": "TS2501010001PE0000000000000000",
     "paymentOrderNo": "TSOPaymentOrderNoExample",
-    "paymentInfo": "https://www.paymentLinkExample.com",
-    "status": 2
+    "status": 2,
+    "paymentAmount": "1000.00", 
+    "serviceAmount": "10.00",
+    "paymentInfo": "684180093000000000",
+    "paymentType": 1,
+    "completeTime": "2025-01-01 00:00:00",
+    "errorMessage": null,
+    "sign": "TEEMO_SIGN"
 }
 ```
-
+一笔订单金额为200.00, 第一次还款50.00,第二次还款150.00
 ```json title=多次还款回调示例
-// 一笔订单金额为200.00, 第一次还款50.00,第二次还款150.00
-
 {
-    "tradeNo": "TS2501010001PE0000000000000000",
-    "sign": "TEEMO_SIGN",
-    "merchantOrderNo": "OrderNoExample",
-    "paymentAmount": "5.00",
-    "paymentType": 101,
-    "serviceAmount": "1.00",
-    "paymentOrderNo": "TSOPaymentOrderNoExample1",
-    "paymentInfo": "https://www.paymentLinkExample.com",
-    "status": 2
+  "merchantOrderNo": "OrderNoExample",
+  "tradeNo": "TS2501010001PE0000000000000000",
+  "paymentOrderNo": "TSOPaymentOrderNoExample",
+  "status": 2,
+  "paymentAmount": "50.00",
+  "serviceAmount": "5.00",
+  "paymentInfo": "https://www.paymentLinkExample.com",
+  "paymentType": 1,
+  "completeTime": "2025-01-01 00:00:00",
+  "errorMessage": null,
+  "sign": "TEEMO_SIGN"
 }
-
+```
+```json
 {
-    "tradeNo": "TS2501010001PE0000000000000000",
-    "sign": "TEEMO_SIGN",
-    "merchantOrderNo": "OrderNoExample",
-    "paymentAmount": "5.00",
-    "paymentType": 101,
-    "serviceAmount": "1.00",
-    "paymentOrderNo": "TSOPaymentOrderNoExample2",
-    "paymentInfo": "https://www.paymentLinkExample.com",
-    "status": 2
+  "merchantOrderNo": "OrderNoExample",
+  "tradeNo": "TS2501010001PE0000000000000000",
+  "paymentOrderNo": "TSOPaymentOrderNoExample",
+  "status": 2,
+  "paymentAmount": "150.00",
+  "serviceAmount": "15.00",
+  "paymentInfo": "https://www.paymentLinkExample.com",
+  "paymentType": 1,
+  "completeTime": "2025-01-01 00:00:00",
+  "errorMessage": null,
+  "sign": "TEEMO_SIGN"
 }
 ```
 ### 回调返回

@@ -52,13 +52,15 @@ description: 商户查询一个代付订单的状态
 {
     "code": 200,
     "data": {
-        "amount": "1000.00",
         "merchantOrderNo": "OrderNoExample",
-        "status": 2,
         "tradeNo": "TF2501010001MX0000000000000000",
-        "serviceRate": "0.0050",
+        "amount": "1000.00",
+        "status": 2,
         "serviceAmount": "6.50",
         "immService": "5.00",
+        "serviceRate": "0.0050",
+        "errorCode": null,
+        "errorMessage": null,
         "completeTime": "2025-05-01 00:00:00"
     },
     "msg": "success",
