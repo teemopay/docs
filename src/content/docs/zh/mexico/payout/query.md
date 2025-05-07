@@ -54,13 +54,12 @@ description: 商户查询一个代付订单的状态
     "data": {
         "amount": "1000.00",
         "merchantOrderNo": "OrderNoExample",
-        "status": 1,
-        "tradeNo": "TF2501010001MX0000000000000000"
+        "status": 2,
+        "tradeNo": "TF2501010001MX0000000000000000",
         "serviceRate": "0.0050",
         "serviceAmount": "6.50",
         "immService": "5.00",
-        "completeTime": "2025-04-27 01:04:29",
-        "errorCode": 1007
+        "completeTime": "2025-05-01 00:00:00"
     },
     "msg": "success",
     "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
