@@ -63,22 +63,22 @@ description: 商户查询一个代收订单的状态
   "code": 200,
   "data": {
     "merchantOrderNo": "OrderNoExample",
-    "amount": "10000.00",
-    "transactionAmount": "10000.00",
+    "amount": "60000.00",
+    "transactionAmount": "60000.00",
     "tradeNo": "TS2501010001ID0000000000000000",
     "paymentType": 502,
     "paymentInfo": "https://www.paymentLinkExample.com",
     "status": 2,
-    "serviceAmount": "105.00",
+    "serviceAmount": "605.00",
     "channel": "DANA",
     "statementList": [
       {
         "paymentSingleOrderNo": "TSOPaymentOrderNoExample",
-        "paymentStatementAmount": "10000.00",
+        "paymentStatementAmount": "60000.00",
         "paymentStatementStatus": 2,
         "paymentStatementStatusName": "代收成功",
         "completeTime": "2025-01-01 00:00:00",
-        "serviceAmount": "105.00",
+        "serviceAmount": "605.00",
         "serviceRate": "0.0100",
         "immService": "5.00",
         "paymentType": 502

@@ -51,7 +51,7 @@ description: 商户请求创建一个代收订单
 {
   "merchantOrderNo": "OrderNoExample",
   "realName": "TeemoPay",
-  "amount": "10000",
+  "amount": "60000",
   "callbackUrl": "https://www.callbackexample.com",
   "paymentType": 502,
   "email": "TeemoPay@example.com",
@@ -80,7 +80,7 @@ description: 商户请求创建一个代收订单
   "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610299",
   "code": 200,
   "data": {
-    "amount": "10000.00",
+    "amount": "60000.00",
     "tradeNo": "TS2501010001ID0000000000000000",
     "additionalInfo": {
 
