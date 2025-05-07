@@ -36,9 +36,9 @@ description: 商户接受一个代付结果的回调
 ```json title=成功回调示例
 {
     "merchantOrderNo": "OrderNoExample",
-    "tradeNo": "TF2501010001MX0000000000000000",
-    "amount": "1000.00",
-    "serviceAmount": "10.00",
+    "tradeNo": "TF2501010001ID0000000000000000",
+    "amount": "10000.00",
+    "serviceAmount": "105.00",
     "status": 2,
     "errorCode": null,
     "errorMessage": null,

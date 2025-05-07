@@ -27,19 +27,25 @@ description: 商户请求创建一个代收订单
 | VA | 503 (收银台,包含Va的支付方式,BNI等)              |
 | QRIS | 504 (收银台,包含QRIS的支付方式)            |
 
+## 支持支付方式扩展列表（channel）
+| 支付方式 | channel                      |
+|------|------------------------------|
+| 503  | BRI,BNI,MANDIRI,PERMATA,CIMB |
+| 502  | DANA,OVO,LINKAJA             |
 
 ### 请求参数
 
-| 字段              | 类型     | 必需  | 最大长度 | 描述                    |
-| --------------- | ------ |-----|------|-----------------------|
-| merchantOrderNo | String | yes | 32   | 商户订单号                 |
-| paymentType     | Int    | yes |      | 支付方式: 501,502,503,504 |
-| amount          | String | yes | 20   | 代收金额,印尼盾,整数           |
-| realName        | String | yes | 64   | 用户姓名                  |
-| email           | String | yes  | 50   | 用户邮箱：满足正则表达式即可        |
-| phone           | String | yes  | 13   | 电话号码 08开头,10~13位      |
-| sign            | String | yes |      | 签名                    |
-| callbackUrl     | String | no  | 200  | 回调地址                  |
+| 字段              | 类型     | 必需  | 最大长度 | 描述                                        |
+|-----------------| ------ |-----|------|-------------------------------------------|
+| merchantOrderNo | String | yes | 32   | 商户订单号                                     |
+| paymentType     | Int    | yes |      | 支付方式: 501,502,503,504                     |
+| amount          | String | yes | 20   | 代收金额,印尼盾,整数                               |
+| realName        | String | yes | 64   | 用户姓名                                      |
+| email           | String | yes | 50   | 用户邮箱：满足正则表达式即可                            |
+| phone           | String | yes | 13   | 电话号码 08开头,10~13位                          |
+| channel         | String | no  |    | 支付方式扩展字段,当特定支付方式为502,503,详情请见【支持支付方式扩展列表】(20250506新增) |
+| sign            | String | yes |      | 签名                                        |
+| callbackUrl     | String | no  | 200  | 回调地址                                      |
 
 ```json
 {
@@ -47,8 +53,9 @@ description: 商户请求创建一个代收订单
   "realName": "TeemoPay",
   "amount": "10000",
   "callbackUrl": "https://www.callbackexample.com",
-  "paymentType": 501,
+  "paymentType": 502,
   "email": "TeemoPay@example.com",
+  "channel": "DANA",
   "phone": "0800000000",
   "sign": "YOUR_SIGN"
 }
