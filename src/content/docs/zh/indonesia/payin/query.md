@@ -41,7 +41,7 @@ description: 商户查询一个代收订单的状态
 | paymentType                   | Int    | yes  | 1  | 代收方式                                              |
 | transactionAmount             | String | yes  |    | 订单交易金额                                            |
 | amount                        | String | yes  |    | 收款金额                                              |
-| status                        | String | yes  |    | 1-支付中(未收款或未全额收款),2-成功 ,3-失败                       |
+| status                        | String | yes  |    | 1-支付中,2-成功 ,3-失败                       |
 | serviceAmount                 | String | yes  |    | 服务费用  eg:18.02    (20250506新增)                    |
 | paymentInfo                   | String | yes  |    | 主要付款信息，返回的是实际用于付款的信息     (20250506新增)             |
 | errorMessage                  | String | no  |    | 订单失败错误信息       (20250506新增)                       |
