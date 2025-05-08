@@ -28,10 +28,10 @@ description: 商户请求创建一个代收订单
 | QRIS | 504 (收银台,包含QRIS的支付方式)            |
 
 ## 支持支付方式扩展列表（channel）
-| 支付方式 | channel                     |
-|------|-----------------------------|
-| 503  | BRI,BNI,MANDIRI,PERMATA,CIMB |
-| 502  | DANA,LINKAJA             |
+| 支付方式 | channel                   |
+|------|---------------------------|
+| 503  | BRI,MANDIRI,CIMB |
+| 502  | DANA,LINKAJA            |
 
 ### 请求参数
 
