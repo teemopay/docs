@@ -31,22 +31,20 @@ description: 商户接受一个代收结果的回调
 | paymentInfo     | String | yes   |     | 主要付款信息，返回的是实际用于付款的信息                               |
 | paymentType     | Int | yes   |     | 支付方式                                               |
 | completeTime     | String | yes  |     | 该流水的完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式 (20250506新增) |
-| errorMessage     | String | yes  |     | 订单失败错误信息 |
 | sign       | String | yes  |     | 签名                                                 |
 
 ```json title=回调示例
 {
-    "merchantOrderNo": "OrderNoExample",
     "tradeNo": "TS2501010001MX0000000000000000",
-    "paymentOrderNo": "TSOPaymentOrderNoExample",
-    "status": 2,
-    "paymentAmount": "1000.00", 
-    "serviceAmount": "10.00",
-    "paymentInfo": "684180093000000000",
+    "sign": "TEEMO_SIGN",
+    "merchantOrderNo": "OrderNoExample",
+    "paymentAmount": "1000.00",
     "paymentType": 1,
+    "serviceAmount": "10.00",
+    "paymentOrderNo": "TSOPaymentOrderNoExample",
+    "paymentInfo": "684180093000000000",
     "completeTime": "2025-01-01 00:00:00",
-    "errorMessage": null,
-    "sign": "TEEMO_SIGN"
+    "status": 2
 }
 ```
 

@@ -35,44 +35,38 @@ description: 商户接受一个代付结果的回调
 
 ```json title=成功回调示例
 {
-    "merchantOrderNo": "OrderNoExample",
-    "tradeNo": "TF2501010001MX0000000000000000",
     "amount": "1000.00",
+    "tradeNo": "TF2501010001MX0000000000000000",
+    "sign": "TEEMO_SIGN",
+    "merchantOrderNo": "OrderNoExample",
     "serviceAmount": "10.00",
     "status": 2,
-    "errorCode": null,
-    "errorMessage": null,
-    "completeTime": "2025-05-01 00:00:00",
-    "sign": "TEEMO_SIGN"
+    "completeTime": "2025-05-01 00:00:00"
+    
 }
 ```
 
 ```json title=失败回调示例
 {
-    "merchantOrderNo": "OrderNoExample",
-    "tradeNo": "TF2501010001MX0000000000000000",
-    "amount": null,
-    "serviceAmount": null,
-    "status": 3,
     "errorCode": 9999,
-    "errorMessage": "others",
-    "completeTime": null,
-    "sign": "TEEMO_SIGN"
+    "errorMessage": "Others",
+    "merchantOrderNo": "OrderNoExample",
+    "sign": "TEEMO_SIGN",
+    "status": 3,
+    "tradeNo": "TF2501010001MX0000000000000000"
 }
 ```
 
 ```json title=退款回调示例
-
 {
-  "merchantOrderNo": "OrderNoExample",
-  "tradeNo": "TF2501010001MX0000000000000000",
-  "amount": null,
-  "serviceAmount": null,
-  "status": 4,
-  "errorCode": 1000,
-  "errorMessage": "The account does not exist or is restricted",
-  "completeTime": null,
-  "sign": "TEEMO_SIGN"
+    "amount": "1000.00",
+    "errorCode": 1000,
+    "errorMessage": "The account does not exist or is restricted",
+    "merchantOrderNo": "OrderNoExample",
+    "serviceAmount": "10.00",
+    "sign": "TEEMO_SIGN",
+    "status": 4,
+    "tradeNo": "TF2501010001MX0000000000000000"
 }
 ```
 
