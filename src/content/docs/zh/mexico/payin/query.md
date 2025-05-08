@@ -45,7 +45,7 @@ description: 商户查询一个代收订单的状态
 | serviceAmount                 | String | yes  |     | 服务费用  eg:18.02    (20250506新增)                      |
 | paymentInfo                   | String | yes  |     | 主要付款信息，返回的是实际用于付款的信息     (20250506新增)               |
 | errorMessage                  | String | no  |      | 订单失败错误信息       (20250506新增)                         |
-| ~~remark~~                        | String | no   |   | 备注     (20250506删除)                                 |
+| ~~remark~~                    | String | no   |   | 备注     (20250506删除)                                 |
 | statementList                 | Object | no   |   | 代收流水信息                                              |
 | -- paymentSingleOrderNo       | String | yes  |   | 单次支付流水号                                             |
 | -- paymentStatementAmount     | String | yes  |   | 单次代收金额                                              |
@@ -56,7 +56,8 @@ description: 商户查询一个代收订单的状态
 | -- immService                 | String | yes  |     | 固收金额    (20250506新增)                                |
 | -- paymentType                | Int    | yes  |     | 真实支付方式  (20250506新增)                                |
 | -- completeTime               | String    | yes  |     | 该流水的完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式  (20250506新增) |
-| ~~sign~~          | String | yes  |     | 签名             (20250506删除)                         |
+| -- claveRastreo               | String | yes |     | 预留字段,计划下个版本更新                                      |
+| ~~sign~~                      | String | yes  |     | 签名             (20250506删除)                         |
 ```json title=返回示例
 {
     "code": 200,
