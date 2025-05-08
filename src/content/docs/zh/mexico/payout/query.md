@@ -34,35 +34,38 @@ description: 商户查询一个代付订单的状态
 
 ### 返回参数
 
-| 参数                | 类型     | 必需 | 长度  | 描述                                      |
-|-------------------|--------| ---- |-----|-----------------------------------------|
-| merchantOrderNo   | String | yes  | 32  | 商户订单号                                   |
-| tradeNo           | String | yes  |     | 平台订单号                                   |
-| amount            | String | yes  |     | 代付金额                                    |
-| status            | Int    | yes  |     | 代付状态,2:成功 3:失败 4:退款                     |
+
+| 参数                | 类型     | 必需 | 长度  | 描述                                             |
+|-------------------|--------| ---- |-----|------------------------------------------------|
+| merchantOrderNo   | String | yes  | 32  | 商户订单号                                          |
+| tradeNo           | String | yes  |     | 平台订单号                                          |
+| amount            | String | yes  |     | 代付金额                                           |
+| status            | Int    | yes  |     | 代付状态,2:成功 3:失败                                 |
 | serviceAmount     | String | yes  |     | 服务费用  =  固收金额 +  交易金额 * 服务费率      (20250506新增) |
-| immService        | String | yes  |     | 固收金额    (20250506新增)                    |
+| immService        | String | yes  |     | 固收金额    (20250506新增)                           |
 | serviceRate       | String | yes  |     | 服务费率    (20250506新增)                           |
-| errorCode         | number | yes  |     | 订单失败状态错误码     (20250506新增)                                |
-| errorMessage      | String | yes  |     | 订单失败错误信息 (20250506新增)       |
+| errorCode         | number | yes  |     | 订单失败状态错误码     (20250506新增)                     |
+| errorMessage      | String | yes  |     | 订单失败错误信息 (20250506新增)                          |
 | completeTime     | String | yes  |     | 完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式 (20250506新增) |
-| ~~sign~~          | String | yes  |     | 签名             (20250506删除)             |
+| ~~sign~~          | String | yes  |     | 签名             (20250506删除)                    |
 
 ```json title=返回示例
 {
-    "code": 200,
-    "data": {
-        "amount": "1000.00",
-        "merchantOrderNo": "OrderNoExample",
-        "status": 2,
-        "tradeNo": "TF2501010001MX0000000000000000",
-        "serviceRate": "0.0050",
-        "serviceAmount": "6.50",
-        "immService": "5.00",
-        "completeTime": "2025-05-01 00:00:00"
-    },
-    "msg": "success",
-    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
+  "code": 200,
+  "data": {
+    "merchantOrderNo": "OrderNoExample",
+    "tradeNo": "TF2501010001MX0000000000000000",
+    "amount": "1000.00",
+    "status": 2,
+    "serviceAmount": "15.00",
+    "immService": "5.00",
+    "serviceRate": "0.010",
+    "errorCode": null,
+    "errorMessage": null,
+    "completeTime": "2025-05-01 00:00:00"
+  },
+  "msg": "success",
+  "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
 }
 ```
 ```json title=订单不存在返回示例
