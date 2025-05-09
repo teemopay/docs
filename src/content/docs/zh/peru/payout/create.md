@@ -20,21 +20,21 @@ description: 商户请求创建一个代付订单
 
 ### 请求参数
 
-| 字段              | 类型   | 必需  | 长度  | 描述                                                                                                                                                                                            |
-|-----------------| ------ |-----|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| merchantOrderNo | String | yes | 32  | 商户订单号                                                                                                                                                                                         |
-| amount          | String | yes | 20  | 代付金额(索尔)                                                                                                                                                                                      |
-| phone           | String | no  | 9   | 9开头 9位数字                                                                                                                                                                                      |
-| bankCode        | String | yes | 50  | 银行编码                                                                                                                                                                                          |
-| bankName        | String | yes | 50  | 银行名称                                                                                                                                                                                          |
-| accountType     | Int    | yes |     | 账户类型, AHORRO:101(储蓄) CORRIENTE:102(活期)                                                                                                                                                        |
-| bankAccount     | String | yes | 50  | 收款账号                                                                                                                                                                                          |
-| cciNumber             | String | no  | 50  | 跨行转账账号：<br/><br/>当用户选择四大行出款时CCI 号码可以不用填写四大行包括（Banco Continental，Banco de Credito,Interbank,Scotiabank）<br/>,非四大行需要填CCI号码，注意Banco Continental 其实就是BBVA，Banco de Credito 就是BCP   <br/>建议任何银行都传输 |
-| realName        | String | yes | 50  | 用户姓名 不包含特殊字符，建议全大写                                                                                                                                                                            |
-| idCardNumber    | String | yes | 50  | 收款人证件号码                                                                                                                                                                                       |
-| idType          | Stirng | yes | 32  | 证件类型,身份证:DNI(8位数),税号:RUC(11位数),外国人身份证:CE(9位数）, 护照:PA(9位数）                                                                                                                                     |
-| callbackUrl     | String | no  | 200 | 代付回调地址，若不传, 则以商户配置为准                                                                                                                                                                          |
-| sign            | String | yes |     | 签名                                                                                                                                                                                            |
+| 字段              | 类型   | 必需  | 长度  | 描述                                                        |
+|-----------------| ------ |-----|-----|-----------------------------------------------------------|
+| merchantOrderNo | String | yes | 32  | 商户订单号                                                     |
+| amount          | String | yes | 20  | 代付金额(索尔)                                                  |
+| phone           | String | no  | 9   | 9开头 9位数字                                                  |
+| bankCode        | String | yes | 50  | 银行编码                                                      |
+| bankName        | String | yes | 50  | 银行名称                                                      |
+| accountType     | Int    | yes |     | 账户类型, AHORRO:101(储蓄) CORRIENTE:102(活期)                    |
+| bankAccount     | String | yes | 50  | 收款账号                                                      |
+| cciNumber             | String | yes | 50  | 跨行转账账号：2025年5月25号之后必传输                                    |
+| realName        | String | yes | 50  | 用户姓名 不包含特殊字符，建议全大写                                        |
+| idCardNumber    | String | yes | 50  | 收款人证件号码                                                   |
+| idType          | Stirng | yes | 32  | 证件类型,身份证:DNI(8位数),税号:RUC(11位数),外国人身份证:CE(9位数）, 护照:PA(9位数） |
+| callbackUrl     | String | no  | 200 | 代付回调地址，若不传, 则以商户配置为准                                      |
+| sign            | String | yes |     | 签名                                                        |
 
 ```json title=请求示例
 {
