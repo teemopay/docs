@@ -33,6 +33,8 @@ description: 商户请求创建一个代收订单
 | 503  | BRI,MANDIRI,CIMB |
 | 502  | DANA,LINKAJA            |
 
+- 仅当payment为502和503时channel字段有效
+
 ### 请求参数
 
 | 字段              | 类型     | 必需  | 最大长度 | 描述                                        |
