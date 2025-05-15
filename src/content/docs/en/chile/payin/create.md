@@ -20,11 +20,17 @@ description: Merchant requests to create a payment order
 
 ## Supported Payment Types (paymentType)
 
-| Payment Type Name | PaymentType (Parameter) |
-|-----------------|------------------------|
-| All-In-One Checkout              | 601                    |
+| Payment Type Name   | PaymentType (Parameter) |
+|---------------------|-------------------------|
+| All-In-One Checkout | 601                     |
+| WEBPAY              | 602                     |
+| KHIPU               | 603                     |
+| PAGO46              | 604                     |
+| BANK_TRANSFER       | 605                     |
+| WALLET              | 606                     |
 
-Including:
+All-In-One Checkout including:
+
 KHIPU
 WEBPAY
 BANK TRANSFER

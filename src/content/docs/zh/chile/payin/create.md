@@ -22,13 +22,20 @@ description: 商户请求创建一个代收订单
 
 | 支付方式名称 | PaymentType |
 |--------|-------------|
-| 聚合收银台页 | 601         |
+| All-In-One Checkout | 601                     |
+| WEBPAY              | 602                     |
+| KHIPU               | 603                     |
+| PAGO46              | 604                     |
+| BANK_TRANSFER       | 605                     |
+| WALLET              | 606                     |
 
-包含：KHIPU
-     WEBPAY
-     BANK TRANSFER
-     MACH
-     PAGO46
+聚合收银台checkout 包含:
+
+KHIPU
+WEBPAY
+BANK TRANSFER
+MACH
+PAGO46
 
  
 
