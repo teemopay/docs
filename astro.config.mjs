@@ -215,6 +215,13 @@ export default defineConfig({
                 items: ["pakistan/cashier/create", "pakistan/cashier/callback", "pakistan/cashier/query"],
               },
               {
+                label: "Direct",
+                translations: {
+                  zh: "直连接口",
+                },
+                items: ["pakistan/direct/create", "pakistan/direct/callback", "pakistan/direct/query"],
+              },
+              {
                 label: "Payout",
                 translations: {
                   zh: "代付",

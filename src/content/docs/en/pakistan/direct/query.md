@@ -1,5 +1,5 @@
 ---
-title: Cashier Query
+title: Direct Query
 description: Merchant queries the status of a cashier order
 ---
 
