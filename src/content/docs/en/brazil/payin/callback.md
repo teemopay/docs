@@ -61,6 +61,5 @@ description: Merchant receives a payment result callback
 ```json title= Request Example
 {
   SUCCESS
-
 }
 ```
