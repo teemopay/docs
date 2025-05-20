@@ -208,20 +208,6 @@ export default defineConfig({
             link: "/pakistan/cashier/create",
             items: [
               {
-                label: "Cashier",
-                translations: {
-                  zh: "收银台",
-                },
-                items: ["pakistan/cashier/create", "pakistan/cashier/callback", "pakistan/cashier/query"],
-              },
-              {
-                label: "Direct",
-                translations: {
-                  zh: "直连接口",
-                },
-                items: ["pakistan/direct/create", "pakistan/direct/callback", "pakistan/direct/query"],
-              },
-              {
                 label: "payin",
                 translations: {
                   zh: "代收",
