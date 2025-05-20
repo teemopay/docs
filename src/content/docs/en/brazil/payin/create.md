@@ -32,18 +32,18 @@ description: Merchant requests to create a collection order
 
 ### Request Parameters
 
-| Field             | Type     | Required | Length | Description                              |
-| ----------------- | -------- | -------- | ------ | ---------------------------------------- |
-| merchantOrderNo   | String   | Yes      | 32     | Merchant order number                    |
-| paymentType       | Int      | Yes      |        | Payment method: 401-PIX                  |
-| amount            | String   | Yes      | 20     | Collection amount (in Brazilian Real), up to 2 decimal places |
-| expirationTime    | Long     | No       |        | Expiration time                          |
-| realName          | String   | No       | 64     | User's real name                         |
-| email             | String   | No       | 50     | User's email, must match the regex format |
-| phone             | String   | No       | 50     | Phone number                             |
-| idCardNumber      | String   | No       | 50     | ID card number                           |
-| sign              | String   | Yes      |        | Signature                                 |
-| callbackUrl       | String   | No       | 200    | Callback URL                              |
+| Field             | Type     | Required | Length | Description                                              |
+| ----------------- | -------- | -------- | ------ |----------------------------------------------------------|
+| merchantOrderNo   | String   | Yes      | 32     | Merchant order number                                    |
+| paymentType       | Int      | Yes      |        | Payment Type: 401-PIX                                    |
+| amount            | String   | Yes      | 20     | Payin amount (in Brazilian Real), up to 2 decimal places |
+| expirationTime    | Long     | No       |        | Expiration time                                          |
+| realName          | String   | No       | 64     | User's real name                                         |
+| email             | String   | No       | 50     | User's email, must match the regex format                |
+| phone             | String   | No       | 50     | Phone number                                             |
+| idCardNumber      | String   | No       | 50     | ID card number                                           |
+| sign              | String   | Yes      |        | Signature                                                |
+| callbackUrl       | String   | No       | 200    | Callback URL                                             |
 
 ```json
 {

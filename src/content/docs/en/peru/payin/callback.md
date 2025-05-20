@@ -31,3 +31,36 @@ description: Merchant receives a payment result callback
 | paymentInfo     | String | yes      |        | Main payment information, returns actual information used for payment          |
 | paymentType     | Int    | yes      |        | Payment method                                                                 |
 | sign            | String | yes      |        | Signature                                                                      |
+
+
+```json title= Request Example
+{
+
+  "merchantOrderNo": "OrderNoExample",
+  "tradeNo": "TS2501010001CO0000000000000000",
+  "paymentOrderNo": "TSOPaymentOrderNoExample",
+  "status": 2,
+  "paymentAmount": "1000.00",
+  "serviceAmount": "10.00",
+  "paymentInfo": "https://www.paymentLinkExample.com",
+  "paymentType": 204,
+  "completeTime": "2025-01-01 00:00:00",
+  "errorMessage": null,
+  "sign": "TEEMO_SIGN"
+
+}
+```
+
+
+### Callback Response
+
+| Field   | Type   | Required | Description                                             |
+| ------- | ------ | -------- | ------------------------------------------------------- |
+| SUCCESS | String | yes      | Must return `"SUCCESS"` or the callback will be retried |
+
+```json title= Request Example
+{
+  SUCCESS
+
+}
+```

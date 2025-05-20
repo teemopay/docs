@@ -12,11 +12,11 @@ description: Merchant receives a payout result callback
 ### Header Information
 
 | Header Parameter | Description       |
-| ---------------- | ----------------- |
+| ---------------- |-------------------|
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | Country code      |
-| appCode          | App code          |
+| appCode          | Apllication ID    |
 
 ### Callback Parameters
 
@@ -31,3 +31,15 @@ description: Merchant receives a payout result callback
 | errorCode       | number | yes      |        | Order failure status error code                                                                          |
 | errorMessage    | String | yes      |        | Order failure error message: 1000-Card error or limit 1001-Refunded 1002-Channel fluctuation 9999-Others |
 | sign            | String | yes      |        | Signature                                                                                                |
+
+### Callback Response
+
+| Parameter | Type   | Required | Length | Description                                   |
+| --------- | ------ | -------- | ------ | --------------------------------------------- |
+| SUCCESS   | String | Yes      |        | Must return `"SUCCESS"`, otherwise will retry |
+
+```json title= Callback Response
+{
+  SUCCESS
+}
+```

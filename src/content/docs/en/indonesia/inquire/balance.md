@@ -1,37 +1,35 @@
 ---
-title: 余额查询
-description: 余额查询
+title: Balance Query
+description: Balance Query
 ---
 
-### 头部信息（header）
+### Request URL
 
-| header 参数 | 入参参数描述 |
-| ----------- | ----------- |
-| timestamp   | 请求时间戳  |
-| nonce       | 随机值      |
-| country     | CO   |
-| app_code    | app 编号    |
-### 请求参数
+| method | url                       |
+| ------ | ------------------------- |
+| POST   | /api/pay/merchant/balance |
 
-| 字段   | 类型     | 必需  | 长度  | 描述  |
-| ---- | ------ | --- | --- | --- |
-| sign | String | yes |     | 签名  |
+### Request Parameters
 
-```json
+| Field | Type   | Required | Length | Description |
+| ----- | ------ | -------- | ------ | ----------- |
+| sign  | String | yes      |        | Signature   |
+
+```json title="Request Example"
 {
   "sign": "YOUR_SIGN"
 }
 ```
 
-### 返回参数
+### Response Parameters
 
-| 参数           | 类型     | 必需  | 长度  | 描述   |
-| ------------ | ------ | --- | --- | ---- |
-| totalAmount  | String | yes |     | 总金额  |
-| frozenAmount | String | yes |     | 冻结金额 |
-| availAmount  | String | yes |     | 可用金额 |
+| Parameter    | Type   | Required | Length | Description        |
+| ------------ | ------ | -------- | ------ | ------------------ |
+| totalAmount  | String | yes      |        | Total Amount       |
+| frozenAmount | String | yes      |        | Frozen Amount      |
+| availAmount  | String | yes      |        | Available Amount   |
 
-```json
+```json title="Response Example"
 {
     "code": 200,
     "data": {
@@ -42,4 +40,3 @@ description: 余额查询
     "msg": "success",
     "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
 }
-```

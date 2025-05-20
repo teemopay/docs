@@ -12,11 +12,11 @@ description: Merchant requests to create a payout order
 ### Header Information
 
 | Header Parameter | Description       |
-| ---------------- | ----------------- |
+| ---------------- |-------------------|
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | Country code (PE) |
-| app_code         | App code          |
+| app_code         | Apolication ID    |
 
 ### Request Parameters
 

@@ -12,11 +12,11 @@ description: Merchant query the status of a payout order
 ### Header Information
 
 | Header Parameter | Description       |
-| ---------------- | ----------------- |
+| ---------------- |-------------------|
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | Country code (PE) |
-| app_code         | App code          |
+| app_code         | Application ID    |
 
 ### Request Parameters
 
