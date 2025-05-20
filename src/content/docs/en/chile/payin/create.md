@@ -39,35 +39,6 @@ PAGO46
 
 
 
-### additionalInfo (Additional Fields) Description
-
-### When paymentType is 2, additionalInfo returns
-
-| Field Name  | Type       | Length | Required | Description  |
-| ----------- | ---------- | ------ | -------- | ------------ |
-| paymentLink | String(32) | 32     | Yes      | Payment link |
-
-### When paymentType is 3, additionalInfo returns
-
-| Field Name      | Type       | Length | Required | Description       |
-| --------------- | ---------- | ------ | -------- | ----------------- |
-| bankName        | String(16) | 16     | Yes      | Payment bank name |
-| bankCode        | String(16) | 16     | Yes      | Payment bank code |
-| expiredTime     | Long       |        | Yes      | Default 9 days    |
-| beneficiaryName | String(32) | 32     | Yes      | Beneficiary name  |
-
-### When paymentType is 4, additionalInfo returns
-
-| Field Name  | Type | Required | Description                                             |
-| ----------- | ---- | -------- | ------------------------------------------------------- |
-| expiredTime | Long | Yes      | Expiration time (time when request interface is called) |
-
-### When paymentType is 5, additionalInfo returns
-
-| Field Name  | Type | Required | Description                                             |
-| ----------- | ---- | -------- | ------------------------------------------------------- |
-| expiredTime | Long | Yes      | Expiration time (time when request interface is called) |
-
 ### Request Parameters
 
 | Field           | Type   | Required | Length | Description                                                                                              |
@@ -81,3 +52,51 @@ PAGO46
 | phone           | String | No       | 20     | Phone number                                                                                             |
 | callbackUrl     | String | No       | 200    | Payment callback URL, if not provided, merchant configuration will be used                               |
 | sign            | String | Yes      |        | Signature                                                                                                |
+
+```json title="Sample Request"
+{
+    "realName": "TeemoPay",
+    "amount": "10000",
+    "phone": "1234567890",
+    "callbackUrl": "https://www.callbackexample.com",
+    "merchantOrderNo": "OrderNoExample",
+    "email": "TeemoPay@example.com",
+    "paymentType": 601,
+    "sign": "YOUR_SIGN"
+}
+```
+
+### Response Parameters
+
+
+| Field           | Type       | Required | Length | Description                                                                  |
+| --------------- | ---------- | -------- | ------ | ---------------------------------------------------------------------------- |
+| merchantOrderNo | String     | yes      | 32     | Merchant order number                                                        |
+| tradeNo         | String     | yes      | 32     | Platform order number                                                        |
+| amount          | String     | yes      | 32     | Transaction amount                                                           |
+| paymentType     | Int        | yes      | 3      | Payment method                                                               |
+| paymentInfo     | String     | yes      | 32     | Main payment information, e.g., payment reference number used for the payout |
+| additionalInfo  | JSONObject | no       |        | Additional information                                                       |
+| status          | Int        | yes      |        | Payout status: 1 = Success, 3 = Failed                                       |
+| errorMsg        | String     | no       |        | Error message, returned only if the payout failed                            |
+
+
+
+```json
+{
+  "msg": "success",
+  "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610299",
+  "code": 200,
+  "data": {
+    "amount": "10000",
+    "tradeNo": "TS2501010001CO0000000000000000",
+    "merchantOrderNo": "OrderNoExample",
+    "paymentType": 601,
+    "additionalInfo": {
+
+    },
+    "paymentInfo": "https://www.paymentLinkExample.com",
+    "status": 1
+  }
+}
+```

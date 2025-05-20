@@ -1,5 +1,5 @@
 ---
-title: Create Collection Order
+title: Create Payin
 description: Merchant requests to create a collection order
 ---
 
@@ -11,12 +11,12 @@ description: Merchant requests to create a collection order
 
 ### Header Information
 
-| Header Parameter | Description        |
-| ---------------- | ------------------ |
-| timestamp        | Request timestamp  |
-| nonce            | Random value       |
+| Header Parameter | Description             |
+| ---------------- |-------------------------|
+| timestamp        | Request timestamp       |
+| nonce            | Random value            |
 | country          | Country code (e.g., BR) |
-| app_code         | App identifier     |
+| app_code         | Application ID          |
 
 ### Supported Payment Methods (paymentType)
 

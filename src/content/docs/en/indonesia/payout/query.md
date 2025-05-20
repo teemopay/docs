@@ -1,70 +1,46 @@
 ---
-title: 代付查询
-description: 商户查询一个代付订单的状态
+title: Payout Query
+description: Query a payout order
 ---
 
-### 请求地址
+### Request URL
 
 | method | url                      |
 | ------ | ------------------------ |
 | POST   | /api/pay/payout/query/v1 |
 
-### 头部信息（header）
+## Headers
 
-| header参数  | 入参参数描述 |
-| --------- | ------ |
-| timestamp | 请求时间戳  |
-| nonce     | 随机值    |
-| country   | BR |
-| app_code  | app编号  |
+| Header Parameter | Description       |
+| ---------------- |-------------------|
+| timestamp        | Request timestamp |
+| nonce            | Random value      |
+| country          | Country code (ID)  |
+| app_code         | Application ID    |
 
-### 请求参数
+### Request Parameters
 
-| 字段              | 类型     | 必需  | 长度  | 描述    |
-| --------------- | ------ | --- | --- | ----- |
-| merchantOrderNo | String | yes | 32  | 商户订单号 |
-| sign            | String | yes |     | 签名    |
+| Field           | Type   | Required | Length | Description           |
+| --------------- | ------ | -------- | ------ | --------------------- |
+| merchantOrderNo | String | yes      | 32     | Merchant order number |
+| sign            | String | yes      | -      | Signature             |
 
-```json
+
+```json title = ""
 {
-  "merchantOrderNo": "OrderNoExample",
-  "sign": "YOUR_SIGN"
-}
-```
+  "msg": "success",
+  "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610299",
+  "code": 200,
+  "data": {
+    "amount": "1000.00",
+    "tradeNo": "TS2501010001ID0000000000000000",
+    "additionalInfo": {
 
-### 返回参数
-
-| 参数                 | 类型      | 必需  | 长度  | 描述                       |
-| ------------------ | ------- | --- | --- | ------------------------ |
-| code               | Integer | yes |     | 请求响应码                    |
-| msg                | String  | yes |     | 响应信息                     |
-| data               | Object  | yes |     | 响应数据                     |
-| -- merchantOrderNo | String  | yes | 32  | 商户订单号                    |
-| -- tradeNo         | String  | yes |     | 平台订单号                    |
-| -- amount          | String  | yes |     | 代付金额                     |
-| -- remark          | String  | yes |     | 备注                       |
-| -- status          | Int     | yes |     | 代付状态,2:成功 3:失败     |
-| -- sign            | String  | yes |     | 签名                       |
-
-```json
-{
-    "code": 200,
-    "msg":"success", 
-    "data": {
-      "merchantOrderNo": "OrderNoExample",
-      "tradeNo": "TF201806251011",
-      "remark": "代付备注",
-      "status": 1,
-      "sign": "TEEMO_SIGN"
     },
-    "success": true
-}
-```
-
-```json
-{
-    "code": 400,
-    "msg":"Order not found",
-    "success": false
+    "merchantOrderNo": "OrderNoExample",
+    "paymentInfo": "684180093000000000",
+    "paymentType": 1,
+    "status": 1
+  }
 }
 ```

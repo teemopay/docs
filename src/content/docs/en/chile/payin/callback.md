@@ -11,12 +11,12 @@ description: Merchant receives a payment result callback
 
 ### Header Information
 
-| Header Parameter | Description       |
-| ---------------- |-------------------|
-| timestamp        | Request timestamp |
-| nonce            | Random value      |
-| country          | Country Country code (CL)        |
-| appCode          | Application code  |
+| Header Parameter | Description               |
+| ---------------- |---------------------------|
+| timestamp        | Request timestamp         |
+| nonce            | Random value              |
+| country          | Country Country code (CL) |
+| appCode          | Application ID            |
 
 ### Payment Callback
 

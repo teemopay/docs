@@ -11,12 +11,12 @@ description: Merchant requests to create a payout order
 
 ### Header Information
 
-| Header Parameter | Description        |
-| ---------------- | ------------------ |
-| timestamp        | Request timestamp  |
-| nonce            | Random value       |
+| Header Parameter | Description             |
+| ---------------- |-------------------------|
+| timestamp        | Request timestamp       |
+| nonce            | Random value            |
 | country          | Country code (e.g., BR) |
-| app_code         | App identifier     |
+| app_code         | Application ID          |
 
 ### Request Parameters
 

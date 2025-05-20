@@ -1,63 +1,71 @@
 ---
-title: 代付回调
-description: 商户接受一个代付结果的回调
+title: Payout Callback
+description: Received a Callback
 ---
 
-### 回调地址
+### Callback Url
 
-| method | url       |
-| ------ | --------- |
-| POST   | 商户提供的回调地址 |
+| Method | URL                                   |
+| ------ | ------------------------------------- |
+| POST   | Callback URL provided by the merchant |
 
-### 头部信息（header）
 
-| header参数  | 入参参数描述 |
-| --------- |--------|
-| timestamp | 请求时间戳  |
-| nonce     | 随机值    |
-| country   | ID     |
-| appCode   | 应用编码   |
+### Headers
 
-### 回调参数
+| Header Parameter | Description       |
+| ---------------- | ----------------- |
+| timestamp        | Request timestamp |
+| nonce            | Random string     |
+| country          | ID                |
+| appCode          | Application code  |
 
-| 参数              | 类型     | 必需  | 长度  | 描述                                              |
-| --------------- | ------ | --- | --- | ----------------------------------------------- |
-| merchantOrderNo | String | yes | 32  | 商户订单号                                           |
-| tradeNo         | String | yes |     | 平台订单号                                           |
-| amount          | String | yes |     | 交易金额                                            |
-| serviceAmount   | String | yes |     | 服务费用  eg:18.02                                  |
-| remark          | String | yes |     | 备注                                              |
-| status          | String | Int |     | 代付状态,2:成功 3:失败                                |
-| errorCode       | number | yes |     | 订单失败状态错误码                                       |
-| errorMessage    | String | yes |     | 订单失败错误信息，详见下方说明 |
-| sign            | String | yes |     | 签名                                              |
+
+### Callback Parameters
+
+| Parameter       | Type   | Required | Length | Description                                                    |
+| --------------- | ------ | -------- | ------ | -------------------------------------------------------------- |
+| merchantOrderNo | String | yes      | 32     | Merchant's order number                                        |
+| tradeNo         | String | yes      |        | Platform's order number                                        |
+| amount          | String | yes      |        | Transaction amount                                             |
+| serviceAmount   | String | yes      |        | Service fee, e.g., 18.02                                       |
+| remark          | String | yes      |        | Remarks                                                        |
+| status          | String | yes      |        | Payout status: 2 = Success, 3 = Failure                        |
+| errorCode       | Number | yes      |        | Error code if the transaction failed                           |
+| errorMessage    | String | yes      |        | Error message for failed transactions (see explanations below) |
+| sign            | String | yes      |        | Signature                                                      |
+
+
 
 ```json
 {
   "merchantOrderNo": "OrderNoExample",
   "tradeNo": "TF201806251011",
-  "remark": "代付备注",
+  "remark": "Payout remark",
   "status": 2,
-  "amount":"1000.00",
-  "serviceAmount":"60.00",
+  "amount": "1000.00",
+  "serviceAmount": "60.00",
   "sign": "TEEMO_SIGN"
 }
+
 ```
 
-> errorCode 说明：
+### Error Code Explanations:
 
-| errorCode | errorMessage                                | 建议                             |
-| --------- | ------------------------------------------- | ------------------------------ |
-| 1000      | The account does not exist or is restricted | 建议让用户改卡                        |
-| 1001      | Return                                      | 已退款，建议收到回调后，发起时间在 24 小时内可以重新放款 |
-| 1002      | Channel server fluctuations                 | 通道波动，建议 10 分钟后重试               |
-| 9999      | Others                                      | 其他，建议取消订单                      |
+| errorCode | errorMessage                                | Recommendation                                               |
+| --------- | ------------------------------------------- | ------------------------------------------------------------ |
+| 1000      | The account does not exist or is restricted | Recommend the user to change to another card                 |
+| 1001      | Return                                      | Refunded. Retry payout within 24 hours of receiving callback |
+| 1002      | Channel server fluctuations                 | Retry after 10 minutes                                       |
+| 9999      | Others                                      | Other issues. Recommend canceling the order                  |
 
-### 回调返回
 
-| 参数      | 类型     | 必需  | 长度  | 描述                   |
-| ------- | ------ | --- | --- | -------------------- |
-| SUCCESS | String | yes |     | 必须返回"SUCCESS"否则会重复回调 |
+### Callback Response
+
+
+| Parameter | Type   | Required | Length | Description                                             |
+| --------- | ------ | -------- | ------ | ------------------------------------------------------- |
+| SUCCESS   | String | yes      |        | Must return `"SUCCESS"` or the callback will be retried |
+
 
 ```json
 SUCCESS

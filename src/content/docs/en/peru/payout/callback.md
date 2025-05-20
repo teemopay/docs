@@ -15,7 +15,7 @@ description: Merchant receives a payout result callback
 | ---------------- |-------------------|
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
-| country          | Country code      |
+| country          | PE                |
 | appCode          | Apllication ID    |
 
 ### Callback Parameters
