@@ -54,15 +54,17 @@ description: direct api
 
 ```json title= "请求示例"
 {
+
   "amount": 100,
-  "callbackUrl": "https://pk.api.starpago.com/api/v2/payment/pk_teemopay/notify",
-  "email": "Marion@gmail.com",
-  "idCardNumber": "3149586651931",
-  "merchantOrderNo": "dsdd6e634d1df95541199d236f77d6",
+  "callbackUrl": "YOUR CALLBACK URL",
+  "email": "M12345n@gmail.com",
+  "idCardNumber": "314958612345",
+  "merchantOrderNo": "dsdd6e634d1dfsjsjsjjsj",
   "paymentType": "303",
-  "phone": "3474449652",
+  "phone": "3474412345",
   "realName": "AMARISTAMM",
-  "sign": "WuKuruntcaj1Yx4AgopSYqP1GKVBF0HDaPAVvAtvvnufx4tHFgLZHrjs07FklKksnx3dd3jk4S1Utogncj93klPHrHDAGURbdx7kZX+BAbhMnj+4qMzqUMeZbVvM8WyuK08YHxspajuw3dBnn/8VCRFKfhIZ8xE3tZHXgKfB68w="
+  "sign": "YOUR SIGN"
+
 }
 ```
 
@@ -87,8 +89,8 @@ description: direct api
 ```json title= 返回示例（303 支付方式）
 {
   "amount": "100",
-  "tradeNo": "TS2504190001PK0000295066026360",
-  "merchantOrderNo": "dsdd6e634d1df95541199d236f77d6",
+  "tradeNo": "TS2504190001PK00002953434360",
+  "merchantOrderNo": "dsdd6e634d1d3434364199d236f77d6",
   "paymentType": 303,
   "additionalInfo": {},
   "status": 1
