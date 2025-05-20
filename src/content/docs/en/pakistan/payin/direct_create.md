@@ -1,56 +1,55 @@
 ---
-title: 直连接口
-description: 直连Easypaisa和Jazzcash
+title: Create Direct
+description: Merchant creates a cashier order
 ---
 
-### 请求地址
+### Request URL
 
 | method | url                         |
 |--------|-----------------------------|
 | POST   | /api/pay/payment/create/v1 |
 
 
-### 头部信息（header）
+### Headers
 
-| header 参数   | 入参参数描述  |
-|-------------|---------|
-| timestamp   | 请求时间戳   |
-| nonce       | 随机值     |
-| country     | PK  |
-| app_code    | app编号   |
-
-
-
-### 支持的支付方式（paymentType）
-
-| 支付方式名称                           | PaymentType (入参参数) |
-|----------------------------------|--------------------|
-| Easypaisa                        | 303                |
-| Jazzcash                         | 304                |
+| Header Parameter | Description       |
+|------------------| ----------------- |
+| timestamp        | Request timestamp |
+| nonce            | Random value      |
+| country          | PK                |
+| appCode          | Application ID    |
 
 
 
 
-### 请求参数
+### Supported Payment Methods List (paymentType)
 
-| 字段名          | 类型     | 是否必填 | 最大长度 | 描述                   |
-|--------------| ------ | ---- | ---- |----------------------|
-| merchantOrderNo | String | 是    | 32   | 商户订单号                |
-| paymentType | Int    | 是    | -    | 支付方式，例如：303,304      |
-| idCardNumber | String | 是    | 13   | 客户身份证号码（13位数字）       |
-| amount     | String | 是    | 20   | 金额（以巴基斯坦卢比为单位，必须为整数） |
-| realName   | String | 是    | 40   | 用户姓名（全大写，不包含特殊字符）    |
-| email      | String | 是    | 50   | 用户邮箱（格式正确即可）         |
-| phone      | String | 是    | 10   | 电话号码（10位，不包含区号）      |
-| sign       | String | 是    | -    | 签名                   |
-| callbackUrl | String | 否    | 200  | 支付成功或失败后的回调地址        |
+| Payment Method Name | paymentType (Request Parameter) |
+|---------------------|---------------------------------|
+|  Easypaisa        | 303                             |
+| Jazzcash        | 304                             |
 
 
 
+### Request Parameters
+
+| Field           | Type   | Required | Length | Description                                                             |
+| --------------- | ------ | -------- | ------ |-------------------------------------------------------------------------|
+| merchantOrderNo | String | yes      | 32     | Merchant order number                                                   |
+| paymentType     | Int    | yes      |        | Payment method: 303 or 304                                              |
+| idCardNumber    | String | yes      | 13     | Customer ID card number, 13-digit integer                               |
+| amount          | String | yes      | 20     | Payment amount (PKR), must be an integer                                |
+| realName        | String | yes      | 40     | Customer name: Uppercase only, no special characters, max 40 characters |
+| email           | String | yes      | 50     | Customer email: must match valid regex                                  |
+| phone           | String | yes      | 10     | Phone number, 10 digits without country code                            |
+| sign            | String | yes      |        | Signature                                                               |
+| callbackUrl     | String | no       | 200    | Callback URL                                                            |
 
 
 
-```json title= "请求示例"
+
+
+```json title= request example 
 {
     "merchantOrderNo": "OrderNoExample",
     "amount": "1000",
@@ -66,23 +65,23 @@ description: 直连Easypaisa和Jazzcash
 
 
 
-### 返回参数
+### Response Parameters
 
-| 字段名               | 类型         | 是否必填 | 描述                       |
-| ----------------- | ---------- |-----|--------------------------|
-| merchantOrderNo | String     | 是   | 商户订单号                    |
-| tradeNo         | String     | 是   | 平台交易号                    |
-| amount          | String     | 是   | 交易金额                     |
-| paymentType     | Int        | 是   | 支付方式，如：304               |
-| paymentInfo     | String     |  否  | 无                        |
-| additionalInfo  | JSONObject | 否   | 附加信息，如 availableChannels |
-| status          | Int        | 是   | 订单状态：1-创建成功，3-失败         |
-| errorMsg        | String     | 否   | 错误信息（仅失败时返回）             |
-
-
+| Field           | Type       | Required | Length | Description                                                   |
+| --------------- | ---------- | -------- | ------ | ------------------------------------------------------------- |
+| merchantOrderNo | String     | yes      | 32     | Merchant order number                                         |
+| tradeNo         | String     | yes      | 32     | Platform order number                                         |
+| amount          | String     | yes      | 32     | Transaction amount                                            |
+| paymentType     | Int        | yes      | 10     | Payment method: 302                                           |
+| paymentInfo     | String     | yes      | 32     | Primary payment information, e.g., payment ID or order number |
+| additionalInfo  | JSONObject | no       |        | Additional information                                        |
+| status          | Int        | yes      |        | 1 - Order Created Successfully, 3 - Failed                    |
+| errorMsg        | String     | no       |        | Error message (returned on failure)                           |
 
 
-```json title= 返回示例
+
+
+```json title= response example
 {
     "msg": "success",
     "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610299",
@@ -90,10 +89,9 @@ description: 直连Easypaisa和Jazzcash
     "data": {
         "amount": "1000.00",
         "tradeNo": "TS2501010001PK0000000000000000",
-        "expirationTime": "2025-01-01 00:00:00",
         "paymentType": 304,
         "merchantOrderNo": "OrderNoExample",
-        "additionalInfo": {}
+        "additionalInfo": {},
         "status": 1
     }
 }

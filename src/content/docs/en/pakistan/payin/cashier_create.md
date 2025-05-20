@@ -1,69 +1,106 @@
 ---
-title: 收银台创建
-description: 商户创建收银台
+title: Payin Callback
+description: Merchant receives a collection result callback
 ---
 
-### 请求地址
+### Callback URL
 
-| method | url                          |
-| ------ |------------------------------|
-| POST   | /api/checkout/payment/create |
+| method | url                            |
+| ------ | ------------------------------ |
+| POST   | Merchant provided callback URL |
 
-### 头部信息（header）
+### Headers
 
-| header 参数   | 入参参数描述  |
-|-------------|---------|
-| timestamp   | 请求时间戳   |
-| nonce       | 随机值     |
-| country     | PK  |
-| app_code    | app编号   |
+| Header Parameter | Description       |
+| ---------------- | ----------------- |
+| timestamp        | Request timestamp |
+| nonce            | Random value      |
+| country          | PK                |
+| appCode          | Application ID   |
 
-### 请求参数
 
-| 字段              | 类型   | 必需  | 长度    | 描述                  |
-|-----------------| ------ |-----|-------|---------------------|
-| merchantOrderNo | String | yes | 32    | 商户订单号               |
-| paymentType     | Int    | no  |      | 支付方式，当前交易金额小于等于5W时,用于指定ep或jz.303:easypaisa,304:JazzCash |
-| idCardNumber    | String | no  | 13    | 客户身份证ID 13位整数       |
-| amount          | String | yes | 20    | 金额 正整数              |
-| phone           | String | no  | 10/11 | 手机号(3开头10位/03开头11位) |
-| email           | String | no  | 50    | 用户邮箱                |
-| callbackUrl     | String | no  | 200   | 回调地址                |
-| sign            | String | yes |       | 签名                  |
 
-```json title=请求示例
+### Payin Callback Parameters
+
+| Parameter       | Type   | Required | Length | Description                                                                                             |
+| --------------- | ------ | -------- | ------ | ------------------------------------------------------------------------------------------------------- |
+| merchantOrderNo | String | yes      | 32     | Merchant order number                                                                                   |
+| tradeNo         | String | yes      |        | Platform order number                                                                                   |
+| paymentOrderNo  | String | yes      | 30     | Platform’s current payin payment transaction number                                                     |
+| status          | Int    | yes      |        | 2: success, 3: failure                                                                                  |
+| paymentAmount   | String | yes      |        | Actual payment amount for this transaction                                                              |
+| serviceAmount   | String | yes      |        | Service fee, e.g. 18.02                                                                                 |
+| paymentInfo     | String | yes      |        | Main payment information, showing the actual info used for payment                                      |
+| paymentType     | Int    | yes      |        | Actual payment method: 303: easypaisa, 304: jazzcash, 305: bankTransfer                                 |
+| completeTime    | String | yes      |        | Completion time of this transaction in local timezone, format: yyyy-MM-dd HH\:mm\:ss (Added 2025-05-06) |
+| errorMessage    | String | no       |        | Error message when order fails                                                                          |
+| sign            | String | yes      |        | Signature                                                                                               |
+
+
+
+
+```json title= Success Callback Example
 {
     "merchantOrderNo": "OrderNoExample",
-    "amount": "1000",
-    "callbackUrl": "https://www.callbackexample.com",
-    "sign": "YOUR_SIGN"
+    "tradeNo": "TS2501010001PK0000000000000000",
+    "paymentOrderNo": "TSOPaymentOrderNoExample",
+    "status": 2,
+    "paymentAmount": "1000.00", 
+    "serviceAmount": "10.00",
+    "paymentInfo": "https://www.paymentLinkExample.com",
+    "paymentType": 304,
+    "completeTime": "2025-01-01 00:00:00",
+    "errorMessage": null,
+    "sign": "TEEMO_SIGN"
 }
 ```
 
-### 返回参数
 
-| 参数              | 类型     | 必需  | 长度 | 描述                                                      |
-|-----------------|--------|-----| ---- |---------------------------------------------------------|
-| merchantOrderNo | String | yes | 32   | 商户订单号                                                   |
-| tradeNo         | String | yes |      | 平台订单号                                                   |
-| amount          | String | yes |      | 订单交易金额                                                  |
-| status          | Int    | yes |      | 代收状态,0:受理中 3-失败                                         |
-| checkoutLink    | String | no  |      | 收银台地址                                                   |
-| expirationTime  | String | no  |      | 收银台地址过期时间                                               |
-| errorMsg        | String | no  |      | 错误信息,失败时返回                                              |
 
-```json title=返回示例
+```json title= Failure Callback Example
+
 {
-    "msg": "success",
-    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610299",
-    "code": 200,
-    "data": {
-        "amount": "1000.00",
-        "tradeNo": "TS2501010001PK0000000000000000",
-        "expirationTime": "2025-01-01 00:00:00",
-        "checkoutLink": "https://pk-payin.teemopay.com/#/?tradeNo=TS2501010001PK0000000000000000",
-        "merchantOrderNo": "OrderNoExample",
-        "status": 0
-    }
+    "merchantOrderNo": "OrderNoExample",
+    "tradeNo": "TS2501010001PK0000000000000000",
+    "paymentOrderNo": "TSOPaymentOrderNoExample",
+    "status": 3,
+    "paymentAmount": "1000.00",
+    "serviceAmount": "0.00",
+    "paymentInfo": "jazzcash",
+    "paymentType": 304,
+    "completeTime": "2025-01-01 00:00:00",
+    "errorMessage": "Unstable network, kindly retry later.",
+    "sign": "TEEMO_SIGN"
 }
+```
+
+
+### Error Message Descriptions
+
+| errorMessage                                                                   | Explanation                                                                     |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| Wallet limit exceeded, kindly contact user to upgrade or restore limit.        | EP/JZ daily/monthly/yearly limit exceeded                                       |
+| Transaction amount exceeds limit, kindly retry within allowed range.           | Requested amount 100-50000 exceeded limit                                       |
+| Wallet account frozen, kindly contact user to change card and retry.           | User wallet is under risk control (frozen, dormant, temporary restriction)      |
+| Wallet account abnormal, kindly contact user to verify account and retry.      | User wallet info error (wrong card number or CNIC, not activated, not verified) |
+| Request field error, kindly verify and retry.                                  | Incorrect upload of technical parameters, not per documentation                 |
+| Channel request error, technicians will fix ASAP.                              | Maintenance                                                                     |
+| Unstable network, kindly retry later.                                          | Network fluctuation                                                             |
+| User canceled the payment on wallet.                                           | Order submitted but user did not complete wallet payment                        |
+| Account inexist or CNIC mismatch, kindly verify or register wallet then retry. | User wallet info error (wrong card number or CNIC, not activated, not verified) |
+| Parameter validation error, kindly verify and retry.                           | Incorrect upload of technical parameters, not per documentation                 |
+| Insufficient balance, kindly contact user to recharge and retry.               | Insufficient balance                                                            |
+| Others                                                                         | Other unknown reasons due to insufficient information from bank                 |
+
+
+
+### Callback Response
+
+| Field   | Type   | Required | Description                                               |
+| ------- | ------ | -------- | --------------------------------------------------------- |
+| SUCCESS | String | yes      | Must return "SUCCESS", otherwise callback will be retried |
+
+
+```json title= response example
+SUCCESS
 ```

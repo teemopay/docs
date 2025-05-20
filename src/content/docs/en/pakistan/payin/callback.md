@@ -1,40 +1,45 @@
 ---
-title: 代收回调
-description: 商户接受一个代收结果的回调
+title: Payin Callback
+description: Merchant receives a collection result callback
 ---
 
-### 回调地址
+### Callback URL
 
-| method | url                |
-| ------ | ------------------ |
-| POST   | 商户提供的回调地址 |
+| method | url                            |
+| ------ | ------------------------------ |
+| POST   | Merchant provided callback URL |
 
-### 头部信息（header）
+### Headers
 
-| header参数                  | 入参参数描述 |
-|---------------------------|--------|
-| timestamp                 | 请求时间戳  |
-| nonce                     | 随机值    |
-| country  | PK     |
-| appCode  | 应用编码   |
+| Header Parameter | Description       |
+| ---------------- | ----------------- |
+| timestamp        | Request timestamp |
+| nonce            | Random value      |
+| country          | PK                |
+| appCode          | Application ID   |
 
-### 代收回调
 
-| 参数              | 类型   | 必需  | 长度  | 描述                                                  |
-|-----------------| ------ |-----|-----|-----------------------------------------------------|
-| merchantOrderNo | String | yes | 32  | 商户订单号                                               |
-| tradeNo         | String | yes |     | 平台订单号                                               |
-| paymentOrderNo  | String | yes | 30  | 平台代收当次支付流水号                                         |
-| status          | Int | yes |     | 2:成功 3:失败                                           |
-| paymentAmount   | String | yes |     | 当次实际支付金额                                            |
-| serviceAmount   | String | yes |     | 服务费用  eg:18.02                                      |
-| paymentInfo     | String | yes |     | 主要付款信息，返回的是实际用于付款的信息                                |
-| paymentType     | Int | yes |     | 真实支付方式 303:easypaisa ,304:jazzcash,305:bankTransfer |
-| completeTime    | String | yes |     | 该流水的完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式 (20250506新增)  |
-| errorMessage    | String | no  |     | 订单失败错误信息                                            |
-| sign            | String | yes |     | 签名                                                  |
 
-```json title=成功回调示例
+### Payin Callback Parameters
+
+| Parameter       | Type   | Required | Length | Description                                                                                             |
+| --------------- | ------ | -------- | ------ | ------------------------------------------------------------------------------------------------------- |
+| merchantOrderNo | String | yes      | 32     | Merchant order number                                                                                   |
+| tradeNo         | String | yes      |        | Platform order number                                                                                   |
+| paymentOrderNo  | String | yes      | 30     | Platform’s current payin payment transaction number                                                     |
+| status          | Int    | yes      |        | 2: success, 3: failure                                                                                  |
+| paymentAmount   | String | yes      |        | Actual payment amount for this transaction                                                              |
+| serviceAmount   | String | yes      |        | Service fee, e.g. 18.02                                                                                 |
+| paymentInfo     | String | yes      |        | Main payment information, showing the actual info used for payment                                      |
+| paymentType     | Int    | yes      |        | Actual payment method: 303: easypaisa, 304: jazzcash, 305: bankTransfer                                 |
+| completeTime    | String | yes      |        | Completion time of this transaction in local timezone, format: yyyy-MM-dd HH\:mm\:ss (Added 2025-05-06) |
+| errorMessage    | String | no       |        | Error message when order fails                                                                          |
+| sign            | String | yes      |        | Signature                                                                                               |
+
+
+
+
+```json title= Success Callback Example
 {
     "merchantOrderNo": "OrderNoExample",
     "tradeNo": "TS2501010001PK0000000000000000",
@@ -50,7 +55,9 @@ description: 商户接受一个代收结果的回调
 }
 ```
 
-```json title=失败回调示例
+
+
+```json title= Failure Callback Example
 
 {
     "merchantOrderNo": "OrderNoExample",
@@ -67,36 +74,33 @@ description: 商户接受一个代收结果的回调
 }
 ```
 
-### 错误信息说明
 
-| errorMessage                                |    补充说明                            |
-| ------------------------------------------- |--------------------------------|
-| Wallet limit exceeded, kindly contact user to upgrade or restore limit. | EP/JZ超过日/月/年限额 |
-| Transaction amount exceeds limit, kindly retry within allowed range. | 请求金额100-50000超限 |
-| Wallet account frozen, kindly contact user to change card and retry. | 用户钱包被风控（冻结、休眠、临时管控） |
-| Wallet account abnormal, kindly contact user to verify account and retry. | 用户钱包信息错误（卡号或CNIC填错、未激活、未通过认证） |
-| Request field error, kindly verify and retry. | 上传技术参数有误，未按文档要求 |
-| Channel request error, technicians will fix ASAP. | 维护 |
-| Unstable network, kindly retry later. | 网络波动 |
-| User canceled the payment on wallet. | 订单已提交，但用户未通过钱包支付 |
-| Account inexist or CNIC mismatch, kindly verify or register wallet then retry. | 用户钱包信息错误（卡号或CNIC填错、未激活、未通过认证） |
-| Parameter validation error, kindly verify and retry. | 上传技术参数有误，未按文档要求 |
-| Insufficient balance, kindly contact user to recharge and retry. | 余额不足 |
-| Others | 由于银行端给定信息不足而导致的其他不明因素 |
+### Error Message Descriptions
+
+| errorMessage                                                                   | Explanation                                                                     |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| Wallet limit exceeded, kindly contact user to upgrade or restore limit.        | EP/JZ daily/monthly/yearly limit exceeded                                       |
+| Transaction amount exceeds limit, kindly retry within allowed range.           | Requested amount 100-50000 exceeded limit                                       |
+| Wallet account frozen, kindly contact user to change card and retry.           | User wallet is under risk control (frozen, dormant, temporary restriction)      |
+| Wallet account abnormal, kindly contact user to verify account and retry.      | User wallet info error (wrong card number or CNIC, not activated, not verified) |
+| Request field error, kindly verify and retry.                                  | Incorrect upload of technical parameters, not per documentation                 |
+| Channel request error, technicians will fix ASAP.                              | Maintenance                                                                     |
+| Unstable network, kindly retry later.                                          | Network fluctuation                                                             |
+| User canceled the payment on wallet.                                           | Order submitted but user did not complete wallet payment                        |
+| Account inexist or CNIC mismatch, kindly verify or register wallet then retry. | User wallet info error (wrong card number or CNIC, not activated, not verified) |
+| Parameter validation error, kindly verify and retry.                           | Incorrect upload of technical parameters, not per documentation                 |
+| Insufficient balance, kindly contact user to recharge and retry.               | Insufficient balance                                                            |
+| Others                                                                         | Other unknown reasons due to insufficient information from bank                 |
 
 
-### 回调返回
 
-<Table
-thead={["字段", "类型", "必需", "描述"]}
-tbody={[["SUCCESS", "String", "yes", '必须返回"SUCCESS"否则会重复回调']]}
-/>
+### Callback Response
 
-| 参数    | 类型   | 必需 | 长度 | 描述                            |
-| ------- | ------ | ---- | ---- | ------------------------------- |
-| SUCCESS | String | yes  |      | 必须返回"SUCCESS"否则会重复回调 |
+| Field   | Type   | Required | Description                                               |
+| ------- | ------ | -------- | --------------------------------------------------------- |
+| SUCCESS | String | yes      | Must return "SUCCESS", otherwise callback will be retried |
 
-```json title=回调示例
+
+```json title= response example
 SUCCESS
 ```
-

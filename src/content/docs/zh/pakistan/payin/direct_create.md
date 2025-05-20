@@ -90,10 +90,9 @@ description: 直连Easypaisa和Jazzcash
     "data": {
         "amount": "1000.00",
         "tradeNo": "TS2501010001PK0000000000000000",
-        "expirationTime": "2025-01-01 00:00:00",
         "paymentType": 304,
         "merchantOrderNo": "OrderNoExample",
-        "additionalInfo": {}
+        "additionalInfo": {},
         "status": 1
     }
 }
