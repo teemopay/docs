@@ -1,5 +1,5 @@
 ---
-title: create a payout order
+title: Create a payout order
 description: Create a payout order
 ---
 
@@ -12,11 +12,11 @@ description: Create a payout order
 ### Header Information
 
 | Header Parameter | Parameter Description |
-| ---------------- | --------------------- |
+| ---------------- |-----------------------|
 | timestamp        | Request timestamp     |
 | nonce            | Random value          |
 | country          | Country code (MX)     |
-| app_code         | App number            |
+| app_code         | Application ID        |
 
 ### Request Parameters
 

@@ -1,4 +1,4 @@
 ---
-title: query bill
+title: Query bill
 description: Query bill
 ---

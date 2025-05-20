@@ -1,5 +1,5 @@
 ---
-title: payin callback
+title: Payin Callback
 description: Receive a payin result callback
 ---
 
@@ -12,22 +12,67 @@ description: Receive a payin result callback
 ### Header Information
 
 | Header Parameter | Description       |
-| ---------------- | ----------------- |
+| ---------------- |-------------------|
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
-| country          | Country code      |
-| appCode          | Application code  |
+| country          | MX                |
+| appCode          | Application ID    |
 
-### Collection Callback
+### Callback Parameters
 
-| Parameter       | Type   | Required | Length | Description                                      |
-| --------------- | ------ | -------- | ------ | ------------------------------------------------ |
-| merchantOrderNo | String | yes      | 32     | Merchant order number                            |
-| tradeNo         | String | yes      |        | Platform order number                            |
-| paymentOrderNo  | String | yes      | 30     | Platform collection payment serial number        |
-| status          | Int    | yes      |        | 2: Success                                       |
-| paymentAmount   | String | yes      |        | Actual payment amount for this transaction       |
-| serviceAmount   | String | yes      |        | Service fee e.g.: 18.02                          |
-| paymentInfo     | String | yes      |        | Main payment information, actual payment details |
-| paymentType     | Int    | yes      |        | Payment method                                   |
-| sign            | String | yes      |        | Signature                                        |
+| Parameter       | Type   | Required | Length | Description                                                                                |
+| --------------- | ------ | -------- | ------ | ------------------------------------------------------------------------------------------ |
+| merchantOrderNo | String | Yes      | 32     | Merchant's order number                                                                    |
+| tradeNo         | String | Yes      |        | Platform transaction number                                                                |
+| paymentOrderNo  | String | Yes      | 30     | Unique payment flow ID for this collection on the platform                                 |
+| status          | Int    | Yes      |        | 2: Success                                                                                 |
+| paymentAmount   | String | Yes      |        | Actual payment amount                                                                      |
+| serviceAmount   | String | Yes      |        | Service fee, e.g., 18.02                                                                   |
+| paymentInfo     | String | Yes      |        | Main payment information used for the transaction                                          |
+| paymentType     | Int    | Yes      |        | Payment method                                                                             |
+| completeTime    | String | Yes      |        | Completion time in local time zone (format: yyyy-MM-dd HH\:mm\:ss) *(Added on 2025-05-06)* |
+| claveRastreo    | String | Yes      |        | Reserved field (planned for next version)                                                  |
+| errorMessage    | String | No       |        | Error message if the transaction failed                                                    |
+| sign            | String | Yes      |        | Signature                                                                                  |
+
+
+```json title= callback example
+{
+    "merchantOrderNo": "OrderNoExample",
+    "tradeNo": "TS2501010001MX0000000000000000",
+    "paymentOrderNo": "TSOPaymentOrderNoExample",
+    "status": 2,
+    "paymentAmount": "1000.00", 
+    "serviceAmount": "15.00",
+    "paymentInfo": "684180093000000000",
+    "paymentType": 1,
+    "completeTime": "2025-01-01 00:00:00",
+    "errorMessage": null,
+    "sign": "TEEMO_SIGN"
+}
+```
+
+### errorMsg Explanation:
+
+| `errorMsg` Message                                                   | Description                    |
+| -------------------------------------------------------------------- | ------------------------------ |
+| Transaction amount exceeds limit, kindly retry within allowed range. | Requested amount exceeds limit |
+| Channel request error, technicians will fix ASAP.                    | Channel under maintenance      |
+| Unstable network, kindly retry later.                                | Channel/network is unstable    |
+| Parameter validation error, kindly verify and retry.                 | Invalid request parameters     |
+
+
+
+### Callback Response
+
+| Field   | Type   | Required | Description                                                     |
+| ------- | ------ | -------- | --------------------------------------------------------------- |
+| SUCCESS | String | Yes      | Must return `"SUCCESS"`, otherwise the callback will be retried |
+
+```json title= callback response
+{
+  SUCCESS
+}
+```
+
+

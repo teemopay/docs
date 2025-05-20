@@ -1,5 +1,5 @@
 ---
-title: bank list
+title: Bank list
 description: The bank list supported by the payin
 ---
 
