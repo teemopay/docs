@@ -1,5 +1,5 @@
 ---
-title: Create Collection Order
+title: Create a Payin Order
 description: Merchant requests to create a collection (pay-in) order  
 ---
 
@@ -16,7 +16,7 @@ description: Merchant requests to create a collection (pay-in) order
 | timestamp        | Request timestamp       |
 | nonce            | Random value            |
 | country          | Country code (e.g., ID) |
-| app_code         | Application code        |
+| app_code         | Application ID           |
 
 ### Supported Payment Types (paymentType)
 

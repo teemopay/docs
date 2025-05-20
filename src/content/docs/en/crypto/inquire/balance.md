@@ -1,53 +1,55 @@
 ---
-title: 余额查询
-description: 余额查询
+title: Balance Inquiry
+description: Balance Inquiry
 ---
 
-### 请求地址
+### Request URL
 
 | method | url                       |
 | ------ | ------------------------- |
 | POST   | /api/pay/merchant/balance |
 
 
+### Headers
+| Header Parameter | Description       |
+|------------------|-------------------|
+| timestamp        | Request timestamp |
+| nonce            | Random value      |
+| country          | MX                |
+| app_code         | Application ID    |
 
-### 头部信息（header）
 
-| header 参数 | 入参参数描述 |
-| ----------- |--------|
-| timestamp   | 请求时间戳  |
-| nonce       | 随机值    |
-| country     | BP     |
-| app_code    | app 编号 |
-### 请求参数
+### Request Parameters
 
-| 字段 | 类型   | 必需 | 长度 | 描述 |
-| ---- | ------ | ---- | ---- | ---- |
-| sign | String | yes  |      | 签名 |
+| Field | Type   | Required | Length | Description |
+| ----- | ------ | -------- | ------ | ----------- |
+| sign  | String | yes      |        | Signature   |
 
-```json title=请求示例
+
+```json title= request example
 {
   "sign": "YOUR_SIGN"
 }
 ```
 
-### 返回参数
+### Response Parameters
 
-| 参数         | 类型   | 必需 | 长度 | 描述     |
-| ------------ | ------ | ---- | ---- | -------- |
-| totalAmount  | String | yes  |      | 总金额   |
-| frozenAmount | String | yes  |      | 冻结金额 |
-| availAmount  | String | yes  |      | 可用金额 |
+| Field        | Type   | Required | Length | Description      |
+| ------------ | ------ | -------- | ------ | ---------------- |
+| totalAmount  | String | Yes      |        | Total amount     |
+| frozenAmount | String | Yes      |        | Frozen amount    |
+| availAmount  | String | Yes      |        | Available amount |
 
-```json title=返回示例
+```json title= request example
 {
-    "code": 200,
-    "data": {
-        "totalAmount": "12000.00",
-        "frozenAmount": "2000.00",
-        "availAmount": "10000.00"
-    },
-    "msg": "success",
-    "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
+  "code": 200,
+  "data": {
+    "totalAmount": "12000.00",
+    "frozenAmount": "2000.00",
+    "availAmount": "10000.00"
+  },
+  "msg": "success",
+  "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
 }
+
 ```

@@ -3,6 +3,7 @@ title: Payout Callback
 description: Receive a payout result callback
 ---
 
+
 ### Callback URL
 
 | method | url                            |

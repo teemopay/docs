@@ -1,5 +1,5 @@
 ---
-title: 创建代收
+title: Create a payin order
 description: 商户请求创建一个代收订单
 ---
 
@@ -9,47 +9,51 @@ description: 商户请求创建一个代收订单
 | ------ | -------------------------- |
 | POST   | /api/pay/payment/create/v1 |
 
-### 头部信息（header）
+### Header
 
-| header参数                  | 入参参数描述 |
-|---------------------------|--------|
-| timestamp                 | 请求时间戳  |
-| nonce                     | 随机值    |
-| country                   | BP     |
-| app_code                  | app编号  |
-
-
-### 请求参数
-
-| 字段              | 类型   | 必需  | 最大长度 | 描述                                                |
-|-----------------| ------ |-----|------|---------------------------------------------------|
-| merchantOrderNo | String | yes | 32   | 商户订单号                                             |
-| amount          | String | yes | 20   | 代收金额(比索)                                          |
-| callbackUrl     | String | no  | 200  | 代付回调地址，若不传, 则以商户配置为准                              |
-| sign            | String | yes |      | 签名                                                |
+| Header Field | Description       |
+| ------------ |-------------------|
+| timestamp    | Request timestamp |
+| nonce        | Random value      |
+| country      | BP                |
+| app\_code    | Application ID    |
 
 
-```json title="请求示例"
+
+### Request Parameters
+
+
+| Field           | Type   | Required | Max Length | Description                                                                               |
+| --------------- | ------ | -------- | ---------- | ----------------------------------------------------------------------------------------- |
+| merchantOrderNo | String | yes      | 32         | Merchant order number                                                                     |
+| amount          | String | yes      | 20         | Payment collection amount                                                                 |
+| callbackUrl     | String | no       | 200        | Callback URL for collection result (if not provided, merchant configuration will be used) |
+| sign            | String | yes      |            | Signature                                                                                 |
+
+
+
+```json title="Sample Request"
 {
     "amount": "1000",
     "sign": "YOUR_SIGN",
     "callbackUrl": "https://www.callbackexample.com",
-    "merchantOrderNo": "OrderNoExample",
+    "merchantOrderNo": "OrderNoExample"
 }
 ```
 
-### 返回参数
+### Response Parameters
 
-| 字段            | 类型       | 必需  | 长度 | 描述                           |
-| --------------- | ---------- |-----| ---- |------------------------------|
-| merchantOrderNo | String     | yes | 32   | 商户订单号                        |
-| tradeNo         | String     | yes | 32   | 平台订单号                        |
-| amount          | String     | yes | 32   | 交易金额                         |
-| paymentType     | Int        | yes | 10   | 支付方式 10001                   |
-| paymentInfo     | String     | yes | 32   | 主要付款信息，返回的是实际用于付款的信息，例如：支付链接 |
-| additionalInfo  | JSONObject | no  |      | 附加信息：当支付方式为4，5 辅助主要信息使用      |
-| status          | Int        | yes |    | 1-订单创建成功  3-失败               |
-| errorMsg        | String     | no  |    | 错误信息,失败时返回                   |
+| Field           | Type       | Required | Length | Description                                                  |
+| --------------- | ---------- | -------- | ------ | ------------------------------------------------------------ |
+| merchantOrderNo | String     | yes      | 32     | Merchant order number                                        |
+| tradeNo         | String     | yes      | 32     | Platform order number                                        |
+| amount          | String     | yes      | 32     | Transaction amount                                           |
+| paymentType     | Int        | yes      | 10     | Payment method (e.g., 10001)                                 |
+| paymentInfo     | String     | yes      | 32     | Main payment information, such as a payment URL or reference |
+| additionalInfo  | JSONObject | no       |        | Additional information: address and currency info            |
+| status          | Int        | yes      |        | Order status: 1 = created successfully, 3 = failed           |
+| errorMsg        | String     | no       |        | Error message, returned if the request failed                |
+
 
 
 ### 响应示例
@@ -62,7 +66,12 @@ description: 商户请求创建一个代收订单
     "amount": "1000.00",
     "tradeNo": "TS2501010001BP0000000000000000",
     "additionalInfo": {
-
+      "addresses": [
+        {
+          "coin": "usdt_trc20",
+          "address": "TAX9SYsqbedDyeR6ysS9spx8cXQNC8raR3"
+        }
+      ]
     },
     "merchantOrderNo": "OrderNoExample",
     "paymentInfo": "https://www.linkExample.com",
@@ -70,6 +79,7 @@ description: 商户请求创建一个代收订单
     "status": 1
   }
 }
+
 ```
 
 ```

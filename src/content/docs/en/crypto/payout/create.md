@@ -1,69 +1,71 @@
 ---
-title: 创建代付
-description: 商户请求创建一个代付订单
+title: Create a payout order
+description: Create a payout order
 ---
 
-### 请求地址
+### Request Url
 
 | method | url                       |
 | ------ | ------------------------- |
 | POST   | /api/pay/payout/create/v1 |
 
-### 头部信息（header）
+### Headers
 
-| header参数                  | 入参参数描述 |
-|---------------------------|--------|
-| timestamp                 | 请求时间戳  |
-| nonce                     | 随机值    |
-| country                   | BP     |
-| app_code                  | app编号  |
+| Header Parameter | Description       |
+| ---------------- |-------------------|
+| timestamp        | Request timestamp |
+| nonce            | Random string     |
+| country          | BP                |
+| app\_code        | Application ID    |
 
-### 请求参数
 
-| 字段              | 类型   | 必需  | 最大长度 | 描述                  |
-|-----------------| ------ |-----|------|---------------------|
-| merchantOrderNo | String | yes | 32   | 商户订单号               |
-| amount          | String | yes | 20   | 代付金额                |
-| chainType       | String | yes | 50   | 链名                  |
-| address         | String | yes |    | 收款地址                |
-| callbackUrl     | String | no  | 200  | 代付回调地址，若不传, 则以商户配置为准 |
-| sign            | String | yes |      | 签名                  |
+### Request Parameters
 
-```json title=请求示例
+
+| Field           | Type   | Required | Max Length | Description                                       |
+| --------------- | ------ | -------- | ---------- | ------------------------------------------------- |
+| merchantOrderNo | String | yes      | 32         | Merchant order number                             |
+| amount          | String | yes      | 20         | Payout amount                                     |
+| chain           | String | yes      | 50         | Chain name: e.g., trc20, erc20                    |
+| address         | String | yes      |            | Receiving address                                 |
+| callbackUrl     | String | no       | 200        | Callback URL; if omitted, merchant config is used |
+| sign            | String | yes      |            | Signature                                         |
+
+
+```json title= Sample Request 
 {
-    "bankAccount": "123456789987654321",
-    "realName": "TEEMO",
-    "bankCode": "40002",
-    "amount": "1000.00",
-    "phone": "1000000000",
-    "accountType": 40,
-    "idCardNumber": "GAPG00000000000000",
-    "sign": "YOUR_SIGN",
-    "bankName": "BANAMEX",
-    "callbackUrl": "https://www.callbackexample.com",
-    "merchantOrderNo": "OrderNoExample"
+  "merchantOrderNo": "OrderNoExample",
+  "amount": "10.00",
+  "chain": "trc20",
+  "address": "123456789987654321",
+  "callbackUrl": "https://www.callbackexample.com",
+  "sign": "YOUR_SIGN"
 }
+
 ```
 
-### 返回参数
+### Response Parameters
 
-| 参数            | 类型   | 必需 | 长度 | 描述                          |
-| --------------- | ------ | ---- | ---- | ----------------------------- |
-| merchantOrderNo | String | yes  | 32   | 商户订单号                    |
-| tradeNo         | String | yes  |      | 平台订单号                    |
-| status          | Int | yes  |      | 代付状态,1:支付中 3:失败(可以重新发起) |
-| amount          | String | yes  |      | 交易金额                      |
 
-```json title=返回示例
+| Field           | Type   | Required | Length | Description                                           |
+| --------------- | ------ | -------- | ------ | ----------------------------------------------------- |
+| merchantOrderNo | String | yes      | 32     | Merchant order number                                 |
+| tradeNo         | String | yes      |        | Platform order number                                 |
+| status          | Int    | yes      |        | Payout status: 1 = Processing, 3 = Failed (can retry) |
+| amount          | String | yes      |        | Transaction amount                                    |
+
+
+```json title= Sample Response
 {
-    "msg": "success",
-    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298",
-    "code": 200,
-    "data": {
-        "amount": "1000.00",
-        "merchantOrderNo": "OrderNoExample",
-        "status": 1,
-        "tradeNo": "TF2501010001MX0000000000000000"
-    }
+  "msg": "success",
+  "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298",
+  "code": 200,
+  "data": {
+    "amount": "1000.00",
+    "merchantOrderNo": "OrderNoExample",
+    "status": 1,
+    "tradeNo": "TF2501010001MX0000000000000000"
+  }
 }
+
 ```

@@ -16,7 +16,7 @@ description: Merchant queries the status of a payment order
 | timestamp      | Request timestamp |
 | nonce          | Random value      |
 | country        | Country code (ID) |
-| app_code       | App number        |
+| app_code       | Application ID    |
 
 ### Request Parameters
 
