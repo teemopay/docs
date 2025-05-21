@@ -205,7 +205,7 @@ export default defineConfig({
               en: "🇵🇰 Pakistan",
               zh: "🇵🇰 巴基斯坦",
             },
-            link: "/pakistan/cashier/create",
+            link: "/pakistan/cashier/cashier_create",
             items: [
               {
                 label: "payin",
