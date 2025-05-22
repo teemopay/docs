@@ -33,17 +33,17 @@ description: 直连Easypaisa和Jazzcash
 
 ### 请求参数
 
-| 字段名          | 类型     | 是否必填 | 最大长度 | 描述                   |
-|--------------| ------ | ---- | ---- |----------------------|
-| merchantOrderNo | String | 是    | 32   | 商户订单号                |
-| paymentType | Int    | 是    | -    | 支付方式，例如：303,304      |
-| idCardNumber | String | 是    | 13   | 客户身份证号码（13位数字）       |
-| amount     | String | 是    | 20   | 金额（以巴基斯坦卢比为单位，必须为整数） |
-| realName   | String | 是    | 40   | 用户姓名（全大写，不包含特殊字符）    |
-| email      | String | 是    | 50   | 用户邮箱（格式正确即可）         |
-| phone      | String | 是    | 10   | 电话号码（10位，不包含区号）      |
-| sign       | String | 是    | -    | 签名                   |
-| callbackUrl | String | 否    | 200  | 支付成功或失败后的回调地址        |
+| 字段名          | 类型     | 是否必填 | 最大长度 | 描述                                            |
+|--------------| ------ |------| ---- |-----------------------------------------------|
+| merchantOrderNo | String | 是    | 32   | 商户订单号                                         |
+| paymentType | Int    | 是    | -    | 支付方式，例如：303,304                               |
+| idCardNumber | String | 否    | 13   | 客户身份证号码（13位数字），当paymentType为304:Jazzcash时,必传。 |
+| amount     | String | 是    | 20   | 金额（以巴基斯坦卢比为单位，必须为整数）                          |
+| realName   | String | 是    | 40   | 用户姓名（全大写，不包含特殊字符）                             |
+| email      | String | 是    | 50   | 用户邮箱（格式正确即可）                                  |
+| phone      | String | 是    | 10   | 电话号码（10位，不包含区号）                               |
+| sign       | String | 是    | -    | 签名                                            |
+| callbackUrl | String | 否    | 200  | 支付成功或失败后的回调地址                                 |
 
 
 
