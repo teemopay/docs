@@ -29,7 +29,7 @@ description: 商户请求创建一个代付订单
 | bankName        | String | yes | 50  | 银行名称                                                      |
 | accountType     | Int    | yes |     | 账户类型, AHORRO:101(储蓄) CORRIENTE:102(活期)                    |
 | bankAccount     | String | yes | 50  | 收款账号                                                      |
-| cciNumber             | String | yes | 50  | 跨行转账账号：2025年5月25号之后必传输                                    |
+| cciNumber       | String | yes | 50  | 20位纯数字 跨行转账账号：2025年5月25号之后必传输                             |
 | realName        | String | yes | 50  | 用户姓名 不包含特殊字符，建议全大写                                        |
 | idCardNumber    | String | yes | 50  | 收款人证件号码                                                   |
 | idType          | Stirng | yes | 32  | 证件类型,身份证:DNI(8位数),税号:RUC(11位数),外国人身份证:CE(9位数）, 护照:PA(9位数） |
