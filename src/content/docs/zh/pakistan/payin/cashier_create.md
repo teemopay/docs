@@ -1,5 +1,5 @@
 ---
-title: 创建收银台
+title: 收银台创建
 description: 商户创建收银台
 ---
 

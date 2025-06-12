@@ -205,21 +205,14 @@ export default defineConfig({
               en: "🇵🇰 Pakistan",
               zh: "🇵🇰 巴基斯坦",
             },
-            link: "/pakistan/cashier/create",
+            link: "/pakistan/payin/cashier_create",
             items: [
               {
-                label: "Cashier",
+                label: "payin",
                 translations: {
-                  zh: "收银台",
+                  zh: "代收",
                 },
-                items: ["pakistan/cashier/create", "pakistan/cashier/callback", "pakistan/cashier/query"],
-              },
-              {
-                label: "Direct",
-                translations: {
-                  zh: "直连接口",
-                },
-                items: ["pakistan/direct/create", "pakistan/direct/callback", "pakistan/direct/query"],
+                items: ["pakistan/payin/cashier_create", "pakistan/payin/direct_create","pakistan/payin/callback", "pakistan/payin/query"],
               },
               {
                 label: "Payout",
