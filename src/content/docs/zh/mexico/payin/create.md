@@ -67,7 +67,7 @@ description: 商户请求创建一个代收订单
 | amount          | String     | yes | 32   | 交易金额                                            |
 | paymentType     | Int        | yes | 10   | 支付方式 1:VA 4:PayCashOnce 5:PayCashRecurrent |
 | paymentInfo     | String     | yes | 32   | 主要付款信息，返回的是实际用于付款的信息，例如：Va 账号，付款编号              |
-| additionalInfo  | JSONObject | no  |      | 附加信息：当支付方式为4，5 辅助主要信息使用                         |
+| additionalInfo  | JSONObject | no  |      | 附加信息：辅助主要信息使用                         |
 | status          | Int        | yes |    | 1-订单创建成功  3-失败                                  |
 | errorMsg        | String     | no  |    | 错误信息,失败时返回                                      |
 
@@ -85,7 +85,7 @@ description: 商户请求创建一个代收订单
     "amount": "1000.00",
     "tradeNo": "TS2501010001MX0000000000000000",
     "additionalInfo": {
-
+      "paymentLink": "https://test-mx-payin.teemopay.com/TS2405220001MX0000315772003922"
     },
     "merchantOrderNo": "OrderNoExample",
     "paymentInfo": "684180093000000000",

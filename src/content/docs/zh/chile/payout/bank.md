@@ -33,7 +33,9 @@ description: 代付支持的银行列表
 | 152  | Prepago Los Heroes                       |
 | 504  | BBVA (Bco Bilbao Vizcaya Arg)            |
 | 507  | Banco del Desarrollo                     |
-| 672  | Coopeuch                                 |
+| 875  | Mercado Pago                             |
+| 732  | Los Andes                                |
+| 730  | Tenpo                                    |
 
 
 账户类型：
