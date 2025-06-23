@@ -92,16 +92,16 @@ Each repayment is identified by the paymentOrderNo field in the callback.
 
 ### Response Parameters
 
-| Field           | Type       | Required | Length | Description                                                                   |
-| --------------- | ---------- | -------- | ------ | ----------------------------------------------------------------------------- |
-| merchantOrderNo | String     | yes      | 32     | Merchant order number                                                         |
-| tradeNo         | String     | yes      | 32     | Platform order number                                                         |
-| amount          | String     | yes      | 32     | Transaction amount                                                            |
-| paymentType     | Int        | yes      | 10     | Payment method: 1 = VA, 4 = PayCashOnce, 5 = PayCashRecurrent                 |
-| paymentInfo     | String     | yes      | 32     | Main payment information (e.g., VA account number or payment reference)       |
-| additionalInfo  | JSONObject | no       | -      | Additional information; used as supplementary data  |
-| status          | Int        | yes      | -      | Status: 1 = Order created successfully, 3 = Failed                            |
-| errorMsg        | String     | no       | -      | Error message (returned when failed)                                          |
+| Field           | Type       | Required | Length | Description                                                             |
+| --------------- | ---------- | -------- | ------ |-------------------------------------------------------------------------|
+| merchantOrderNo | String     | yes      | 32     | Merchant order number                                                   |
+| tradeNo         | String     | yes      | 32     | Platform order number                                                   |
+| amount          | String     | yes      | 32     | Transaction amount                                                      |
+| paymentType     | Int        | yes      | 10     | Payment method: 1 = VA, 4 = PayCashOnce, 5 = PayCashRecurrent           |
+| paymentInfo     | String     | yes      | 32     | Main payment information (e.g., VA account number or payment reference) |
+| additionalInfo  | JSONObject | no       | -      | Additional information; used as supplementary data                      |
+| status          | Int        | yes      | -      | Status: 1 = Order created successfully, 3 = Failed                      |
+| errorMsg        | String     | no       | -      | Error message (returned when failed)                                    |
 
 
 
