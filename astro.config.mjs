@@ -119,7 +119,7 @@ export default defineConfig({
                 translations: {
                   zh: "代收",
                 },
-                items: ["mexico/payin/create", "mexico/payin/callback", "mexico/payin/query"],
+                items: ["mexico/payin/cashier_create", "mexico/payin/create", "mexico/payin/callback", "mexico/payin/query"],
               },
               {
                 label: "Payout",
