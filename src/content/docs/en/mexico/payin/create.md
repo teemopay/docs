@@ -92,16 +92,16 @@ Each repayment is identified by the paymentOrderNo field in the callback.
 
 ### Response Parameters
 
-| Field           | Type       | Required | Length | Description                                                                   |
-| --------------- | ---------- | -------- | ------ | ----------------------------------------------------------------------------- |
-| merchantOrderNo | String     | yes      | 32     | Merchant order number                                                         |
-| tradeNo         | String     | yes      | 32     | Platform order number                                                         |
-| amount          | String     | yes      | 32     | Transaction amount                                                            |
-| paymentType     | Int        | yes      | 10     | Payment method: 1 = VA, 4 = PayCashOnce, 5 = PayCashRecurrent                 |
-| paymentInfo     | String     | yes      | 32     | Main payment information (e.g., VA account number or payment reference)       |
-| additionalInfo  | JSONObject | no       | -      | Additional information; used as supplementary data when paymentType is 4 or 5 |
-| status          | Int        | yes      | -      | Status: 1 = Order created successfully, 3 = Failed                            |
-| errorMsg        | String     | no       | -      | Error message (returned when failed)                                          |
+| Field           | Type       | Required | Length | Description                                                             |
+| --------------- | ---------- | -------- | ------ |-------------------------------------------------------------------------|
+| merchantOrderNo | String     | yes      | 32     | Merchant order number                                                   |
+| tradeNo         | String     | yes      | 32     | Platform order number                                                   |
+| amount          | String     | yes      | 32     | Transaction amount                                                      |
+| paymentType     | Int        | yes      | 10     | Payment method: 1 = VA, 4 = PayCashOnce, 5 = PayCashRecurrent           |
+| paymentInfo     | String     | yes      | 32     | Main payment information (e.g., VA account number or payment reference) |
+| additionalInfo  | JSONObject | no       | -      | Additional information; used as supplementary data                      |
+| status          | Int        | yes      | -      | Status: 1 = Order created successfully, 3 = Failed                      |
+| errorMsg        | String     | no       | -      | Error message (returned when failed)                                    |
 
 
 
@@ -118,7 +118,7 @@ Each repayment is identified by the paymentOrderNo field in the callback.
     "amount": "1000.00",
     "tradeNo": "TS2501010001MX0000000000000000",
     "additionalInfo": {
-
+      "paymentLink": "https://test-mx-payin.teemopay.com/TS2405220001MX0000315772003922"
     },
     "merchantOrderNo": "OrderNoExample",
     "paymentInfo": "684180093000000000",

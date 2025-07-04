@@ -20,14 +20,17 @@ description: 商户请求创建一个代收订单
 
 ## 支持支付方式列表（paymentType）
 
-| 支付方式名称 | PaymentType |
-|--------|-------------|
-| All-In-One Checkout | 601                     |
-| WEBPAY              | 602                     |
-| KHIPU               | 603                     |
-| PAGO46              | 604                     |
-| BANK_TRANSFER       | 605                     |
-| WALLET              | 606                     |
+| 支付方式名称              | PaymentType |
+|---------------------|-------------|
+| All-In-One Checkout | 601         |
+| WEBPAY              | 602         |
+| KHIPU               | 603         |
+| PAGO46              | 604         |
+| BANK_TRANSFER       | 605         |
+| WALLET              | 606         |
+| FINTOC              | 607         |
+| HITES               | 608         |
+| SERVIFACIL          | 609         |
 
 聚合收银台checkout 包含:
 
@@ -36,6 +39,9 @@ WEBPAY
 BANK TRANSFER
 MACH
 PAGO46
+FINTOC
+HITES     
+SERVIFACIL
 
  
 
