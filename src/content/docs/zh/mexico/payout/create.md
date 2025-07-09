@@ -60,7 +60,7 @@ description: 商户请求创建一个代付订单
 | status          | Int | yes  |      | 代付状态,1:支付中 3:失败(可以重新发起) |
 | amount          | String | yes  |      | 交易金额                      |
 
-```json title=返回示例
+```json title=成功示例
 {
     "msg": "success",
     "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298",
@@ -71,5 +71,15 @@ description: 商户请求创建一个代付订单
         "status": 1,
         "tradeNo": "TF2501010001MX0000000000000000"
     }
+}
+```
+
+
+```json title=失败示例
+{
+    "code": 425,
+    "data": null,
+    "msg": "Insufficient merchant balance",
+    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
 }
 ```
