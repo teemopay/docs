@@ -20,16 +20,17 @@ description: 商户创建收银台
 
 ### 请求参数
 
-| 字段              | 类型   | 必需  | 长度    | 描述                  |
-|-----------------| ------ |-----|-------|---------------------|
-| merchantOrderNo | String | yes | 32    | 商户订单号               |
-| paymentType     | Int    | no  |      | 支付方式，当前交易金额小于等于5W时,用于指定ep或jz.303:easypaisa,304:JazzCash |
-| idCardNumber    | String | no  | 13    | 客户身份证ID 13位整数       |
-| amount          | String | yes | 20    | 金额 正整数              |
-| phone           | String | no  | 10/11 | 手机号(3开头10位/03开头11位) |
-| email           | String | no  | 50    | 用户邮箱                |
-| callbackUrl     | String | no  | 200   | 回调地址                |
-| sign            | String | yes |       | 签名                  |
+| 字段              | 类型     | 必需  | 长度    | 描述                                                       |
+|-----------------|--------|-----|-------|----------------------------------------------------------|
+| merchantOrderNo | String | yes | 32    | 商户订单号                                                    |
+| paymentType     | Int    | no  |      | 支付方式，当前交易金额小于等于10w时,用于指定ep或jz.303:easypaisa,304:JazzCash |
+| paymentTypeList     | String | no  |      | 可以传输多个支付方式以逗号隔开：301，303                                  |
+| idCardNumber    | String | no  | 13    | 客户身份证ID 13位整数                                            |
+| amount          | String | yes | 20    | 金额 正整数                                                   |
+| phone           | String | no  | 10/11 | 手机号(3开头10位/03开头11位)                                      |
+| email           | String | no  | 50    | 用户邮箱                                                     |
+| callbackUrl     | String | no  | 200   | 回调地址                                                     |
+| sign            | String | yes |       | 签名                                                       |
 
 ```json title=请求示例
 {
