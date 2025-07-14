@@ -20,22 +20,24 @@ description: 商户创建收银台
 
 ### 请求参数
 
-| 字段              | 类型   | 必需  | 长度 | 描述                                                                                 |
-|-----------------| ------ |-----|----|------------------------------------------------------------------------------------|
-| merchantOrderNo | String | yes | 32 | 商户订单号                                                                              |
-| paymentType     | Int    | no  |    | 支付方式，支付方式: 1:VA 4:PayCashOnce 5:PayCashRecurrent 6:OXXO                            |
-| expirationTime  | String | no  |    | 按默认是一天；最短时间为10分钟最长为20天；Xm：分钟（如 90m 表示 90 分钟）,Xh：小时（如 2h 表示 2 小时）,Xd：天数（如 5d 表示 5 天） |
-| amount          | String | yes | 20 | 金额                                                                              |
-| phone           | String | no  | 10 | 手机号                                                                                |
-| email           | String | no  | 50 | 用户邮箱                                                                               |
-| callbackUrl     | String | no  | 200 | 回调地址                                                                               |
-| sign            | String | yes |    | 签名                                                                                 |
+| 字段              | 类型   | 必需  | 长度  | 描述                                                                                |
+|-----------------| ------ |-----|-----|-----------------------------------------------------------------------------------|
+| merchantOrderNo | String | yes | 32  | 商户订单号                                                                             |
+| paymentType     | Int    | no  |     | 支付方式，支付方式: 1:VA 4:PayCashOnce 5:PayCashRecurrent 6:OXXO                           |
+| expirationTime  | String | no  |     | 按默认是一天；最短时间为10分钟最长为20天；Xm：分钟（如 90m 表示 90 分钟）,Xh：小时（如 2h 表示 2 小时）,Xd：天数（如 5d 表示 5 天） |
+| amount          | String | yes | 20  | 金额                                                                                |
+| realName        | String | yes | 50  | 名字 ,全大写                                                                           |
+| phone           | String | no  | 10  | 手机号                                                                               |
+| email           | String | no  | 50  | 用户邮箱                                                                              |
+| callbackUrl     | String | no  | 200 | 回调地址                                                                              |
+| sign            | String | yes |     | 签名                                                                                |
 
 ```json title=请求示例
 {
     "merchantOrderNo": "OrderNoExample",
     "amount": "1000",
     "callbackUrl": "https://www.callbackexample.com",
+    "realName":"TeemoPay",
     "sign": "YOUR_SIGN"
 }
 ```
