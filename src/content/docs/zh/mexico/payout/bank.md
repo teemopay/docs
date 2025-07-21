@@ -3,8 +3,8 @@ title: 银行列表
 description: 代付支持的银行列表
 ---
 
-| 银行编码 | 银行名称        |
-| -------- | --------------- |
+| 银行编码 | 银行名称     |
+| ----- | -------- |
 | 2001 | BANXICO |
 | 37006 | BANCOMEXT |
 | 37009 | BANOBRAS |
@@ -87,3 +87,6 @@ description: 代付支持的银行列表
 | 90723 | CUENCA |
 | 90902 | INDEVAL |
 | 90706 | ARCUS |
+| 90721 | ALBO     |
+| 40167 | HEY BANCO |
+| 90720 | Mex Pago  |
