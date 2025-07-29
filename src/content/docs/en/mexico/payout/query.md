@@ -37,6 +37,7 @@ description: Query a payout order
     "additionalInfo": {
 
     },
+    "cepUrl": "https://www.banxico.org.mx/cep/go?i=90684&s=20210220&d=NsOpgmPFBEpUvWgHsmmfFHLH0DbkngmvBnE%%2B3O",
     "merchantOrderNo": "OrderNoExample",
     "paymentInfo": "684180093000000000",
     "paymentType": 1,
