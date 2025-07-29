@@ -32,7 +32,7 @@ description: 商户接受一个代收结果的回调
 | paymentInfo     | String | yes |     | 主要付款信息，返回的是实际用于付款的信息                               |
 | paymentType     | Int | yes |     | 支付方式                                               |
 | completeTime    | String | yes |     | 该流水的完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式 (20250506新增) |
-| claveRastreo    | String | yes |     | 预留字段,计划下个版本更新                                      |
+| claveRastreo    | String | no |     | 渠道返回的付款凭证,部分渠道返回为null值                                      |
 | errorMessage    | String | no  |     | 订单失败错误信息                                           |
 | sign            | String | yes |     | 签名                                                 |
 
