@@ -45,21 +45,19 @@ description: Merchant queries the status of a cashier order
 | transactionAmount             | String    | Yes      |        | Transaction amount                                                                               |
 | amount                        | String    | Yes      |        | Amount received                                                                                  |
 | status                        | String    | Yes      |        | 2 - Success, 3 - Failed                                                                          |
-| serviceAmount                 | String    | Yes      |        | Service fee, e.g., 18.02 (Added on 2025-05-06)                                                   |
-| paymentInfo                   | String    | Yes      |        | Main payment info, e.g., payment URL or identifier (Added on 2025-05-06)                         |
-| errorMessage                  | String    | No       |        | Error message if failed (Added on 2025-05-06)                                                    |
-| ~~remark~~                    | String    | No       |        | Remark (Removed on 2025-05-06)                                                                   |
+| serviceAmount                 | String    | Yes      |        | Service fee, e.g., 18.02                                                    |
+| paymentInfo                   | String    | Yes      |        | Main payment info, e.g., payment URL or identifier                          |
+| errorMessage                  | String    | No       |        | Error message if failed                                                     |
 | statementList                 | Object\[] | No       |        | Payment transaction records                                                                      |
 | ├─ paymentSingleOrderNo       | String    | Yes      |        | Single transaction ID                                                                            |
 | ├─ paymentStatementAmount     | String    | Yes      |        | Amount of this transaction                                                                       |
 | ├─ paymentStatementStatus     | Integer   | Yes      |        | Transaction status: 2 - Success, 3 - Failed                                                      |
 | ├─ paymentStatementStatusName | String    | Yes      |        | Transaction status name                                                                          |
-| ├─ serviceAmount              | String    | Yes      |        | Service fee = fixed fee + transaction amount × service rate (Added on 2025-05-06)                |
-| ├─ serviceRate                | String    | Yes      |        | Service rate (Added on 2025-05-06)                                                               |
-| ├─ immService                 | String    | Yes      |        | Fixed service fee (Added on 2025-05-06)                                                          |
-| ├─ paymentType                | Integer   | Yes      |        | Actual payment method (Added on 2025-05-06)                                                      |
-| ├─ completeTime               | String    | Yes      |        | Completion time in current country timezone, format: yyyy-MM-dd HH\:mm\:ss (Added on 2025-05-06) |
-| ~~sign~~                      | String    | Yes      |        | Signature (Removed on 2025-05-06)                                                                |
+| ├─ serviceAmount              | String    | Yes      |        | Service fee = fixed fee + transaction amount × service rate                 |
+| ├─ serviceRate                | String    | Yes      |        | Service rate                                                                |
+| ├─ immService                 | String    | Yes      |        | Fixed service fee                                                           |
+| ├─ paymentType                | Integer   | Yes      |        | Actual payment method                                                       |
+| ├─ completeTime               | String    | Yes      |        | Completion time in current country timezone, format: yyyy-MM-dd HH:mm:ss  |
 
 ```json title= response example
 {

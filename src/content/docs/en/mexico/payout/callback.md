@@ -28,11 +28,10 @@ description: Receive a payout result callback
 | tradeNo         | String | Yes      |        | Platform's order number                                                               |
 | amount          | String | Yes      |        | Transaction amount                                                                    |
 | serviceAmount   | String | Yes      |        | Service fee (e.g., 18.02)                                                             |
-| ~~remark~~      | String | Yes      |        | Remark — currently fixed as "" (To be removed after 2025-05-06)                       |
 | status          | Int    | Yes      |        | Payout status: 2 = Success, 3 = Failure                                               |
 | errorCode       | Number | Yes      |        | Error code for failed transaction                                                     |
 | errorMessage    | String | Yes      |        | Error message (see table below)                                                       |
-| completeTime    | String | Yes      |        | Completion time in local time zone, format: yyyy-MM-dd HH\:mm\:ss (New on 2025-05-06) |
+| completeTime    | String | Yes      |        | Completion time in local time zone, format: yyyy-MM-dd HH:mm:ss  |
 | sign            | String | Yes      |        | Signature                                                                             |
 
 

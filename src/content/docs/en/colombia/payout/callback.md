@@ -31,6 +31,7 @@ description: Merchant receives a payout result callback
 | status         | String | Int      |        | 2-Payout Success 3-Payout Failed 4-Refunded                                               |
 | errorCode      | number | yes      |        | Order failure status error code                                                           |
 | errorMessage   | String | yes      |        | Order failure error message: 1000-Card error or limit 1001-Refunded 1002-Channel fluctuation 9999-Others |
+| completeTime    | String | yes      |        | Completion time in local timezone, format: yyyy-MM-dd HH:mm:ss |
 | sign           | String | yes      |        | Signature                                                                                 |
 
 ```json title="Callback Example"
@@ -41,6 +42,7 @@ description: Merchant receives a payout result callback
   "status": 2,
   "amount":"1000.00",
   "serviceAmount":"60.00",
+  "completeTime": "2025-05-01 00:00:00",
   "sign": "TEEMO_SIGN"
 }
 ```

@@ -54,7 +54,7 @@ description: Merchant queries the status of a payment order
 ```json title="Response Example"
 {
   "merchantOrderNo": "OrderNoExample",
-  "tradeNo": "TF201806251011",
+  "tradeNo": "TS2501010001CL0000000000000000",
   "paymentType": 1,
   "amount": "100",
   "status": "2",

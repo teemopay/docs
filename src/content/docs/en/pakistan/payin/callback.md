@@ -32,7 +32,7 @@ description: Merchant receives a collection result callback
 | serviceAmount   | String | yes      |        | Service fee, e.g. 18.02                                                                                 |
 | paymentInfo     | String | yes      |        | Main payment information, showing the actual info used for payment                                      |
 | paymentType     | Int    | yes      |        | Actual payment method: 303: easypaisa, 304: jazzcash, 305: bankTransfer                                 |
-| completeTime    | String | yes      |        | Completion time of this transaction in local timezone, format: yyyy-MM-dd HH\:mm\:ss (Added 2025-05-06) |
+| completeTime    | String | yes      |        | Completion time of this transaction in local timezone, format: yyyy-MM-dd HH:mm:ss |
 | errorMessage    | String | no       |        | Error message when order fails                                                                          |
 | sign            | String | yes      |        | Signature                                                                                               |
 

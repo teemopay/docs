@@ -30,6 +30,7 @@ description: Merchant receives a payment result callback
 | serviceAmount   | String | yes      |        | Service fee e.g.: 18.02                          |
 | paymentInfo     | String | yes      |        | Main payment information used for actual payment |
 | paymentType     | Int    | yes      |        | Payment type                                     |
+| completeTime    | String | yes      |        | Completion time of the transaction (local time zone), format: yyyy-MM-dd HH:mm:ss  |
 | sign            | String | yes      |        | Signature                                        |
 
 
@@ -38,7 +39,7 @@ description: Merchant receives a payment result callback
 {
 
   "merchantOrderNo": "OrderNoExample",
-  "tradeNo": "TS2501010001CO0000000000000000",
+  "tradeNo": "TS2501010001CL0000000000000000",
   "paymentOrderNo": "TSOPaymentOrderNoExample",
   "status": 2,
   "paymentAmount": "1000.00",

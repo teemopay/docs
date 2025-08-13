@@ -49,7 +49,7 @@ description: Merchant query the status of a payout order
 | serviceRate     | String | yes      |            | Service rate (Added 20250506)                                                      |
 | errorCode       | number | yes      |            | Error code for failed order (Added 20250506)                                       |
 | errorMessage    | String | yes      |            | Error message for failed order (Added 20250506)                                    |
-| completeTime    | String | yes      |            | Completion time in local time zone, format: yyyy-MM-dd HH\:mm\:ss (Added 20250506) |
+| completeTime    | String | yes      |            | Completion time in local time zone, format: yyyy-MM-dd HH:mm:ss (Added 20250506) |
 | ~~sign~~        | String | yes      |            | Signature (Removed on 20250506)                                                    |
 
 

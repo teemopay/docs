@@ -22,18 +22,17 @@ description: Callback
 
 ### Callback Parameters
 
-| Parameter       | Type   | Required | Length | Description                                                                              |
-| --------------- | ------ | -------- | ------ | ---------------------------------------------------------------------------------------- |
-| merchantOrderNo | String | yes      | 32     | Merchant's order number                                                                  |
-| tradeNo         | String | yes      |        | Platform's transaction ID                                                                |
-| amount          | String | yes      |        | Transaction amount                                                                       |
-| serviceAmount   | String | yes      |        | Service fee, e.g., "18.02"                                                               |
-| ~~remark~~      | String | yes      |        | Remark – currently fixed as "", **removed on 2025-05-06**                                |
-| status          | Int    | yes      |        | Payout status: 2 = Success, 3 = Failure, 4 = Refunded                                    |
-| errorCode       | Number | yes      |        | Error code for failed transactions                                                       |
-| errorMessage    | String | yes      |        | Error message, see details below                                                         |
-| completeTime    | String | yes      |        | Completion time in local timezone, format: `yyyy-MM-dd HH:mm:ss` *(added on 2025-05-06)* |
-| sign            | String | yes      |        | Signature                                                                                |
+| Parameter       | Type   | Required | Length | Description                                                                          |
+| --------------- | ------ | -------- | ------ | ------------------------------------------------------------------------------------ |
+| merchantOrderNo | String | yes      | 32     | Merchant's order number                                                              |
+| tradeNo         | String | yes      |        | Platform's transaction ID                                                            |
+| amount          | String | yes      |        | Transaction amount                                                                   |
+| serviceAmount   | String | yes      |        | Service fee, e.g., "18.02"                                                           |
+| status          | Int    | yes      |        | Payout status: 2 = Success, 3 = Failure, 4 = Refunded                                |
+| errorCode       | Number | yes      |        | Error code for failed transactions                                                   |
+| errorMessage    | String | yes      |        | Error message, see details below                                                     |
+| completeTime    | String | yes      |        | Completion time in local timezone, format: yyyy-MM-dd HH:mm:ss |
+| sign            | String | yes      |        | Signature                                                                            |
 
 
 

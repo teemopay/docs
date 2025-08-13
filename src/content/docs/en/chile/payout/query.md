@@ -52,7 +52,7 @@ description: Merchant queries the status of a payout order
   "msg": "success",
   "data": {
     "merchantOrderNo": "OrderNoExample",
-    "tradeNo": "TF201806251011",
+    "tradeNo": "TF2501010001CL0000000000000000",
     "remark": "Payout remarks",
     "status": 1,
     "sign": "TEEMO_SIGN"

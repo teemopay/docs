@@ -30,7 +30,7 @@ description: Receive a payin result callback
 | serviceAmount   | String | Yes      |        | Service fee, e.g., 18.02                                                                   |
 | paymentInfo     | String | Yes      |        | Main payment information used for the transaction                                          |
 | paymentType     | Int    | Yes      |        | Payment method                                                                             |
-| completeTime    | String | Yes      |        | Completion time in local time zone (format: yyyy-MM-dd HH\:mm\:ss) *(Added on 2025-05-06)* |
+| completeTime    | String | Yes      |        | Completion time in local time zone (format: yyyy-MM-dd HH:mm:ss) ** |
 | claveRastreo    | String | Yes      |        | Reserved field (planned for next version)                                                  |
 | errorMessage    | String | No       |        | Error message if the transaction failed                                                    |
 | sign            | String | Yes      |        | Signature                                                                                  |

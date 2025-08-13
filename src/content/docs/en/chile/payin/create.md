@@ -89,7 +89,7 @@ PAGO46
   "code": 200,
   "data": {
     "amount": "10000",
-    "tradeNo": "TS2501010001CO0000000000000000",
+    "tradeNo": "TS2501010001CL0000000000000000",
     "merchantOrderNo": "OrderNoExample",
     "paymentType": 601,
     "additionalInfo": {

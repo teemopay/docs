@@ -64,8 +64,8 @@ description: Merchant requests to create a payout order
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "ds111ad111002911111111111131",
-        "tradeNo": "TF2405220001MX0000048840060444",
+        "merchantOrderNo": "OrderNoExample",
+        "tradeNo": "TF2501010001CL0000000000000000",
         "amount": "100",
         "status": 1
     },

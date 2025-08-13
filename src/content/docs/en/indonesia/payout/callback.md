@@ -44,6 +44,7 @@ description: Received a Callback
   "status": 2,
   "amount": "1000.00",
   "serviceAmount": "60.00",
+  "completeTime": "2025-05-01 00:00:00",
   "sign": "TEEMO_SIGN"
 }
 
