@@ -45,7 +45,7 @@ description: 商户请求创建一个代收订单
 | realName        | String | yes | 64   | 用户姓名                                      |
 | email           | String | yes | 50   | 用户邮箱：满足正则表达式即可                            |
 | phone           | String | yes | 13   | 电话号码 08开头,10~13位                          |
-| channel         | String | no  |    | 支付方式扩展字段,当特定支付方式为502,503,详情请见【支持支付方式扩展列表】(20250506新增) |
+| channel         | String | no  |    | 支付方式扩展字段,当特定支付方式为502,503,详情请见【支持支付方式扩展列表】 |
 | sign            | String | yes |      | 签名                                        |
 | callbackUrl     | String | no  | 200  | 回调地址                                      |
 

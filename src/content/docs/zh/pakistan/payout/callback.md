@@ -28,11 +28,10 @@ description: 商户接受一个代付结果的回调
 | tradeNo         | String | yes  |      | 平台订单号                                          |
 | amount          | String | yes  |      | 交易金额                                           |
 | serviceAmount   | String | yes   |     | 服务费用  eg:18.02                                 |
-| ~~remark~~      | String | yes  |      | 备注  目前固定为""   (20250506删除)                       |
 | status          | Int | yes  |      | 代付状态,2:成功 3:失败                             |
 | errorCode       | number | yes  |      | 订单失败状态错误码                                      |
 | errorMessage    | String | yes  |      | 订单失败错误信息，详见下方说明                                |
-| completeTime    | String | yes  |     | 完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式 (20250506新增) |
+| completeTime    | String | yes  |     | 完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式  |
 | sign            | String | yes  |      | 签名                                             |
 
 ```json title=成功回调示例

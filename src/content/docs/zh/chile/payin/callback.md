@@ -31,6 +31,7 @@ description: 商户接受一个代收结果的回调
 | serviceAmount   | String | yes   |     | 服务费用  eg:18.02 |
 | paymentInfo     | String | yes   |     | 主要付款信息，返回的是实际用于付款的信息           |
 | paymentType     | Int | yes   |     | 支付方式           |
+| completeTime    | String | yes |     | 该流水的完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式  |
 | sign            | String | yes  |     | 签名             |
 
 ```json title=回调示例
