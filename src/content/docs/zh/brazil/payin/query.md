@@ -42,14 +42,12 @@ description: 商户查询一个代收订单的状态
 | transactionAmount             | String | yes  |   | 订单交易金额                       |
 | amount                        | String | yes  |   | 收款金额                       |
 | status                        | Int | yes  |      | 2-成功 3-失败                        |
-| remark                        | String | no   |      | 备注                             |
 | statementList                 | Object | no   |      | 代收流水信息                                   |
 | -- paymentSingleOrderNo       | String | yes  |      | 单次支付流水号                                 |
 | -- paymentStatementAmount     | String | yes  |      | 单次代收金额                                   |
 | -- paymentStatementStatus     | Int | yes  |      | 单次代收交易状态: 2-代收成功  |
 | -- paymentStatementStatusName | String | yes  |      | 交易状态名称                                   |
 | -- message                    | String | no   |      | 交易信息                                       |
-| sign                          | String | yes  |      | 签名                                           |
 
 ```json title=返回示例
 {
@@ -58,7 +56,6 @@ description: 商户查询一个代收订单的状态
   "paymentType": 1,
   "amount": "100",
   "status": 2,
-  "remark": "代收备注",
   "statementList": [
     {
       "paymentSingleOrderNo": "OrderNoExample",
@@ -68,7 +65,6 @@ description: 商户查询一个代收订单的状态
       "message": "代收成功"
     }
   ],
-  "sign": "TEEMO_SIGN",
   "success": true
 }
 ```

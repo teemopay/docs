@@ -28,7 +28,6 @@ description: Received a Callback
 | tradeNo         | String | yes      |        | Platform's order number                                        |
 | amount          | String | yes      |        | Transaction amount                                             |
 | serviceAmount   | String | yes      |        | Service fee, e.g., 18.02                                       |
-| remark          | String | yes      |        | Remarks                                                        |
 | status          | String | yes      |        | Payout status: 2 = Success, 3 = Failure                        |
 | errorCode       | Number | yes      |        | Error code if the transaction failed                           |
 | errorMessage    | String | yes      |        | Error message for failed transactions (see explanations below) |
@@ -40,7 +39,6 @@ description: Received a Callback
 {
   "merchantOrderNo": "OrderNoExample",
   "tradeNo": "TF201806251011",
-  "remark": "Payout remark",
   "status": 2,
   "amount": "1000.00",
   "serviceAmount": "60.00",

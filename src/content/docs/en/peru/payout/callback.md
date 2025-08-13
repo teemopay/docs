@@ -26,10 +26,10 @@ description: Merchant receives a payout result callback
 | tradeNo         | String | yes      |        | Platform order number                                                                                    |
 | amount          | String | yes      |        | Transaction amount                                                                                       |
 | serviceAmount   | String | yes      |        | Service fee e.g: 18.02                                                                                   |
-| remark          | String | yes      |        | Remark                                                                                                   |
 | status          | String | yes      |        | 2-Payout success 3-Payout failed 4-Refunded                                                              |
 | errorCode       | number | yes      |        | Order failure status error code                                                                          |
 | errorMessage    | String | yes      |        | Order failure error message: 1000-Card error or limit 1001-Refunded 1002-Channel fluctuation 9999-Others |
+| completeTime    | String | Yes      |        | Completion time in local timezone, format `yyyy-MM-dd HH:mm:ss`  |
 | sign            | String | yes      |        | Signature                                                                                                |
 
 ### Callback Response

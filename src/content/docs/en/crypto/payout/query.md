@@ -41,15 +41,10 @@ description: Payout Query
 
 | Field              | Type    | Required | Length | Description                                          |
 | ------------------ | ------- | -------- | ------ | ---------------------------------------------------- |
-| code               | Integer | yes      |        | Response code                                        |
-| msg                | String  | yes      |        | Response message                                     |
-| data               | Object  | yes      |        | Response data                                        |
-| └─ merchantOrderNo | String  | yes      | 32     | Merchant order number                                |
-| └─ tradeNo         | String  | yes      |        | Platform order number                                |
-| └─ amount          | String  | yes      |        | Payout amount                                        |
-| └─ remark          | String  | yes      |        | Remarks                                              |
-| └─ status          | Int     | yes      |        | Payout status: 2 = Success, 3 = Failed, 4 = Refunded |
-| └─ sign            | String  | yes      |        | Signature                                            |
+|    merchantOrderNo | String  | yes      | 32     | Merchant order number                                |
+|    tradeNo         | String  | yes      |        | Platform order number                                |
+|    amount          | String  | yes      |        | Payout amount                                        |
+|    status          | Int     | yes      |        | Payout status: 2 = Success, 3 = Failed, 4 = Refunded |
 
 
 ```json title=Sample Response
@@ -58,7 +53,6 @@ description: Payout Query
   "data": {
     "amount": "1000.00",
     "merchantOrderNo": "OrderNoExample",
-    "sign": "TEEMO_SIGN",
     "status": 1,
     "tradeNo": "TF2501010001MX0000000000000000"
   },

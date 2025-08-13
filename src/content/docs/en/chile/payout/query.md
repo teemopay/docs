@@ -36,15 +36,10 @@ description: Merchant queries the status of a payout order
 
 | Parameter          | Type    | Required | Length | Description                                                       |
 | ----------------- | ------- | -------- | ------ | ----------------------------------------------------------------- |
-| code              | Integer | yes      |        | Request response code                                              |
-| msg               | String  | yes      |        | Response message                                                   |
-| data              | Object  | yes      |        | Response data                                                      |
-| -- merchantOrderNo| String  | yes      | 32     | Merchant order number                                              |
-| -- tradeNo        | String  | yes      |        | Platform order number                                              |
-| -- amount         | String  | yes      |        | Payout amount                                                      |
-| -- remark         | String  | yes      |        | Remarks                                                            |
-| -- status         | Int     | yes      |        | 1-Processing 2-Payout Success 3-Payout Failed 4-Refund             |
-| -- sign           | String  | yes      |        | Signature                                                          |
+|  merchantOrderNo| String  | yes      | 32     | Merchant order number                                              |
+|  tradeNo        | String  | yes      |        | Platform order number                                              |
+|  amount         | String  | yes      |        | Payout amount                                                      |
+|  status         | Int     | yes      |        | 1-Processing 2-Payout Success 3-Payout Failed 4-Refund             |
 
 ```json title="Response Example"
 {
@@ -53,9 +48,8 @@ description: Merchant queries the status of a payout order
   "data": {
     "merchantOrderNo": "OrderNoExample",
     "tradeNo": "TF2501010001CL0000000000000000",
-    "remark": "Payout remarks",
     "status": 1,
-    "sign": "TEEMO_SIGN"
+    "amount":"1000.00"
   },
   "success": true
 }

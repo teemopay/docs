@@ -30,6 +30,7 @@ description: Merchant receives a payment result callback
 | serviceAmount   | String | yes      |        | Service fee e.g: 18.02                                                         |
 | paymentInfo     | String | yes      |        | Main payment information, returns actual information used for payment          |
 | paymentType     | Int    | yes      |        | Payment method                                                                 |
+| completeTime    | String | yes      |        | Completion time of this transaction in local timezone, format: yyyy-MM-dd HH:mm:ss |
 | sign            | String | yes      |        | Signature                                                                      |
 
 

@@ -42,14 +42,12 @@ description: Merchant queries the status of a payment order
 | transactionAmount            | String | yes      |        | Order transaction amount                                                                                                 |
 | amount                       | String | yes      |        | Payment amount                                                                                                           |
 | status                       | String | yes      |        | 2-Success 3-Failed 4-Refund                                                                                              |
-| remark                       | String | no       |        | Remarks                                                                                                                  |
 | statementList                | Object | no       |        | Payment transaction information                                                                                          |
 | -- paymentSingleOrderNo      | String | yes      |        | Single payment transaction number                                                                                        |
 | -- paymentStatementAmount    | String | yes      |        | Single payment amount                                                                                                    |
 | -- paymentStatementStatus    | Int    | yes      |        | Single payment transaction status: 2-Payment Success 3-Payment Failed 4-Refund                                            |
 | -- paymentStatementStatusName| String | yes      |        | Transaction status name                                                                                                  |
 | -- message                   | String | no       |        | Transaction message                                                                                                      |
-| sign                         | String | yes      |        | Signature                                                                                                                |
 
 ```json title="Response Example"
 {
@@ -58,7 +56,6 @@ description: Merchant queries the status of a payment order
   "paymentType": 1,
   "amount": "100",
   "status": "2",
-  "remark": "Payment remarks",
   "statementList": [
     {
       "paymentSingleOrderNo": "OrderNoExample",
@@ -68,6 +65,5 @@ description: Merchant queries the status of a payment order
       "message": "Payment Successful"
     }
   ],
-  "sign": "TEEMO_SIGN",
   "success": true
 }

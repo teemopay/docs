@@ -42,9 +42,7 @@ description: 商户查询一个代付订单的状态
 | -- merchantOrderNo | String  | yes  | 32 | 商户订单号                    |
 | -- tradeNo         | String  | yes  |    | 平台订单号                    |
 | -- amount          | String  | yes  |    | 代付金额                     |
-| -- remark          | String  | yes  |    | 备注                |
 | -- status          | Int  | yes  |    | 代付状态,2:成功 3:失败     |
-| -- sign            | String  | yes  |    | 签名                       |
 
 ```json title=返回示例
 {
@@ -52,7 +50,6 @@ description: 商户查询一个代付订单的状态
     "data": {
         "amount": "10000.00",
         "merchantOrderNo": "OrderNoExample",
-        "sign": "TEEMO_SIGN",
         "status": 1,
         "tradeNo": "TF2501010001CO0000000000000000"
     },

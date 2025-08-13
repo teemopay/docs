@@ -43,7 +43,6 @@ description: 商户查询一个代付订单的状态
 | -- cepUrl          | String  | no  | 32  | 支付凭证url        |
 | -- tradeNo         | String  | yes |     | 平台订单号          |
 | -- amount          | String  | yes |     | 代付金额           |
-| -- remark          | String  | yes |     | 备注             |
 | -- status          | Int     | yes |     | 代付状态,2:成功 3:失败 |
 | -- sign            | String  | yes |     | 签名             |
 
@@ -54,10 +53,8 @@ description: 商户查询一个代付订单的状态
     "data": {
       "merchantOrderNo": "OrderNoExample",
       "tradeNo": "TF201806251011",
-      "remark": "代付备注",
       "status": 1,
       "cepUrl": "https://www.banxico.org.mx/cep/go?i=90684&s=20210220&d=%2F5eul49vnBxUSkvBIJATftlblh%%2B3O",
-      "sign": "TEEMO_SIGN"
     },
     "success": true
 }

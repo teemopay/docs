@@ -66,7 +66,7 @@ description: Merchant requests to create a payout order
     "data": {
         "merchantOrderNo": "OrderNoExample",
         "tradeNo": "TF2501010001CL0000000000000000",
-        "amount": "100",
+         "amount":"1000.00",
         "status": 1
     },
     "msg": "success",
