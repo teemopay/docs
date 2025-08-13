@@ -30,6 +30,7 @@ description: Merchant receives a payment result callback
 | serviceAmount   | String | yes      |        | Service fee e.g.: 18.02                          |
 | paymentInfo     | String | yes      |        | Main payment information used for actual payment |
 | paymentType     | Int    | yes      |        | Payment type                                     |
+| completeTime    | String | Yes      |        | Completion time in local time zone (format: yyyy-MM-dd HH:mm:ss) ** |
 | sign            | String | yes      |        | Signature                                        |
 
 
@@ -45,7 +46,6 @@ description: Merchant receives a payment result callback
   "paymentInfo": "https://www.paymentLinkExample.com",
   "paymentType": 204,
   "completeTime": "2025-01-01 00:00:00",
-  "errorMessage": null,
   "sign": "TEEMO_SIGN"
 
 }

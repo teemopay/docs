@@ -55,13 +55,13 @@ description: Merchant query the status of a payment order
 {
   "merchantOrderNo": "OrderNoExample",
   "tradeNo": "TS2501010001PE0000000000000000",
-  "paymentType": 1,
-  "amount": "100",
+  "paymentType": 101,
+  "amount": "10",
   "status": "2",
   "statementList": [
     {
       "paymentSingleOrderNo": "OrderNoExample",
-      "paymentStatementAmount": "100",
+      "paymentStatementAmount": "10",
       "paymentStatementStatus": "2",
       "paymentStatementStatusName": "Payment Success",
       "message": "Payment Successful"

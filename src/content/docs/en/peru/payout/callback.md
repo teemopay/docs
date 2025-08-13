@@ -32,14 +32,38 @@ description: Merchant receives a payout result callback
 | completeTime    | String | Yes      |        | Completion time in local timezone, format `yyyy-MM-dd HH:mm:ss`  |
 | sign            | String | yes      |        | Signature                                                                                                |
 
+
+```json
+{
+  "merchantOrderNo": "OrderNoExample",
+  "tradeNo": "TF201806251011",
+  "status": 2,
+  "amount": "1000.00",
+  "serviceAmount": "60.00",
+  "completeTime": "2025-05-01 00:00:00",
+  "sign": "TEEMO_SIGN"
+}
+
+```
+
+### Error Code Explanations:
+
+| errorCode | errorMessage                                | Recommendation                                               |
+| --------- | ------------------------------------------- | ------------------------------------------------------------ |
+| 1000      | The account does not exist or is restricted | Recommend the user to change to another card                 |
+| 1001      | Return                                      | Refunded. Retry payout within 24 hours of receiving callback |
+| 1002      | Channel server fluctuations                 | Retry after 10 minutes                                       |
+| 9999      | Others                                      | Other issues. Recommend canceling the order                  |
+
+
 ### Callback Response
 
-| Parameter | Type   | Required | Length | Description                                   |
-| --------- | ------ | -------- | ------ | --------------------------------------------- |
-| SUCCESS   | String | Yes      |        | Must return `"SUCCESS"`, otherwise will retry |
 
-```json title= Callback Response
-{
-  SUCCESS
-}
+| Parameter | Type   | Required | Length | Description                                             |
+| --------- | ------ | -------- | ------ | ------------------------------------------------------- |
+| SUCCESS   | String | yes      |        | Must return `"SUCCESS"` or the callback will be retried |
+
+
+```json
+SUCCESS
 ```

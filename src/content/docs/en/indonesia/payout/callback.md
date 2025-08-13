@@ -31,6 +31,7 @@ description: Received a Callback
 | status          | String | yes      |        | Payout status: 2 = Success, 3 = Failure                        |
 | errorCode       | Number | yes      |        | Error code if the transaction failed                           |
 | errorMessage    | String | yes      |        | Error message for failed transactions (see explanations below) |
+| completeTime    | String | yes      |        | Completion time in local timezone, format: yyyy-MM-dd HH:mm:ss |
 | sign            | String | yes      |        | Signature                                                      |
 
 

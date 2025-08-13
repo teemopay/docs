@@ -31,7 +31,6 @@ description: Receive a payin result callback
 | paymentInfo     | String | Yes      |        | Main payment information used for the transaction                                          |
 | paymentType     | Int    | Yes      |        | Payment method                                                                             |
 | completeTime    | String | Yes      |        | Completion time in local time zone (format: yyyy-MM-dd HH:mm:ss) ** |
-| claveRastreo    | String | Yes      |        | Reserved field (planned for next version)                                                  |
 | errorMessage    | String | No       |        | Error message if the transaction failed                                                    |
 | sign            | String | Yes      |        | Signature                                                                                  |
 

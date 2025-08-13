@@ -38,31 +38,28 @@ description: Merchant requests to create a payment order
 
 ### Request Parameters
 
-| Field           | Type   | Required | Length | Description                                                      |
-| --------------- | ------ | -------- |--------| ---------------------------------------------------------------- |
-| merchantOrderNo | String | yes      | 32     | Merchant order number                                            |
-| paymentType     | Int    | yes      |        | Payment method: 101: checkout (payment link)                     |
-| amount          | String | yes      | 20     | Payment amount (in Soles)                                        |
-| expirationTime  | Long   | no       |        | Expiration time, default 1 day                                   |
-| realName        | String | yes      | 64     | Customer name: uppercase, no special characters, within 50 chars |
-| email           | String | yes      | 50     | Customer email: must match regex pattern                         |
-| phone           | String | yes      | 9      | Phone number: 9 digits without country code                      |
-| sign            | String | yes      |        | Signature                                                        |
-| callbackUrl     | String | no       | 200    | Callback URL                                                     |
-
+| Field           | Type   | Required | Length | Description                                                               |
+| --------------- | ------ | -------- | ------ | ------------------------------------------------------------------------- |
+| merchantOrderNo | String | yes      | 32     | Merchant order number                                                     |
+| paymentType     | Int    | yes      |        | Payment method: 101 - checkout (payment link cashier)                     |
+| amount          | String | yes      | 20     | Collection amount (in Soles)                                              |
+| expirationTime  | Long   | no       |        | Expiration time, in milliseconds timestamp, e.g., 1735660800000           |
+| realName        | String | yes      | 64     | Customer's full name                                                      |
+| email           | String | yes      | 50     | Customer email address (must match regex format)                          |
+| phone           | String | yes      | 9      | Phone number (9 digits, without country code)                             |
+| sign            | String | yes      |        | Signature                                                                 |
+| callbackUrl     | String | no       | 200    | Callback URL                                                              |
 
 ```json title="Request Example"
 {
-
-  "realName": "TeemoPay",
-  "amount": "100",
-  "phone": "1234567890",
-  "callbackUrl": "https://www.callbackexample.com",
-  "merchantOrderNo": "OrderNoExample",
-  "email": "TeemoPay@example.com",
-  "paymentType": 101,
-  "sign": "YOUR_SIGN"
-
+    "merchantOrderNo": "OrderNoExample",
+    "paymentType": 101,
+    "amount": "10.00",
+    "realName": "TeemoPay",
+    "email": "TeemoPay@example.com",
+    "phone": "900000000",
+    "callbackUrl": "https://www.callbackexample.com",
+    "sign": "YOUR_SIGN"
 }
 ```
 
@@ -82,19 +79,20 @@ description: Merchant requests to create a payment order
 
 ```json title="Response Example"
 {
-  
   "msg": "success",
   "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610299",
   "code": 200,
   "data": {
-    "amount": "100",
+    "amount": "10.00",
     "tradeNo": "TS2501010001PE0000000000000000",
     "merchantOrderNo": "OrderNoExample",
     "paymentType": 101,
     "additionalInfo": {
+      "thirdOrderNum": "12345678901"
     },
     "paymentInfo": "https://www.paymentLinkExample.com",
     "status": 1
   }
 }
+
 ```

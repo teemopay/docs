@@ -40,7 +40,6 @@ description: Create a payout order
 
 
 
-
 ```json
 {
   "merchantOrderNo": "ds111ad111022911111111111131",

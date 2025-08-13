@@ -38,15 +38,14 @@ description: Merchant receives a payment result callback
 {
 
   "merchantOrderNo": "OrderNoExample",
-  "tradeNo": "TS2501010001CO0000000000000000",
+  "tradeNo": "TS2501010001PE0000000000000000",
   "paymentOrderNo": "TSOPaymentOrderNoExample",
   "status": 2,
-  "paymentAmount": "1000.00",
+  "paymentAmount": "100.00",
   "serviceAmount": "10.00",
   "paymentInfo": "https://www.paymentLinkExample.com",
-  "paymentType": 204,
+  "paymentType": 101,
   "completeTime": "2025-01-01 00:00:00",
-  "errorMessage": null,
   "sign": "TEEMO_SIGN"
 
 }
