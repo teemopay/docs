@@ -35,18 +35,19 @@ description: 商户查询一个代付订单的状态
 ### 返回参数
 
 
-| 参数                | 类型     | 必需 | 长度  | 描述                                             |
-|-------------------|--------| ---- |-----|------------------------------------------------|
-| merchantOrderNo   | String | yes  | 32  | 商户订单号                                          |
-| tradeNo           | String | yes  |     | 平台订单号                                          |
-| amount            | String | yes  |     | 代付金额                                           |
-| status            | Int    | yes  |     | 代付状态,2:成功 3:失败                                 |
-| serviceAmount     | String | yes  |     | 服务费用  =  固收金额 +  交易金额 * 服务费率       |
-| immService        | String | yes  |     | 固收金额                               |
-| serviceRate       | String | yes  |     | 服务费率                               |
-| errorCode         | number | yes  |     | 订单失败状态错误码                          |
-| errorMessage      | String | yes  |     | 订单失败错误信息                           |
-| completeTime     | String | yes  |     | 完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式  |
+| 参数              | 类型     | 必需  | 长度  | 描述                             |
+|-----------------|--------|-----|-----|--------------------------------|
+| merchantOrderNo | String | yes | 32  | 商户订单号                          |
+| tradeNo         | String | yes |     | 平台订单号                          |
+| amount          | String | yes |     | 代付金额                           |
+| status          | Int    | yes |     | 代付状态,2:成功 3:失败                 |
+| serviceAmount   | String | yes |     | 服务费用  =  固收金额 +  交易金额 * 服务费率   |
+| immService      | String | yes |     | 固收金额                           |
+| serviceRate     | String | yes |     | 服务费率                           |
+| errorCode       | number | yes |     | 订单失败状态错误码                      |
+| errorMessage    | String | yes |     | 订单失败错误信息                       |
+| completeTime    | String | yes |     | 完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式 |
+| cepUrl          | String | No  |     | cepUrl               |
 
 ```json title=返回示例
 {
