@@ -20,15 +20,15 @@ description: 商户请求创建一个代收订单
 
 ### 支持支付方式列表（paymentType）
 
-| 支付方式名称               | PaymentType (入参参数) |
-| -------------------------- | ---------------------- |
-| checkout（支付链接收银台） | 101                    |
-| cash                    | 102                    |
-| BCP                     | 105                    |
-| INTERBANK               | 106                    |
-| BBVA                    | 107                    |
-| SCOTIABANK              | 108                    |
-| WALLET(包含YAPE、PLIN)   | 109                    |
+| 支付方式名称              | PaymentType (入参参数) |
+|---------------------| ---------------------- |
+| CHECKOUT（聚合支付链接收银台） | 101                    |
+| CASH（线下）            | 102                    |
+| BCP                 | 105                    |
+| INTERBANK           | 106                    |
+| BBVA                | 107                    |
+| SCOTIABANK          | 108                    |
+| WALLET(包含YAPE、PLIN) | 109                    |
 
 #### 收银台样式
 ![image-20240528105940814](https://image.xiwu.me/2024/903d077857edfdec8deee35a455587f4.png)
