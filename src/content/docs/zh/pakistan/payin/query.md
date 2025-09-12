@@ -38,7 +38,7 @@ description: 商户查询一个代收订单或收银台订单的状态
 |-------------------------------|--------| ---- |---|---------------------------------------|
 | merchantOrderNo               | String | yes  | 32 | 商户订单号                                 |
 | tradeNo                       | String | yes  |   | 平台订单号                                 |
-| paymentType                   | Int    | yes  |   | 代收方式: 固定0                             |
+| paymentType                   | Int    | yes  |   | 代收方式  收银台时固定返回0                       |
 | transactionAmount             | String | yes  |   | 订单交易金额                                |
 | amount                        | String | yes  |   | 收款金额                                  |
 | status                        | String | yes  |   | 0-受理中(未提交收银台),1-交易中,2-成功 ,3-失败        |
