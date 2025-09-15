@@ -37,7 +37,7 @@ description: Merchant creates a cashier order
 | --------------- | ------ |----------| ------ |-------------------------------------------------------------------------|
 | merchantOrderNo | String | yes      | 32     | Merchant order number                                                   |
 | paymentType     | Int    | yes      |        | Payment method (304: Jazzcash)                                          |
-| idCardNumber    | String | no       | 13     | Customer ID card number, Not required, not for verification                                          |
+| idCardNumber    | String | no       | 13     | Customer ID card number, Not required, Even if filled in, no format verification is performed.                                          |
 | amount          | String | yes      | 20     | Payment amount (PKR), must be an integer                                |
 | realName        | String | yes      | 40     | Customer name: Uppercase only, no special characters, max 40 characters |
 | email           | String | yes      | 50     | Customer email: must match valid regex                                  |

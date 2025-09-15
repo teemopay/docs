@@ -26,7 +26,7 @@ description: Merchant creates a cashier order
 | merchantOrderNo | String | yes      | 32     | Merchant order number                                                                                             |
 | paymentType     | Int    | no       |        | Payment method. When the transaction amount is ≤ 100,000, used to specify ep or jz. 303: easypaisa, 304: JazzCash |
 | paymentTypeList | String | no       |        | Allowed to send multiple payment methods separated by commas: 303, 304                                            |
-| idCardNumber    | String | no       | 13     | Customer ID card number, Not required, not for verification                                                                    |
+| idCardNumber    | String | no       | 13     | Customer ID card number, Not required,Even if filled in, no format verification is performed.                                                                   |
 | amount          | String | yes      | 20     | Amount, positive integer                                                                                          |
 | phone           | String | no       | 10/11  | Phone number (10 digits starting with 3 / 11 digits starting with 03)                                             |
 | email           | String | no       | 50     | User email                                                                                                        |
