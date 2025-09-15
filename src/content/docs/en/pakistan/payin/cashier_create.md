@@ -36,10 +36,13 @@ description: Merchant creates a cashier order
 
 ```json title= request example 
 {
-    "merchantOrderNo": "OrderNoExample",
-    "amount": "1000",
-    "callbackUrl": "https://www.callbackexample.com",
-    "sign": "YOUR_SIGN"
+  "merchantOrderNo": "ceshi-test",
+  "paymentType" : 303,
+  "amount": 100,
+  "phone": "3111111111",
+  "email" : "213@123.com",
+  "callbackUrl": "https://www.callbackexample.com",
+  "sign" : "YOUR_SIGN"
 }
 ```
 

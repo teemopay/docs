@@ -34,10 +34,13 @@ description: 商户创建收银台
 
 ```json title=请求示例
 {
-    "merchantOrderNo": "OrderNoExample",
-    "amount": "1000",
-    "callbackUrl": "https://www.callbackexample.com",
-    "sign": "YOUR_SIGN"
+  "merchantOrderNo": "ceshi-test",
+  "paymentType" : 303,
+  "amount": 100,
+  "phone": "3111111111",
+  "email" : "213@123.com",
+  "callbackUrl": "https://www.callbackexample.com",
+  "sign" : "YOUR_SIGN"
 }
 ```
 
@@ -55,16 +58,17 @@ description: 商户创建收银台
 
 ```json title=返回示例
 {
-    "msg": "success",
-    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610299",
-    "code": 200,
-    "data": {
-        "amount": "1000.00",
-        "tradeNo": "TS2501010001PK0000000000000000",
-        "expirationTime": "2025-01-01 00:00:00",
-        "checkoutLink": "https://pk-payin.teemopay.com/#/?tradeNo=TS2501010001PK0000000000000000",
-        "merchantOrderNo": "OrderNoExample",
-        "status": 0
-    }
+  "code": 200,
+  "data": {
+    "merchantOrderNo": "ceshi-test",
+    "tradeNo": "TS2509080002PKexample754",
+    "amount": "100",
+    "status": 0,
+    "checkoutLink": "https://test-pk-payin.teemopay.com/#/?tradeNo=TS2509080002PKexample754",
+    "expirationTime": "2025-09-17 13:53:45.959",
+    "errorMsg": null
+  },
+  "msg": "success",
+  "traceId": "1e7142b1c2cf47479ccfdbb1ecba5242.94.17579264259380029"
 }
 ```
