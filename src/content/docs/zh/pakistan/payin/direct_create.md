@@ -33,17 +33,17 @@ description: 直连Easypaisa和Jazzcash
 
 ### 请求参数
 
-| 字段名          | 类型     | 是否必填 | 最大长度 | 描述                  |
-|--------------| ------ |------| ---- |---------------------|
-| merchantOrderNo | String | 是    | 32   | 商户订单号               |
+| 字段名          | 类型     | 是否必填 | 最大长度 | 描述                 |
+|--------------| ------ |------| ---- |--------------------|
+| merchantOrderNo | String | 是    | 32   | 商户订单号              |
 | paymentType | Int    | 是    | -    | 支付方式 (304: Jazzcash) |
-| idCardNumber | String    | 否    | -    | 客户身份证ID （非必填，即使填了也不做任何格式校验）   |
+| idCardNumber | String    | 否    | -    | 客户身份证ID （非必填，如若填写，需要保证13位纯数字）   |
 | amount     | String | 是    | 20   | 金额（以巴基斯坦卢比为单位，必须为整数） |
-| realName   | String | 是    | 40   | 用户姓名（全大写，不包含特殊字符）   |
-| email      | String | 是    | 50   | 用户邮箱（格式正确即可）        |
-| phone      | String | 是    | 10   | 电话号码（10位，不包含区号）     |
-| sign       | String | 是    | -    | 签名                  |
-| callbackUrl | String | 否    | 200  | 支付成功或失败后的回调地址       |
+| realName   | String | 是    | 40   | 用户姓名（全大写，不包含特殊字符）  |
+| email      | String | 是    | 50   | 用户邮箱（格式正确即可）       |
+| phone      | String | 是    | 10   | 电话号码（10位，不包含区号）    |
+| sign       | String | 是    | -    | 签名                 |
+| callbackUrl | String | 否    | 200  | 代收回调地址   （若不传递，取商户后台配置的回调地址）     |
 
 
 

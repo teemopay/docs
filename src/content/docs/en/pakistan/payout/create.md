@@ -20,22 +20,22 @@ description: Merchant requests to create a payout order
 
 ### Request Parameters
 
-| Field           | Type   | Required | Max Length | Description                                           |
-| --------------- | ------ | -------- | ---------- | ----------------------------------------------------- |
-| merchantOrderNo | String | yes      | 32         | Merchant order number                                 |
-| amount          | String | yes      | 20         | Payout amount in PKR, must be an integer              |
-| bankCode        | String | yes      | 50         | Bank code: use bankCode if 301, WalletCode if 302     |
-| bankName        | String | yes      | 50         | Bank name, same as bank code                          |
-| accountType     | Int    | yes      |            | Account type: 301 (BANK), 302 (E-Wallet)              |
-| bankAccount     | String | yes      | 255        | Bank/Wallet account number                            |
-| realName        | String | yes      | 255        | Customer name                                         |
-| idCardNumber    | String | yes      | 13         | ID number (13 digits)                                 |
-| idType          | String | yes      | 32         | Fixed value: CERT                                     |
-| phone           | String | yes      | 10         | Phone number (10 digits)                              |
-| email           | String | no       | 64         | Customer email                                        |
-| userIBAN        | String | no       | 64         | International Bank Account Number (IBAN)              |
-| callbackUrl     | String | no       | 200        | Callback URL, uses merchant's default if not provided |
-| sign            | String | yes      |            | Signature                                             |
+| Field           | Type   | Required | Max Length | Description                                       |
+| --------------- | ------ | -------- | ---------- |---------------------------------------------------|
+| merchantOrderNo | String | yes      | 32         | Merchant order number                             |
+| amount          | String | yes      | 20         | Payout amount in PKR, must be an integer          |
+| bankCode        | String | yes      | 50         | Bank code: use bankCode if 301, WalletCode if 302 |
+| bankName        | String | yes      | 50         | Bank name, same as bank code                      |
+| accountType     | Int    | yes      |            | Account type: 301 (BANK), 302 (E-Wallet)          |
+| bankAccount     | String | yes      | 255        | Bank/Wallet account number                        |
+| realName        | String | yes      | 255        | Customer name                                     |
+| idCardNumber    | String | yes      | 13         | ID number (13 digits)                             |
+| idType          | String | yes      | 32         | Fixed value: CERT                                 |
+| phone           | String | yes      | 10         | Phone number (10 digits)                          |
+| email           | String | no       | 64         | Customer email                                    |
+| userIBAN        | String | no       | 64         | International Bank Account Number (IBAN)          |
+| callbackUrl     | String | no       | 200        | Callback URL, (If not transmitted, the callback URL configured in the merchant backend will be used.)                                  |
+| sign            | String | yes      |            | Signature                                         |
 
 
 ```json title= request example

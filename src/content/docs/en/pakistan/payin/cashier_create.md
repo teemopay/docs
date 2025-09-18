@@ -26,11 +26,11 @@ description: Merchant creates a cashier order
 | merchantOrderNo | String | yes      | 32     | Merchant order number                                                                                             |
 | paymentType     | Int    | no       |        | Payment method. When the transaction amount is ≤ 100,000, used to specify ep or jz. 303: easypaisa, 304: JazzCash |
 | paymentTypeList | String | no       |        | Allowed to send multiple payment methods separated by commas: 303, 304                                            |
-| idCardNumber    | String | no       | 13     | Customer ID card number, Not required,Even if filled in, no format verification is performed.                                                                   |
+| idCardNumber    | String | no       | 13     | Customer ID card number, (It is not required. If filled in, it must be a 13-digit pure number.)                                                                                       |
 | amount          | String | yes      | 20     | Amount, positive integer                                                                                          |
 | phone           | String | no       | 10/11  | Phone number (10 digits starting with 3 / 11 digits starting with 03)                                             |
 | email           | String | no       | 50     | User email                                                                                                        |
-| callbackUrl     | String | no       | 200    | Callback URL                                                                                                      |
+| callbackUrl     | String | no       | 200    | Callback URL    (If not transmitted, the callback URL configured in the merchant backend will be used.)           |
 | sign            | String | yes      |        | Signature                                                                                                         |
 
 
