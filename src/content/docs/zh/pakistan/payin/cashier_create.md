@@ -22,15 +22,15 @@ description: 商户创建收银台
 
 | 字段              | 类型     | 必需  | 长度    | 描述                            |
 |-----------------|--------|-----|-------|-------------------------------|
-| merchantOrderNo | String | yes | 32    | 商户订单号                         |
-| paymentType     | Int    | no  |      | 支付方式 （303:easypaisa, 304:JazzCash) |
-| paymentTypeList     | String | no  |      | 可以传输多个支付方式以逗号隔开：303，304       |
-| idCardNumber    | String | no  | 13    | 客户身份证ID （非必填，如若填写，需要保证13位纯数字） |
-| amount          | String | yes | 20    | 金额 正整数                        |
-| phone           | String | no  | 10/11 | 手机号(3开头10位/03开头11位)           |
-| email           | String | no  | 50    | 用户邮箱                          |
-| callbackUrl     | String | no  | 200   | 代收回调地址  （若不传递，取商户后台配置的回调地址）   |
-| sign            | String | yes |       | 签名                            |
+| merchantOrderNo | String | 是   | 32    | 商户订单号                         |
+| paymentType     | Int    | 否   |      | 支付方式 （303:easypaisa, 304:JazzCash) |
+| paymentTypeList     | String | 否   |      | 可以传输多个支付方式以逗号隔开：303，304       |
+| idCardNumber    | String | 否   | 13    | 客户身份证ID （非必填，如若填写，需要保证13位纯数字） |
+| amount          | String | 是   | 20    | 金额 正整数                        |
+| phone           | String | 否   | 10/11 | 手机号(3开头10位/03开头11位)           |
+| email           | String | 否   | 50    | 用户邮箱                          |
+| callbackUrl     | String | 否   | 200   | 代收回调地址  （若不传递，取商户后台配置的回调地址）   |
+| sign            | String | 是 |       | 签名                            |
 
 ```json title=请求示例
 {
@@ -46,15 +46,15 @@ description: 商户创建收银台
 
 ### 返回参数
 
-| 参数              | 类型     | 必需  | 长度 | 描述                                                      |
-|-----------------|--------|-----| ---- |---------------------------------------------------------|
-| merchantOrderNo | String | yes | 32   | 商户订单号                                                   |
-| tradeNo         | String | yes |      | 平台订单号                                                   |
-| amount          | String | yes |      | 订单交易金额                                                  |
-| status          | Int    | yes |      | 代收状态,0:受理中 3-失败                                         |
-| checkoutLink    | String | no  |      | 收银台地址                                                   |
-| expirationTime  | String | no  |      | 收银台地址过期时间                                               |
-| errorMsg        | String | no  |      | 错误信息,失败时返回                                              |
+| 参数              | 类型     | 必需 | 长度 | 描述                                                      |
+|-----------------|--------|----| ---- |---------------------------------------------------------|
+| merchantOrderNo | String | 是  | 32   | 商户订单号                                                   |
+| tradeNo         | String | 是  |      | 平台订单号                                                   |
+| amount          | String | 是  |      | 订单交易金额                                                  |
+| status          | Int    | 是  |      | 代收状态,0:受理中 3-失败                                         |
+| checkoutLink    | String | 是  |      | 收银台地址                                                   |
+| expirationTime  | String | 是  |      | 收银台地址过期时间                                               |
+| errorMsg        | String | no |      | 错误信息,失败时返回                                              |
 
 ```json title=返回示例
 {
