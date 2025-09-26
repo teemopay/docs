@@ -21,13 +21,13 @@ description: Merchant requests to create a payout order
 ### Request Parameters
 
 | Field           | Type   | Required | Length | Description                                                                                        |
-| --------------- | ------ | -------- | ------ | -------------------------------------------------------------------------------------------------- |
+| --------------- | ------ | -------- | ------ |----------------------------------------------------------------------------------------------------|
 | merchantOrderNo | String | yes      | 32     | Merchant order number                                                                              |
 | amount          | String | yes      | 20     | Payout amount (in Soles)                                                                           |
 | phone           | String | no       | 9      | 9 digits starting with 9                                                                           |
 | bankCode        | String | yes      | 50     | Bank code                                                                                          |
 | bankName        | String | yes      | 50     | Bank name                                                                                          |
-| accountType     | Int    | yes      |        | Account type 101-AHORRO(Savings) 102-CORRIENTE(Current)                                            |
+| accountType     | Int    | yes      |        | Account type 101-AHORRO(Savings) 102-CORRIENTE(Current)  103 - WALLET（YAPE）                        |
 | bankAccount     | String | yes      | 50     | Beneficiary account number                                                                         |
 | realName        | String | yes      | 40     | Customer name                                                                                      |
 | idCardNumber    | String | yes      | 50     | Beneficiary ID number                                                                              |
