@@ -33,17 +33,17 @@ description: Merchant creates a cashier order
 
 ### Request Parameters
 
-| Field           | Type   | Required | Length | Description                                                                                |
-| --------------- | ------ |----------| ------ |--------------------------------------------------------------------------------------------|
-| merchantOrderNo | String | yes      | 32     | Merchant order number                                                                      |
-| paymentType     | Int    | yes      |        | Payment method: 303 or 304                                                                 |
-| idCardNumber    | String | no       | 13     | Customer ID card number, 13-digit integer .When paymentType is 304:Jazzcash, it's required |
-| amount          | String | yes      | 20     | Payment amount (PKR), must be an integer                                                   |
-| realName        | String | yes      | 40     | Customer name: Uppercase only, no special characters, max 40 characters                    |
-| email           | String | yes      | 50     | Customer email: must match valid regex                                                     |
-| phone           | String | yes      | 10     | Phone number, 10 digits without country code                                               |
-| sign            | String | yes      |        | Signature                                                                                  |
-| callbackUrl     | String | no       | 200    | Callback URL                                                                               |
+| Field           | Type   | Required | Length | Description                                                                                              |
+| --------------- | ------ |----------| ------ |----------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String | yes      | 32     | Merchant order number                                                                                    |
+| paymentType     | Int    | yes      |        | Payment method (304: Jazzcash)                                                                           |
+| idCardNumber    | String | no       | 13     | Customer ID card number, (It is not required. If filled in, it must be a 13-digit pure number.)                                                                              |
+| amount          | String | yes      | 20     | Payment amount (PKR), must be an integer                                                                 |
+| realName        | String | yes      | 40     | Customer name: Uppercase only, no special characters, max 40 characters                                  |
+| email           | String | yes      | 50     | Customer email: must match valid regex                                                                   |
+| phone           | String | yes      | 10     | Phone number, 10 digits without country code                                                             |
+| sign            | String | yes      |        | Signature                                                                                                |
+| callbackUrl     | String | no       | 200    | Callback URL     (If not transmitted, the callback URL configured in the merchant backend will be used.) |
 
 
 
