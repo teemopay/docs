@@ -27,8 +27,8 @@ description: 商户请求创建一个代付订单
 | phone           | String | no  | 9   | 9开头 9位数字                                                  |
 | bankCode        | String | yes | 50  | 银行编码                                                      |
 | bankName        | String | yes | 50  | 银行名称                                                      |
-| accountType     | Int    | yes |     | 账户类型, AHORRO:101(储蓄) CORRIENTE:102(活期)                    |
-| bankAccount     | String | yes | 50  | 收款账号                                                      |
+| accountType     | Int    | yes |     | 账户类型, AHORRO:101(储蓄) CORRIENTE:102(活期)  WALLET（103）       |
+| bankAccount     | String | yes | 50  | 收款账号；当账户类型为103 Wallet时请传输钱包账号                             |
 | cciNumber       | String | yes | 50  | 20位纯数字 跨行转账账号：2025年5月25号之后必传输                             |
 | realName        | String | yes | 50  | 用户姓名 不包含特殊字符，建议全大写                                        |
 | idCardNumber    | String | yes | 50  | 收款人证件号码                                                   |
