@@ -27,17 +27,17 @@ description: 商户请求创建一个代收订单
 
 ### 请求参数
 
-| 字段              | 类型      | 必需  | 最大长度 | 描述                                         |
-|-----------------|---------|-----|------|--------------------------------------------|
-| merchantOrderNo | String  | yes | 32   | 商户订单号                                      |
-| paymentType     | Integer | yes |      | 支付方式: 801: VA                              |
-| realName        | String  | yes | 64   | 用户姓名 字母或者韩文不要超过20字符                        |
-| email           | String  | no  | 50   | 用户邮箱：满足正则表达式即可                             |
-| amount          | String  | yes | 20   | 代收金额 整数 单位元 (货币:KRW)                       |
-| expirationTime  | Long    | no  |      | 最大两个小时，为空默认两个小时； 毫秒级时间戳 eg:1735660800000   |
-| phone           | String  | no  | 20   | 用户手机号 11位数；不携带区号； 010开头                    |
-| callbackUrl     | String  | no  | 200  | 代付回调地址，若不传, 则以商户配置为准                       |
-| sign            | String  | yes |      | 签名                                         |
+| 字段              | 类型      | 必需  | 最大长度 | 描述                                       |
+|-----------------|---------|-----|------|------------------------------------------|
+| merchantOrderNo | String  | yes | 32   | 商户订单号                                    |
+| paymentType     | Integer | yes |      | 支付方式: 801: VA                            |
+| realName        | String  | yes | 64   | 用户姓名 字母或者韩文不要超过20字符                      |
+| email           | String  | no  | 50   | 用户邮箱：满足正则表达式即可                           |
+| amount          | String  | yes | 20   | 代收金额 整数 单位元 (货币:KRW)                     |
+| expirationTime  | Long    | no  |      | 最大两个小时，为空默认两个小时； 毫秒级时间戳 eg:1735660800000 |
+| phone           | String  | no  | 20   | 用户手机号 11位数；不携带区号； 010开头                  |
+| callbackUrl     | String  | no  | 200  | 代收回调地址 （若不传递，取商户后台配置的回调地址）               |
+| sign            | String  | yes |      | 签名                                       |
 
 
 ```json title="请求示例"
@@ -54,16 +54,16 @@ description: 商户请求创建一个代收订单
 
 ### 返回参数
 
-| 字段            | 类型       | 必需  | 长度 | 描述                   |
-| --------------- | ---------- |-----| ---- |----------------------|
-| merchantOrderNo | String     | yes | 32   | 商户订单号                |
-| tradeNo         | String     | yes | 32   | 平台订单号                |
-| amount          | String     | yes | 32   | 交易金额                 |
-| paymentType     | Int        | yes | 10   | 支付方式 801:VA          |
-| paymentInfo     | String     | yes | 32   | 支付信息                 |
-| additionalInfo  | JSONObject | no  |      | 附加信息：辅助支付信息使用        |
-| status          | Int        | yes |    | 订单状态 1: 支付中  3: 支付失败 |
-| errorMsg        | String     | no  |    | 错误信息,支付失败时返回         |
+| 字段            | 类型       | 必需  | 长度 | 描述                      |
+| --------------- | ---------- |-----| ---- |-------------------------|
+| merchantOrderNo | String     | yes | 32   | 商户订单号                   |
+| tradeNo         | String     | yes | 32   | 平台订单号                   |
+| amount          | String     | yes | 32   | 交易金额                    |
+| paymentType     | Int        | yes | 10   | 支付方式 801:VA             |
+| paymentInfo     | String     | yes | 32   | 支付信息                    |
+| additionalInfo  | JSONObject | no  |      | 附加信息：辅助支付信息使用           |
+| status          | Int        | yes |    | 订单状态 1: 支付中  3: 支付失败    |
+| errorMsg        | String     | no  |    | 错误信息,支付失败时返回  （具体参考错误码） |
 
 
 ### 响应示例
@@ -85,11 +85,13 @@ description: 商户请求创建一个代收订单
 }
 ```
 
-> errorMsg 说明：
 
-| errorMsg                                | 说明    |
-| ------------------------------------------- |-------|
+
+### 错误码
+
+| errorMsg                                | 描述     |
+| ------------------------------------------- |--------|
 | Transaction amount exceeds limit, kindly retry within allowed range. | 请求金额超限 |
-| Channel request error, technicians will fix ASAP. | 渠道维护  |
-| Unstable network, kindly retry later. |渠道网络波动|
-| Parameter validation error, kindly verify and retry. | 参数上传有误|
+| Channel request error, technicians will fix ASAP. | 渠道维护   |
+| Unstable network, kindly retry later. | 渠道网络波动 |
+| Parameter validation error, kindly verify and retry. | 参数上传有误 |
