@@ -9,7 +9,7 @@ description: Query a payout order
 | ------ | ------------------------ |
 | POST   | /api/pay/payout/query/v1 |
 
-## Headers
+###  Headers
 
 | Header Parameter | Description       |
 | ---------------- |-------------------|

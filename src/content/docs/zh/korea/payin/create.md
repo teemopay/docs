@@ -18,7 +18,7 @@ description: 商户请求创建一个代收订单
 | country                   | KR     |
 | app_code                  | app编号  |
 
-## 支付方式列表（paymentType）
+### 支付方式列表（paymentType）
 
 | 支付方式名称 | PaymentType (入参参数) |
 |-------|--------------------|

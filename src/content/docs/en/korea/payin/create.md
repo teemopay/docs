@@ -19,7 +19,7 @@ description: Create a payin order
 | app_code        | Application ID    |
 
 
-## Supported Payment Types (paymentType)
+###  Supported Payment Types (paymentType)
 
 
 | Payment Method Name                               | `paymentType` (request parameter) |
