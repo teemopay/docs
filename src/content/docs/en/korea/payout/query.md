@@ -15,7 +15,7 @@ description: Query a payout order
 | ---------------- |-------------------|
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
-| country          | Country code (MX) |
+| country          | Country code (KR) |
 | app_code         | Application ID    |
 
 ### Request Parameters
@@ -26,22 +26,47 @@ description: Query a payout order
 | sign            | String | yes      | -      | Signature             |
 
 
-```json title = ""
+### Response Parameters
+
+
+| 参数              | 类型     | 必需  | 长度  | 描述                                             |
+|-----------------|--------|-----|-----|------------------------------------------------|
+| merchantOrderNo | String | yes | 32  | Merchant Order Number                          |
+| tradeNo         | String | yes |     | Platform Order Number                          |
+| amount          | String | yes |     | Disbursement Amount                            |
+| status          | Int    | yes |     | Disbursement Status: 2 - Successful; 3 - Failed                                           |
+| serviceAmount   | String | yes |     | Service Fee = Fixed Service Amount + Transaction Amount × Service Rate                   |
+| immService      | String | yes |     | Fixed Service Amount                                         |
+| serviceRate     | String | yes |     | Service Rate                                       |
+| errorCode       | number | yes |     | Error Code for Failed Order Status                                  |
+| errorMessage    | String | yes |     | Error Message for Failed Order                                      |
+| completeTime    | String | yes |     | Completion Time (in the current country's time zone, formatted as yyyy-MM-dd HH:mm:ss)              |
+
+
+```json title = "Return example"
 {
-  "msg": "success",
-  "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610299",
   "code": 200,
   "data": {
-    "amount": "1000.00",
-    "tradeNo": "TS2501010001MX0000000000000000",
-    "additionalInfo": {
-
-    },
-    "cepUrl": "https://www.banxico.org.mx/cep/go?i=90684&s=20210220&d=NsOpgmPFBEpUvWgHsmmfFHLH0DbkngmvBnE%%2B3O",
     "merchantOrderNo": "OrderNoExample",
-    "paymentInfo": "684180093000000000",
-    "paymentType": 1,
-    "status": 1
-  }
+    "tradeNo": "TF2501010001MX0000000000000000",
+    "amount": "1000.00",
+    "status": 2,
+    "serviceAmount": "15.00",
+    "immService": "5.00",
+    "serviceRate": "0.010",
+    "errorCode": null,
+    "errorMessage": null,
+    "completeTime": "2025-05-01 00:00:00"
+  },
+  "msg": "success",
+  "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
+}
+```
+
+```json title= "Example of Response for Non-Existent Order"
+{
+    "code": 400,
+    "msg":"Order not found",
+    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
 }
 ```

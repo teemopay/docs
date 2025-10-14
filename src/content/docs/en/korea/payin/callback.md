@@ -15,7 +15,7 @@ description: Receive a payin result callback
 | ---------------- |-------------------|
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
-| country          | MX                |
+| country          | Country code (e.g., KR)                |
 | appCode          | Application ID    |
 
 ### Callback Parameters
@@ -24,15 +24,15 @@ description: Receive a payin result callback
 | --------------- | ------ | -------- | ------ | ------------------------------------------------------------------------------------------ |
 | merchantOrderNo | String | Yes      | 32     | Merchant's order number                                                                    |
 | tradeNo         | String | Yes      |        | Platform transaction number                                                                |
-| paymentOrderNo  | String | Yes      | 30     | Unique payment flow ID for this collection on the platform                                 |
-| status          | Int    | Yes      |        | 2: Success                                                                                 |
-| paymentAmount   | String | Yes      |        | Actual payment amount                                                                      |
-| serviceAmount   | String | Yes      |        | Service fee, e.g., 18.02                                                                   |
-| paymentInfo     | String | Yes      |        | Main payment information used for the transaction                                          |
+| paymentOrderNo  | String | Yes      | 30     | Platform Collection Transaction Serial Number for This Payment                                 |
+| status          | Int    | Yes      |        | Order Status 【2: Successful; 3: Failed】                                                                            |
+| paymentAmount   | String | Yes      |        | Actual Payment Amount for This Transaction                                                                   |
+| serviceAmount   | String | Yes      |        | Service Fee 【e.g.: 18.02】                                                                  |
+| paymentInfo     | String | Yes      |        | Main Payment Information; returns the actual information used for payment                                          |
 | paymentType     | Int    | Yes      |        | Payment method                                                                             |
-| completeTime    | String | Yes      |        | Completion time in local time zone (format: yyyy-MM-dd HH:mm:ss) ** |
-| claveRastreo    | String | Yes      |        | Reserved field (planned for next version)                                                  |
-| errorMessage    | String | No       |        | Error message if the transaction failed                                                    |
+| completeTime    | String | Yes      |        | Completion Time of This Transaction (in the current country's time zone, formatted as yyyy-MM-dd HH:mm:ss) |
+| claveRastreo    | String | Yes      |        | Payment Voucher Returned by the Channel; returns null for some channels                                                  |
+| errorMessage    | String | No       |        | Error Message for Failed Orders                                                   |
 | sign            | String | Yes      |        | Signature                                                                                  |
 
 

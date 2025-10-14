@@ -11,12 +11,12 @@ description: Create a payin order
 
 ### Headers
 
-| Header Parameter | Description             |
-| --------------- |-------------------------|
-| timestamp       | Request timestamp       |
-| nonce           | Random string           |
-| country         | Country code (e.g., MX) |
-| app_code        | Application ID          |
+| Header Parameter | Description       |
+| --------------- |-------------------|
+| timestamp       | Request timestamp |
+| nonce           | Random string     |
+| country         | Country code (e.g., KR)                |
+| app_code        | Application ID    |
 
 
 ## Supported Payment Types (paymentType)
@@ -31,17 +31,17 @@ description: Create a payin order
 
 ### Request Parameters
 
-| Field           | Type   | Required | Length | Description                                                                                                           |
-| --------------- | ------ | -------- | ------ |-----------------------------------------------------------------------------------------------------------------------|
-| merchantOrderNo | String  | yes | 32   | Merchant Order Number                                                                                                 |
-| paymentType     | Integer | yes |      | Payment method: (801: VA)                                                                                             |
-| realName        | String  | yes | 64   | User name (no more than 20 characters for letters or Korean characters)                                               |
-| email           | String  | no  | 50   | User email: It is acceptable as long as it meets the regular expression requirements.                                 |
-| amount          | String  | yes | 20   | Collection amount - Integer - Unit: Yuan (Currency: KRW)                                                              |
-| expirationTime  | Long    | no  |      | Maximum two hours, defaulting to two hours if empty; Millisecond-level timestamp eg: 173566080000                     |
-| phone           | String  | no  | 20   | User's mobile phone number: 11 digits; without area code; starting with 010                                           |
-| callbackUrl     | String  | no  | 200  | Revert the callback address (if not provided, the callback address configured in the merchant's backend will be used) |
-| sign            | String  | yes |      | sign                                                                                                                  |
+| Field           | Type   | Required | Length | Description                                                                                                         |
+| --------------- | ------ | -------- | ------ |---------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String  | yes | 32   | Merchant Order Number                                                                                               |
+| paymentType     | Integer | yes |      | Payment Method 【801: VA】                                                                                            |
+| realName        | String  | yes | 64   | User's Real Name 【Letters or Korean characters shall not exceed 20 characters】                                      |
+| email           | String  | no  | 50   | User's Email 【Shall comply with the regular expression】                                                             |
+| amount          | String  | yes | 20   | Collection Amount 【Integer, Unit: KRW (Korean Won)】                                                                 |
+| expirationTime  | Long    | no  |      | Expiration Time 【Maximum 2 hours; defaults to 2 hours if left blank; in millisecond timestamp, e.g.: 1735660800000】 |
+| phone           | String  | no  | 20   | User's Mobile Phone Number 【11 digits; starts with 010; no area code】                                               |
+| callbackUrl     | String  | no  | 200  | Collection Callback URL 【If not provided, the callback URL configured in the merchant backend will be used】         |
+| sign            | String  | yes |      | Signature                                                                                                           |
 
 
 
@@ -55,7 +55,7 @@ description: Create a payin order
   "realName": "realName",
   "email": "123@123.com",
   "phone":"01012343211",
-  "sign": "your  sign"
+  "sign": "your sign"
 }
 ```
 
@@ -63,16 +63,16 @@ description: Create a payin order
 
 ### Response Parameters
 
-| Field           | Type       | Required | Length | Description                                                             |
-| --------------- | ---------- | -------- | ------ |-------------------------------------------------------------------------|
-| merchantOrderNo | String     | yes      | 32     | Merchant order number                                                   |
-| tradeNo         | String     | yes      | 32     | Platform order number                                                   |
-| amount          | String     | yes      | 32     | Transaction amount                                                      |
-| paymentType     | Int        | yes      | 10     | Payment method: 1 = VA, 4 = PayCashOnce, 5 = PayCashRecurrent           |
-| paymentInfo     | String     | yes      | 32     | Main payment information (e.g., VA account number or payment reference) |
-| additionalInfo  | JSONObject | no       | -      | Additional information; used as supplementary data                      |
-| status          | Int        | yes      | -      | Status: 1 = Order created successfully, 3 = Failed                      |
-| errorMsg        | String     | no       | -      | Error message (returned when failed)                                    |
+| Field           | Type       | Required | Length | Description                                                                                                                             |
+| --------------- | ---------- | -------- | ------ |-----------------------------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String     | yes      | 32     | Merchant order number                                                                                                                   |
+| tradeNo         | String     | yes      | 32     | Platform order number                                                                                                                   |
+| amount          | String     | yes      | 32     | Transaction amount                                                                                                                      |
+| paymentType     | Int        | yes      | 10     | Payment Method 【801: VA】                                                                                                                |
+| paymentInfo     | String     | yes      | 32     | Main payment information 【This returns the actual information used for payment, such as: Visa account number, payment reference number】 |
+| additionalInfo  | JSONObject | no       | -      | Additional Information 【For auxiliary payment information】                                                                              |
+| status          | Int        | yes      | -      | Order Status 【1: Payment in Progress; 3: Payment Failed】                                                                                |
+| errorMsg        | String     | no       | -      | Error Message 【Returned when payment fails】                                                                                             |
 
 
 

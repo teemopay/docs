@@ -16,7 +16,7 @@ description: Receive a payout result callback
 | ---------------- |-------------------|
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
-| country          | MX                |
+| country          | KR                |
 | appCode          | Application ID    |
 
 ### Callback Parameters

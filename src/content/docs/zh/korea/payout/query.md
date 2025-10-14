@@ -15,7 +15,7 @@ description: 商户查询一个代付订单的状态
 |---------------------------|--------|
 | timestamp                 | 请求时间戳  |
 | nonce                     | 随机值    |
-| country                   | MX |
+| country                   | KR     |
 | app_code                  | app编号  |
 
 ### 请求参数
@@ -47,7 +47,6 @@ description: 商户查询一个代付订单的状态
 | errorCode       | number | yes |     | 订单失败状态错误码                      |
 | errorMessage    | String | yes |     | 订单失败错误信息                       |
 | completeTime    | String | yes |     | 完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式 |
-| cepUrl          | String | No  |     | cepUrl               |
 
 ```json title=返回示例
 {

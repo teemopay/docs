@@ -17,7 +17,7 @@ description: 余额查询
 | ----------- |--------|
 | timestamp   | 请求时间戳  |
 | nonce       | 随机值    |
-| country     | MX     |
+| country     | KR     |
 | app_code    | app 编号 |
 ### 请求参数
 
