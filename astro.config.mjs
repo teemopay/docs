@@ -323,6 +323,37 @@ export default defineConfig({
               },
             ],
           },
+          {
+            id: "korea",
+            label: {
+              en: "🇰🇷 korea",
+              zh: "🇰🇷 韩国",
+            },
+            link: "/korea/payin/create",
+            items: [
+              {
+                label: "Payin",
+                translations: {
+                  zh: "代收",
+                },
+                items: ["korea/payin/create", "korea/payin/callback", "korea/payin/query"],
+              },
+              {
+                label: "Payout",
+                translations: {
+                  zh: "代付",
+                },
+                items: ["korea/payout/create", "korea/payout/callback", "korea/payout/query", "korea/payout/bank"],
+              },
+              {
+                label: "Inquire",
+                translations: {
+                  zh: "查询",
+                },
+                items: ["korea/inquire/balance", "korea/inquire/bill"],
+              },
+            ],
+          },
         ]),
       ],
       // 重新渲染组件

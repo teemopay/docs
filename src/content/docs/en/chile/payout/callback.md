@@ -47,12 +47,17 @@ description: Merchant receives a payout result callback
 
 > Error Code Description:
 
-| errorCode | errorMessage                                | Suggestion                                                                                |
-| --------- | ------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| 1000      | The account does not exist or is restricted | Suggest user to change card                                                              |
-| 1001      | Return                                      | Refunded, suggest to retry payout within 24 hours after receiving callback               |
-| 1002      | Channel server fluctuations                 | Channel fluctuation, suggest retry after 10 minutes                                      |
-| 9999      | Others                                      | Other issues, suggest canceling the order                                                |
+| errorCode | errorMessage                                                                                                                                  | Suggestion                                                                                                                  |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| 1000      | The account does not exist or is restricted                                                                                                   | Suggest the user change the card                                                                                            |
+| 1001      | Return                                                                                                                                        | Already refunded. After receiving the callback, you may retry the disbursement within 24 hours of the original request time |
+| 1002      | Channel server fluctuations                                                                                                                   | Channel fluctuation. Suggest retrying after 10 minutes                                                                      |
+| 1018      | Invalid account number (may be due to mismatch with ID number, presence of special characters, or incorrect length), kindly verify and retry. | Invalid account (may be due to mismatch with ID, special characters, or incorrect length)                                   |
+| 1019      | Invalid RUT, kindly verify and retry.                                                                                                         | Invalid RUT                                                                                                                 |
+| 1020      | Unsupported bank. Please select a different bank and try again.                                                                               | Unsupported bank                                                                                                            |
+| 1021      | Invalid document ID (may be due to incorrect length, format, or mismatch with user's information), kindly verify and retry.                   | Invalid ID (may be due to incorrect length, format, or mismatch with user's information)                                    |
+| 1022      | Account number does not match the account type, kindly verify and retry.                                                                      | Account number does not match account type                                                                                  |
+| 9999      | Others                                                                                                                                        | Others. Suggest cancelling the order                                                                                        |
 
 ### Callback Response
 

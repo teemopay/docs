@@ -20,9 +20,15 @@ description: Merchant requests to create a payment order
 
 ### Supported Payment Methods (paymentType)
 
-| Payment Method Name     | PaymentType | Note                                                         |
-| ----------------------- | ----------- | ------------------------------------------------------------ |
-| checkout (Payment Link) | 101         | Multiple callbacks may occur, handle callback logic properly |
+| Payment Method Name         | PaymentType | Note                                                         |
+|-----------------------------| ----------- | ------------------------------------------------------------ |
+| CHECKOUT（all in one）        | 101                    |
+| CASH（efectivo）              | 102                    |
+| BCP                         | 105                    |
+| INTERBANK                   | 106                    |
+| BBVA                        | 107                    |
+| SCOTIABANK                  | 108                    |
+| WALLET(including YAPE、PLIN) | 109                    |
 
 ![image-20240528105940814](https://image.xiwu.me/2024/903d077857edfdec8deee35a455587f4.png)
 

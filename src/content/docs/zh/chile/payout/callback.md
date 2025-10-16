@@ -9,7 +9,6 @@ description: 商户接受一个代付结果的回调
 | ------ | ------------------ |
 | POST   | 商户提供的回调地址 |
 
-
 ### 头部信息（header）
 
 | header参数 | 入参参数描述 |
@@ -46,12 +45,17 @@ description: 商户接受一个代付结果的回调
 
 > errorCode 说明：
 
-| errorCode | errorMessage                                | 建议                                                     |
-| --------- | ------------------------------------------- | -------------------------------------------------------- |
-| 1000      | The account does not exist or is restricted | 建议让用户改卡                                           |
-| 1001      | Return                                      | 已退款，建议收到回调后，发起时间在 24 小时内可以重新放款 |
-| 1002      | Channel server fluctuations                 | 通道波动，建议 10 分钟后重试                             |
-| 9999      | Others                                      | 其他，建议取消订单                                       |
+| errorCode | errorMessage                                                                                                                              | 建议                             |
+|-----------|-------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
+| 1000      | The account does not exist or is restricted                                                                                               | 建议让用户改卡                        |
+| 1001      | Return                                                                                                                                    | 已退款，建议收到回调后，发起时间在 24 小时内可以重新放款 |
+| 1002      | Channel server fluctuations                                                                                                               | 通道波动，建议 10 分钟后重试               |
+| 1018      |Invalid account number (may be due to mismatch with ID number, presence of special characters, or incorrect length），kindly verify and retry. | 账户无效（可能因为与ID不符、特殊字符或长度错误       |
+| 1019      | Invalid rut,kindly verify and retry.                                                                                                      | 无效RUT                          |
+| 1020      | Unsupported bank. Please select a different bank and try again.                                                                           | 不支持的银行                         |
+| 1021      | Invalid document id（may be due to incorrect length，format or mismatch with user's information）,kindly verify and retry.                   | 无效id，可能是长度错误、格式错误或与用户信息不符      |
+| 1022      | Account number does not match the account type,kindly verify and retry.                                                                   | 账户号与账户类型不符                     |
+| 9999      | Others                                                                                                                                    | 其他未知异常                         |
 
 ### 回调返回
 
