@@ -27,7 +27,7 @@ description: 商户请求创建一个代付订单
 | bankCode        | String | yes | 50   | 银行编码                 |
 | bankName        | String | yes  | 50   | 银行名称                 |
 | accountType     | Int    | yes |      | 501:BankTransfer     |
-| bankAccount     | String | yes | 255  | 收款账号                 |
+| bankAccount     | String | yes | 50  | 收款账号                 |
 | realName        | String | yes | 255  | 用户姓名                 |
 | phone           | Stirng | yes | 13   | 电话号码 08开头,10~13位     |
 | email           | Stirng | yes  | 64   | 用户邮箱                 |

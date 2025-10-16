@@ -27,7 +27,7 @@ description: 商户请求创建一个代付订单
 | bankCode        | String | yes | 50   | 银行编码  301取bankCode，302时取WalletCode |
 | bankName        | String | yes | 50   | 银行名称 与银行编码字段相同                   |
 | accountType     | Int    | yes |      | 账户类型 301(BANK) 302(E-Wallet)     |
-| bankAccount     | String | yes | 255  | 银行/钱包账户                          |
+| bankAccount     | String | yes | 50  | 银行/钱包账户                          |
 | realName        | String | yes | 255  | 客户姓名                             |
 | idCardNumber    | String | yes | 13   | 证件号   13位数字                      |
 | idType          | Stirng | yes | 32   | 固定传CERT                          |
