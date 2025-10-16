@@ -27,7 +27,7 @@ description: 商户请求创建一个代付订单
 | bankCode        | String | no | 50  | 银行编码                                                                           |
 | bankName        | String | no  | 50  | 银行名称                                                                           |
 | accountType     | Int    | yes |     | CPF-401<br>CNPJ-402 <br>PHONE-403 <br>EMAIL-404 <br>EVP-405 <br>五个参数根据实际情况选择一个 |
-| bankAccount     | String | yes | 255 | 收款账号                                                                           |
+| bankAccount     | String | yes | 50 | 收款账号                                                                           |
 | realName        | String | yes | 255 | 用户姓名                                                                           |
 | idCardNumber    | String | yes | 50  | 收款人证件号码                                                                        |
 | idType          | Stirng | yes | 32  | CPF(11位数字),CNPJ(14位数字)                                                         |
