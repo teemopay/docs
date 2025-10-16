@@ -29,7 +29,7 @@ description: Create a payout order
 | accountType     | Integer | yes |      | Account Type 【801: BANK_TRANSFER】                             |
 | bankAccount     | String  | yes | 50   | Beneficiary's Bank Account Number                                               |
 | realName        | String  | yes | 40   | User's Real Name. No special characters allowed; uppercase is recommended. Must be at least 2 characters long. Strict verification is not required, but it must conform to normal name format. |
-| idType    | String  | yes | 50   | Beneficiary Type: RRN (Individual); COMPANY (Enterprise）                           |
+| idType    | String  | yes | 50   | Beneficiary Type: RRN (Individual); CO (Enterprise）                           |
 | callbackUrl     | String  | no  | 200  | Disbursement Callback URL. If not provided, the merchant's configured URL will be used.                               |
 | sign            | String  | yes |      | Signature                                                   |
 

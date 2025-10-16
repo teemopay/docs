@@ -29,7 +29,7 @@ description: 商户请求创建一个代付订单
 | accountType     | Integer | yes |      | 账户类型 【801:BANK_TRANSFER】                             |
 | bankAccount     | String  | yes | 50   | 收款账号                                                 |
 | realName        | String  | yes | 40   | 用户姓名。不得包含特殊字符，建议使用全大写，长度不少于 2 个字母；无需严格校验，但需符合正常姓名格式。 |
-| idType    | String  | yes | 50   | 收款人类型 ：RRN （个人）COMPANY（企业）                           |
+| idType    | String  | yes | 50   | 收款人类型 ：RRN （个人）CO（企业）                           |
 | callbackUrl     | String  | no  | 200  | 代付回调地址，若不传, 则以商户配置为准                                 |
 | sign            | String  | yes |      | 签名                                                   |
 
