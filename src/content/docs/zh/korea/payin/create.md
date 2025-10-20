@@ -78,7 +78,7 @@ description: 商户请求创建一个代收订单
     "tradeNo": "tradeNo",
     "additionalInfo": {},
     "merchantOrderNo": "test_001",
-    "paymentInfo": null,
+    "paymentInfo": "需要更新这个值",
     "paymentType": 801,
     "status": 1
   }

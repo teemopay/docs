@@ -25,13 +25,12 @@ description: Receive a payin result callback
 | merchantOrderNo | String | Yes      | 32     | Merchant's order number                                                                    |
 | tradeNo         | String | Yes      |        | Platform transaction number                                                                |
 | paymentOrderNo  | String | Yes      | 30     | Platform Collection Transaction Serial Number for This Payment                                 |
-| status          | Int    | Yes      |        | Order Status 【2: Successful; 3: Failed】                                                                            |
-| paymentAmount   | String | Yes      |        | Actual Payment Amount for This Transaction                                                                   |
+| status          | Int    | Yes      |        | Order Status 【2: Successful;】                                                                            |
+| paymentAmount   | String | Yes      |        | Actual Payment Amount for This Transaction                                                               |
 | serviceAmount   | String | Yes      |        | Service Fee 【e.g.: 18.02】                                                                  |
-| paymentInfo     | String | Yes      |        | Main Payment Information; returns the actual information used for payment                                          |
+| paymentInfo     | String | Yes      |        | Main Payment Information; returns the actual information used for payment                                      |
 | paymentType     | Int    | Yes      |        | Payment method                                                                             |
 | completeTime    | String | Yes      |        | Completion Time of This Transaction (in the current country's time zone, formatted as yyyy-MM-dd HH:mm:ss) |
-| claveRastreo    | String | Yes      |        | Payment Voucher Returned by the Channel; returns null for some channels                                                  |
 | errorMessage    | String | No       |        | Error Message for Failed Orders                                                   |
 | sign            | String | Yes      |        | Signature                                                                                  |
 

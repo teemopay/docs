@@ -29,18 +29,18 @@ description: Query a payout order
 ### Response Parameters
 
 
-| 参数              | 类型     | 必需  | 长度  | 描述                                             |
-|-----------------|--------|-----|-----|------------------------------------------------|
-| merchantOrderNo | String | yes | 32  | Merchant Order Number                          |
-| tradeNo         | String | yes |     | Platform Order Number                          |
-| amount          | String | yes |     | Disbursement Amount                            |
-| status          | Int    | yes |     | Disbursement Status: 2 - Successful; 3 - Failed                                           |
-| serviceAmount   | String | yes |     | Service Fee = Fixed Service Amount + Transaction Amount × Service Rate                   |
-| immService      | String | yes |     | Fixed Service Amount                                         |
-| serviceRate     | String | yes |     | Service Rate                                       |
-| errorCode       | number | yes |     | Error Code for Failed Order Status                                  |
-| errorMessage    | String | yes |     | Error Message for Failed Order                                      |
-| completeTime    | String | yes |     | Completion Time (in the current country's time zone, formatted as yyyy-MM-dd HH:mm:ss)              |
+| 参数              | 类型     | 必需  | 长度  | 描述                                                                                     |
+|-----------------|--------|-----|-----|----------------------------------------------------------------------------------------|
+| merchantOrderNo | String | yes | 32  | Merchant Order Number                                                                  |
+| tradeNo         | String | yes |     | Platform Order Number                                                                  |
+| amount          | String | yes |     | Disbursement Amount                                                                    |
+| status          | Int    | yes |     | Disbursement Status: 1- In transaction 2 - Successful; 3 - Failed                      |
+| serviceAmount   | String | yes |     | Service Fee = Fixed Service Amount + Transaction Amount × Service Rate                 |
+| immService      | String | yes |     | Fixed Service Amount                                                                   |
+| serviceRate     | String | yes |     | Service Rate                                                                           |
+| errorCode       | number | yes |     | Error Code for Failed Order Status                                                     |
+| errorMessage    | String | yes |     | Error Message for Failed Order                                                         |
+| completeTime    | String | yes |     | Completion Time (in the current country's time zone, formatted as yyyy-MM-dd HH:mm:ss) |
 
 
 ```json title = "Return example"

@@ -55,13 +55,12 @@ description: 商户查询一个代收订单的状态
 | -- immService                 | String | yes  |     | 固收金额                                  |
 | -- paymentType                | Int    | yes  |     | 真实支付方式                                |
 | -- completeTime               | String    | yes  |     | 该流水的完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式 |
-| -- claveRastreo               | String | yes |     | 渠道返回的付款凭证,部分渠道返回为null值                |
 ```json title=返回示例
 {
     "code": 200,
     "data": {
         "merchantOrderNo": "OrderNoExample",
-        "amount": "1500.00",
+        "amount": "1000.00",
         "transactionAmount": "1000.00",
         "tradeNo": "TradeNoExample",
         "paymentType": 801,
@@ -71,11 +70,11 @@ description: 商户查询一个代收订单的状态
         "statementList": [
             {
                 "paymentSingleOrderNo": "TSOPaymentOrderNoExample1",
-                "paymentStatementAmount": "500.00",
+                "paymentStatementAmount": "1000.00",
                 "paymentStatementStatus": 2,
                 "paymentStatementStatusName": "代收成功",
                 "completeTime": "2025-01-01 00:00:00",
-                "serviceAmount": "10.00",
+                "serviceAmount": "30.00",
                 "serviceRate": "0.0100",
                 "immService": "5.00",
                 "paymentType": 801
