@@ -35,7 +35,7 @@ description: 商户接受一个代付结果的回调
 ```json title=成功回调示例
 {
     "merchantOrderNo": "OrderNoExample",
-    "tradeNo": "TF2501010001MX0000000000000000",
+    "tradeNo": "TF2501010001KR0000000000000000",
     "amount": "1000.00",
     "serviceAmount": "10.50",
     "status": 2,
@@ -50,7 +50,7 @@ description: 商户接受一个代付结果的回调
 ```json title=失败回调示例
 {
     "merchantOrderNo": "OrderNoExample",
-    "tradeNo": "TF2501010001MX0000000000000000",
+    "tradeNo": "TF2501010001KR0000000000000000",
     "amount": null,
     "serviceAmount": null,
     "status": 3,
@@ -65,7 +65,7 @@ description: 商户接受一个代付结果的回调
 ```json title=退款回调示例
 {
     "merchantOrderNo": "OrderNoExample",
-    "tradeNo": "TF2501010001MX0000000000000000",
+    "tradeNo": "TF2501010001KR0000000000000000",
     "amount": "1000.00",
     "serviceAmount": "10.50",
     "status": 4,

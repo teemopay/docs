@@ -36,6 +36,7 @@ description: Create a payin order
 | merchantOrderNo | String  | yes | 32   | Merchant Order Number                                                                                               |
 | paymentType     | Integer | yes |      | Payment Method 【801: VA】                                                                                            |
 | realName        | String  | yes | 64   | User's Real Name 【Letters or Korean characters shall not exceed 20 characters】                                      |
+| merchantName    | String  | yes | 64   | merchant account holder                                                                                             |
 | email           | String  | no  | 50   | User's Email 【Shall comply with the regular expression】                                                             |
 | amount          | String  | yes | 20   | Collection Amount 【Integer, Unit: KRW (Korean Won)】                                                                 |
 | expirationTime  | Long    | no  |      | Expiration Time 【Maximum 2 hours; defaults to 2 hours if left blank; in millisecond timestamp, e.g.: 1735660800000】 |
@@ -49,13 +50,15 @@ description: Create a payin order
 
 ```json title="请求示例"
 {
-  "merchantOrderNo":"test_001",
-  "paymentType":801,
-  "amount": "120",
-  "realName": "realName",
-  "email": "123@123.com",
-  "phone":"01012343211",
-  "sign": "your sign"
+    "realName": "TeemoPay",
+    "merchantName": "MerchantNameExample"
+    "amount": "1000",
+    "phone": "01012345678",
+    "callbackUrl": "https://www.callbackexample.com",
+    "merchantOrderNo": "OrderNoExample",
+    "email": "TeemoPay@example.com",
+    "paymentType": 801,
+    "sign": "YOUR_SIGN"
 }
 ```
 
