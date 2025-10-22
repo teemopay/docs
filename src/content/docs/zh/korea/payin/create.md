@@ -44,7 +44,7 @@ description: 商户请求创建一个代收订单
 ```json title="请求示例"
 {
     "realName": "TeemoPay",
-    "merchantName": "MerchantNameExample"
+    "merchantName": "MerchantNameExample",
     "amount": "1000",
     "phone": "01012345678",
     "callbackUrl": "https://www.callbackexample.com",

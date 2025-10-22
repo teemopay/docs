@@ -51,7 +51,7 @@ description: Create a payin order
 ```json title="请求示例"
 {
     "realName": "TeemoPay",
-    "merchantName": "MerchantNameExample"
+    "merchantName": "MerchantNameExample",
     "amount": "1000",
     "phone": "01012345678",
     "callbackUrl": "https://www.callbackexample.com",
@@ -87,11 +87,11 @@ description: Create a payin order
   "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610299",
   "code": 200,
   "data": {
-    "amount": "120.00",
-    "tradeNo": "tradeNo",
-    "additionalInfo": {},
-    "merchantOrderNo": "test_001",
-    "paymentInfo": null,
+    "amount": "1000.00",
+    "tradeNo": "TS2501010001KR0000000000000000",
+    "additionalInfo": {"bankCode":"IBK","bankName":"기업은행","expiredTime":1761022567000},
+    "merchantOrderNo": "OrderNoExample",
+    "paymentInfo": "29900000000000",
     "paymentType": 801,
     "status": 1
   }
