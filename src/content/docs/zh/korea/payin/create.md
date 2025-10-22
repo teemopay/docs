@@ -32,7 +32,7 @@ description: 商户请求创建一个代收订单
 | merchantOrderNo | String  | yes | 32   | 商户订单号                                           |
 | paymentType     | Integer | yes |      | 支付方式 【801: VA】                                  |
 | realName        | String  | yes | 64   | 用户姓名 【字母或者韩文不要超过20字符】                           |
-| merchantName    | String  | yes | 64   | 付款账户持有人                                         |
+| merchantName    | String  | yes | 64   | 收款人名称                                           |
 | email           | String  | no  | 50   | 用户邮箱 【满足正则表达式即可】                                |
 | amount          | String  | yes | 20   | 代收金额 【整数 单位元 货币:KRW】                            |
 | expirationTime  | Long    | no  |      | 过期时间 【最大两个小时，为空默认两个小时； 毫秒级时间戳 eg:1735660800000】 |

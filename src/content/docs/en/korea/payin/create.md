@@ -36,7 +36,7 @@ description: Create a payin order
 | merchantOrderNo | String  | yes | 32   | Merchant Order Number                                                                                               |
 | paymentType     | Integer | yes |      | Payment Method 【801: VA】                                                                                            |
 | realName        | String  | yes | 64   | User's Real Name 【Letters or Korean characters shall not exceed 20 characters】                                      |
-| merchantName    | String  | yes | 64   | merchant account holder                                                                                             |
+| merchantName    | String  | yes | 64   | Payee Account                                                                                      |
 | email           | String  | no  | 50   | User's Email 【Shall comply with the regular expression】                                                             |
 | amount          | String  | yes | 20   | Collection Amount 【Integer, Unit: KRW (Korean Won)】                                                                 |
 | expirationTime  | Long    | no  |      | Expiration Time 【Maximum 2 hours; defaults to 2 hours if left blank; in millisecond timestamp, e.g.: 1735660800000】 |
