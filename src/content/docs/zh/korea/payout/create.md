@@ -66,7 +66,7 @@ description: 商户请求创建一个代付订单
         "amount": "1000.00",
         "merchantOrderNo": "OrderNoExample",
         "status": 1,
-        "tradeNo": "TF2501010001MX0000000000000000"
+        "tradeNo": "TF2501010001KR0000000000000000"
     }
 }
 ```

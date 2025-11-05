@@ -42,21 +42,21 @@ description: Merchant requests to create a collection (pay-in) order
 | phone            | String | yes      |        | Phone number, starts with 08, 10–13 digits|
 | sign             | String | yes      |        | Signature                                 |
 | callbackUrl      | String | no       | 200    | Callback URL                              |
+| redirectUrl      | String | no       | 255    | When results are available, the customer can be redirected to that address.|
 
 #### Sample Request
 
 ```json
 {
-  "merchantOrderNo": "C27412415HkF6U9SnXRrxitBWD647lw7",
-  "realName": "aaaaaa",
-  "amount": "100.1",
-  "callbackUrl": "http://test.domin.com",
-  "paymentType": 401,
-  "email": "1QWWQWQ2891@qq.com",
-  "phone": "123456789",
-  "idCardNumber": "1234567890",
-  "sign": "YOUR SIGN",
-  "expirationTime": 1717092000000
+  "merchantOrderNo": "OrderNoExample",
+  "realName": "TeemoPay",
+  "amount": "60000",
+  "callbackUrl": "https://www.callbackexample.com",
+  "paymentType": 502,
+  "email": "TeemoPay@example.com",
+  "channel": "DANA",
+  "phone": "0800000000",
+  "sign": "YOUR_SIGN"
 }
 ```
 
@@ -81,17 +81,19 @@ description: Merchant requests to create a collection (pay-in) order
 ```json
 {
   "msg": "success",
+  "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610299",
   "code": 200,
   "data": {
-    "amount": "100",
-    "tradeNo": "TS2405220001MX0000048362685411",
-    "merchantOrderNo": "C31412415HkF6U9SnXRrxitBWD647lw7",
-    "paymentType": 204,
-    "additionalInfo": {},
-    "paymentInfo": "Xsdsadsadsad.com",
+    "amount": "60000.00",
+    "tradeNo": "TS2501010001ID0000000000000000",
+    "additionalInfo": {
+
+    },
+    "merchantOrderNo": "OrderNoExample",
+    "paymentInfo": "https://www.paymentLinkExample.com",
+    "paymentType": 502,
     "status": 1
-  },
-  "success": true
+  }
 }
 
 ```

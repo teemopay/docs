@@ -32,6 +32,7 @@ description: 商户请求创建一个代收订单
 | merchantOrderNo | String  | yes | 32   | 商户订单号                                           |
 | paymentType     | Integer | yes |      | 支付方式 【801: VA】                                  |
 | realName        | String  | yes | 64   | 用户姓名 【字母或者韩文不要超过20字符】                           |
+| merchantName    | String  | yes | 64   | 收款人名称                                           |
 | email           | String  | no  | 50   | 用户邮箱 【满足正则表达式即可】                                |
 | amount          | String  | yes | 20   | 代收金额 【整数 单位元 货币:KRW】                            |
 | expirationTime  | Long    | no  |      | 过期时间 【最大两个小时，为空默认两个小时； 毫秒级时间戳 eg:1735660800000】 |
@@ -42,13 +43,15 @@ description: 商户请求创建一个代收订单
 
 ```json title="请求示例"
 {
-  "merchantOrderNo":"test_001",
-  "paymentType":801,
-  "amount": "120",
-  "realName": "realName",
-  "email": "123@123.com",
-  "phone":"01012343211",
-  "sign": "your  sign"
+    "realName": "TeemoPay",
+    "merchantName": "MerchantNameExample",
+    "amount": "1000",
+    "phone": "01012345678",
+    "callbackUrl": "https://www.callbackexample.com",
+    "merchantOrderNo": "OrderNoExample",
+    "email": "TeemoPay@example.com",
+    "paymentType": 801,
+    "sign": "YOUR_SIGN"
 }
 ```
 
@@ -74,11 +77,11 @@ description: 商户请求创建一个代收订单
   "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610299",
   "code": 200,
   "data": {
-    "amount": "120.00",
-    "tradeNo": "tradeNo",
-    "additionalInfo": {},
-    "merchantOrderNo": "test_001",
-    "paymentInfo": "需要更新这个值",
+    "amount": "1000.00",
+    "tradeNo": "TS2501010001KR0000000000000000",
+    "additionalInfo": {"bankCode":"IBK","bankName":"기업은행","expiredTime":1761022567000},
+    "merchantOrderNo": "OrderNoExample",
+    "paymentInfo": "29900000000000",
     "paymentType": 801,
     "status": 1
   }

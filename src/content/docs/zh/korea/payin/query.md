@@ -62,9 +62,9 @@ description: 商户查询一个代收订单的状态
         "merchantOrderNo": "OrderNoExample",
         "amount": "1000.00",
         "transactionAmount": "1000.00",
-        "tradeNo": "TradeNoExample",
+        "tradeNo": "TS2501010001KR0000000000000000",
         "paymentType": 801,
-        "paymentInfo": "684180093000000000",
+        "paymentInfo": "29900000000000",
         "status": 2,
         "serviceAmount": "30.00",
         "statementList": [
