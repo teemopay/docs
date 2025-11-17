@@ -354,6 +354,38 @@ export default defineConfig({
               },
             ],
           },
+          {
+            id: "argentine",
+            label: {
+              en: "🇦🇷 argentine",
+              zh: "🇦🇷 阿根廷",
+            },
+            link: "/argentine/payin/create",
+            items: [
+              {
+                label: "Payin",
+                translations: {
+                  zh: "代收",
+                },
+                items: ["argentine/payin/create", "argentine/payin/callback", "argentine/payin/query"],
+              },
+              {
+                label: "Payout",
+                translations: {
+                  zh: "代付",
+                },
+                items: ["argentine/payout/create", "argentine/payout/callback", "argentine/payout/query", "argentine/payout/bank"],
+              },
+              {
+                label: "Inquire",
+                translations: {
+                  zh: "查询",
+                },
+                items: ["argentine/inquire/balance", "argentine/inquire/bill"],
+              },
+            ],
+          },
+
         ]),
       ],
       // 重新渲染组件

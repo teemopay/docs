@@ -1,0 +1,102 @@
+---
+title: 创建代收
+description: 商户请求创建一个代收订单
+---
+
+### 请求地址
+
+| method | url                        |
+| ------ | -------------------------- |
+| POST   | /api/pay/payment/create/v1 |
+
+### 头部信息（header）
+
+| header参数                  | 入参参数描述 |
+|---------------------------|--------|
+| timestamp                 | 请求时间戳  |
+| nonce                     | 随机值    |
+| country                   | AR       |
+| app_code                  | app编号  |
+
+### 支付方式列表（paymentType）
+
+| 支付方式名称 | PaymentType (入参参数) |
+|-------|--------------------|
+| QR    | 901                |
+| CVU   | 902               |
+| CHECKOUT    | 903               |
+
+
+### 请求参数
+
+| 字段              | 类型      | 必需  | 最大长度 | 描述                                              |
+|-----------------|---------|-----|------|-------------------------------------------------|
+| merchantOrderNo | String  | yes | 32   | 商户订单号                                           |
+| paymentType     | Integer | yes |      | 支付方式 【901（QR）、902 （CVU）、903（CHECKOUT）】                                  |
+| realName        | String  | yes | 64   | 用户姓名 【建议全大写】                           |
+| email           | String  | no  | 50   | 用户邮箱 【满足正则表达式即可】                                |
+| amount          | String  | yes | 20   | 代收金额 【比索:ARS】                            |
+| expirationTime  | Long    | no  |      | 过期时间 【最小十分钟；最大一天 毫秒级时间戳 eg:1735660800000】 |
+| phone           | String  | no  | 20   | 用户手机号 【10位数】                        |
+| callbackUrl     | String  | no  | 200  | 代收回调地址 【若不传递，取商户后台配置的回调地址】                      |
+| sign            | String  | yes |      | 签名                                              |
+
+
+```json title="请求示例"
+{
+    "realName": "TeemoPay",
+    "merchantName": "MerchantNameExample",
+    "amount": "1000",
+    "phone": "1234567890",
+    "callbackUrl": "https://www.callbackexample.com",
+    "merchantOrderNo": "OrderNoExample",
+    "email": "TeemoPay@example.com",
+    "paymentType": 901,
+    "sign": "YOUR_SIGN"
+}
+```
+
+### 返回参数
+
+| 字段            | 类型       | 必需  | 长度 | 描述                                    |
+| --------------- | ---------- |-----| ---- |---------------------------------------|
+| merchantOrderNo | String     | yes | 32   | 商户订单号                                 |
+| tradeNo         | String     | yes | 32   | 平台订单号                                 |
+| amount          | String     | yes | 32   | 交易金额                                  |
+| paymentType     | Int        | yes | 10   | 支付方式 【901:QR】                         |
+| paymentInfo     | String     | yes | 32   | 主要付款信息 【返回的是实际用于付款的信息，例如：付款编号，二维码串】 |
+| additionalInfo  | JSONObject | no  |      | 附加信息 【辅助支付信息使用】                       |
+| status          | Int        | yes |    | 订单状态 【1: 支付中  3: 支付失败】                |
+| errorMsg        | String     | no  |    | 错误信息【支付失败时返回】                         |
+
+
+### 响应示例
+
+```json
+{
+  "msg": "success",
+  "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610299",
+  "code": 200,
+  "data": {
+    "amount": "1000.00",
+    "tradeNo": "TS2501010001AR0000000000000000",
+    "additionalInfo": null,
+    "merchantOrderNo": "OrderNoExample",
+    "paymentInfo": "K8xY3pQ7zW2dE9sR4fT1gH6jU8lM3nB5vC2xZ7qA9wS4eD1rF8tG3yH6uJ9iK2oL5pM8aN3bV7cX9dZ4
+eW1fY3gH6jK8lM2nP5qR7sT9uV2wX4yZ6aB8cD1eF3gH5jK7lM9nO2pQ4rS6tU8vW1xY3zA5bC7dE9fG2hJ4kL6mN8oP1qR3sT5uV7wX9yZ2aB4cD6eF8gH1jK3lM5nO7pQ9rS1tU3vW5xY7zA2bC4dE6fG8hJ1kL3mN5oP7qR9sT1uV3wX5yZ7aB9cD1eF3gH5jK7",
+    "paymentType": 901,
+    "status": 1
+  }
+}
+```
+
+
+
+### 错误码
+
+| errorMsg                                | 描述     |
+| ------------------------------------------- |--------|
+| Transaction amount exceeds limit, kindly retry within allowed range. | 请求金额超限 |
+| Channel request error, technicians will fix ASAP. | 渠道维护   |
+| Unstable network, kindly retry later. | 渠道网络波动 |
+| Parameter validation error, kindly verify and retry. | 参数上传有误 |
