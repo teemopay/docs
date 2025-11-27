@@ -20,21 +20,21 @@ description: 商户请求创建一个代付订单
 
 ### 请求参数
 
-| 字段              | 类型      | 必需  | 最大长度 | 描述                                                   |
-|-----------------|---------|-----|------|------------------------------------------------------|
-| merchantOrderNo | String  | yes | 32   | 商户订单号                                                |
-| amount          | String  | yes | 20   | 代付金额 【单位比索：ARS】                                 |
-| bankCode        | String  | no | 50   | 银行编码  【参考银行列表中的银行编码】                                 |
-| bankName        | String  | no  | 50   | 银行名称  【参考银行列表中的银行名称】                                 |
-| accountType     | Integer | yes |      | 账户类型 【901:AHORRO(储蓄) 902 - CORRIENTE(活期）】                             |
+| 字段              | 类型      | 必需  | 最大长度 | 描述                                                                  |
+|-----------------|---------|-----|------|---------------------------------------------------------------------|
+| merchantOrderNo | String  | yes | 32   | 商户订单号                                                               |
+| amount          | String  | yes | 20   | 代付金额 【单位比索：ARS】                                                     |
+| bankCode        | String  | no | 50   | 银行编码  【参考银行列表中的银行编码】                                                |
+| bankName        | String  | no  | 50   | 银行名称  【参考银行列表中的银行名称】                                                |
+| accountType     | Integer | yes |      | 账户类型 【901:AHORRO(储蓄) 902 - CORRIENTE(活期）】                           |
 | bankAccount     | String  | yes | 50   | 收款账号【cvu和cbu 22位数字】                                                 |
-| idCardNumber     | String  | yes | 50   | 收款人身份证号                                                 |
-| realName        | String  | yes | 40   | 用户姓名。不得包含特殊字符，建议使用全大写，长度不少于 2 个字母；无需严格校验，但需符合正常姓名格式。 |
-| idType    | String  | yes | 50   | 身份证类型: DNI（个人身份证-8位数字) CUIL(社保卡-11位数字) CUIT(税卡-11位数) PASSPORT(护照:字母混合)                         |
-| phone     | String  | no  | 10  | 手机号码                                 |
-| email     | String  | no  | 64  | 邮箱                                 |
-| callbackUrl     | String  | no  | 200  | 代付回调地址，若不传, 则以商户配置为准                                 |
-| sign            | String  | yes |      | 签名                                                 |
+| idCardNumber     | String  | yes | 50   | 收款人身份证号                                                             |
+| realName        | String  | yes | 40   | 用户姓名。不得包含特殊字符，建议使用全大写，长度不少于 2 个字母；无需严格校验，但需符合正常姓名格式。                |
+| idType    | String  | yes | 50   | 身份证类型: DNI（个人身份证-8位数字) CUIL(社保卡-11位数字) CUIT(税卡-11位数) PA(护照:最长15位数字) |
+| phone     | String  | no  | 10  | 手机号码                                                                |
+| email     | String  | no  | 64  | 邮箱                                                                  |
+| callbackUrl     | String  | no  | 200  | 代付回调地址，若不传, 则以商户配置为准                                                |
+| sign            | String  | yes |      | 签名                                                                  |
 
 ```json title=请求示例
 {
@@ -43,7 +43,7 @@ description: 商户请求创建一个代付订单
     "accountType": 901,
     "bankAccount": "1234567890123456789012",
     "realName": "realName",
-    "idCardNumber": "123456789",
+    "idCardNumber": "12345678",
     "idType": "DNI",
     "callbackUrl": "https://www.callbackexample.com",
     "sign": "YOUR_SIGN"

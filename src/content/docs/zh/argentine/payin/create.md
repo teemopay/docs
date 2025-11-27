@@ -29,17 +29,18 @@ description: 商户请求创建一个代收订单
 
 ### 请求参数
 
-| 字段              | 类型      | 必需  | 最大长度 | 描述                                              |
-|-----------------|---------|-----|------|-------------------------------------------------|
-| merchantOrderNo | String  | yes | 32   | 商户订单号                                           |
-| paymentType     | Integer | yes |      | 支付方式 【901（QR）、902 （CVU）、903（CHECKOUT）】                                  |
-| realName        | String  | yes | 64   | 用户姓名 【建议全大写】                           |
-| email           | String  | no  | 50   | 用户邮箱 【满足正则表达式即可】                                |
+| 字段              | 类型      | 必需  | 最大长度 | 描述                                       |
+|-----------------|---------|-----|------|------------------------------------------|
+| merchantOrderNo | String  | yes | 32   | 商户订单号                                    |
+| paymentType     | Integer | yes |      | 支付方式 【901（QR）、902 （CVU）、903（CHECKOUT）】   |
+| realName        | String  | yes | 64   | 用户姓名 【建议全大写】                             |
+| email           | String  | no  | 50   | 用户邮箱 【满足正则表达式即可】                         |
 | amount          | String  | yes | 20   | 代收金额 【比索:ARS】                            |
-| expirationTime  | Long    | no  |      | 过期时间 【最小十分钟；最大一天 毫秒级时间戳 eg:1735660800000】 |
-| phone           | String  | no  | 20   | 用户手机号 【10位数】                        |
-| callbackUrl     | String  | no  | 200  | 代收回调地址 【若不传递，取商户后台配置的回调地址】                      |
-| sign            | String  | yes |      | 签名                                              |
+| idCardNumber    | String  | no  | 11   | 个人税号,当支付方式为902的时候必传                      |
+| expirationTime  | Long    | no  |      | 过期时间 【最小一天,最长七天 毫秒级时间戳 eg:1735660800000】 |
+| phone           | String  | no  | 20   | 用户手机号 【10位数】                             |
+| callbackUrl     | String  | no  | 200  | 代收回调地址 【若不传递，取商户后台配置的回调地址】               |
+| sign            | String  | yes |      | 签名                                       |
 
 
 ```json title="请求示例"
@@ -47,11 +48,12 @@ description: 商户请求创建一个代收订单
     "realName": "TeemoPay",
     "merchantName": "MerchantNameExample",
     "amount": "1000",
+    "idCardNumber": "1234567890123",
     "phone": "1234567890",
     "callbackUrl": "https://www.callbackexample.com",
     "merchantOrderNo": "OrderNoExample",
     "email": "TeemoPay@example.com",
-    "paymentType": 901,
+    "paymentType": 902,
     "sign": "YOUR_SIGN"
 }
 ```

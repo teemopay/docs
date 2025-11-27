@@ -33,18 +33,19 @@ description: Create a payin order
 
 ### Request Parameters
 
-| Field           | Type   | Required | Length | Description                                                                                                         |
-| --------------- | ------ | -------- | ------ |---------------------------------------------------------------------------------------------------------------------|
-| merchantOrderNo | String  | yes | 32   | Merchant Order Number                                                                                               |
-| paymentType     | Integer | yes |      | Payment Method 【901: QR, 902: CVU, 903: CHECKOUT】                                                                                            |
-| realName        | String  | yes | 64   | User's Real Name                                      |
-| merchantName    | String  | yes | 64   | Payee Account                                                                                      |
-| email           | String  | no  | 50   | User's Email 【Shall comply with the regular expression】                                                             |
-| amount          | String  | yes | 20   | Collection Amount 【Integer, Unit: ARS (Argentine Peso)】                                                                 |
-| expirationTime  | Long    | no  |      | Expiration Time 【Minimum: 10 minutes; Maximum: 1 day; Millisecond-level timestamp (e.g.: 1735660800000)】 |
-| phone           | String  | no  | 20   | User's Mobile Phone Number 【10 digits】                                               |
-| callbackUrl     | String  | no  | 200  | Collection Callback URL 【If not provided, the callback URL configured in the merchant backend will be used】         |
-| sign            | String  | yes |      | Signature                                                                                                           |
+| Field           | Type   | Required | Length | Description                                                                                                 |
+| --------------- | ------ |----------| ------ |-------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String  | yes      | 32   | Merchant Order Number                                                                                       |
+| paymentType     | Integer | yes      |      | Payment Method 【901: QR, 902: CVU, 903: CHECKOUT】                                                           |
+| realName        | String  | yes      | 64   | User's Real Name                                                                                            |
+| merchantName    | String  | yes      | 64   | Payee Account                                                                                               |
+| email           | String  | no       | 50   | User's Email 【Shall comply with the regular expression】                                                     |
+| amount          | String  | yes      | 20   | Collection Amount 【Integer, Unit: ARS (Argentine Peso)】                                                     |
+| idCardNumber          | String  | no       | 20   | payment method is 902, this field is mandatory                                                              |
+| expirationTime  | Long    | no       |      | Expiration Time 【Minimum: 1 day; Maximum: 7 day; Millisecond-level timestamp (e.g.: 1735660800000)】         |
+| phone           | String  | no       | 20   | User's Mobile Phone Number 【10 digits】                                                                      |
+| callbackUrl     | String  | no       | 200  | Collection Callback URL 【If not provided, the callback URL configured in the merchant backend will be used】 |
+| sign            | String  | yes      |      | Signature                                                                                                   |
 
 
 
@@ -55,11 +56,12 @@ description: Create a payin order
     "realName": "TeemoPay",
     "merchantName": "MerchantNameExample",
     "amount": "1000",
+    "idCardNumber": "1234567890123",
     "phone": "1234567890",
     "callbackUrl": "https://www.callbackexample.com",
     "merchantOrderNo": "OrderNoExample",
     "email": "TeemoPay@example.com",
-    "paymentType": 901,
+    "paymentType": 902,
     "sign": "YOUR_SIGN"
 }
 ```
