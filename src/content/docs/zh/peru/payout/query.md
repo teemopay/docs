@@ -82,5 +82,5 @@ description: 商户查询一个代付订单的状态
 | 416    | Application not found  | app_code异常，请更改       |
 | 417    | Merchant account not found | 商户账户未找到，请联系我们 |
 | 418    | Merchant account is closed | 商户账户已关闭，请联系我们 |
-| 426    | merchant order duplicate | 请更换商户订单号           |
+| 434    | Merchant order not exist | 请检查提交的订单号   |
 | 500    | Business Error         | 请联系我们                 |
