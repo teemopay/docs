@@ -92,19 +92,7 @@ eW1fY3gH6jK8lM2nP5qR7sT9uV2wX4yZ6aB8cD1eF3gH5jK7lM9nO2pQ4rS6tU8vW1xY3zA5bC7dE9fG
 }
 ```
 
-
-
-### 错误码
-
-| errorMsg                                | 描述     |
-| ------------------------------------------- |--------|
-| Transaction amount exceeds limit, kindly retry within allowed range. | 请求金额超限 |
-| Channel request error, technicians will fix ASAP. | 渠道维护   |
-| Unstable network, kindly retry later. | 渠道网络波动 |
-| Parameter validation error, kindly verify and retry. | 参数上传有误 |
-
-
-### 错误码
+### 校验异常码
 | 异常码       | 异常信息                                                                 | 处理方案                                               |
 |--------------|--------------------------------------------------------------------------|--------------------------------------------------------|
 | 412          | Please try again later                                                   | 请稍后重试                                             |
@@ -117,3 +105,39 @@ eW1fY3gH6jK8lM2nP5qR7sT9uV2wX4yZ6aB8cD1eF3gH5jK7lM9nO2pQ4rS6tU8vW1xY3zA5bC7dE9fG
 | 473          | Merchant joint verification error: *                                     | 商户配置异常，请联系我们                                 |
 | 474          | The id card number must be 11 digits.                                    | 证件号必须11位                                         |
 | 500          | Business Error                                                           | 请联系我们                                             |
+
+```json title=返回示例
+{
+    "code": 423,
+    "data": {},
+    "msg": "This payment method is not supported",
+    "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
+}
+```
+
+### 渠道错误信息
+
+| errorMsg                                | 描述     |
+| ------------------------------------------- |--------|
+| Transaction amount exceeds limit, kindly retry within allowed range. | 请求金额超限 |
+| Channel request error, technicians will fix ASAP. | 渠道维护   |
+| Unstable network, kindly retry later. | 渠道网络波动 |
+| Parameter validation error, kindly verify and retry. | 参数上传有误 |
+
+```json title=返回示例
+{
+    "code": 200,
+    "data": {
+        "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+        "amount": null,
+        "tradeNo": "TS2405220001AR0000430564883184",
+        "paymentType": 901,
+        "paymentInfo": null,
+        "additionalInfo": null,
+        "status": 3,
+        "errorMsg": "Transaction amount exceeds limit, kindly retry within allowed range."
+    },
+    "msg": "success",
+    "traceId": "f2b58c9c394d4b1595dd4e448ac741bc.1248.17645838103706945"
+}
+```
