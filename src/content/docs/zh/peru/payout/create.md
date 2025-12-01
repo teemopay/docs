@@ -85,3 +85,21 @@ description: 商户请求创建一个代付订单
     "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
 }
 ```
+
+### 错误码
+| 异常码               | 异常信息                                                                 | 处理方案                                   |
+|----------------------|--------------------------------------------------------------------------|--------------------------------------------|
+| 412                  | Please try again later                                                   | 请稍后重试                                 |
+| 414                  | *                                                                        | 更改对应参数                               |
+| 417                  | Merchant account not found                                               | 商户账户未找到，请联系我们                 |
+| 425                  | Insufficient merchant balance                                             | 商户账户余额不足                           |
+| 426                  | merchant order duplicate                                                 | 请更换商户订单号                           |
+| 427                  | The callback notification address for collection must not be empty.       | 未配置代收回调地址，请配置代收回调地址     |
+| 429                  | * bankAccount length must be * digits                                    | 对应的支付方式和银行匹配的卡号位数不匹配   |
+| 429                  | The 3rd digit from the end of a BCP account number must be either 0 or 1. | bcp银行卡号对应的倒数第三位一定是0/1，请检查并更改 |
+| 432                  | *                                                                        | 卡号，银行号，支付方式匹配异常，请检查并更改 |
+| 462                  | This request failed due to blacklist blocking                            | 进入黑名单，请更改参数，重新拉起           |
+| 473                  | Merchant joint verification error: *                                      | 商户配置异常，请联系我们                   |
+| 475                  | The id card type is error                                               | 证件类型异常，请检查并更改                 |
+| 476                  | The id card number is error                                              | 证件号异常，请检查并更改                   |
+| 500                  | Business Error                                                           | 请联系我们                                 |

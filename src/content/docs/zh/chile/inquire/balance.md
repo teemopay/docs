@@ -51,3 +51,12 @@ description: 余额查询
     "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
 }
 ```
+
+### 错误码
+| 异常码 | 异常信息               | 处理方案                   |
+|--------|------------------------|----------------------------|
+| 412    | Please try again later  | 请稍后重试                 |
+| 414    | *                      | 更改对应参数               |
+| 416    | Application not found  | app_code异常，请更改       |
+| 417    | Merchant account not found | 商户账户未找到，请联系我们 |
+| 500    | Business Error         | 请联系我们                 |

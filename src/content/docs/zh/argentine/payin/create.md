@@ -102,3 +102,18 @@ eW1fY3gH6jK8lM2nP5qR7sT9uV2wX4yZ6aB8cD1eF3gH5jK7lM9nO2pQ4rS6tU8vW1xY3zA5bC7dE9fG
 | Channel request error, technicians will fix ASAP. | 渠道维护   |
 | Unstable network, kindly retry later. | 渠道网络波动 |
 | Parameter validation error, kindly verify and retry. | 参数上传有误 |
+
+
+### 错误码
+| 异常码       | 异常信息                                                                 | 处理方案                                               |
+|--------------|--------------------------------------------------------------------------|--------------------------------------------------------|
+| 412          | Please try again later                                                   | 请稍后重试                                             |
+| 414          | *                                                                        | 更改对应参数                                           |
+| 423          | This payment method is not supported                                     | 对应支付方式不支持，请查阅文档，如存在则联系我们配置        |
+| 426          | merchant order duplicate                                                 | 请更换商户订单号                                       |
+| 427          | The callback notification address for collection must not be empty.      | 请配置代收回调地址                                      |
+| 443          | ID number must not be null                                               | 证件号不能为空                                         |
+| 466          | Payment method fee rate not configured.                                  | 商户代收费率配置异常，请联系我们                          |
+| 473          | Merchant joint verification error: *                                     | 商户配置异常，请联系我们                                 |
+| 474          | The id card number must be 11 digits.                                    | 证件号必须11位                                         |
+| 500          | Business Error                                                           | 请联系我们                                             |
