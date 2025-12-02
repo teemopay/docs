@@ -77,15 +77,6 @@ description: 商户请求创建一个代付订单
 }
 ```
 
-```json title=失败示例
-{
-    "code": 425,
-    "data": null,
-    "msg": "Insufficient merchant balance",
-    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
-}
-```
-
 ### 错误码
 | 异常码               | 异常信息                                                                 | 处理方案                                   |
 |----------------------|--------------------------------------------------------------------------|--------------------------------------------|
@@ -103,3 +94,13 @@ description: 商户请求创建一个代付订单
 | 471                  | The ID type is not support                                               | 不支持的证件号，请检查并更改               |
 | 473                  | Merchant joint verification error: *                                      | 商户配置异常，请联系我们                   |
 | 500                  | Business Error                                                           | 请联系我们                                 |
+
+
+```json title=失败示例
+{
+    "code": 425,
+    "data": null,
+    "msg": "Insufficient merchant balance",
+    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
+}
+```

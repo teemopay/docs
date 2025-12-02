@@ -110,3 +110,13 @@ description: 直连Easypaisa和Jazzcash
 | 466          | Payment method fee rate not configured.                                  | 商户代收费率配置异常，请联系我们                       |
 | 473          | Merchant joint verification error: *                                     | 商户配置异常，请联系我们                               |
 | 500          | Business Error                                                           | 请联系我们                                             |
+
+
+```json title=失败示例
+{
+    "code": 426,
+    "data": null,
+    "msg": "merchant order duplicate",
+    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
+}
+```

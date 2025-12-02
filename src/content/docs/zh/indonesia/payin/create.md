@@ -108,3 +108,12 @@ description: 商户请求创建一个代收订单
 | 466          | Payment method fee rate not configured.                                  | 商户代收费率配置异常，请联系我们                       |
 | 473          | Merchant joint verification error: *                                      | 商户配置异常，请联系我们                               |
 | 500          | Business Error                                                           | 请联系我们                                             |
+
+```json title=返回示例
+{
+    "code": 423,
+    "data": {},
+    "msg": "This payment method is not supported",
+    "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
+}
+```

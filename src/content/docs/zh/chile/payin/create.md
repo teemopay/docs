@@ -117,3 +117,12 @@ SERVIFACIL
 | 466          | Payment method fee rate not configured.                                  | 商户代收费率配置异常，请联系我们                       |
 | 473          | Merchant joint verification error: *                                      | 商户配置异常，请联系我们                               |
 | 500          | Business Error                                                           | 请联系我们                                             |
+
+```json title=返回示例
+{
+    "code": 426,
+    "data": null,
+    "msg": "merchant order duplicate",
+    "traceId": "f2b58c9c394d4b1595dd4e448ac741bc.2256.17645844263770017"
+}
+```

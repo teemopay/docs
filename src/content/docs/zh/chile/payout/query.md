@@ -57,13 +57,6 @@ description: 商户查询一个代付订单的状态
     "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
 }
 ```
-```json title=订单不存在返回示例
-{
-    "code": 400,
-    "msg":"Order not found",
-    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
-}
-```
 
 ### 错误码
 | 异常码 | 异常信息               | 处理方案                   |
@@ -75,3 +68,12 @@ description: 商户查询一个代付订单的状态
 | 418    | Merchant account is closed | 商户账户已关闭，请联系我们 |
 | 434    | Merchant order not exist | 请检查提交的订单号   |
 | 500    | Business Error         | 请联系我们                 |
+
+```json title=返回示例
+{
+    "code": 416,
+    "data": {},
+    "msg": "Application not found",
+    "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
+}
+```

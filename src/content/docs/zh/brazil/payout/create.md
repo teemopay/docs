@@ -90,3 +90,12 @@ description: 商户请求创建一个代付订单
 | 475                  | The id card type is error                                               | 证件类型异常，请检查并更改                 |
 | 476                  | The id card number is error                                              | 证件号异常，请检查并更改                   |
 | 500                  | Business Error                                                           | 请联系我们                                 |
+
+```json title=返回示例
+{
+    "code": 417,
+    "data": {},
+    "msg": "Merchant account not found",
+    "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
+}
+```

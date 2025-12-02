@@ -88,3 +88,12 @@ description: 商户创建收银台
 | 460                  | The current payment method is unavailable.                                | 当前代收方式不可用，请更换                 |
 | 473                  | Merchant joint verification error: *                                      | 配置异常，请联系我们                       |
 | 500                  | Business Error                                                           | 请联系我们                                 |
+
+```json title=失败示例
+{
+    "code": 426,
+    "data": null,
+    "msg": "merchant order duplicate",
+    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
+}
+```
