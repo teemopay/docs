@@ -36,12 +36,12 @@ description: Create a payin order
 | Field           | Type   | Required | Length | Description                                                                                                 |
 | --------------- | ------ |----------| ------ |-------------------------------------------------------------------------------------------------------------|
 | merchantOrderNo | String  | yes      | 32   | Merchant Order Number                                                                                       |
-| paymentType     | Integer | yes      |      | Payment Method 【901（QR）、902 （CVU）、903（CHECKOUT）、905 (Rapipago)、906 (Pagofacil)】                                                           |
+| paymentType     | Integer | yes      |      | Payment Method 【901（QR）、902 （CVU）、903（CHECKOUT）、905 (Rapipago)、906 (Pagofacil)】                             |
 | realName        | String  | yes      | 64   | User's Real Name                                                                                            |
 | merchantName    | String  | yes      | 64   | Payee Account                                                                                               |
 | email           | String  | no       | 50   | User's Email 【Shall comply with the regular expression】                                                     |
 | amount          | String  | yes      | 20   | Collection Amount 【Integer, Unit: ARS (Argentine Peso)】                                                     |
-| idCardNumber          | String  | no       | 20   | payment method is 902, this field is mandatory                                                              |
+| idCardNumber          | String  | no       | 20   | payment method is 902, 905，906 this field is mandatory                                                      |
 | expirationTime  | Long    | no       |      | Expiration Time 【Minimum: 1 day; Maximum: 7 day; Millisecond-level timestamp (e.g.: 1735660800000)】         |
 | phone           | String  | no       | 20   | User's Mobile Phone Number 【10 digits】                                                                      |
 | callbackUrl     | String  | no       | 200  | Collection Callback URL 【If not provided, the callback URL configured in the merchant backend will be used】 |
