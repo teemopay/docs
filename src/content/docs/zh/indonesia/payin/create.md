@@ -112,7 +112,7 @@ description: 商户请求创建一个代收订单
 ```json title=返回示例
 {
     "code": 423,
-    "data": {},
+    "data": null,
     "msg": "This payment method is not supported",
     "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
 }

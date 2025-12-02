@@ -112,7 +112,7 @@ description: 直连Easypaisa和Jazzcash
 | 500          | Business Error                                                           | 请联系我们                                             |
 
 
-```json title=失败示例
+```json title=返回示例
 {
     "code": 426,
     "data": null,

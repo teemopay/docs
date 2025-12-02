@@ -87,7 +87,7 @@ description: 商户查询一个代付订单的状态
 ```json title=返回示例
 {
     "code": 416,
-    "data": {},
+    "data": null,
     "msg": "Application not found",
     "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
 }

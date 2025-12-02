@@ -78,9 +78,10 @@ description: 商户查询一个代付订单的状态
 | 434    | Merchant order not exist | 请检查提交的订单号   |
 | 500    | Business Error         | 请联系我们                 |
 
-```json title=订单不存在返回示例
+```json title=返回示例
 {
     "code": 417,
+    "data": null,
     "msg":"Merchant account not found",
     "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
 }

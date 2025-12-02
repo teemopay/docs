@@ -97,7 +97,7 @@ description: 商户请求创建一个代付订单
 | 476                  | The id card number is error                                              | 证件号异常，请检查并更改                   |
 | 500                  | Business Error                                                           | 请联系我们                                 |
 
-```json title=失败示例
+```json title=返回示例
 {
     "code": 425,
     "data": null,

@@ -94,7 +94,7 @@ description: 商户请求创建一个代付订单
 ```json title=返回示例
 {
     "code": 417,
-    "data": {},
+    "data": null,
     "msg": "Merchant account not found",
     "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
 }
