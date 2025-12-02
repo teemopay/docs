@@ -26,7 +26,7 @@ description: 商户请求创建一个代付订单
 | amount          | String  | yes | 20   | 代付金额 【单位比索：ARS】                                                     |
 | bankCode        | String  | no | 50   | 银行编码  【参考银行列表中的银行编码】                                                |
 | bankName        | String  | no  | 50   | 银行名称  【参考银行列表中的银行名称】                                                |
-| accountType     | Integer | yes |      | 账户类型 【901:AHORRO(储蓄) 902 - CORRIENTE(活期）】                           |
+| accountType     | Integer | yes |      | 账户类型 【901= CVU 902 = CBU 903 = ALIAS 】                                             |
 | bankAccount     | String  | yes | 50   | 收款账号【cvu和cbu 22位数字】                                                 |
 | idCardNumber     | String  | yes | 50   | 收款人身份证号                                                             |
 | realName        | String  | yes | 40   | 用户姓名。不得包含特殊字符，建议使用全大写，长度不少于 2 个字母；无需严格校验，但需符合正常姓名格式。                |
