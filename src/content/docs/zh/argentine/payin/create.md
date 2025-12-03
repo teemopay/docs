@@ -25,6 +25,9 @@ description: 商户请求创建一个代收订单
 | QR    | 901                |
 | CVU   | 902               |
 | CHECKOUT    | 903               |
+| Rapipago    | 905                               |
+| Pagofacil    | 906                               |
+
 
 
 ### 请求参数

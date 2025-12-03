@@ -24,9 +24,11 @@ description: Create a payin order
 
 | Payment Method Name                               | `paymentType` (request parameter) |
 | ------------------------------------------------- |-----------------------------------|
-| QR    | 901                |
-| CVU   | 902               |
-| CHECKOUT    | 903               |
+| QR    | 901                               |
+| CVU   | 902                               |
+| CHECKOUT    | 903                               |
+| Rapipago    | 905                               |
+| Pagofacil    | 906                               |
 
 
 
