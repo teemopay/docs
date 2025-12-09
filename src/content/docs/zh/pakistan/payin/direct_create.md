@@ -96,3 +96,27 @@ description: 直连Easypaisa和Jazzcash
     }
 }
 ```
+
+### 错误码
+| 异常码       | 异常信息                                                                 | 处理方案                                               |
+|--------------|--------------------------------------------------------------------------|--------------------------------------------------------|
+| 412          | Please try again later                                                   | 请稍后重试                                             |
+| 414          | *                                                                        | 更改对应参数                                           |
+| 423          | This payment method is not supported                                     | 对应支付方式不支持，请查阅文档，如存在则联系我们配置        |
+| 426          | merchant order duplicate                                                 | 请更换商户订单号                                       |
+| 427          | The callback notification address for collection must not be empty.      | 请配置代收回调地址                                     |
+| 441          | ID number must be exactly 13 digits long                                 | 证件号必须13位                                         |
+| 460          | The current payment method is unavailable.                               | 请更换支付方式                                        |
+| 466          | Payment method fee rate not configured.                                  | 商户代收费率配置异常，请联系我们                       |
+| 473          | Merchant joint verification error: *                                     | 商户配置异常，请联系我们                               |
+| 500          | Business Error                                                           | 请联系我们                                             |
+
+
+```json title=返回示例
+{
+    "code": 426,
+    "data": null,
+    "msg": "merchant order duplicate",
+    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
+}
+```

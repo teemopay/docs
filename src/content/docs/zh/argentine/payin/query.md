@@ -86,3 +86,21 @@ eW1fY3gH6jK8lM2nP5qR7sT9uV2wX4yZ6aB8cD1eF3gH5jK7lM9nO2pQ4rS6tU8vW1xY3zA5bC7dE9fG
     "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
 }
 ```
+
+### 错误码
+| 异常码 | 异常信息               | 处理方案           |
+|--------|------------------------|--------------------|
+| 412    | Please try again later  | 请稍后重试         |
+| 414    | *                      | 更改对应参数       |
+| 416    | Application not found  | app_code异常，请更改 |
+| 434    | Merchant order not exist | 请检查提交的订单号   |
+| 500    | Business Error         | 请联系我们         |
+
+```json title=返回示例
+{
+    "code": 416,
+    "data": null,
+    "msg": "Application not found",
+    "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
+}
+```
