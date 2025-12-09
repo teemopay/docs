@@ -38,7 +38,7 @@ description: Create a payin order
 | Field           | Type   | Required | Length | Description                                                                                                 |
 | --------------- | ------ |----------| ------ |-------------------------------------------------------------------------------------------------------------|
 | merchantOrderNo | String  | yes      | 32   | Merchant Order Number                                                                                       |
-| paymentType     | Integer | yes      |      | Payment Method 【901（QR）、902 （CVU）、903（CHECKOUT）、905 (Rapipago)、906 (Pagofacil)】                             |
+| paymentType     | Integer | yes      |      | Payment Method 【901（QR）、902 （CVU）、903（CHECKOUT）、905 (RAPIPAGO)、906 (PAGOFACIL)】                             |
 | realName        | String  | yes      | 64   | User's Real Name                                                                                            |
 | merchantName    | String  | yes      | 64   | Payee Account                                                                                               |
 | email           | String  | no       | 50   | User's Email 【Shall comply with the regular expression】                                                     |

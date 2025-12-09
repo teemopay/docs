@@ -35,7 +35,7 @@ description: 商户请求创建一个代收订单
 | 字段              | 类型      | 必需  | 最大长度 | 描述                                                                    |
 |-----------------|---------|-----|------|-----------------------------------------------------------------------|
 | merchantOrderNo | String  | yes | 32   | 商户订单号                                                                 |
-| paymentType     | Integer | yes |      | 支付方式 【901（QR）、902 （CVU）、903（CHECKOUT）、905 (Rapipago)、906 (Pagofacil)】 |
+| paymentType     | Integer | yes |      | 支付方式 【901（QR）、902 （CVU）、903（CHECKOUT）、905 (RAPIPAGO)、906 (PAGOFACIL)】 |
 | realName        | String  | yes | 64   | 用户姓名 【建议全大写】                                                          |
 | email           | String  | no  | 50   | 用户邮箱 【满足正则表达式即可】                                                      |
 | amount          | String  | yes | 20   | 代收金额 【比索:ARS】                                                         |
