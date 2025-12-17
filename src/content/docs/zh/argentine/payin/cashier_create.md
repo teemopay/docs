@@ -20,20 +20,20 @@ description: 商户创建收银台
 
 ### 请求参数
 
-| 字段              | 类型     | 必需 | 长度  | 描述                                                                              |
-|-----------------|--------|----|-----|---------------------------------------------------------------------------------|
-| merchantOrderNo | String | 是  | 32  | 商户订单号                                                                           |
+| 字段              | 类型     | 必需 | 长度  | 描述                                                                                  |
+|-----------------|--------|----|-----|-------------------------------------------------------------------------------------|
+| merchantOrderNo | String | 是  | 32  | 商户订单号                                                                               |
 | paymentType     | Int    | 否  |     | 不传输则返回配置的支付方式；支付方式 【901（QR）、902 （CVU）、903（CHECKOUT）、905 (Rapipago)、906 (Pagofacil)】 |
-| amount          | String | 是  | 20  | 金额                                                                              |
-| expirationTime  | String | 否  | 20  | 过期时间、毫秒级时间戳 eg:1735660800000 【默认一天，最小10分钟,最长七天 】                                |
+| amount          | String | 是  | 20  | 金额                                                                                  |
+| expirationTime  | String | 否  | 20  | 过期时间、毫秒级时间戳 eg:1735660800000 【默认一天，最小10分钟,最长七天 】                                    |
 | idType          | String | 是  | 50  | 个人身份类型：DNI 、CUIT、CUIL  【推荐使用CUIT】                                                   |
-| idCardNumber    | String | 是  | 11  | 个人身份号：DNI （8位数字）、CUIT（11位数字）、CUIL（11位数字）                                        |
-| phone           | String | 否  | 10  | 10位数字不加区号                                                                       |
-| email           | String | 否  | 50  | 付款人邮箱; 务必符合正则表达式                                                                |
-| realName        | String | 是  | 50  | 付款人名字,建议全字母大写                                                                   |
-| callbackUrl     | String | 否  | 200 | 代收回调地址 （若不传递，取商户后台配置的回调地址）                                                      |
-| remark          | String | 否  | 200 | 备注信息                                                                            |
-| sign            | String | 是  |     | 签名                                                                              |
+| idCardNumber    | String | 是  | 11  | 个人身份号：DNI （7位或8位数字）、CUIT（11位数字，首位必须是2或3）、CUIL（11位数字）                                |
+| phone           | String | 否  | 10  | 10位数字不加区号                                                                           |
+| email           | String | 否  | 50  | 付款人邮箱; 务必符合正则表达式                                                                    |
+| realName        | String | 是  | 50  | 付款人名字,建议全字母大写                                                                       |
+| callbackUrl     | String | 否  | 200 | 代收回调地址 （若不传递，取商户后台配置的回调地址）                                                          |
+| remark          | String | 否  | 200 | 备注信息                                                                                |
+| sign            | String | 是  |     | 签名                                                                                  |
 
 ```json title=请求示例
 {
