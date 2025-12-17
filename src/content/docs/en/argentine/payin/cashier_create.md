@@ -22,19 +22,19 @@ description: Merchant creates a cashier order
 ### Request Parameters
 
 | Field           | Type   | Required | Length | Description                                                                                                                                                        |
-|-----------------|--------| -------- | ------ |--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| merchantOrderNo | String | 是  | 32  | Merchant order number                                                                                                                                              |
-| paymentType     | Int    | 否  |     | If no transmission occurs, the configured payment method will be returned; Payment methods: 【901 (QR), 902 (CVU), 903 (CHECKOUT), 905 (Rapipago), 906 (Pagofacil)】 |
-| amount          | String | 是  | 20  | amount                                                                                                                                                             |
-| expirationTime  | String | 否  | 20  | Expiration time, millisecond-level timestamp, e.g.: 1735660800000 [Default: one day, minimum: 10 minutes, maximum: seven days]                                                                                                                   |
-| idType          | String | 是  |     | Personal identification type: DNI, CUIT, CUIL                                                                                                                                         |
-| idCardNumber    | String | 是  | 11  | Personal Identification Number: DNI (8-digit number), CUIT (11-digit number), CUIL (11-digit number)                                                                                                                           |
-| phone           | String | 否  | 10  | 10-digit number without area code                                                                                                                                                          |
-| email           | String | 否  | 50  | Payee's email address; Must comply with regular expression rules                                                                                                                                                |
-| realName        | String | 是  | 50  | Payee's name. Please capitalize all letters.                                                                                                                                                     |
-| callbackUrl     | String | 否  | 200 | Revert the callback address (if not provided, use the callback address configured in the merchant's backend)）                                                                                                                                         |
-| remark          | String | 否  | 200 | remark                                                                                                                                                               |
-| sign            | String | 是  |     | signature                                                                                                                                                                 |
+|-----------------|--------| -------- |--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String | 是  | 32     | Merchant order number                                                                                                                                              |
+| paymentType     | Int    | 否  |        | If no transmission occurs, the configured payment method will be returned; Payment methods: 【901 (QR), 902 (CVU), 903 (CHECKOUT), 905 (Rapipago), 906 (Pagofacil)】 |
+| amount          | String | 是  | 20     | amount                                                                                                                                                             |
+| expirationTime  | String | 否  | 20     | Expiration time, millisecond-level timestamp, e.g.: 1735660800000 [Default: one day, minimum: 10 minutes, maximum: seven days]                                                                                                                   |
+| idType          | String | 是  | 50     | Personal identification type: DNI, CUIT, CUIL                                                                                                                                         |
+| idCardNumber    | String | 是  | 11     | Personal Identification Number: DNI (8-digit number), CUIT (11-digit number), CUIL (11-digit number)                                                                                                                           |
+| phone           | String | 否  | 10     | 10-digit number without area code                                                                                                                                                          |
+| email           | String | 否  | 50     | Payee's email address; Must comply with regular expression rules                                                                                                                                                |
+| realName        | String | 是  | 50     | Payee's name. Please capitalize all letters.                                                                                                                                                     |
+| callbackUrl     | String | 否  | 200    | Revert the callback address (if not provided, use the callback address configured in the merchant's backend)）                                                                                                                                         |
+| remark          | String | 否  | 200    | remark                                                                                                                                                               |
+| sign            | String | 是  |        | signature                                                                                                                                                                 |
 
 ```json title= request example 
 {

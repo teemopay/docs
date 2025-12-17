@@ -26,7 +26,7 @@ description: 商户创建收银台
 | paymentType     | Int    | 否  |     | 不传输则返回配置的支付方式；支付方式 【901（QR）、902 （CVU）、903（CHECKOUT）、905 (Rapipago)、906 (Pagofacil)】 |
 | amount          | String | 是  | 20  | 金额                                                                                  |
 | expirationTime  | String | 否  | 20  | 过期时间、毫秒级时间戳 eg:1735660800000 【默认一天，最小10分钟,最长七天 】                                    |
-| idType          | String | 是  |     | 个人身份类型：DNI 、CUIT、CUIL                                                               |
+| idType          | String | 是  | 50  | 个人身份类型：DNI 、CUIT、CUIL                                                               |
 | idCardNumber    | String | 是  | 11  | 个人身份号：DNI （8位数字）、CUIT（11位数字）、CUIL（11位数字）                                            |
 | phone           | String | 否  | 10  | 10位数字不加区号                                                                           |
 | email           | String | 否  | 50  | 付款人邮箱; 务必符合正则表达式                                                                    |
