@@ -20,20 +20,20 @@ description: 商户创建收银台
 
 ### 请求参数
 
-| 字段              | 类型     | 必需 | 长度  | 描述                                                                                  |
-|-----------------|--------|----|-----|-------------------------------------------------------------------------------------|
-| merchantOrderNo | String | 是  | 32  | 商户订单号                                                                               |
+| 字段              | 类型     | 必需 | 长度  | 描述                                                                              |
+|-----------------|--------|----|-----|---------------------------------------------------------------------------------|
+| merchantOrderNo | String | 是  | 32  | 商户订单号                                                                           |
 | paymentType     | Int    | 否  |     | 不传输则返回配置的支付方式；支付方式 【901（QR）、902 （CVU）、903（CHECKOUT）、905 (Rapipago)、906 (Pagofacil)】 |
-| amount          | String | 是  | 20  | 金额                                                                                  |
-| expirationTime  | String | 否  | 20  | 过期时间、毫秒级时间戳 eg:1735660800000 【默认一天，最小10分钟,最长七天 】                                    |
-| idType          | String | 是  | 50  | 个人身份类型：DNI 、CUIT、CUIL                                                               |
-| idCardNumber    | String | 是  | 11  | 个人身份号：DNI （8位数字）、CUIT（11位数字）、CUIL（11位数字）                                            |
-| phone           | String | 否  | 10  | 10位数字不加区号                                                                           |
-| email           | String | 否  | 50  | 付款人邮箱; 务必符合正则表达式                                                                    |
-| realName        | String | 是  | 50  | 付款人名字,建议全字母大写                                                                       |
-| callbackUrl     | String | 否  | 200 | 代收回调地址 （若不传递，取商户后台配置的回调地址）                                                          |
-| remark          | String | 否  | 200 | 备注信息                                                                                |
-| sign            | String | 是  |     | 签名                                                                                  |
+| amount          | String | 是  | 20  | 金额                                                                              |
+| expirationTime  | String | 否  | 20  | 过期时间、毫秒级时间戳 eg:1735660800000 【默认一天，最小10分钟,最长七天 】                                |
+| idType          | String | 是  | 50  | 个人身份类型：DNI 、CUIT、CUIL  【推荐使用CUIT】                                                   |
+| idCardNumber    | String | 是  | 11  | 个人身份号：DNI （8位数字）、CUIT（11位数字）、CUIL（11位数字）                                        |
+| phone           | String | 否  | 10  | 10位数字不加区号                                                                       |
+| email           | String | 否  | 50  | 付款人邮箱; 务必符合正则表达式                                                                |
+| realName        | String | 是  | 50  | 付款人名字,建议全字母大写                                                                   |
+| callbackUrl     | String | 否  | 200 | 代收回调地址 （若不传递，取商户后台配置的回调地址）                                                      |
+| remark          | String | 否  | 200 | 备注信息                                                                            |
+| sign            | String | 是  |     | 签名                                                                              |
 
 ```json title=请求示例
 {
@@ -41,7 +41,7 @@ description: 商户创建收银台
   "paymentType": 901,
   "amount": "1000",
   "expirationTime": "1765943486000",
-  "idType": "DNI",
+  "idType": "CUIT",
   "idCardNumber": "312312334",  // 虚构仅作为演示
   "phone": "3111111111",
   "email": "213@123.com",
@@ -68,10 +68,10 @@ description: 商户创建收银台
   "code": 200,
   "data": {
     "merchantOrderNo": "ceshi-test",
-    "tradeNo": "TS2509080002PKexample754",
+    "tradeNo": "TS2509080002ARexample754",
     "amount": "100",
     "status": 0,
-    "checkoutLink": "https://test-pk-payin.teemopay.com/#/?tradeNo=TS2509080002PKexample754",
+    "checkoutLink": "https://test-ar-payin.teemopay.com/#/?tradeNo=TS2509080002ARexample754",
     "expirationTime": "2025-09-17 13:53:45.959",
     "errorMsg": null
   },
@@ -92,7 +92,7 @@ description: 商户创建收银台
 | 427 | The callback notification address for collection must not be empty. | 未配置代收回调地址，请配置代收回调地址   |
 | 438 | Phone number is error                                               | 请检查并更改手机号             |
 | 441 | ID number must be exactly 13 digits long                            | 身份证号必须是 13 位数字        |
-| 445 | Amount must be an integer                                           | pk的金额必须为整数            |
+| 445 | Amount must be an integer                                           | ar的金额必须为整数            |
 | 460 | The current payment method is unavailable.                          | 当前代收方式不可用，请更换         |
 | 473 | Merchant joint verification error: *                                | 配置异常，请联系我们            |
 | 500 | Business Error                                                      | 请联系我们                 |

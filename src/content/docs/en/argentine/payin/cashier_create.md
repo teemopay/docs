@@ -27,7 +27,7 @@ description: Merchant creates a cashier order
 | paymentType     | Int    | 否  |        | If no transmission occurs, the configured payment method will be returned; Payment methods: 【901 (QR), 902 (CVU), 903 (CHECKOUT), 905 (Rapipago), 906 (Pagofacil)】 |
 | amount          | String | 是  | 20     | amount                                                                                                                                                             |
 | expirationTime  | String | 否  | 20     | Expiration time, millisecond-level timestamp, e.g.: 1735660800000 [Default: one day, minimum: 10 minutes, maximum: seven days]                                                                                                                   |
-| idType          | String | 是  | 50     | Personal identification type: DNI, CUIT, CUIL                                                                                                                                         |
+| idType          | String | 是  | 50     | Personal identification type: DNI, CUIT, CUIL  【It is recommended to use CUIT】                                                                                                                                         |
 | idCardNumber    | String | 是  | 11     | Personal Identification Number: DNI (8-digit number), CUIT (11-digit number), CUIL (11-digit number)                                                                                                                           |
 | phone           | String | 否  | 10     | 10-digit number without area code                                                                                                                                                          |
 | email           | String | 否  | 50     | Payee's email address; Must comply with regular expression rules                                                                                                                                                |
@@ -42,7 +42,7 @@ description: Merchant creates a cashier order
   "paymentType": 901,
   "amount": "1000",
   "expirationTime": "1765943486000",
-  "idType": "DNI",
+  "idType": "CUIT",
   "idCardNumber": "312312334",  // Fiction is only used for demonstration purposes.
   "phone": "3111111111",
   "email": "213@123.com",
@@ -68,16 +68,17 @@ description: Merchant creates a cashier order
 
 ```json title= response example
 {
-    "msg": "success",
-    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610299",
-    "code": 200,
-    "data": {
-        "amount": "1000.00",
-        "tradeNo": "TS2501010001PK0000000000000000",
-        "expirationTime": "2025-01-01 00:00:00",
-        "checkoutLink": "https://pk-payin.teemopay.com/#/?tradeNo=TS2501010001PK0000000000000000",
-        "merchantOrderNo": "OrderNoExample",
-        "status": 0
-    }
+  "code": 200,
+  "data": {
+    "merchantOrderNo": "ceshi-test",
+    "tradeNo": "TS2509080002ARexample754",
+    "amount": "100",
+    "status": 0,
+    "checkoutLink": "https://test-ar-payin.teemopay.com/#/?tradeNo=TS2509080002ARexample754",
+    "expirationTime": "2025-09-17 13:53:45.959",
+    "errorMsg": null
+  },
+  "msg": "success",
+  "traceId": "1e7142b1c2cf47479ccfdbb1ecba5242.94.17579264259380029"
 }
 ```
