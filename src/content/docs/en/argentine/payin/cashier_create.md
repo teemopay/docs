@@ -43,7 +43,7 @@ description: Merchant creates a cashier order
   "amount": "1000",
   "expirationTime": "1765943486000",
   "idType": "CUIT",
-  "idCardNumber": "312312334",  // Fiction is only used for demonstration purposes.
+  "idCardNumber": "31231233434",  // Fiction is only used for demonstration purposes.
   "phone": "3111111111",
   "email": "213@123.com",
   "realName": "张三",

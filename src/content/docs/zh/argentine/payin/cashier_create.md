@@ -42,7 +42,7 @@ description: 商户创建收银台
   "amount": "1000",
   "expirationTime": "1765943486000",
   "idType": "CUIT",
-  "idCardNumber": "312312334",  // 虚构仅作为演示
+  "idCardNumber": "31231233434",  // 虚构仅作为演示
   "phone": "3111111111",
   "email": "213@123.com",
   "realName": "张三",
