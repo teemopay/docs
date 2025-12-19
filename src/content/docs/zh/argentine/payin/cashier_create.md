@@ -82,19 +82,21 @@ description: 商户创建收银台
 
 ### 错误码
 
-| 异常码 | 异常信息                                                                | 处理方案                  |
-|-----|---------------------------------------------------------------------|-----------------------|
-| 412 | Please try again later                                              | 请稍后重试                 |
-| 414 | *                                                                   | 更改对应参数                |
-| 416 | Application not found                                               | app_code异常，请更改        |
-| 424 | This payment method is not configured                               | 代收方式未配置，请联系我们配置对应代收方式 |
-| 426 | merchant order duplicate                                            | 请更换商户订单号              |
-| 427 | The callback notification address for collection must not be empty. | 未配置代收回调地址，请配置代收回调地址   |
-| 438 | Phone number is error                                               | 请检查并更改手机号             |
-| 441 | ID number must be exactly 13 digits long                            | 身份证号必须是 13 位数字        |
-| 445 | Amount must be an integer                                           | ar的金额必须为整数            |
-| 460 | The current payment method is unavailable.                          | 当前代收方式不可用，请更换         |
-| 473 | Merchant joint verification error: *                                | 配置异常，请联系我们            |
+| 异常码 | 异常信息                                                                | 处理方案                                           |
+|-----|---------------------------------------------------------------------|------------------------------------------------|
+| 412 | Please try again later                                              | 请稍后重试                                          |
+| 414 | *                                                                   | 更改对应参数                                         |
+| 416 | Application not found                                               | app_code异常，请更改                                 |
+| 424 | This payment method is not configured                               | 代收方式未配置，请联系我们配置对应代收方式                          |
+| 426 | merchant order duplicate                                            | 请更换商户订单号                                       |
+| 427 | The callback notification address for collection must not be empty. | 未配置代收回调地址，请配置代收回调地址                            |
+| 438 | Phone number is error                                               | 请检查并更改手机号                                      |
+| 460 | The current payment method is unavailable.                          | 当前代收方式不可用，请更换                                  |
+| 473 | Merchant joint verification error: *                                | 配置异常，请联系我们                                     |
+| 478 | Invalid format for expireTime                                | 使用UTC时间戳                                       |
+| 479 | The id type is error (Example: DNI, CUIT, CUIL. It is recommended to use CUIT.)                                 | 使用（DNI 、CUIT、CUIL）其中一个,【推荐使用CUIT】              |
+| 480 | ID card number error (DNI: must be 7–8 digits in length; CUIL: must be 11 digits in length; CUIT: must be 11 digits in length, with the first digit restricted to 2 or 3)                                | DNI （7位或8位数字）、CUIT（11位数字，首位必须是2或3）、CUIL（11位数字） |
+
 | 500 | Business Error                                                      | 请联系我们                 |
 
 ```json title=返回示例
