@@ -48,7 +48,7 @@ description: 商户请求创建一个代收订单
     "amount": "1000",
     "phone": "01012345678",
     "callbackUrl": "https://www.callbackexample.com",
-    "merchantOrderNo": "OrderNoExample",
+    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
     "email": "TeemoPay@example.com",
     "paymentType": 801,
     "sign": "YOUR_SIGN"
@@ -78,9 +78,9 @@ description: 商户请求创建一个代收订单
   "code": 200,
   "data": {
     "amount": "1000.00",
-    "tradeNo": "TS2501010001KR0000000000000000",
+    "tradeNo": "TS2405220001KR0000430564883184",
     "additionalInfo": {"bankCode":"IBK","bankName":"기업은행","expiredTime":1761022567000},
-    "merchantOrderNo": "OrderNoExample",
+    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
     "paymentInfo": "29900000000000",
     "paymentType": 801,
     "status": 1
@@ -88,13 +88,51 @@ description: 商户请求创建一个代收订单
 }
 ```
 
+### 校验错误码
+| 异常码       | 异常信息                                                                 | 处理方案                                               |
+|--------------|--------------------------------------------------------------------------|--------------------------------------------------------|
+| 412          | Please try again later                                                   | 请稍后重试                                             |
+| 414          | *                                                                        | 更改对应参数                                           |
+| 423          | This payment method is not supported                                     | 对应支付方式不支持，请查阅文档，如存在则联系我们配置        |
+| 426          | merchant order duplicate                                                 | 请更换商户订单号                                       |
+| 427          | The callback notification address for collection must not be empty.       | 请配置代收回调地址                                     |
+| 466          | Payment method fee rate not configured.                                  | 商户代收费率配置异常，请联系我们                       |
+| 473          | Merchant joint verification error: *                                      | 商户配置异常，请联系我们                               |
+| 500          | Business Error                                                           | 请联系我们                                             |
 
 
-### 错误码
+```json title=返回示例
+{
+    "code": 426,
+    "data": null,
+    "msg": "merchant order duplicate",
+    "traceId": "f2b58c9c394d4b1595dd4e448ac741bc.2256.17645844263770017"
+}
+```
 
+
+### 渠道错误信息
 | errorMsg                                | 描述     |
 | ------------------------------------------- |--------|
 | Transaction amount exceeds limit, kindly retry within allowed range. | 请求金额超限 |
 | Channel request error, technicians will fix ASAP. | 渠道维护   |
 | Unstable network, kindly retry later. | 渠道网络波动 |
 | Parameter validation error, kindly verify and retry. | 参数上传有误 |
+
+```json title=返回示例
+{
+    "code": 200,
+    "data": {
+        "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+        "amount": null,
+        "tradeNo": "TS2405220001KR0000430564883184",
+        "paymentType": 801,
+        "paymentInfo": null,
+        "additionalInfo": null,
+        "status": 3,
+        "errorMsg": "Transaction amount exceeds limit, kindly retry within allowed range."
+    },
+    "msg": "success",
+    "traceId": "f2b58c9c394d4b1595dd4e448ac741bc.1248.17645838103706945"
+}
+```

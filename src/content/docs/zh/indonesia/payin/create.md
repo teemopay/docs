@@ -20,35 +20,38 @@ description: 商户请求创建一个代收订单
 
 ## 支持支付方式列表（paymentType）
 
-| 支付方式名称      | PaymentType (入参参数)                    |
-|-------------|---------------------------------------|
+| 支付方式名称  | PaymentType (入参参数)                    |
+|---------|---------------------------------------|
 | PaymentLink | 501(收银台,包含所有可用的支付方式,E-Wallet,VA,QRIS) |
 | E-Wallet | 502(收银台,包含电子钱包的支付方式,Dana等)            |
 | VA | 503 (收银台,包含Va的支付方式,BNI等)              |
-| QRIS | 504 (收银台,包含QRIS的支付方式)            |
+| QRIS | 504 (收银台,包含QRIS的支付方式)                 |
+| QRIS-Direct | 505 (QRIS直连支付方式)                      |
+| VA-Direct | 506 (VA直连支付方式)                        |
 
 ## 支持支付方式扩展列表（channel）
-| 支付方式 | channel                   |
-|------|---------------------------|
+| 支付方式 | channel          |
+|------|------------------|
 | 503  | BRI,MANDIRI,CIMB |
-| 502  | DANA,LINKAJA            |
+| 502  | DANA,LINKAJA     |
+| 506  | BRI,MANDIRI,CIMB     |
 
 - 仅当payment为502和503时channel字段有效
 
 ### 请求参数
 
-| 字段              | 类型     | 必需  | 最大长度 | 描述                                        |
-|-----------------| ------ |-----|------|-------------------------------------------|
-| merchantOrderNo | String | yes | 32   | 商户订单号                                     |
-| paymentType     | Int    | yes |      | 支付方式: 501,502,503,504                     |
-| amount          | String | yes | 20   | 代收金额,印尼盾,整数                               |
-| realName        | String | yes | 64   | 用户姓名                                      |
-| email           | String | yes | 50   | 用户邮箱：满足正则表达式即可                            |
-| phone           | String | yes | 13   | 电话号码 08开头,10~13位                          |
-| channel         | String | no  |      | 支付方式扩展字段,当特定支付方式为502,503,详情请见【支持支付方式扩展列表】 |
-| sign            | String | yes |      | 签名                                        |
-| callbackUrl     | String | no  | 200  | 回调地址                                      |
-| redirectUrl     | String | no  | 255  | 当有结果时，客户可以跳转该地址                           |
+| 字段              | 类型     | 必需  | 最大长度 | 描述                                              |
+|-----------------| ------ |-----|------|-------------------------------------------------|
+| merchantOrderNo | String | yes | 32   | 商户订单号                                           |
+| paymentType     | Int    | yes |      | 支付方式: 501,502,503,504,505,506                   |
+| amount          | String | yes | 20   | 代收金额,印尼盾,整数                                     |
+| realName        | String | yes | 64   | 用户姓名                                            |
+| email           | String | yes | 50   | 用户邮箱：满足正则表达式即可                                  |
+| phone           | String | yes | 13   | 电话号码 08开头,10~13位                                |
+| channel         | String | no  |      | 支付方式扩展字段,当特定支付方式为502,503,506必传,详情请见【支持支付方式扩展列表】 |
+| sign            | String | yes |      | 签名                                              |
+| callbackUrl     | String | no  | 200  | 回调地址                                            |
+| redirectUrl     | String | no  | 255  | 当有结果时，客户可以跳转该地址                                 |
 
 ```json
 {
@@ -93,5 +96,27 @@ description: 商户请求创建一个代收订单
     "paymentType": 502,
     "status": 1
   }
+}
+```
+
+### 错误码
+| 异常码       | 异常信息                                                                 | 处理方案                                               |
+|--------------|--------------------------------------------------------------------------|--------------------------------------------------------|
+| 412          | Please try again later                                                   | 请稍后重试                                             |
+| 414          | *                                                                        | 更改对应参数                                           |
+| 423          | This payment method is not supported                                     | 对应支付方式不支持，请查阅文档，如存在则联系我们配置        |
+| 426          | merchant order duplicate                                                 | 请更换商户订单号                                       |
+| 427          | The callback notification address for collection must not be empty.       | 请配置代收回调地址                                     |
+| 465          | channel not support                                                      | 更换支付方式/渠道                                      |
+| 466          | Payment method fee rate not configured.                                  | 商户代收费率配置异常，请联系我们                       |
+| 473          | Merchant joint verification error: *                                      | 商户配置异常，请联系我们                               |
+| 500          | Business Error                                                           | 请联系我们                                             |
+
+```json title=返回示例
+{
+    "code": 423,
+    "data": null,
+    "msg": "This payment method is not supported",
+    "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
 }
 ```

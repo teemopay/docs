@@ -69,3 +69,28 @@ description: 商户创建收银台
     }
 }
 ```
+
+### 错误码
+| 异常码               | 异常信息                                                                 | 处理方案                                   |
+|----------------------|--------------------------------------------------------------------------|--------------------------------------------|
+| 412                  | Please try again later                                                   | 请稍后重试                                 |
+| 414                  | *                                                                        | 更改对应参数                               |
+| 416                  | Application not found                                                    | app_code异常，请更改                       |
+| 424                  | This payment method is not configured                                    | 代收方式未配置，请联系我们配置对应代收方式 |
+| 426                  | merchant order duplicate                                                 | 请更换商户订单号                           |
+| 427                  | The callback notification address for collection must not be empty.      | 未配置代收回调地址，请配置代收回调地址     |
+| 460                  | The current payment method is unavailable.                               | 当前代收方式不可用，请更换                 |
+| 464                  | Mexican mobile phone numbers must be 10 digits.                          | 墨西哥手机号码校验为10位                   |
+| 472                  | Invalid format for expireTime. Allowed format: [number][m/h/d]           | 过期时间配置异常，请检查                   |
+| 473                  | Merchant joint verification error: *                                     | 配置异常，请联系我们                       |
+| 500                  | Business Error                                                           | 请联系我们                                 |
+
+
+```json title=返回示例
+{
+    "code": 426,
+    "data": null,
+    "msg": "merchant order duplicate",
+    "traceId": "f2b58c9c394d4b1595dd4e448ac741bc.2256.17645844263770017"
+}
+```

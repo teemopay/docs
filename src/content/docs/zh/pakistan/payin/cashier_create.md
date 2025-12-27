@@ -72,3 +72,28 @@ description: 商户创建收银台
   "traceId": "1e7142b1c2cf47479ccfdbb1ecba5242.94.17579264259380029"
 }
 ```
+
+### 错误码
+| 异常码               | 异常信息                                                                 | 处理方案                                   |
+|----------------------|--------------------------------------------------------------------------|--------------------------------------------|
+| 412                  | Please try again later                                                   | 请稍后重试                                 |
+| 414                  | *                                                                        | 更改对应参数                               |
+| 416                  | Application not found                                                     | app_code异常，请更改                       |
+| 424                  | This payment method is not configured                                     | 代收方式未配置，请联系我们配置对应代收方式 |
+| 426                  | merchant order duplicate                                                 | 请更换商户订单号                           |
+| 427                  | The callback notification address for collection must not be empty.       | 未配置代收回调地址，请配置代收回调地址     |
+| 438                  | Phone number is error                                                     | 请检查并更改手机号                         |
+| 441                  | ID number must be exactly 13 digits long                                 | 身份证号必须是 13 位数字                   |
+| 445                  | Amount must be an integer                                                 | pk的金额必须为整数                         |
+| 460                  | The current payment method is unavailable.                                | 当前代收方式不可用，请更换                 |
+| 473                  | Merchant joint verification error: *                                      | 配置异常，请联系我们                       |
+| 500                  | Business Error                                                           | 请联系我们                                 |
+
+```json title=返回示例
+{
+    "code": 426,
+    "data": null,
+    "msg": "merchant order duplicate",
+    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
+}
+```

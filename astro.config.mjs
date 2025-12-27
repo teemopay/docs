@@ -367,7 +367,7 @@ export default defineConfig({
                 translations: {
                   zh: "代收",
                 },
-                items: ["argentine/payin/create", "argentine/payin/callback", "argentine/payin/query"],
+                items: ["argentine/payin/cashier_create","argentine/payin/create", "argentine/payin/callback", "argentine/payin/query"],
               },
               {
                 label: "Payout",
