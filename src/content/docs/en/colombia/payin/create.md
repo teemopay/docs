@@ -26,22 +26,26 @@ description: Merchant requests to create a payment order
 | NEQUI (WALLET)             | 202         |
 | All (all in one checkoout) | 204         |
 | EFECTY (CASH)              | 205         |
+| BREB                       | 212         | 
+
 
 
 ### Request Parameters
 
-| Field           | Type   | Required | Length | Description                                           |
-| --------------- | ------ | -------- | ------ |-------------------------------------------------------|
-| merchantOrderNo | String | yes      | 32     | Merchant order number                                 |
-| paymentType     | Int    | yes      |        | Payment types, see list above                         |
-| amount          | String | yes      | 20     | Payin amount, integer only, in COP                    |
-| expirationTime  | Long   | no       |        | Expiration timestamp                                  |
-| realName        | String | yes      | 64     | User’s full name                                      |
-| email           | String | yes      | 50     | User’s email (must match a valid regex format)        |
-| phone           | String | yes      | 50     | Phone number, 10 digits, no country code              |
-| idCardNumber    | String | no       | 50     | ID number: CC 10 digits, CE 6–10 digits, NIT 9 digits |
-| sign            | String | yes      |        | Signature                                             |
-| callbackUrl     | String | no       | 200    | Callback URL                                          |
+| Field           | Type   | Required | Length | Description                                                                                                                                                                                  |
+| --------------- | ------ | -------- | ------ |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String | yes      | 32     | Merchant order number                                                                                                                                                                        |
+| paymentType     | Int    | yes      |        | Payment types, see list above                                                                                                                                                                |
+| amount          | String | yes      | 20     | Payin amount, integer only, in COP                                                                                                                                                           |
+| expirationTime  | Long   | no       |        | Expiration timestamp                                                                                                                                                                         |
+| realName        | String | yes      | 64     | User’s full name                                                                                                                                                                             |
+| email           | String | yes      | 50     | User’s email (must match a valid regex format)                                                                                                                                               |
+| phone           | String | yes      | 50     | Phone number, 10 digits, no country code                                                                                                                                                     |
+| idCardNumber    | String | No       | 50     | ID Number: CC (10 digits), CE (6-10 digits), NIT (9 digits). <br/> Mandatory when the paymentType is 201 (PSE) or 202 (WALLET).                                                              |
+| idType          | String | No       | 32     | Id Type: CC (6-10 digits; ID Card), CE (6-10 digits), NIT (9 digits; Tax Identification Number), PA (9 digits; Passport). <br/> Mandatory when the paymentType is 201 (PSE) or 202 (WALLET). |
+| bankCode        | String | No       | 50     | Bank Code. <br/> Mandatory when the paymentType is 201 (PSE).                                                                                                                                |
+| sign            | String | yes      |        | Signature                                                                                                                                                                                    |
+| callbackUrl     | String | no       | 200    | Callback URL                                                                                                                                                                                 |
 
 
 ```json title="Request Example"

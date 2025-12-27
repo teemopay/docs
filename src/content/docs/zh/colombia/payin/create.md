@@ -20,27 +20,31 @@ description: 商户请求创建一个代收订单
 
 ## 支持支付方式列表（paymentType）
 
-| 支付方式名称                 | PaymentType |
-|------------------------|-------------|
-| PSE （网银支付 ACH）         | 201 |
- | WALLET (nequi) 支付链接    | 202 | 
-| CHECKOUT (包含所有方式支付链接 ) | 204 | 
-| EFECTY （线下）            | 205 | 
+| 支付方式名称                  | PaymentType  |
+|-------------------------|--------------|
+| PSE （网银支付 ACH）          | 201          |
+| WALLET (nequi) 支付链接     | 202          | 
+| CHECKOUT (包含所有方式支付链接 )  | 204          | 
+| EFECTY （线下）             | 205          | 
+| BREB                    | 212          | 
+
 
 ### 请求参数
 
-| 字段            | 类型   | 必需  | 长度  | 描述                               |
-| --------------- | ------ |-----|-----|----------------------------------|
-| merchantOrderNo | String | yes | 32  | 商户订单号                            |
-| paymentType     | Int    | yes |     | 支付方式,详见上方支付方式列表                  |
-| amount          | String | yes | 20  | 代收金额,仅支持整数,比索                    |
-| expirationTime  | Long   | no  |     | 过期时间                             |
-| realName        | String | yes | 64  | 用户姓名                             |
-| email           | String | yes | 50  | 用户邮箱：满足正则表达式即可                   |
-| phone           | String | yes | 50  | 电话号码10位数,不包含区号                   |
-| idCardNumber    | String | no  | 50  | 身份证号码: CC 10位数、CE 6-10位数、NIT 9位数 |
-| sign            | String | yes |     | 签名                               |
-| callbackUrl     | String | no  | 200 | 回调地址                             |
+| 字段              | 类型   | 必需  | 长度  | 描述                                                                                                  |
+|-----------------| ------ |-----|-----|-----------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String | yes | 32  | 商户订单号                                                                                               |
+| paymentType     | Int    | yes |     | 支付方式,详见上方支付方式列表                                                                                     |
+| amount          | String | yes | 20  | 代收金额,仅支持整数,比索                                                                                       |
+| expirationTime  | Long   | no  |     | 过期时间                                                                                                |
+| realName        | String | yes | 64  | 用户姓名                                                                                                |
+| email           | String | yes | 50  | 用户邮箱：满足正则表达式即可                                                                                      |
+| phone           | String | yes | 50  | 电话号码10位数,不包含区号                                                                                      |
+| idCardNumber    | String | no  | 50  | 身份证号码: CC 10位数、CE 6-10位数、NIT 9位数 <br/> 当paymentType为201(PSE)和202(WALLET)的时候必填                       |
+| idType          | String | no  | 32  | 身份证类型: CC(6-10位数;身份证)、CE(6-10位数)、NIT(9位数;税号)、PA(9位数;护照)<br/> 当paymentType为201(PSE)和202(WALLET)的时候必填 |
+| bankCode        | String | no  | 50  | 银行编码<br/>当paymentType为201(PSE)时必填                                                                   |
+| sign            | String | yes |     | 签名                                                                                                  |
+| callbackUrl     | String | no  | 200 | 回调地址                                                                                                |
 
 ```json title="请求示例"
 {
