@@ -18,6 +18,12 @@ description: Create a payout order
 | country          | Country code (MX)     |
 | app_code         | Application ID        |
 
+### matters need attention
+
+1. There are scenarios where the batch payment orders may fail to be successfully converted. The common reasons are that the account number for receiving payment is correctly formatted but does not exist or the status of the receiving account is abnormal. This situation typically triggers two callbacks within five minutes after the order is created. Such cases will first notify the merchant of the successful status, and then notify the merchant of the refund status. The merchant must handle this logic correctly.
+2. When the account type is a debit card, the account length must be 16 digits; and the first 6 digits of bankAccount should refer to the bin list corresponding to the bankCode in the debit card list. If the debit card list does not have the bankCode, the platform will not verify the bankAccount.
+
+
 ### Request Parameters
 
 | Field           | Type   | Required | Length | Description                                                                   |

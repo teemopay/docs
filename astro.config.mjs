@@ -126,7 +126,7 @@ export default defineConfig({
                 translations: {
                   zh: "代付",
                 },
-                items: ["mexico/payout/create", "mexico/payout/callback", "mexico/payout/query", "mexico/payout/bank"],
+                items: ["mexico/payout/create", "mexico/payout/callback", "mexico/payout/query", "mexico/payout/bank", "mexico/payout/debit"],
               },
               {
                 label: "Inquire",
