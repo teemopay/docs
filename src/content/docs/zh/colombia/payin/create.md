@@ -20,27 +20,37 @@ description: 商户请求创建一个代收订单
 
 ## 支持支付方式列表（paymentType）
 
-| 支付方式名称                 | PaymentType |
-|------------------------|-------------|
-| PSE （网银支付 ACH）         | 201 |
- | WALLET (nequi) 支付链接    | 202 | 
-| CHECKOUT (包含所有方式支付链接 ) | 204 | 
-| EFECTY （线下）            | 205 | 
+| 支付方式名称                | PaymentType  |
+|-----------------------|--------------|
+| PSE （网银支付 ACH）        | 201          |
+| WALLET (nequi) 支付链接   | 202          | 
+| CHECKOUT (包含所有方式支付链接 ) | 204          | 
+| EFECTY （线下）           | 205          | 
+| BREB                  | 212          | 
+
+## 场景
+什么是 BRE-B？
+
+BRE-B 是哥伦比亚新一代互操作实时支付系统。用户通过复制页面生成的唯一支付密钥 (Key)，并粘贴到其银行 App 中完成付款。由于用户在 App 内手动输入金额，实际支付数额可能与订单不符。系统会根据实际到账情况发送回调通知，请务必以回调中的最终金额为准进行对账。
+
+官方模拟器如何生成自己的BRE-B KEY： https://www.banrep.gov.co/es/bre-b/simuladores-curso#registro
 
 ### 请求参数
 
-| 字段            | 类型   | 必需  | 长度  | 描述                               |
-| --------------- | ------ |-----|-----|----------------------------------|
-| merchantOrderNo | String | yes | 32  | 商户订单号                            |
-| paymentType     | Int    | yes |     | 支付方式,详见上方支付方式列表                  |
-| amount          | String | yes | 20  | 代收金额,仅支持整数,比索                    |
-| expirationTime  | Long   | no  |     | 过期时间                             |
-| realName        | String | yes | 64  | 用户姓名                             |
-| email           | String | yes | 50  | 用户邮箱：满足正则表达式即可                   |
-| phone           | String | yes | 50  | 电话号码10位数,不包含区号                   |
-| idCardNumber    | String | no  | 50  | 身份证号码: CC 10位数、CE 6-10位数、NIT 9位数 |
-| sign            | String | yes |     | 签名                               |
-| callbackUrl     | String | no  | 200 | 回调地址                             |
+| 字段              | 类型   | 必需  | 长度  | 描述                                                                                                        |
+|-----------------| ------ |-----|-----|-----------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String | yes | 32  | 商户订单号                                                                                                     |
+| paymentType     | Int    | yes |     | 支付方式,详见上方支付方式列表                                                                                           |
+| amount          | String | yes | 20  | 代收金额,仅支持整数,比索                                                                                             |
+| expirationTime  | Long   | no  |     | 过期时间                                                                                                      |
+| realName        | String | yes | 64  | 用户姓名                                                                                                      |
+| email           | String | yes | 50  | 用户邮箱：满足正则表达式即可                                                                                            |
+| phone           | String | yes | 50  | 电话号码10位数,不包含区号                                                                                            |
+| idCardNumber    | String | no  | 50  | 身份证号码: CC 10位数、CE 6-10位数、NIT 9位数 <br/> 当paymentType为201(PSE)和202(WALLET)的时候必填 |
+| idType          | String | no  | 32  | 身份证类型: CC(6-10位数;身份证)、CE(6-10位数)、NIT(9位数;税号)、PA(9位数;护照)<br/> 当paymentType为201(PSE)和202(WALLET)的时候必填       |
+| bankCode        | String | no  | 50  | 银行编码<br/>当paymentType为201(PSE)时必填<br/>参考创建代付的银行列表                                                         |
+| sign            | String | yes |     | 签名                                                                                                        |
+| callbackUrl     | String | no  | 200 | 回调地址                                                                                                      |
 
 ```json title="请求示例"
 {
@@ -50,7 +60,25 @@ description: 商户请求创建一个代收订单
     "callbackUrl": "https://www.callbackexample.com",
     "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
     "email": "TeemoPay@example.com",
-    "paymentType": 204,
+    "idType": "CC",
+    "idCardNumber": "1234567890",
+    "bankCode": 1040,
+    "paymentType": 201,
+    "sign": "YOUR_SIGN"
+}
+```
+
+```json title="请求示例"
+{
+    "realName": "TeemoPay",
+    "amount": "10000",
+    "phone": "1234567890",
+    "callbackUrl": "https://www.callbackexample.com",
+    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+    "email": "TeemoPay@example.com",
+    "idType": "CC",
+    "idCardNumber": "1234567890",
+    "paymentType": 202,
     "sign": "YOUR_SIGN"
 }
 ```
