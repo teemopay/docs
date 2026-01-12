@@ -21,7 +21,8 @@ description: 商户请求创建一个代付订单
 ### 注意事项
 
 1. 代付订单有成功转为失败的场景，普遍原因为收款账号格式正确但不存在或者收款账号状态异常。该场景一般在创建订单的五分钟内完成两次回调。此类情况会先回调商户成功状态，再回调商户退款状态，商户必须正确处理该逻辑。
-2. 当账户类型为借记卡时bankAccount长度必须是16位；且bankAccount前6位请参考借记卡列表中bankCode对应的bin列表。若借记卡列表不存在bankCode，平台将不校验bankAccount。
+2. 当账户类型为借记卡时bankAccount长度必须是16位；且bankAccount前6位请参考银行列表中银行编码对应的bin列表。若银行列表bin列表为空，平台将不校验bankAccount。
+3. 当账户类型为CLABE时bankAccount长度必须是18位；且bankAccount前3位和bankCode的后3位必须保持一致，若银行列表不存在bankCode，平台将不校验bankAccount。
 
 ### 请求参数
 

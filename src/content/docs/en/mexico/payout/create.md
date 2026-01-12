@@ -21,8 +21,8 @@ description: Create a payout order
 ### matters need attention
 
 1. There are scenarios where the batch payment orders may fail to be successfully converted. The common reasons are that the account number for receiving payment is correctly formatted but does not exist or the status of the receiving account is abnormal. This situation typically triggers two callbacks within five minutes after the order is created. Such cases will first notify the merchant of the successful status, and then notify the merchant of the refund status. The merchant must handle this logic correctly.
-2. When the account type is a debit card, the account length must be 16 digits; and the first 6 digits of bankAccount should refer to the bin list corresponding to the bankCode in the debit card list. If the debit card list does not have the bankCode, the platform will not verify the bankAccount.
-
+2. When the account type is a debit card, the length of bankAccount must be 16 characters; and the first 6 digits of bankAccount should refer to the BIN list corresponding to the bank codes in the bank list. If the bin list in the bank list is empty, the platform will not verify bankAccount.
+3. When the account type is CLABE, the length of bankAccount must be 18 characters; and the first 3 digits of bankAccount must be the same as the last 3 digits of bankCode. If the bank list does not have bankCode, the platform will not verify bankAccount.
 
 ### Request Parameters
 
