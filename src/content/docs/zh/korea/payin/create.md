@@ -35,7 +35,7 @@ description: 商户请求创建一个代收订单
 | merchantName        | String  | yes | 64   | 收款人名称                                                                                                                                                                                                                                                      |
 | email               | String  | no  | 50   | 用户邮箱 【满足正则表达式即可】                                                                                                                                                                                                                                           |
 | amount              | String  | yes | 20   | 代收金额 【整数 单位元 货币:KRW】                                                                                                                                                                                                                                       |
-| bankCode            | String  | no  | 20   | 银行代码 ：代表接收转账或进行认证的金融机构标识。需传输由韩国金融结算院（KFTC）定义的 3 位标准代码（例如：国民银行 004，新韩银行 088）。当支付方式 设为 802 时，系统将触发特定的 KYC 逻辑，允许可选输 accountHolderNum（账户持有人识别码）。若该代码下未传输识别码，用户需在跳转后的 H5/App 认证页面内手动补全身份信息。                                                                     |
+| bankCode            | String  | no  | 20   | 银行代码 ：代表接收转账或进行认证的金融机构标识。需传输由韩国金融结算院（KFTC）定义的 3 位标准代码（例如：国民银行 004，新韩银行 088）。当支付方式 设为 802 时，系统将触发特定的 KYC 逻辑，允许可选输 accountHolderNum（账户持有人识别码）。若该代码下未传输识别码，用户需在跳转后的 H5/App 认证页面内手动补全身份信息。        【传值参考kyc银行列表】                                                |
 | bankAccount         | String  | no  | 20   | 持有人账户：用于实名认证（KYC）的标识信息。当支付方式 为 802 时，本字段支持可选传输：若调用接口时携带此字段，系统将预填至 KYC 认证页面以提升用户体验；若不传输，则由用户在认证流程中手动填写。                                                                                                                                                     |
 | accountHolderNumber | String  | no  | 20   | 账户持有人识别码 (accountHolderNum)：用于实名认证（KYC）的标识信息。当支付方式为 802 时，本字段支持可选传输：若调用接口时携带此字段，系统将预填至 KYC 认证页面以提升用户体验；若不传输，则由用户在认证流程中手动填写。填写规范： 1. 个人用户：请提供居民注册号码（Resident ID）的前 6 位数字，格式为生年月日 YYMMDD（例：950101）； 2. 企业用户：请提供 10 位数字的事业者登录号（Business Registration Number）。 |
 | expirationTime      | Long    | no  |      | 过期时间 【最大两个小时，为空默认两个小时； 毫秒级时间戳 eg:1735660800000】                                                                                                                                                                                                            |
@@ -59,14 +59,14 @@ description: 商户请求创建一个代收订单
 
 ```json title="KYC请求示例"
 {
-  "merchantOrderNo":"802_test",
-  "paymentType":802,
+  "merchantOrderNo": "802_test",
+  "paymentType": 802,
   "amount": "100",
   "realName": "realname",
-  "merchantName":"12312321",
-  "bankCode":"002",  // 可不传递 ，用户需在跳转后的 H5/App 认证页面内手动补全身份信息
-  "bankAccount":"345345345",  // 可不传递
-  "accountHolderNumber":"234234",  // 可不传递
+  "merchantName": "12312321",
+  "bankCode": "002", // 参考kyc银行列表 ，可不传递，用户需在跳转后的 H5/App 认证页面内手动补全身份信息
+  "bankAccount": "345345345", // 非必填
+  "accountHolderNumber": "234234", // 非必填
   "phone": "01012131231",
   "email": "123@123.com",
   "sign": "123213"
@@ -75,16 +75,16 @@ description: 商户请求创建一个代收订单
 
 ### 返回参数
 
-| 字段              | 类型         | 必需  | 长度 | 描述                                   |
-|-----------------|------------|-----|----|--------------------------------------|
-| merchantOrderNo | String     | yes | 32 | 商户订单号                                |
-| tradeNo         | String     | yes | 32 | 平台订单号                                |
-| amount          | String     | yes | 32 | 交易金额                                 |
-| paymentType     | Int        | yes | 10 | 支付方式 【801:VA】                        |
-| paymentInfo     | String     | yes | 32 | 主要付款信息 【返回的是实际用于付款的信息，例如：Va 账号，付款编号 】 |
-| additionalInfo  | JSONObject | no  |    | 附加信息 【辅助支付信息使用】支付方式802返回paymentLink  |
-| status          | Int        | yes |    | 订单状态 【1: 支付中  3: 支付失败】               |
-| errorMsg        | String     | no  |    | 错误信息【支付失败时返回】                        |
+| 字段              | 类型         | 必需  | 长度 | 描述                                             |
+|-----------------|------------|-----|----|------------------------------------------------|
+| merchantOrderNo | String     | yes | 32 | 商户订单号                                          |
+| tradeNo         | String     | yes | 32 | 平台订单号                                          |
+| amount          | String     | yes | 32 | 交易金额                                           |
+| paymentType     | Int        | yes | 10 | 支付方式 【801:VA】                                  |
+| paymentInfo     | String     | yes | 32 | 主要付款信息 【返回的是实际用于付款的信息，例如：Va 账号，付款编号 】          |
+| additionalInfo  | JSONObject | no  |    | 附加信息 【辅助支付信息使用】支付方式802返回paymentLink（用于用户kyc认证） |
+| status          | Int        | yes |    | 订单状态 【1: 支付中  3: 支付失败】                         |
+| errorMsg        | String     | no  |    | 错误信息【支付失败时返回】                                  |
 
 ### 响应示例
 
@@ -108,7 +108,9 @@ description: 商户请求创建一个代收订单
   }
 }
 ```
+
 ### KYC响应示例
+
 ```json
 {
   "code": 200,

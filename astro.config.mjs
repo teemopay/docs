@@ -336,7 +336,7 @@ export default defineConfig({
                 translations: {
                   zh: "代收",
                 },
-                items: ["korea/payin/create", "korea/payin/callback", "korea/payin/query"],
+                items: ["korea/payin/create", "korea/payin/callback", "korea/payin/query", "korea/payin/kycbank"],
               },
               {
                 label: "Payout",
