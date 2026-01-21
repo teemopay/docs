@@ -43,7 +43,7 @@ description: 商户请求创建一个代收订单
 | callbackUrl         | String  | no  | 200  | 代收回调地址 【若不传递，取商户后台配置的回调地址】                                                                                                                                                                                                                                 |
 | sign                | String  | yes |      | 签名                                                                                                                                                                                                                                                         |
 
-```json title="请求示例"
+```json title="常规VA请求示例"
 {
   "realName": "TeemoPay",
   "merchantName": "MerchantNameExample",
@@ -54,6 +54,22 @@ description: 商户请求创建一个代收订单
   "email": "TeemoPay@example.com",
   "paymentType": 801,
   "sign": "YOUR_SIGN"
+}
+```
+
+```json title="KYC请求示例"
+{
+  "merchantOrderNo":"802_test",
+  "paymentType":802,
+  "amount": "100",
+  "realName": "realname",
+  "merchantName":"12312321",
+  "bankCode":"002",  // 可不传递 ，用户需在跳转后的 H5/App 认证页面内手动补全身份信息
+  "bankAccount":"345345345",  // 可不传递
+  "accountHolderNumber":"234234",  // 可不传递
+  "phone": "01012131231",
+  "email": "123@123.com",
+  "sign": "123213"
 }
 ```
 
@@ -83,14 +99,32 @@ description: 商户请求创建一个代收订单
     "additionalInfo": {
       "bankCode": "IBK",
       "bankName": "기업은행",
-      "expiredTime": 1761022567000,
-      "paymentLink": "https://test-kr-payin.teemopay.com/TS2405220001KR0000430564883184"
+      "expiredTime": 1761022567000
     },
     "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
     "paymentInfo": "29900000000000",
     "paymentType": 801,
     "status": 1
   }
+}
+```
+### KYC响应示例
+```json
+{
+  "code": 200,
+  "data": {
+    "merchantOrderNo": "802_test_012",
+    "amount": "1000.00",
+    "tradeNo": "TS2509080002KR0000465606537906",
+    "paymentType": 802,
+    "additionalInfo": {
+      "paymentLink": "https://test-kr-payin.teemopay.com/TS2509080002KR0000465606537906"
+    },
+    "status": 0,
+    "errorMsg": null
+  },
+  "msg": "success",
+  "traceId": "8f63469806b94d79b8cff936faa5e6f5.90.17689640170370051"
 }
 ```
 
