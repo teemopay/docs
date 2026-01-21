@@ -25,6 +25,7 @@ description: Create a payin order
 | Payment Method Name                               | `paymentType` (request parameter) |
 | ------------------------------------------------- |-----------------------------------|
 | VA (SPEI Online Bank Transfer)                    | 801                               |
+| KYC VA dynamic                     | 801                               |
 
 
 
@@ -38,6 +39,9 @@ description: Create a payin order
 | realName        | String  | yes | 64   | User's Real Name 【Letters or Korean characters shall not exceed 20 characters】                                      |
 | merchantName    | String  | yes | 64   | Payee Account                                                                                      |
 | email           | String  | no  | 50   | User's Email 【Shall comply with the regular expression】                                                             |
+| bankCode            | String  | no  | 20   | Bank code: It represents the identification of the financial institution that receives the transfer or conducts the verification. A 3-digit standard code defined by the Korea Financial Telecommunications & Clearings Institute (KFTC) must be transmitted (e.g., Kookmin Bank 004, Shinhan Bank 088). When the payment method is set to 802, the system will trigger specific KYC logic, allowing the optional input of accountHolderNum (account holder identification code). If the identification code is not transmitted under this code, the user needs to manually complete the identity information on the H5/App verification page after the jump.                                                                     |
+| bankAccount         | String  | no  | 20   | Holder's account: Identification information used for real-name authentication (KYC). When the payment method is 802, this field supports optional transmission: if this field is carried when calling the interface, the system will pre-fill it on the KYC authentication page to enhance the user experience; if it is not transmitted, the user will fill it in manually during the authentication process.                                                                                                                                                   |
+| accountHolderNumber | String  | no  | 20   | Account Holder Identification Number (accountHolderNum): This is the identification information used for real-name verification (KYC). When the payment method is 802, this field supports optional transmission: If this field is included when calling the interface, the system will pre-fill it on the KYC authentication page to enhance the user experience; if not transmitted, the user must manually fill it in during the authentication process. Filling guidelines: 1. Individual users: Please provide the first 6 digits of the resident registration number (Resident ID), in the format of year-month-day YYMMDD (e.g.: 950101); 2. Enterprise users: Please provide a 10-digit business registration number (Business Registration Number) |
 | amount          | String  | yes | 20   | Collection Amount 【Integer, Unit: KRW (Korean Won)】                                                                 |
 | expirationTime  | Long    | no  |      | Expiration Time 【Maximum 2 hours; defaults to 2 hours if left blank; in millisecond timestamp, e.g.: 1735660800000】 |
 | phone           | String  | no  | 20   | User's Mobile Phone Number 【11 digits; starts with 010; no area code】                                               |
