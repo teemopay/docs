@@ -39,7 +39,7 @@ description: Create a payin order
 | realName        | String  | yes | 64   | User's Real Name 【Letters or Korean characters shall not exceed 20 characters】                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | merchantName    | String  | yes | 64   | Payee Account                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | email           | String  | no  | 50   | User's Email 【Shall comply with the regular expression】                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| bankCode            | String  | no  | 20   | Bank code: It represents the identification of the financial institution that receives the transfer or conducts the verification. A 3-digit standard code defined by the Korea Financial Telecommunications & Clearings Institute (KFTC) must be transmitted (e.g., Kookmin Bank 004, Shinhan Bank 088). When the payment method is set to 802, the system will trigger specific KYC logic, allowing the optional input of accountHolderNum (account holder identification code). If the identification code is not transmitted under this code, the user needs to manually complete the identity information on the H5/App verification page after the jump.                                                                                               |
+| bankCode            | String  | no  | 20   |Bank Code: This represents the identification of the financial institution that will receive the transfer or perform the authentication. It needs to transmit a 3-digit standard code defined by the Korea Financial Settlement Institute (KFTC) (for example: Kookmin Bank 004, Shinhan Bank 088). When the payment method is set to 802, the system will trigger specific KYC logic, allowing for the optional input of bankCode. If no identification code is transmitted under this code, the user will need to manually complete the identity information within the H5/App authentication page after the redirection. [Reference for value transmission: kyc bank list]                                                                                       |
 | bankAccount         | String  | no  | 20   | Holder's account: Identification information used for real-name authentication (KYC). When the payment method is 802, this field supports optional transmission: if this field is carried when calling the interface, the system will pre-fill it on the KYC authentication page to enhance the user experience; if it is not transmitted, the user will fill it in manually during the authentication process.                                                                                                                                                                                                                                                                                                                                             |
 | accountHolderNumber | String  | no  | 20   | Account Holder Identification Number (accountHolderNum): This is the identification information used for real-name verification (KYC). When the payment method is 802, this field supports optional transmission: If this field is included when calling the interface, the system will pre-fill it on the KYC authentication page to enhance the user experience; if not transmitted, the user must manually fill it in during the authentication process. Filling guidelines: 1. Individual users: Please provide the first 6 digits of the resident registration number (Resident ID), in the format of year-month-day YYMMDD (e.g.: 950101); 2. Enterprise users: Please provide a 10-digit business registration number (Business Registration Number) |
 | amount          | String  | yes | 20   | Collection Amount 【Integer, Unit: KRW (Korean Won)】                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -52,7 +52,7 @@ description: Create a payin order
 
 
 
-```json title="请求示例"
+```json title="request example"
 {
     "realName": "TeemoPay",
     "merchantName": "MerchantNameExample",
@@ -63,6 +63,22 @@ description: Create a payin order
     "email": "TeemoPay@example.com",
     "paymentType": 801,
     "sign": "YOUR_SIGN"
+}
+```
+
+```json title="request example"
+{
+  "merchantOrderNo": "802_test",
+  "paymentType": 802,
+  "amount": "100",
+  "realName": "realname",
+  "merchantName": "12312321",
+  "bankCode": "002", 
+  "bankAccount": "345345345", 
+  "accountHolderNumber": "234234", 
+  "phone": "01012131231",
+  "email": "123@123.com",
+  "sign": "123213"
 }
 ```
 
@@ -99,6 +115,27 @@ description: Create a payin order
     "paymentType": 801,
     "status": 1
   }
+}
+```
+
+### KYC Response Examples
+
+```json
+{
+  "code": 200,
+  "data": {
+    "merchantOrderNo": "802_test_012",
+    "amount": "1000.00",
+    "tradeNo": "TS2509080002KR0000465606537906",
+    "paymentType": 802,
+    "additionalInfo": {
+      "paymentLink": "https://test-kr-payin.teemopay.com/TS2509080002KR0000465606537906"
+    },
+    "status": 0,
+    "errorMsg": null
+  },
+  "msg": "success",
+  "traceId": "8f63469806b94d79b8cff936faa5e6f5.90.17689640170370051"
 }
 ```
 
