@@ -32,26 +32,27 @@ description: 商户请求创建一个代收订单
 ## 支持支付方式扩展列表（channel）
 | 支付方式 | channel          |
 |------|------------------|
-| 503  | BRI,MANDIRI,CIMB |
 | 502  | DANA,LINKAJA     |
-| 506  | BRI,MANDIRI,CIMB     |
+| 503  | BRI,MANDIRI,CIMB |
+| 506  | BRI,MANDIRI,CIMB |
 
-- 仅当payment为502和503时channel字段有效
+- 当payment为502,503,505和506时channel字段有效
+- 当payment为505和506时channel字段必传
 
 ### 请求参数
 
-| 字段              | 类型     | 必需  | 最大长度 | 描述                                              |
-|-----------------| ------ |-----|------|-------------------------------------------------|
-| merchantOrderNo | String | yes | 32   | 商户订单号                                           |
-| paymentType     | Int    | yes |      | 支付方式: 501,502,503,504,505,506                   |
-| amount          | String | yes | 20   | 代收金额,印尼盾,整数                                     |
-| realName        | String | yes | 64   | 用户姓名                                            |
-| email           | String | yes | 50   | 用户邮箱：满足正则表达式即可                                  |
-| phone           | String | yes | 13   | 电话号码 08开头,10~13位                                |
-| channel         | String | no  |      | 支付方式扩展字段,当特定支付方式为502,503,506必传,详情请见【支持支付方式扩展列表】 |
-| sign            | String | yes |      | 签名                                              |
-| callbackUrl     | String | no  | 200  | 回调地址                                            |
-| redirectUrl     | String | no  | 255  | 当有结果时，客户可以跳转该地址                                 |
+| 字段              | 类型     | 必需  | 最大长度 | 描述                                          |
+|-----------------| ------ |-----|------|---------------------------------------------|
+| merchantOrderNo | String | yes | 32   | 商户订单号                                       |
+| paymentType     | Int    | yes |      | 支付方式: 501,502,503,504,505,506               |
+| amount          | String | yes | 20   | 代收金额,印尼盾,整数                                 |
+| realName        | String | yes | 64   | 用户姓名                                        |
+| email           | String | yes | 50   | 用户邮箱：满足正则表达式即可                              |
+| phone           | String | yes | 13   | 电话号码 08开头,10~13位                            |
+| channel         | String | no  |      | 支付方式扩展字段,当特定支付方式为505,506必传,详情请见【支持支付方式扩展列表】 |
+| sign            | String | yes |      | 签名                                          |
+| callbackUrl     | String | no  | 200  | 回调地址                                        |
+| redirectUrl     | String | no  | 255  | 当有结果时，客户可以跳转该地址                             |
 
 ```json
 {
