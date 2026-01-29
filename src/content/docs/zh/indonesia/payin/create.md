@@ -36,7 +36,7 @@ description: 商户请求创建一个代收订单
 | 503  | BRI,MANDIRI,CIMB |
 | 506  | BRI,MANDIRI,CIMB |
 
-- 当payment为502,503,505和506时channel字段有效
+- 当payment为502,503,506时channel字段有效
 - 当payment为506时channel字段必传
 
 ### 请求参数
