@@ -37,6 +37,7 @@ description: 商户请求创建一个代收订单
 | 506  | BRI,BNI,MANDIRI,PERMATA,CIMB,BCA  |
 
 - 当paymentType为502,503,506时channel字段有效,paymentType为506时channel字段必传
+- 当paymentType为501,504,505,请保证channel字段为空
 - 具体可用channel请咨询商务
 
 ### 请求参数
