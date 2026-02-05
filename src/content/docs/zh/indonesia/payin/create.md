@@ -30,11 +30,11 @@ description: 商户请求创建一个代收订单
 | VA-Direct | 506 (VA直连支付方式)                        |
 
 ## 支持支付方式扩展列表（channel）
-| 支付方式 | channel                           |
-|------|-----------------------------------|
-| 502  | DANA,LINKAJA                      |
-| 503  | BRI,BNI,MANDIRI,PERMATA,CIMB,BCA  |
-| 506  | BRI,BNI,MANDIRI,PERMATA,CIMB,BCA  |
+| 支付方式 | channel                          |
+|------|----------------------------------|
+| 502  | DANA,LINKAJA,OVO                    |
+| 503  | BRI,BNI,MANDIRI,PERMATA,CIMB,BCA |
+| 506  | BRI,BNI,MANDIRI,PERMATA,CIMB,BCA |
 
 - 当paymentType为502,503,506时channel字段有效,paymentType为506时channel字段必传
 - 当paymentType为501,504,505,请保证channel字段为空
