@@ -59,32 +59,33 @@ description: 商户请求创建一个代收订单
 
 ```json title="KYC请求示例"
 {
-  "merchantOrderNo": "802_test",
-  "paymentType": 802,
-  "amount": "100",
-  "realName": "realname",
-  "merchantName": "12312321",
-  "bankCode": "002", // 参考kyc银行列表 ，可不传递，用户需在跳转后的 H5/App 认证页面内手动补全身份信息
-  "bankAccount": "345345345", // 非必填
-  "accountHolderNumber": "234234", // 非必填
-  "phone": "01012131231",
-  "email": "123@123.com",
-  "sign": "123213"
+  "code": 200,
+  "data": {
+    "merchantOrderNo": "802_test_012",
+    "amount": "1000.00",
+    "tradeNo": "TS2509080002KR0000465606537906",
+    "paymentInfo":"https://test-kr-payin.teemopay.com/TS2509080002KR0000465606537906",
+    "paymentType": 802,
+    "status": 0,
+    "errorMsg": null
+  },
+  "msg": "success",
+  "traceId": "8f63469806b94d79b8cff936faa5e6f5.90.17689640170370051"
 }
 ```
 
 ### 返回参数
 
-| 字段              | 类型         | 必需  | 长度 | 描述                                             |
-|-----------------|------------|-----|----|------------------------------------------------|
-| merchantOrderNo | String     | yes | 32 | 商户订单号                                          |
-| tradeNo         | String     | yes | 32 | 平台订单号                                          |
-| amount          | String     | yes | 32 | 交易金额                                           |
-| paymentType     | Int        | yes | 10 | 支付方式 【801:VA】                                  |
-| paymentInfo     | String     | yes | 32 | 主要付款信息 【返回的是实际用于付款的信息，例如：Va 账号，付款编号 】          |
-| additionalInfo  | JSONObject | no  |    | 附加信息 【辅助支付信息使用】支付方式802返回paymentLink（用于用户kyc认证） |
-| status          | Int        | yes |    | 订单状态 【1: 支付中  3: 支付失败】                         |
-| errorMsg        | String     | no  |    | 错误信息【支付失败时返回】                                  |
+| 字段              | 类型         | 必需  | 长度 | 描述                                                          |
+|-----------------|------------|-----|----|-------------------------------------------------------------|
+| merchantOrderNo | String     | yes | 32 | 商户订单号                                                       |
+| tradeNo         | String     | yes | 32 | 平台订单号                                                       |
+| amount          | String     | yes | 32 | 交易金额                                                        |
+| paymentType     | Int        | yes | 10 | 支付方式 【801:VA】                                               |
+| paymentInfo     | String     | yes | 32 | 主要付款信息 【返回的是实际用于付款的信息，例如：Va 账号，付款编号 】                       |
+| additionalInfo  | JSONObject | no  |    | 附加信息 【辅助支付信息使用】支付方式802返回paymentLink（用于用户kyc认证）              |
+| status          | Int        | yes |    | 订单状态 【1: 支付中  3: 支付失败 0：受理中(KVC VA创建时返回，该状态代表用户还没有经过KYC认证)】 |
+| errorMsg        | String     | no  |    | 错误信息【支付失败时返回】                                               |
 
 ### 响应示例
 
