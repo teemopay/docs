@@ -81,9 +81,9 @@ description: 商户请求创建一个代收订单
 | merchantOrderNo | String     | yes | 32 | 商户订单号                                                       |
 | tradeNo         | String     | yes | 32 | 平台订单号                                                       |
 | amount          | String     | yes | 32 | 交易金额                                                        |
-| paymentType     | Int        | yes | 10 | 支付方式 【801:VA】                                               |
-| paymentInfo     | String     | yes | 32 | 主要付款信息 【返回的是实际用于付款的信息，例如：Va 账号，付款编号 】                       |
-| additionalInfo  | JSONObject | no  |    | 附加信息 【辅助支付信息使用】支付方式802返回paymentLink（用于用户kyc认证）              |
+| paymentType     | Int        | yes | 10 | 支付方式 【801:VA,802:KYC VA dynamic】                            |
+| paymentInfo     | String     | yes | 32 | 主要付款信息 【返回的是实际用于付款的信息，801：Va账号，802时：收银台地址 】                 |
+| additionalInfo  | JSONObject | no  |    | 附加信息 【辅助支付信息使用】                                             |
 | status          | Int        | yes |    | 订单状态 【1: 支付中  3: 支付失败 0：受理中(KVC VA创建时返回，该状态代表用户还没有经过KYC认证)】 |
 | errorMsg        | String     | no  |    | 错误信息【支付失败时返回】                                               |
 
