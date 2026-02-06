@@ -120,10 +120,8 @@ description: 商户请求创建一个代收订单
     "merchantOrderNo": "802_test_012",
     "amount": "1000.00",
     "tradeNo": "TS2509080002KR0000465606537906",
+    "paymentInfo":"https://test-kr-payin.teemopay.com/TS2509080002KR0000465606537906",
     "paymentType": 802,
-    "additionalInfo": {
-      "paymentLink": "https://test-kr-payin.teemopay.com/TS2509080002KR0000465606537906"
-    },
     "status": 0,
     "errorMsg": null
   },
