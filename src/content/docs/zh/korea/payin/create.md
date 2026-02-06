@@ -100,7 +100,8 @@ description: 商户请求创建一个代收订单
     "additionalInfo": {
       "bankCode": "IBK",
       "bankName": "기업은행",
-      "expiredTime": 1761022567000
+      "expiredTime": 1761022567000,
+      "paymentLink":"https://test-kr-payin.teemopay.com/TS2405220001KR0000430564883184"
     },
     "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
     "paymentInfo": "29900000000000",
