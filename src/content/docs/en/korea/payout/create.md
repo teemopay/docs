@@ -20,18 +20,18 @@ description: Create a payout order
 
 ### Request Parameters
 
-| Field           | Type   | Required | Length | Description                                                                                                                                                                                    |
-| --------------- | ------ | -------- | ------ |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| merchantOrderNo | String  | yes | 32   | Merchant Order Number                                                                                                                                                                          |
-| amount          | String  | yes | 20   | Payment Amount (for Disbursement) 【Integer, Unit: KRW (Korean Won)】                                                                                                                            |
-| bankCode        | String  | yes | 50   | Bank Code 【Refer to the bank code in the bank list】                                                                                                                                            |
-| bankName        | String  | yes | 50   | Bank Name 【Refer to the bank name in the bank list】                                                                                                                                            |
-| accountType     | Integer | yes |      | Account Type 【801: BANK_TRANSFER 802: BANKTRANSFER_KYC】                                                                                                                                                             |
-| bankAccount     | String  | yes | 50   | Beneficiary's Bank Account Number                                                                                                                                                              |
+| Field           | Type   | Required | Length | Description                                                                                                                                                                                |
+| --------------- | ------ | -------- | ------ |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String  | yes | 32   | Merchant Order Number                                                                                                                                                                      |
+| amount          | String  | yes | 20   | Payment Amount (for Disbursement) 【Integer, Unit: KRW (Korean Won)】                                                                                                                        |
+| bankCode        | String  | yes | 50   | Bank Code 【Refer to the bank code in the bank list】                                                                                                                                        |
+| bankName        | String  | yes | 50   | Bank Name 【Refer to the bank name in the bank list】                                                                                                                                        |
+| accountType     | Integer | yes |      | Account Type </br> 801: BANK_TRANSFER   </br>   802: BANKTRANSFER_KYC                                                                                                                                 |
+| bankAccount     | String  | yes | 50   | Beneficiary's Bank Account Number                                                                                                                                                          |
 | realName        | String  | yes | 40   | User's Real Name. No special characters allowed; uppercase is recommended. Must be at least 2 characters long. Strict verification is not required, but it must conform to normal name format. |
-| idType    | String  | yes | 50   | Beneficiary Type: RRN (Individual); CO (Enterprise）                                                                                                                                            |
-| callbackUrl     | String  | no  | 200  | Disbursement Callback URL. If not provided, the merchant's configured URL will be used.                                                                                                        |
-| sign            | String  | yes |      | Signature                                                                                                                                                                                      |
+| idType    | String  | yes | 50   | Beneficiary Type: RRN (Individual); CO (Enterprise）                                                                                                                                        |
+| callbackUrl     | String  | no  | 200  | Disbursement Callback URL. If not provided, the merchant's configured URL will be used.                                                                                                    |
+| sign            | String  | yes |      | Signature                                                                                                                                                                                  |
 
 ```json title=Request Example
 {
