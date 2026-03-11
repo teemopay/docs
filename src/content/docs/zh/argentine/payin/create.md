@@ -29,19 +29,19 @@ description: 商户请求创建一个代收订单
 
 ### 请求参数
 
-| 字段              | 类型      | 必需  | 最大长度 | 描述                                                                    |
-|-----------------|---------|-----|------|-----------------------------------------------------------------------|
-| merchantOrderNo | String  | yes | 32   | 商户订单号                                                                 |
-| paymentType     | Integer | yes |      | 支付方式 【901（QR）、902 （CVU）、903（CHECKOUT）、905 (RAPIPAGO)、906 (PAGOFACIL)】 |
-| realName        | String  | yes | 64   | 用户姓名 【建议全大写】                                                          |
-| email           | String  | no  | 50   | 用户邮箱 【满足正则表达式即可】                                                      |
-| amount          | String  | yes | 20   | 代收金额 【比索:ARS】                                                         |
-| idType          | String  | yes | 50   | 个人身份类型：DNI 、CUIT、CUIL  【推荐使用CUIT】                                     |
-| idCardNumber    | String  | yes | 11   | 个人身份号：DNI （7位或8位数字）、CUIT（11位数字，首位必须是2或3）、CUIL（11位数字）                  |
-| expirationTime  | Long    | no  |      | 过期时间 【最小一天,最长七天 毫秒级时间戳 eg:1735660800000】                              |
-| phone           | String  | no  | 20   | 用户手机号 【10位数】                                                          |
-| callbackUrl     | String  | no  | 200  | 代收回调地址 【若不传递，取商户后台配置的回调地址】                                            |
-| sign            | String  | yes |      | 签名                                                                    |
+| 字段              | 类型      | 必需  | 最大长度 | 描述                                                                   |
+|-----------------|---------|-----|------|----------------------------------------------------------------------|
+| merchantOrderNo | String  | yes | 32   | 商户订单号                                                                |
+| paymentType     | Integer | yes |      | 支付方式 【901（QR）、902 （CVU）、905 (RAPIPAGO)、906 (PAGOFACIL)】 |
+| realName        | String  | yes | 64   | 用户姓名 【建议全大写】                                                         |
+| email           | String  | no  | 50   | 用户邮箱 【满足正则表达式即可】                                                     |
+| amount          | String  | yes | 20   | 代收金额 【比索:ARS】                                                        |
+| idType          | String  | yes | 50   | 个人身份类型：DNI 、CUIT、CUIL  【推荐使用CUIT】                                    |
+| idCardNumber    | String  | yes | 11   | 个人身份号：DNI （7位或8位数字）、CUIT（11位数字，首位必须是2或3）、CUIL（11位数字）                 |
+| expirationTime  | Long    | no  |      | 过期时间 【最小一天,最长七天 毫秒级时间戳 eg:1735660800000】                             |
+| phone           | String  | no  | 20   | 用户手机号 【10位数】                                                         |
+| callbackUrl     | String  | no  | 200  | 代收回调地址 【若不传递，取商户后台配置的回调地址】                                           |
+| sign            | String  | yes |      | 签名                                                                   |
 
 ```json title="请求示例"
 {

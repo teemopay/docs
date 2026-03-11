@@ -29,20 +29,20 @@ description: Create a payin order
 
 ### Request Parameters
 
-| Field           | Type    | Required | Length | Description                                                                                                             |
-|-----------------|---------|----------|--------|-------------------------------------------------------------------------------------------------------------------------|
-| merchantOrderNo | String  | yes      | 32     | Merchant Order Number                                                                                                   |
-| paymentType     | Integer | yes      |        | Payment Method 【901（QR）、902 （CVU）、903（CHECKOUT）、905 (RAPIPAGO)、906 (PAGOFACIL)】                                         |
-| realName        | String  | yes      | 64     | User's Real Name                                                                                                        |
-| merchantName    | String  | yes      | 64     | Payee Account                                                                                                           |
-| email           | String  | no       | 50     | User's Email 【Shall comply with the regular expression】                                                                 |
-| amount          | String  | yes      | 20     | Collection Amount 【Integer, Unit: ARS (Argentine Peso)】                                                                 |
-| idType          | String  | yes      | 50     | Personal identification type: DNI, CUIT, CUIL  【It is recommended to use CUIT】                                          |
+| Field           | Type    | Required | Length | Description                                                                                                            |
+|-----------------|---------|----------|--------|------------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String  | yes      | 32     | Merchant Order Number                                                                                                  |
+| paymentType     | Integer | yes      |        | Payment Method 【901（QR）、902 （CVU）、905 (RAPIPAGO)、906 (PAGOFACIL)】                                         |
+| realName        | String  | yes      | 64     | User's Real Name                                                                                                       |
+| merchantName    | String  | yes      | 64     | Payee Account                                                                                                          |
+| email           | String  | no       | 50     | User's Email 【Shall comply with the regular expression】                                                                |
+| amount          | String  | yes      | 20     | Collection Amount 【Integer, Unit: ARS (Argentine Peso)】                                                                |
+| idType          | String  | yes      | 50     | Personal identification type: DNI, CUIT, CUIL  【It is recommended to use CUIT】                                         |
 | idCardNumber    | String  | yes      | 11     | Personal Identification Number: DNI (7 or 8 digits), CUIT (11 digits, the first digit must be 2 or 3), CUIL (11 digits) |
-| expirationTime  | Long    | no       |        | Expiration Time 【Minimum: 1 day; Maximum: 7 day; Millisecond-level timestamp (e.g.: 1735660800000)】                     |
-| phone           | String  | no       | 20     | User's Mobile Phone Number 【10 digits】                                                                                  |
-| callbackUrl     | String  | no       | 200    | Collection Callback URL 【If not provided, the callback URL configured in the merchant backend will be used】             |
-| sign            | String  | yes      |        | Signature                                                                                                               |
+| expirationTime  | Long    | no       |        | Expiration Time 【Minimum: 1 day; Maximum: 7 day; Millisecond-level timestamp (e.g.: 1735660800000)】                    |
+| phone           | String  | no       | 20     | User's Mobile Phone Number 【10 digits】                                                                                 |
+| callbackUrl     | String  | no       | 200    | Collection Callback URL 【If not provided, the callback URL configured in the merchant backend will be used】            |
+| sign            | String  | yes      |        | Signature                                                                                                              |
 
 ```json title="请求示例"
 {
