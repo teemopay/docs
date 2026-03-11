@@ -24,7 +24,6 @@ description: Create a payin order
 |---------------------|-----------------------------------|
 | QR                  | 901                               |
 | CVU                 | 902                               |
-| CHECKOUT            | 903                               |
 | Rapipago            | 905                               |
 | Pagofacil           | 906                               |
 
