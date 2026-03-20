@@ -21,7 +21,7 @@ title: bankId Query Suspense Order
 
 | Field  | Type   | Required | Length | Description                                     |
 |--------|--------|----------|--------|-------------------------------------------------|
-| bankId | String | yes      | 32     | Voucher id: bankId for Argentina, utr for India |
+| bankId | String | yes      | 64     | Voucher id: bankId for Argentina, utr for India |
 | sign   | String | yes      |        | Signature                                       |
 
 ```json title=Request Example
@@ -60,7 +60,7 @@ title: bankId Query Suspense Order
 
 | Error Code | Error Message                   | Handling Solution                                     |
 |------------|---------------------------------|-------------------------------------------------------|
-| 401        | INVALID_PARAMS                  | bankId length cannot exceed 32 characters             |
+| 401        | INVALID_PARAMS                  | bankId length cannot exceed 64 characters             |
 | 700        | BANK_ID_ALREADY_CLAIMED_SUCCESS | bankId has already been claimed                       |
 | 701        | BANK_ID_NOT_EXIST               | The transmitted bankId does not exist                 |
 | 702        | SUSPENSE_ACCOUNT_STATUS_ERROR   | Suspense account status exception (Please contact us) |

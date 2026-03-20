@@ -21,7 +21,7 @@ title: 补单接口
 
 | 字段              | 类型     | 必需  | 长度 | 描述                               |
 |-----------------|--------|-----|----|----------------------------------|
-| bankId          | String | yes | 32 | 用户支付银行单号，凭证id：阿根廷为bankid、印度：utr. |
+| bankId          | String | yes | 64 | 用户支付银行单号，凭证id：阿根廷为bankid、印度：utr. |
 | merchantOrderNo | String | yes |    | 商户订单号                            |
 | sign            | String | yes |    | 签名                               |
 
@@ -62,18 +62,18 @@ title: 补单接口
 
 ### 错误码
 
-| 异常码  | 异常信息                            | 处理方案            |
-|------|---------------------------------|-----------------|
-| 401  | INVALID_PARAMS                  | bankId长度不能超过32位 |
-| 700  | BANK_ID_ALREADY_CLAIMED_SUCCESS | bankId已被认领      |
-| 701  | BANK_ID_NOT_EXIST               | 传输的bankId不存在    |
-| 702  | SUSPENSE_ACCOUNT_STATUS_ERROR   | 悬帐状态异常（请与我们联系）  |
-| 703  | ORDER_NOT_RECEIVED_YET          | 订单尚未入帐          |
-| 704  | MERCHANT_ORDER_NO_NOT_EXIST     | 商户订单号不存在        |
-| 705  | MERCHANT_NO_ALREADY_BOUND       | 商户订单已被绑定        |
-| 706  | BANK_ID_AMOUNT_NOT_MATCH_ORDER  | 悬帐金额与订单金额不一致    |
-| 500  | Business Error                  | 业务异常 （请与我们联系）   |
-| 非200 | 其他异常                            | 请与我们联系          |
+| 异常码  | 异常信息                            | 处理方案           |
+|------|---------------------------------|----------------|
+| 401  | INVALID_PARAMS                  | bankId长度不能超过64位 |
+| 700  | BANK_ID_ALREADY_CLAIMED_SUCCESS | bankId已被认领     |
+| 701  | BANK_ID_NOT_EXIST               | 传输的bankId不存在   |
+| 702  | SUSPENSE_ACCOUNT_STATUS_ERROR   | 悬帐状态异常（请与我们联系） |
+| 703  | ORDER_NOT_RECEIVED_YET          | 订单尚未入帐         |
+| 704  | MERCHANT_ORDER_NO_NOT_EXIST     | 商户订单号不存在       |
+| 705  | MERCHANT_NO_ALREADY_BOUND       | 商户订单已被绑定       |
+| 706  | BANK_ID_AMOUNT_NOT_MATCH_ORDER  | 悬帐金额与订单金额不一致   |
+| 500  | Business Error                  | 业务异常 （请与我们联系）  |
+| 非200 | 其他异常                            | 请与我们联系         |
 
 ```json title=错误返回示例
 {

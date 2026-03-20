@@ -21,7 +21,7 @@ title: bankId查询悬账订单
 
 | 字段     | 类型     | 必需  | 长度 | 描述                    |
 |--------|--------|-----|----|-----------------------|
-| bankId | String | yes | 32 | 凭证id：阿根廷bankId、印度：utr |
+| bankId | String | yes | 64 | 凭证id：阿根廷bankId、印度：utr |
 | sign   | String | yes |    | 签名                    |
 
 ```json title=请求示例
@@ -60,7 +60,7 @@ title: bankId查询悬账订单
 
 | 异常码  | 异常信息                            | 处理方案            |
 |------|---------------------------------|-----------------|
-| 401  | INVALID_PARAMS                  | bankId长度不能超过32位 |
+| 401  | INVALID_PARAMS                  | bankId长度不能超过64位 |
 | 700  | BANK_ID_ALREADY_CLAIMED_SUCCESS | bankId已被认领      |
 | 701  | BANK_ID_NOT_EXIST               | 传输的bankId不存在    |
 | 702  | SUSPENSE_ACCOUNT_STATUS_ERROR   | 悬帐状态异常（请与我们联系）  |
