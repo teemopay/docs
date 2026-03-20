@@ -40,7 +40,7 @@ title: Fix Order
 | amount       | Number | yes      |        | Amount credited                           |
 | tradeNo      | String | yes      |        | Platform order number                     |
 | bankId       | String | yes      |        | Voucher id                                |
-| mchOrderId   | String | yes      |        | Merchant order number                     |
+| merchantOrderNo   | String | yes      |        | Merchant order number                     |
 | callbackTime | String | yes      |        | Transaction creation time                 |
 | status       | String | yes      |        | Claim status  0: (Unclaimed) 1: (Claimed) |
 
@@ -51,7 +51,7 @@ title: Fix Order
     "amount": "5.00",
     "tradeNo": "TS2405220001AR0000505867138310",
     "bankId": "xiashjadyuqwgbeqwe——1638",
-    "mchOrderId": "cvu_test_212",
+    "merchantOrderNo": "cvu_test_212",
     "callbackTime": "2026-03-20 05:50:24",
     "status": 1
   },

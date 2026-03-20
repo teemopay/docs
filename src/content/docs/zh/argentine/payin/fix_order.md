@@ -40,7 +40,7 @@ title: 补单接口
 | amount       | Number | yes |    | 入账金额                      |
 | tradeNo      | String | yes |    | 平台单号                      |
 | bankId       | String | yes |    | 凭证id                      |
-| mchOrderId   | String | yes |    | 商户订单号                     |
+| merchantOrderNo   | String | yes |    | 商户订单号                     |
 | callbackTime | String | yes |    | 流水创建时间                    |
 | status       | String | yes |    | 认领成功状态  0 ：（未认领） 1: （已认领） |
 
@@ -51,7 +51,7 @@ title: 补单接口
     "amount": "5.00",
     "tradeNo": "TS2405220001AR0000505867138310",
     "bankId": "xiashjadyuqwgbeqwe——1638",
-    "mchOrderId": "cvu_test_212",
+    "merchantOrderNo": "cvu_test_212",
     "callbackTime": "2026-03-20 05:50:24",
     "status": 1
   },
