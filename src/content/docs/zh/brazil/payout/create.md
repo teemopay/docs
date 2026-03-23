@@ -26,7 +26,7 @@ description: 商户请求创建一个代付订单
 | amount          | String | yes | 20  | 代付金额(雷亚尔),小数点不能超过两位                                                            |
 | bankCode        | String | no | 50  | 银行编码                                                                           |
 | bankName        | String | no  | 50  | 银行名称                                                                           |
-| accountType     | Int    | yes |     | CPF-401(个人税号:11位数字)<br>CNPJ-402(巴西企业税号:14位数字)<br>PHONE-403(手机号码：+55后面11位数字例如(+5512345678901)；如果手机号换了主人，PIX 别名可能被迁移)<br>EMAIL-404(邮箱：用户在银行 APP 验证过的邮箱；一个人可能有多个邮箱，分别绑定在不同的银行，放款前需确认用户当前激活的是哪一个。)<br>EVP-405(随机密钥/ 虚拟支付地址；后台通常使用 EVP。它是自动生成的，不需要用户手动记忆.格式类似UUID的字符串 例如:01eb9090-73e5-4187-b43d-0d80a149e1dc)<br>五个参数根据实际情况选择一个 |
+| accountType     | Int    | yes |     | <b>CPF-401(个人税号:11位数字)</b><br><b>CNPJ-402</b>(巴西企业税号:14位数字)<br><b>PHONE-403</b>(手机号码。格式：+55后面11位数字。例如：+5512345678901。提示:如果手机号换了主人，PIX 别名可能被迁移)<br><b>EMAIL-404</b>(邮箱：用户在银行 APP 验证过的邮箱；一个人可能有多个邮箱，分别绑定在不同的银行，放款前需确认用户当前激活的是哪一个。)<br><b>EVP-405</b>(随机密钥/ 虚拟支付地址；后台通常使用 EVP。自动生成,不需要用户手动记忆.格式类似UUID的字符串 例如:01eb9090-73e5-4187-b43d-0d80a149e1dc)<br>五个参数根据实际情况选择一个 |
 | bankAccount     | String | yes | 50 | 收款账号：传输账户类型对应的信息                                                                           |
 | realName        | String | yes | 255 | 用户姓名                                                                           |
 | idCardNumber    | String | yes | 50  | 收款人证件号码                                                                        |
@@ -40,14 +40,14 @@ description: 商户请求创建一个代付订单
     "realName": "Carlos",
     "bankCode": "1",
     "bankName": "BANK",
-    "accountType": 101,
-    "bankAccount": "1234567890123456",
-    "amount": "100000",
+    "accountType": 401,
+    "bankAccount": "12345678901",
+    "amount": "1000.01",
     "callbackUrl": "http://127.0.0.1:8075/sys/dictionary/test",
     "sign": "YOUR SIGN",
-    "idType": "DNI",
-    "phone": "13175025118",
-    "idCardNumber": "12345678"
+    "idType": "CPF",
+    "phone": "+5512345678901",
+    "idCardNumber": "12345678901"
 }
 ```
 
@@ -66,7 +66,7 @@ description: 商户请求创建一个代付订单
     "data": {
         "merchantOrderNo": "ds111ad111002911111111111131",
         "tradeNo": "TF2405220001MX0000048840060444",
-        "amount": "100",
+        "amount": "1000.01",
         "status": 1
     },
     "msg": "success",
