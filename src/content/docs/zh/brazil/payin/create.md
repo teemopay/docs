@@ -37,9 +37,9 @@ description: 商户请求创建一个代收订单
 | merchantOrderNo | String | yes | 32  | 商户订单号               |
 | paymentType     | Int    | yes |     | 支付方式: 401-PIX       |
 | amount          | String | yes | 20  | 代收金额(雷亚尔),小数点不能超过2位 |
-| expirationTime  | Long   | no  |     | 过期时间,毫秒级时间戳 eg:1735660800000     |
-| realName        | String | no  | 64  | 用户姓名                |
-| email           | String | no  | 50  | 用户邮箱：满足正则表达式即可      |
+| expirationTime  | Long   | no  |     | 过期时间,毫秒级时间戳 eg:1735660800000；默认5分钟有效期     |
+| realName        | String | no  | 64  | 用户姓名               |
+| email           | String | no  | 50  | 用户邮箱                 |
 | phone           | String | no  | 50  | 电话号码                |
 | idCardNumber    | String | no  | 50  | 身份证号码               |
 | sign            | String | yes |     | 签名                  |
@@ -98,8 +98,11 @@ description: 商户请求创建一个代收订单
 | 423          | This payment method is not supported                                     | 对应支付方式不支持，请查阅文档，如存在则联系我们配置        |
 | 426          | merchant order duplicate                                                 | 请更换商户订单号                                       |
 | 427          | The callback notification address for collection must not be empty.       | 请配置代收回调地址                                     |
-| 466          | Payment method fee rate not configured.                                  | 商户代收费率配置异常，请联系我们                       |
+| 466          | Payment method fee rate not configured.                                  | 商户代收费率配置异常，请联系我们                          |
 | 473          | Merchant joint verification error: *                                      | 商户配置异常，请联系我们                               |
+| 476          | The id card number is error                                              | 证件号格式异常                                            |
+| 485          | The email format is invalid                                              | 邮箱格式异常，请更换邮箱                                 |
+| 486          | The phone format is invalid                                              | 手机号格式异常，请更换邮箱                               |
 | 500          | Business Error                                                           | 请联系我们                                             |
 
 ```json title=返回示例
