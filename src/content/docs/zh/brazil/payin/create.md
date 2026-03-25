@@ -24,11 +24,6 @@ description: 商户请求创建一个代收订单
 | ----------- | ------------------ |
 | PIX(线上银行转账) | 401                |
 
-### additionalInfo （附加字段）字段说明
-
-| 字段名 | 类型  | 是否必传 | 说明  |
-| --- | --- | ---- | --- |
-| -   | -   | -    | -   |
 
 ### 请求参数
 
@@ -70,8 +65,15 @@ description: 商户请求创建一个代收订单
 | paymentType     | Int        | yes | 3   | 支付方式                         |
 | paymentInfo     | String     | yes | 32  | 主要付款信息，返回的是实际用于付款的信息，例如：付款编号 |
 | additionalInfo  | JSONObject | no  |     | 扩展信息                         |
+| -- paymentLink       | String | no  |   | 付款链接信息                                     |
 | status          | Int        | yes |     | 代收状态, 1:成功 3:失败                |
 | errorMsg        | String     | no  |     | 错误信息,失败时返回                   |
+
+### additionalInfo （附加字段）字段说明
+
+| 字段名         | 类型      | 必填    | 说明              |
+| ---           | ---      | ----   | ---               |
+| paymentLink   | String   | N      | 扩展的付款链接信息   |
 
 ```json
 {
