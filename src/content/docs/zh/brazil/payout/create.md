@@ -64,13 +64,13 @@ description: 商户请求创建一个代付订单
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "ds111ad111002911111111111131",
-        "tradeNo": "TF2405220001MX0000048840060444",
-        "amount": "1000.01",
+        "merchantOrderNo": "ds111ad111022911111111111131",
+        "tradeNo": "TF2405220001BR0000509326631881",
+        "amount": "300.11",
         "status": 1
     },
     "msg": "success",
-    "success": true
+    "traceId": "2e0e38e3e9a24b60b4f57c6d2ced196a.117.17744290289665065"
 }
 ```
 

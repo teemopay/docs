@@ -75,18 +75,21 @@ description: 商户请求创建一个代收订单
 
 ```json
 {
-  "msg": "success",
-  "code": 200,
-  "data": {
-    "amount": "100",
-    "tradeNo": "TS2405220001BR0000048362685411",
-    "merchantOrderNo": "C31412415HkF6U9SnXRrxitBWD647lw7",
-    "paymentType": 204,
-    "additionalInfo": {},
-    "paymentInfo": "Xsdsadsadsad.com",
-    "status": 1
-  },
-  "success": true
+    "code": 200,
+    "data": {
+        "merchantOrderNo": "C27412415HkF6U9SnXRrxitBWD647lw7",
+        "amount": "100.1",
+        "tradeNo": "TS2405220001BR0000509313375376",
+        "paymentType": 401,
+        "paymentInfo": "00020126920014br.gov.bcb.xxx.xxx.coop.br",
+        "additionalInfo": {
+            "paymentLink": "https://payment.com?param=UcSvtzUHep6OyVnMyS7iAbDGLpPhrzsmWm2b7-WkLnVwOtKZ1W2iI6u73CL3cHAF"
+        },
+        "status": 1,
+        "errorMsg": null
+    },
+    "msg": "success",
+    "traceId": "2e0e38e3e9a24b60b4f57c6d2ced196a.116.17744273719018419"
 }
 ```
 

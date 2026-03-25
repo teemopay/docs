@@ -34,30 +34,38 @@ description: 商户查询一个代付订单的状态
 
 ### 返回参数
 
-| 参数                 | 类型      | 必需  | 长度  | 描述             |
-|--------------------| ------- |-----| --- |----------------|
-| code               | Integer | yes |     | 请求响应码          |
-| msg                | String  | yes |     | 响应信息           |
-| data               | Object  | yes |     | 响应数据           |
-| -- merchantOrderNo | String  | yes | 32  | 商户订单号          |
-| -- cepUrl          | String  | no  | 32  | 支付凭证url        |
-| -- tradeNo         | String  | yes |     | 平台订单号          |
-| -- amount          | String  | yes |     | 代付金额           |
-| -- status          | Int     | yes |     | 代付状态,2:成功 3:失败 |
-| -- sign            | String  | yes |     | 签名             |
+| 参数                | 类型     | 必需 | 长度  | 描述                                             |
+|-------------------|--------| ---- |-----|------------------------------------------------|
+| merchantOrderNo   | String | yes  | 32  | 商户订单号                                          |
+| tradeNo           | String | yes  |     | 平台订单号                                          |
+| amount            | String | yes  |     | 代付金额                                           |
+| status            | Int    | yes  |     | 代付状态,2:成功 3:失败                                 |
+| serviceAmount     | String | yes  |     | 服务费用  =  固收金额 +  交易金额 * 服务费率       |
+| immService        | String | yes  |     | 固收金额                               |
+| serviceRate       | String | yes  |     | 服务费率                               |
+| errorCode         | number | yes  |     | 订单失败状态错误码                          |
+| errorMessage      | String | yes  |     | 订单失败错误信息                           |
+| completeTime     | String | yes  |     | 完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式  |
 
 ```json
 {
     "code": 200,
-    "msg":"success", 
     "data": {
-      "merchantOrderNo": "OrderNoExample",
-      "tradeNo": "TF201806251011",
-      "status": 1,
-      "cepUrl": "https://www.banxico.org.mx/cep/go?i=90684&s=20210220&d=%2F5eul49vnBxUSkvBIJATftlblh%%2B3O",
+        "merchantOrderNo": "OrderNoExample",
+        "tradeNo": "TF2405220001BR0000509326631881",
+        "amount": "300.11",
+        "status": 1,
+        "serviceRate": "0.0500",
+        "serviceAmount": "20.01",
+        "immService": "5.00",
+        "completeTime": null,
+        "errorCode": null,
+        "errorMessage": null
     },
-    "success": true
+    "msg": "success",
+    "traceId": "2e0e38e3e9a24b60b4f57c6d2ced196a.115.17744291515713103"
 }
+
 ```
 
 ### 错误码
