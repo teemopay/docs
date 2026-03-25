@@ -59,7 +59,7 @@ description: 商户查询一个代收订单的状态
 {
   "code": 200,
   "data": {
-      "merchantOrderNo": "A0000000000000000000000000000036",
+      "merchantOrderNo": "OrderNoExample",
       "amount": "100.01",
       "transactionAmount": "100.01",
       "tradeNo": "TS2405220001BR0000509313375376",
