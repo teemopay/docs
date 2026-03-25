@@ -42,7 +42,7 @@ description: 商户接受一个代收结果的回调
     "merchantOrderNo": "123456780",
     "paymentAmount": "1000.00",
     "paymentOrderNo": "TSOcqgv0fepo103dmt3uuu233s1136",
-    "status": 2
+    "status": 2,
     "paymentType":1,
     "serviceAmount":"60.00",
     "paymentInfo":"646180503010250443",
