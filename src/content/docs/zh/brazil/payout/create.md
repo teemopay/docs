@@ -36,7 +36,7 @@ description: 商户请求创建一个代付订单
 
 ```json
 {
-    "merchantOrderNo": "ds111ad111022911111111111131",
+    "merchantOrderNo": "OrderNoExample",
     "realName": "Carlos",
     "bankCode": "1",
     "bankName": "BANK",
@@ -64,7 +64,7 @@ description: 商户请求创建一个代付订单
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "ds111ad111022911111111111131",
+        "merchantOrderNo": "OrderNoExample",
         "tradeNo": "TF2405220001BR0000509326631881",
         "amount": "300.11",
         "status": 1

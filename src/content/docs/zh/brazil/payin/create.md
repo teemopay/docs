@@ -42,16 +42,16 @@ description: 商户请求创建一个代收订单
 
 ```json
 {
-  "merchantOrderNo": "C27412415HkF6U9SnXRrxitBWD647lw7",
+  "merchantOrderNo": "OrderNoExample",
   "realName": "aaaaaa",
   "amount": "100.1",
   "callbackUrl": "http://test.domin.com",
   "paymentType": 401,
   "email": "1QWWQWQ2891@qq.com",
-  "phone": "123456789",
-  "idCardNumber": "1234567890",
+  "phone": "12345678901",
+  "idCardNumber": "12345678901",
   "sign": "YOUR SIGN",
-  "expirationTime": 1717092000000
+  "expirationTime": 1735660800000
 }
 ```
 
@@ -79,7 +79,7 @@ description: 商户请求创建一个代收订单
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "C27412415HkF6U9SnXRrxitBWD647lw7",
+        "merchantOrderNo": "OrderNoExample",
         "amount": "100.1",
         "tradeNo": "TS2405220001BR0000509313375376",
         "paymentType": 401,

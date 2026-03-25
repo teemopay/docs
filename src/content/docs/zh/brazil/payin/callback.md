@@ -37,7 +37,7 @@ description: 商户接受一个代收结果的回调
 
 ```json title=回调示例
 {
-    "tradeNo": "TS2404000001MX0000075277250508",
+    "tradeNo": "TS2404000001BR0000075277250508",
     "sign": "TEEMO_SIGN",
     "merchantOrderNo": "123456780",
     "paymentAmount": "1000.00",
