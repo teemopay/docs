@@ -39,7 +39,7 @@ description: 商户请求创建一个代收订单
 | bankAccount         | String  | no  | 20   | 持有人账户：用于实名认证（KYC）的标识信息。当支付方式 为 802 时，本字段支持可选传输：若调用接口时携带此字段，系统将预填至 KYC 认证页面以提升用户体验；若不传输，则由用户在认证流程中手动填写。                                                                             |
 | accountHolderNumber | String  | yes | 20   | 账户持有人识别码(accountHolderNum):用于实名认证标识信息。填写规范:1.个人用户:请提供居民注册号码(ResidentID)的前6位数字,格式为生年月日YYMMDD(例:950101);2.企业用户:请提供10位数字的事业者登录号(BusinessRegistration Number)                          |
 | expirationTime      | Long    | no  |      | 过期时间 【最大两个小时，为空默认两个小时； 毫秒级时间戳 eg:1735660800000】                                                                                                                                    |
-| phone               | String  | no  | 20   | 用户手机号 【11位数；不携带区号 010开头】                                                                                                                                                           |
+| phone               | String  | no  | 20   | 用户手机号 【11 位数字；以 010 开头；没有区号】                                                                                                                                                       |
 | callbackUrl         | String  | no  | 200  | 代收回调地址 【若不传递，取商户后台配置的回调地址】                                                                                                                                                         |
 | sign                | String  | yes |      | 签名                                                                                                                                                                                 |
 
@@ -64,7 +64,7 @@ description: 商户请求创建一个代收订单
     "merchantOrderNo": "802_test_012",
     "amount": "1000.00",
     "tradeNo": "TS2509080002KR0000465606537906",
-    "paymentInfo":"https://test-kr-payin.teemopay.com/TS2509080002KR0000465606537906",
+    "paymentInfo": "https://test-kr-payin.teemopay.com/TS2509080002KR0000465606537906",
     "paymentType": 802,
     "status": 0,
     "errorMsg": null
@@ -101,7 +101,7 @@ description: 商户请求创建一个代收订单
       "bankCode": "IBK",
       "bankName": "기업은행",
       "expiredTime": 1761022567000,
-      "paymentLink":"https://test-kr-payin.teemopay.com/TS2405220001KR0000430564883184"
+      "paymentLink": "https://test-kr-payin.teemopay.com/TS2405220001KR0000430564883184"
     },
     "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
     "paymentInfo": "29900000000000",
@@ -120,7 +120,7 @@ description: 商户请求创建一个代收订单
     "merchantOrderNo": "802_test_012",
     "amount": "1000.00",
     "tradeNo": "TS2509080002KR0000465606537906",
-    "paymentInfo":"https://test-kr-payin.teemopay.com/TS2509080002KR0000465606537906",
+    "paymentInfo": "https://test-kr-payin.teemopay.com/TS2509080002KR0000465606537906",
     "paymentType": 802,
     "status": 0,
     "errorMsg": null
