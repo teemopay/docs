@@ -1,4 +1,7 @@
-# Query Disbursement (Payout) Order
+---
+title: Payout Query
+description: Merchant queries the status of a payout order
+---
 
 ## Request
 

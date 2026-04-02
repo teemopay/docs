@@ -1,4 +1,7 @@
-# Create Collection (PayIn) Order
+---
+title: Create Payment
+description: Merchant requests to create a payment order
+---
 
 ## Request
 

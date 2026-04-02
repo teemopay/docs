@@ -1,4 +1,7 @@
-# Collection (PayIn) Callback
+---
+title: Payment Callback
+description: Merchant receives a payment result callback
+---
 
 ## Callback Endpoint
 

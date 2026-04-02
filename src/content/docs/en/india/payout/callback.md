@@ -1,4 +1,7 @@
-# Disbursement (Payout) Callback
+---
+title: Payout Callback
+description: Merchant receives a payout result callback
+---
 
 ## Callback Endpoint
 

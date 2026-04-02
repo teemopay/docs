@@ -1,4 +1,7 @@
-# Create Disbursement (Payout) Order
+---
+title: Create Payout
+description: Merchant requests to create a payout order
+---
 
 ## Request
 

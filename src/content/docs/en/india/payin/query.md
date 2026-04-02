@@ -1,4 +1,7 @@
-# Query Collection (PayIn) Order
+---
+title: Payment Query
+description: Merchant queries the status of a payment order
+---
 
 ## Request
 

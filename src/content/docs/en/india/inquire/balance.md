@@ -1,4 +1,7 @@
-# Balance Inquiry
+---
+title: Balance Query
+description: Balance Query
+---
 
 ## Request
 
