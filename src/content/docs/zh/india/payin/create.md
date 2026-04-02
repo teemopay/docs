@@ -15,31 +15,29 @@ description: 商户请求创建一个代收订单
 |-----------|--------|
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
-| country   | AR     |
+| country   | IN     |
 | app_code  | app编号  |
 
 ### 支付方式列表（paymentType）
 
 | 支付方式名称    | PaymentType (入参参数) |
 |-----------|--------------------|
-| QR        | 901                |
-| CVU       | 902                |
-| Rapipago  | 905                |
-| Pagofacil | 906                |
+| 聚合页面   | 1001                |
+| QR        | 1002                |
+| PHONEPE   | 1003                |
+| PAYTM     | 1004                |
 
 ### 请求参数
 
 | 字段              | 类型      | 必需  | 最大长度 | 描述                                                                   |
 |-----------------|---------|-----|------|----------------------------------------------------------------------|
 | merchantOrderNo | String  | yes | 32   | 商户订单号                                                                |
-| paymentType     | Integer | yes |      | 支付方式 【901（QR）、902 （CVU）、905 (RAPIPAGO)、906 (PAGOFACIL)】 |
+| paymentType     | Integer | yes |      | 支付方式 【1001（聚合页面）、1002 （QR）、1003 (PHONEPE)、1004 (PAYTM)】 |
 | realName        | String  | yes | 64   | 用户姓名 【建议全大写】                                                         |
-| email           | String  | no  | 50   | 用户邮箱 【满足正则表达式即可】                                                     |
-| amount          | String  | yes | 20   | 代收金额 【比索:ARS】                                                        |
-| idType          | String  | yes | 50   | 个人身份类型：DNI 、CUIT、CUIL  【推荐使用CUIT】                                    |
-| idCardNumber    | String  | yes | 11   | 个人身份号：DNI （7位或8位数字）、CUIT（11位数字，首位必须是2或3）、CUIL（11位数字）                 |
+| email           | String  | yes | 50   | 用户邮箱 【满足正则表达式即可】                                                     |
+| amount          | String  | yes | 20   | 代收金额 【卢比:INR】                                                        |
 | expirationTime  | Long    | no  |      | 过期时间 【最小一天,最长七天 毫秒级时间戳 eg:1735660800000】                             |
-| phone           | String  | no  | 20   | 用户手机号 【10位数】                                                         |
+| phone           | String  | yes | 20   | 用户手机号 【10位数,6,7,8,9开头】                                                         |
 | callbackUrl     | String  | no  | 200  | 代收回调地址 【若不传递，取商户后台配置的回调地址】                                           |
 | sign            | String  | yes |      | 签名                                                                   |
 
@@ -48,13 +46,11 @@ description: 商户请求创建一个代收订单
   "realName": "TeemoPay",
   "merchantName": "MerchantNameExample",
   "amount": "1000",
-  "idType": "DNI"
-  "idCardNumber": "12345678",
-  "phone": "1234567890",
+  "phone": "6234567890",
   "callbackUrl": "https://www.callbackexample.com",
-  "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+  "merchantOrderNo": OrderNoExample,
   "email": "TeemoPay@example.com",
-  "paymentType": 902,
+  "paymentType": 1001,
   "sign": "YOUR_SIGN"
 }
 ```
@@ -66,7 +62,7 @@ description: 商户请求创建一个代收订单
 | merchantOrderNo | String     | yes | 32 | 商户订单号                               |
 | tradeNo         | String     | yes | 32 | 平台订单号                               |
 | amount          | String     | yes | 32 | 交易金额                                |
-| paymentType     | Int        | yes | 10 | 支付方式 【901:QR】                       |
+| paymentType     | Int        | yes | 10 | 支付方式 【1001（聚合页面）、1002 （QR）、1003 (PHONEPE)、1004 (PAYTM)】 |
 | paymentInfo     | String     | yes | 32 | 主要付款信息 【返回的是实际用于付款的信息，例如：付款编号，二维码串】 |
 | additionalInfo  | JSONObject | no  |    | 附加信息 【辅助支付信息使用】                     |
 | status          | Int        | yes |    | 订单状态 【1: 支付中  3: 支付失败】              |
@@ -83,11 +79,9 @@ description: 商户请求创建一个代收订单
     "amount": "1000.00",
     "tradeNo": "TS2405220001AR0000430564883184",
     "additionalInfo": null,
-    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
-    "paymentInfo": "K8xY3pQ7zW2dE9sR4fT1gH6jU8lM3nB5vC2xZ7qA9wS4eD1rF8tG3yH6uJ9iK2oL5pM8aN3bV7cX9dZ4
-    eW1fY3gH6jK8lM2nP5qR7sT9uV2wX4yZ6aB8cD1eF3gH5jK7lM9nO2pQ4rS6tU8vW1xY3zA5bC7dE9fG2hJ4kL6mN8oP1qR3sT5uV7wX9yZ2aB4cD6eF8gH1jK3lM5nO7pQ9rS1tU3vW5xY7zA2bC4dE6fG8hJ1kL3mN5oP7qR9sT1uV3wX5yZ7aB9cD1eF3gH5jK7
-    ",
-    "paymentType": 901,
+    "merchantOrderNo": OrderNoExample,
+    "paymentInfo": "K8xY3pQ7zW2dE9sR4fT1gH6jU8lM3nB5vC2xZ7qA9wS4eD1rF8tG3yH6uJ9iK2oL5pM8aN3bV7cX9dZ4eW1fY3gH6jK8lM2nP5qR7sT9uV2wX4yZ6aB8cD1eF3gH5jK7lM9nO2pQ4rS6tU8vW1xY3zA5bC7dE9fG2hJ4kL6mN8oP1qR3sT5uV7wX9yZ2aB4cD6eF8gH1jK3lM5nO7pQ9rS1tU3vW5xY7zA2bC4dE6fG8hJ1kL3mN5oP7qR9sT1uV3wX5yZ7aB9cD1eF3gH5jK7",
+    "paymentType": 1001,
     "status": 1
   }
 }
@@ -130,10 +124,10 @@ description: 商户请求创建一个代收订单
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+    "merchantOrderNo": OrderNoExample,
     "amount": null,
     "tradeNo": "TS2405220001AR0000430564883184",
-    "paymentType": 901,
+    "paymentType": 1001,
     "paymentInfo": null,
     "additionalInfo": null,
     "status": 3,
