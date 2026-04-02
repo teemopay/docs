@@ -385,6 +385,37 @@ export default defineConfig({
               },
             ],
           },
+          {
+              id: "india",
+              label: {
+                en: "🇮🇳 india",
+                zh: "🇮🇳 印度",
+              },
+              link: "/india/payin/create",
+              items: [
+                {
+                  label: "Payin",
+                  translations: {
+                    zh: "代收",
+                  },
+                  items: ["india/payin/create", "india/payin/callback", "india/payin/query"],
+                },
+                {
+                  label: "Payout",
+                  translations: {
+                    zh: "代付",
+                  },
+                  items: ["india/payout/create", "india/payout/callback", "india/payout/query"],
+                },
+                {
+                  label: "Inquire",
+                  translations: {
+                    zh: "查询",
+                  },
+                  items: ["india/inquire/balance", "india/inquire/bill"],
+                },
+              ],
+            }
 
         ]),
       ],
