@@ -82,8 +82,6 @@ description: 商户请求创建一个代付订单
 | 432                  | *                                                                        | 卡号，银行号，支付方式匹配异常，请检查并更改 |
 | 462                  | This request failed due to blacklist blocking                            | 进入黑名单，请更改参数，重新拉起           |
 | 473                  | Merchant joint verification error: *                                      | 商户配置异常，请联系我们                   |
-| 475                  | The id card type is error                                               | 证件类型异常，请检查并更改                 |
-| 476                  | The id card number is error                                              | 证件号异常，请检查并更改                   |
 | 500                  | Business Error                                                           | 请联系我们                                 |
 
 ```json title=返回示例

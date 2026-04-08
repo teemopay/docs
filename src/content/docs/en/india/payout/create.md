@@ -85,8 +85,6 @@ description: Merchant requests to create a payout order
 | 432 | * | Mismatch between card number, bank code, and payment method; check and correct |
 | 462 | This request failed due to blacklist blocking | Blacklisted; update parameters and retry |
 | 473 | Merchant joint verification error: * | Merchant configuration error; contact us |
-| 475 | The id card type is error | Invalid ID document type; check and correct |
-| 476 | The id card number is error | Invalid ID document number; check and correct |
 | 500 | Business Error | Contact us |
 
 **Error Response Example**
