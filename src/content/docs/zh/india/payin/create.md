@@ -50,7 +50,7 @@ description: 商户请求创建一个代收订单
   "amount": "1000",
   "phone": "6234567890",
   "callbackUrl": "https://www.callbackexample.com",
-  "merchantOrderNo": OrderNoExample,
+  "merchantOrderNo": "OrderNoExample",
   "email": "TeemoPay@example.com",
   "paymentType": 1001,
   "sign": "YOUR_SIGN"
