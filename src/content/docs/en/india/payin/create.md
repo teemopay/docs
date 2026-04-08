@@ -156,10 +156,8 @@ Default expiration time: 10 minutes
 | 423 | This payment method is not supported | Payment method not supported; check the docs or contact us to enable it |
 | 426 | merchant order duplicate | Change the merchant order number |
 | 427 | The callback notification address for collection must not be empty. | Configure a collection callback URL |
-| 443 | ID number must not be null | ID number cannot be empty |
 | 466 | Payment method fee rate not configured. | Collection fee rate not configured; contact us |
 | 473 | Merchant joint verification error: * | Merchant configuration error; contact us |
-| 474 | The id card number must be 11 digits. | ID number must be 11 digits |
 | 500 | Business Error | Contact us |
 
 **Error Response Example**
