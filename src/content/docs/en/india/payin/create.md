@@ -3,49 +3,45 @@ title: Create Payment
 description: Merchant requests to create a payment order
 ---
 
-## Request
-
-| Method | URL |
-|--------|-----|
-| POST | `/api/pay/payment/create/v1` |
+## Request URL
+| method | url                        |
+|--------|----------------------------|
+| POST   | /api/pay/payment/create/v1 |
 
 ## Request Headers
+| Header Parameter | Description        |
+|------------------|--------------------|
+| timestamp        | Request timestamp  |
+| nonce            | Random value       |
+| country          | IN                 |
+| app_code         | App code           |
 
-| Header | Description |
-|--------|-------------|
-| timestamp | Request timestamp |
-| nonce | Random value |
-| country | IN |
-| app_code | Application code |
+## Payment Type List
+| Payment Method Name | PaymentType (Request Parameter) |
+|---------------------|----------------------------------|
+| Aggregated Page     | 1001                             |
+| QR                  | 1002                             |
+| PHONEPE             | 1003                             |
+| PAYTM               | 1004                             |
 
-## Payment Methods (paymentType)
-
-| Payment Method | paymentType Value |
-|----------------|-------------------|
-| Aggregated Page | 1001 |
-| QR Code | 1002 |
-| PHONEPE | 1003 |
-| PAYTM | 1004 |
+## Expiration Time
+Default expiration time: 10 minutes
 
 ## Request Parameters
+| Field             | Type    | Required | Max Length | Description                                                                                     |
+|-------------------|---------|----------|------------|-------------------------------------------------------------------------------------------------|
+| merchantOrderNo   | String  | yes      | 32         | Merchant order number                                                                           |
+| paymentType       | Integer | yes      | -          | Payment method: 1001(Aggregated Page), 1002(QR), 1003(PHONEPE), 1004(PAYTM)                      |
+| realName          | String  | yes      | 64         | User real name (UPPERCASE recommended)                                                          |
+| email             | String  | yes      | 50         | User email (valid regex format required)                                                        |
+| amount            | String  | yes      | 20         | Collection amount (integer recommended, currency: INR)                                          |
+| phone             | String  | yes      | 20         | User mobile number (10 digits, starting with 6,7,8,9)                                            |
+| callbackUrl       | String  | no       | 200        | Collection callback URL. If not provided, use the backend configured URL                        |
+| sign              | String  | yes      | -          | Signature                                                                                       |
 
-| Field | Type | Required | Max Length | Description |
-|-------|------|----------|------------|-------------|
-| merchantOrderNo | String | Yes | 32 | Merchant order number |
-| paymentType | Integer | Yes | — | Payment method: `1001` (Aggregated Page), `1002` (QR), `1003` (PHONEPE), `1004` (PAYTM) |
-| realName | String | Yes | 64 | User's full name (recommended: all uppercase) |
-| email | String | Yes | 50 | User's email address (must match standard email format) |
-| amount | String | Yes | 20 | Collection amount in INR (Indian Rupees) |
-| expirationTime | Long | No | — | Expiry time — minimum 1 day, maximum 7 days; millisecond timestamp (e.g., `1735660800000`) |
-| phone | String | Yes | 20 | User's mobile number — 10 digits, must start with 6, 7, 8, or 9 |
-| callbackUrl | String | No | 200 | Collection callback URL. If omitted, the URL configured in the merchant portal is used |
-| sign | String | Yes | — | Signature |
-
-**Request Example**
-```json
+```json title="Request Example"
 {
   "realName": "TeemoPay",
-  "merchantName": "MerchantNameExample",
   "amount": "1000",
   "phone": "6234567890",
   "callbackUrl": "https://www.callbackexample.com",
@@ -70,20 +66,84 @@ description: Merchant requests to create a payment order
 | errorMsg | String | No | — | Error message (returned on failure) |
 
 **Response Example**
+
+#### paymentType 1001 Response
+
 ```json
 {
-  "msg": "success",
-  "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610299",
-  "code": 200,
-  "data": {
-    "amount": "1000.00",
-    "tradeNo": "TS2405220001AR0000430564883184",
-    "additionalInfo": null,
-    "merchantOrderNo": "OrderNoExample",
-    "paymentInfo": "K8xY3pQ7zW2dE9sR4fT1gH6jU8lM3nB5vC2xZ7qA9wS4eD1rF8tG3yH6uJ9...",
-    "paymentType": 1001,
-    "status": 1
-  }
+    "code": 200,
+    "data": {
+        "merchantOrderNo": "OrderNoExample",
+        "amount": "1000",
+        "tradeNo": "TS2405220001IN0000518954661212",
+        "paymentType": 1001,
+        "paymentInfo": "https://cashier.deviukpay.com/checkoutV3?orderId=PI202604081245327E6D587A9350619B&sign=FC4BF498CFF2D13AD06B4937FC8B0FA5",
+        "additionalInfo": {},
+        "status": 1,
+        "errorMsg": null
+    },
+    "msg": "success",
+    "traceId": "e9c5ab38d4654d06a32d9549b399ed3d.98.17756325326182591"
+}
+```
+
+#### paymentType 1002 Response
+
+```json
+{
+    "code": 200,
+    "data": {
+        "merchantOrderNo": "OrderNoExample",
+        "amount": "1000",
+        "tradeNo": "TS2405220001IN0000518955279892",
+        "paymentType": 1002,
+        "paymentInfo": "https://cashier.deviukpay.com/checkoutV3?orderId=PI202604081246507CBDA2C4CDB913B4&sign=04AF43E5CDCA07AE97C0F58A451F422B",
+        "additionalInfo": {},
+        "status": 1,
+        "errorMsg": null
+    },
+    "msg": "success",
+    "traceId": "e9c5ab38d4654d06a32d9549b399ed3d.96.17756326099664863"
+}
+```
+
+#### paymentType 1003 Response
+
+```json
+{
+    "code": 200,
+    "data": {
+        "merchantOrderNo": "OrderNoExample",
+        "amount": "1000",
+        "tradeNo": "TS2405220001IN0000518955487076",
+        "paymentType": 1003,
+        "paymentInfo": "phonepe://native?data=eyJjb250YWN0Ijp7ImNic05hbWUiOiIiLCJuaWNrTmFtZSI6IiIsInZwYSI6InRpd2FyaWJoYXJhdDc4OUBmcmVlY2hhcmdlIiwidHlwZSI6IlZQQSJ9LCJwMnBQYXltZW50Q2hlY2tvdXRQYXJhbXMiOnsibm90ZSI6IkRvIG5vdCBtb2RpZnkgdGhlIGFtb3VudCIsImlzQnlEZWZhdWx0S25vd25Db250YWN0Ijp0cnVlLCJlbmFibGVTcGVlY2hUb1RleHQiOmZhbHNlLCJhbGxvd0Ftb3VudEVkaXQiOmZhbHNlLCJzaG93UXJDb2RlT3B0aW9uIjpmYWxzZSwiZGlzYWJsZVZpZXdIaXN0b3J5Ijp0cnVlLCJzaG91bGRTaG93VW5zYXZlZENvbnRhY3RCYW5uZXIiOmZhbHNlLCJpc1JlY3VycmluZyI6ZmFsc2UsImNoZWNrb3V0VHlwZSI6IkRFRkFVTFQiLCJ0cmFuc2FjdGlvbkNvbnRleHQiOiJwMnAiLCJpbml0aWFsQW1vdW50Ijo5OTg2NC4wMCwiZGlzYWJsZU5vdGVzRWRpdCI6dHJ1ZSwic2hvd0tleWJvYXJkIjp0cnVlLCJjdXJyZW5jeSI6IklOUiIsInNob3VsZFNob3dNYXNrZWROdW1iZXIiOnRydWV9fQ==&id=p2ppayment",
+        "additionalInfo": {},
+        "status": 1,
+        "errorMsg": null
+    },
+    "msg": "success",
+    "traceId": "e9c5ab38d4654d06a32d9549b399ed3d.96.17756326358654891"
+}
+```
+
+#### paymentType 1004 Response
+
+```json
+{
+    "code": 200,
+    "data": {
+        "merchantOrderNo": "OrderNoExample",
+        "amount": "1000",
+        "tradeNo": "TS2405220001IN0000518955617780",
+        "paymentType": 1004,
+        "paymentInfo": "paytmmp://cash_wallet?pa=tiwaribharat789@freecharge&pn=ashish&tr=000011&tn=00001&am=998.51&cu=INR&featuretype=money_transfer",
+        "additionalInfo": {},
+        "status": 1,
+        "errorMsg": null
+    },
+    "msg": "success",
+    "traceId": "e9c5ab38d4654d06a32d9549b399ed3d.95.17756326522018217"
 }
 ```
 

@@ -23,10 +23,10 @@ description: Merchant requests to create a payout order
 | Field | Type | Required | Max Length | Description |
 |-------|------|----------|------------|-------------|
 | merchantOrderNo | String | Yes | 32 | Merchant order number |
-| amount | String | Yes | 20 | Payout amount in INR (Indian Rupees) |
+| amount | String | Yes | 20 | Payout amount in INR (integer recommended, currency: INR) |
 | accountType | Integer | Yes | — | Account type: `1001` = BANK_TRANSFER, `1002` = UPI |
 | bankCode | String | No* | 50 | Bank IFSC code — **required when `accountType` is `1001`**. Uniquely identifies a bank branch in India. Format: first 4 characters are the bank code (letters, e.g., `ICIC` for ICICI Bank, `SBIN` for State Bank of India), 5th character is always `0` (reserved), last 6 characters are the branch code (usually digits, but may include letters). Example: `ICIC0000001` |
-| bankAccount | String | Yes | 50 | Recipient account number |
+| bankAccount | String | Yes | 50 | Recipient account number (For UPI payment method, the account must contain at least the @ character.) |
 | realName | String | Yes | 40 | User's full name. No special characters; recommended all uppercase; minimum 2 letters. Strict validation is not enforced, but must follow a normal name format |
 | phone | String | Yes | 10 | User's mobile number — exactly 10 digits, must start with 6, 7, 8, or 9 |
 | email | String | No | 64 | Email address |

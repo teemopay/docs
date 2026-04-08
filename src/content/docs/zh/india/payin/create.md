@@ -27,6 +27,10 @@ description: 商户请求创建一个代收订单
 | PHONEPE   | 1003                |
 | PAYTM     | 1004                |
 
+### 过期时间
+
+默认为10分钟过期
+
 ### 请求参数
 
 | 字段              | 类型      | 必需  | 最大长度 | 描述                                                                   |
@@ -35,8 +39,7 @@ description: 商户请求创建一个代收订单
 | paymentType     | Integer | yes |      | 支付方式 【1001（聚合页面）、1002 （QR）、1003 (PHONEPE)、1004 (PAYTM)】 |
 | realName        | String  | yes | 64   | 用户姓名 【建议全大写】                                                         |
 | email           | String  | yes | 50   | 用户邮箱 【满足正则表达式即可】                                                     |
-| amount          | String  | yes | 20   | 代收金额 【卢比:INR】                                                        |
-| expirationTime  | Long    | no  |      | 过期时间 【最小一天,最长七天 毫秒级时间戳 eg:1735660800000】                             |
+| amount          | String  | yes | 20   | 代收金额(建议整数) 【卢比:INR】                                                        |
 | phone           | String  | yes | 20   | 用户手机号 【10位数,6,7,8,9开头】                                                         |
 | callbackUrl     | String  | no  | 200  | 代收回调地址 【若不传递，取商户后台配置的回调地址】                                           |
 | sign            | String  | yes |      | 签名                                                                   |
@@ -44,7 +47,6 @@ description: 商户请求创建一个代收订单
 ```json title="请求示例"
 {
   "realName": "TeemoPay",
-  "merchantName": "MerchantNameExample",
   "amount": "1000",
   "phone": "6234567890",
   "callbackUrl": "https://www.callbackexample.com",
@@ -70,20 +72,83 @@ description: 商户请求创建一个代收订单
 
 ### 响应示例
 
+#### 支付方式为1001的响应示例
+
 ```json
 {
-  "msg": "success",
-  "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610299",
-  "code": 200,
-  "data": {
-    "amount": "1000.00",
-    "tradeNo": "TS2405220001AR0000430564883184",
-    "additionalInfo": null,
-    "merchantOrderNo": OrderNoExample,
-    "paymentInfo": "K8xY3pQ7zW2dE9sR4fT1gH6jU8lM3nB5vC2xZ7qA9wS4eD1rF8tG3yH6uJ9iK2oL5pM8aN3bV7cX9dZ4eW1fY3gH6jK8lM2nP5qR7sT9uV2wX4yZ6aB8cD1eF3gH5jK7lM9nO2pQ4rS6tU8vW1xY3zA5bC7dE9fG2hJ4kL6mN8oP1qR3sT5uV7wX9yZ2aB4cD6eF8gH1jK3lM5nO7pQ9rS1tU3vW5xY7zA2bC4dE6fG8hJ1kL3mN5oP7qR9sT1uV3wX5yZ7aB9cD1eF3gH5jK7",
-    "paymentType": 1001,
-    "status": 1
-  }
+    "code": 200,
+    "data": {
+        "merchantOrderNo": "OrderNoExample",
+        "amount": "1000",
+        "tradeNo": "TS2405220001IN0000518954661212",
+        "paymentType": 1001,
+        "paymentInfo": "https://cashier.deviukpay.com/checkoutV3?orderId=PI202604081245327E6D587A9350619B&sign=FC4BF498CFF2D13AD06B4937FC8B0FA5",
+        "additionalInfo": {},
+        "status": 1,
+        "errorMsg": null
+    },
+    "msg": "success",
+    "traceId": "e9c5ab38d4654d06a32d9549b399ed3d.98.17756325326182591"
+}
+```
+
+#### 支付方式为1002的响应示例
+
+```json
+{
+    "code": 200,
+    "data": {
+        "merchantOrderNo": "OrderNoExample",
+        "amount": "1000",
+        "tradeNo": "TS2405220001IN0000518955279892",
+        "paymentType": 1002,
+        "paymentInfo": "https://cashier.deviukpay.com/checkoutV3?orderId=PI202604081246507CBDA2C4CDB913B4&sign=04AF43E5CDCA07AE97C0F58A451F422B",
+        "additionalInfo": {},
+        "status": 1,
+        "errorMsg": null
+    },
+    "msg": "success",
+    "traceId": "e9c5ab38d4654d06a32d9549b399ed3d.96.17756326099664863"
+}
+```
+
+#### 支付方式为1003的响应示例
+
+```json
+{
+    "code": 200,
+    "data": {
+        "merchantOrderNo": "OrderNoExample",
+        "amount": "1000",
+        "tradeNo": "TS2405220001IN0000518955487076",
+        "paymentType": 1003,
+        "paymentInfo": "phonepe://native?data=eyJjb250YWN0Ijp7ImNic05hbWUiOiIiLCJuaWNrTmFtZSI6IiIsInZwYSI6InRpd2FyaWJoYXJhdDc4OUBmcmVlY2hhcmdlIiwidHlwZSI6IlZQQSJ9LCJwMnBQYXltZW50Q2hlY2tvdXRQYXJhbXMiOnsibm90ZSI6IkRvIG5vdCBtb2RpZnkgdGhlIGFtb3VudCIsImlzQnlEZWZhdWx0S25vd25Db250YWN0Ijp0cnVlLCJlbmFibGVTcGVlY2hUb1RleHQiOmZhbHNlLCJhbGxvd0Ftb3VudEVkaXQiOmZhbHNlLCJzaG93UXJDb2RlT3B0aW9uIjpmYWxzZSwiZGlzYWJsZVZpZXdIaXN0b3J5Ijp0cnVlLCJzaG91bGRTaG93VW5zYXZlZENvbnRhY3RCYW5uZXIiOmZhbHNlLCJpc1JlY3VycmluZyI6ZmFsc2UsImNoZWNrb3V0VHlwZSI6IkRFRkFVTFQiLCJ0cmFuc2FjdGlvbkNvbnRleHQiOiJwMnAiLCJpbml0aWFsQW1vdW50Ijo5OTg2NC4wMCwiZGlzYWJsZU5vdGVzRWRpdCI6dHJ1ZSwic2hvd0tleWJvYXJkIjp0cnVlLCJjdXJyZW5jeSI6IklOUiIsInNob3VsZFNob3dNYXNrZWROdW1iZXIiOnRydWV9fQ==&id=p2ppayment",
+        "additionalInfo": {},
+        "status": 1,
+        "errorMsg": null
+    },
+    "msg": "success",
+    "traceId": "e9c5ab38d4654d06a32d9549b399ed3d.96.17756326358654891"
+}
+```
+
+#### 支付方式为1004的响应示例
+
+```json
+{
+    "code": 200,
+    "data": {
+        "merchantOrderNo": "OrderNoExample",
+        "amount": "1000",
+        "tradeNo": "TS2405220001IN0000518955617780",
+        "paymentType": 1004,
+        "paymentInfo": "paytmmp://cash_wallet?pa=tiwaribharat789@freecharge&pn=ashish&tr=000011&tn=00001&am=998.51&cu=INR&featuretype=money_transfer",
+        "additionalInfo": {},
+        "status": 1,
+        "errorMsg": null
+    },
+    "msg": "success",
+    "traceId": "e9c5ab38d4654d06a32d9549b399ed3d.95.17756326522018217"
 }
 ```
 

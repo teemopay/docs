@@ -23,10 +23,10 @@ description: 商户请求创建一个代付订单
 | 字段              | 类型      | 必需  | 最大长度 | 描述                                                                           |
 |-----------------|---------|-----|------|------------------------------------------------------------------------------|
 | merchantOrderNo | String  | yes | 32   | 商户订单号                                                                        |
-| amount          | String  | yes | 20   | 代付金额 【单位 卢比：INR】                                                              |
+| amount          | String  | yes | 20   | 代付金额(建议整数) 【单位 卢比：INR】                                                              |
 | accountType     | Integer | yes |      | 账户类型 【1001 = BANK_TRANSFER   1002 = UPI 】                            |
-| bankCode        | String  | no | 50   | 银行编码：当支付类型是1001 时是必传；用于唯一识别印度境内的每一个银行分行。<br> 前 4 位： 银行代码（字母），如 ICIC (ICICI Bank), SBIN (State Bank of India)。<br> 第 5 位： 固定为数字 0（预留位）。 <br> 后 6 位： 分行代码（通常是数字，但也可能是字母），识别具体的支行。示例：ICIC0000001                     |
-| bankAccount     | String  | yes | 50   | 收款账号                                                          |
+| bankCode        | String  | no | 50   | 含义为:ifsc <br> 银行编码：当支付类型是1001 时是必传；用于唯一识别印度境内的每一个银行分行。<br> 前 4 位： 银行代码（字母），如 ICIC (ICICI Bank), SBIN (State Bank of India)。<br> 第 5 位： 固定为数字 0（预留位）。 <br> 后 6 位： 分行代码（通常是数字，但也可能是字母），识别具体的支行。示例：ICIC0000001                     |
+| bankAccount     | String  | yes | 50   | 收款账号 <br> 当为UPI支付方式时，账号至少包含@字符                               |
 | realName        | String  | yes | 40   | 用户姓名。不得包含特殊字符，建议使用全大写，长度不少于 2 个字母；无需严格校验，但需符合正常姓名格式。                         |
 | phone           | String  | yes | 10  | 用户手机号 【10位数】手机号,必须10位，然后6,7,8,9开头                                                                         |
 | email           | String  | no  | 64  | 邮箱                                                                           |
