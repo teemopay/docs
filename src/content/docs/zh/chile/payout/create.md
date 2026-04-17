@@ -31,7 +31,7 @@ description: 商户请求创建一个代付订单
 | realName        | String | yes | 40 | 用户姓名 不包含特殊字符，建议全大写 |
 | idCardNumber    | String | yes | 50 | 收款人证件号码          |
 | idType          | Stirng | yes | 32 | 证件类型 详情请看证件列表中的账户类型 |
-| phone           | Stirng | yes | 10   | 用户电话             |
+| phone           | Stirng | yes | 9  | 用户电话9位数,不包含区号(例如 9 XXXX XXXX)           |
 | email           | Stirng | yes  | 64   | 用户邮箱             |
 | callbackUrl     | String | no  | 200 | 代付回调地址，若不传, 则以商户配置为准 |
 | sign            | String | yes   |    | 签名               |
@@ -46,8 +46,8 @@ description: 商户请求创建一个代付订单
     "accountType": 201,
     "merchantOrderNo": "OrderNoExample",
     "realName": "TEEMO",
-    "phone": "3000000000",
-    "idCardNumber": "1234567890",
+    "phone": "923456789",
+    "idCardNumber": "0234567890",
     "callbackUrl": "https://www.callbackexample.com",
     "email": "TeemoPay@example.com",
     "sign": "YOUR_SIGN"

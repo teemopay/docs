@@ -20,34 +20,37 @@ description: Merchant requests to create a payout order
 
 ### Request Parameters
 
-| Field           | Type   | Required | Length | Description                                                               |
-| --------------- | ------ |----------|--------|---------------------------------------------------------------------------|
-| merchantOrderNo | String | yes      | 32     | Merchant order number                                                     |
-| amount          | String | yes      | 20     | Payout amount (in Pesos)                                                  |
-| bankCode        | String | yes      | 50     | Bank code                                                                 |
-| bankName        | String | yes      | 50     | Bank name                                                                 |
-| accountType     | Int    | yes      |        | For details, please see the account types in the bank list                |
-| bankAccount     | String | yes      | 50     | Recipient account number                                                  |
-| realName        | String | yes      | 40     | Customer name                                                             |
-| idCardNumber    | String | yes      | 50     | Recipient ID number                                                       |
-| idType          | String | yes      | 32     | For details, please see the document types in the bank list               |
-| callbackUrl     | String | no       | 200    | Payout callback URL, if not provided, merchant configuration will be used |
-| sign            | String | yes      |        | Signature                                                                 |
+| Field           | Type     | Required | Length | Description |
+| --------------- | -------- | -------- | ------ | ----------- |
+| merchantOrderNo | String   | Yes      | 32     | Merchant order number |
+| amount          | String   | Yes      | 20     | Payout amount (in pesos). Only integers are supported. |
+| bankCode        | String   | Yes      | 50     | Bank code |
+| bankName        | String   | Yes      | 50     | Bank name |
+| accountType     | Int      | Yes      | —      | Account type. See account types in the bank list for details. |
+| bankAccount     | String   | Yes      | 50     | Beneficiary account number |
+| realName        | String   | Yes      | 40     | User full name with no special characters; uppercase is recommended. |
+| idCardNumber    | String   | Yes      | 50     | Beneficiary ID number |
+| idType          | String   | Yes      | 32     | ID type. See ID types in the ID list for details. |
+| phone           | String   | Yes      | 9      | 9-digit user phone number, excluding area code (e.g. 9 XXXX XXXX) |
+| email           | String   | Yes      | 64     | User email address |
+| callbackUrl     | String   | No       | 200    | Payout callback URL. If not provided, merchant-configured URL will be used. |
+| sign            | String   | Yes      | —      | Signature |
 
 ```json title="Request Example"
 {
-                "merchantOrderNo": "ds111ad111022911111111111131",
-                "realName": "Carlos",
-                "bankCode": "1",
-                "bankName": "BCP",
-                "accountType": 101,
-                "bankAccount": "1234567890123456",
-                "amount": "100000",
-                "callbackUrl": "http://127.0.0.1:8075/sys/dictionary/test",
-                "sign": "YOUR SIGN",
-                "idType": "DNI",
-                "phone": "13175025118",
-                "idCardNumber": "12345678"
+    "bankAccount": "3000000000",
+    "bankCode": "",
+    "bankName": "BANCO ESTADO",
+    "amount": "10000",
+    "idType": "CC",
+    "accountType": 201,
+    "merchantOrderNo": "OrderNoExample",
+    "realName": "TEEMO",
+    "phone": "923456789",
+    "idCardNumber": "0234567890",
+    "callbackUrl": "https://www.callbackexample.com",
+    "email": "TeemoPay@example.com",
+    "sign": "YOUR_SIGN"
 }
 ```
 
