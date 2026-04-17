@@ -55,7 +55,7 @@ SERVIFACIL
 | expirationTime  | Long   | no  |     | 过期时间,毫秒级时间戳 eg:1735660800000                     |
 | realName        | String | yes | 64  | 用户姓名                    |
 | email           | String | yes | 50  | 用户邮箱：满足正则表达式即可          |
-| phone           | String | yes | 50  | 电话号码7位数,不包含区号           |
+| phone           | String | yes | 50  | 电话号码9位数,不包含区号(例如 9 XXXX XXXX)     |
 | idCardNumber    | String | no  | 50  | 身份证号码 详情请到银行列表中最下方有对应规则 |
 | sign            | String | yes |     | 签名                      |
 | callbackUrl     | String | no  | 200 | 回调地址                    |
