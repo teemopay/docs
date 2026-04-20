@@ -40,8 +40,8 @@ description: 商户接受一个代付结果的回调
 {
   "merchantOrderNo": "OrderNoExample",
   "tradeNo": "TF2501010001BR0000000000000000",
-  "amount": "1000.00",
-  "serviceAmount": "25.50",
+  "amount": "1000",
+  "serviceAmount": "25.5",
   "status": 2,
   "errorCode": null,
   "errorMessage": null,

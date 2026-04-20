@@ -41,8 +41,8 @@ description: Merchant receives a payout result callback
   "merchantOrderNo": "OrderNoExample",
   "tradeNo": "TF201806251011",
   "status": 2,
-  "amount": "1000.00",
-  "serviceAmount": "60.00",
+  "amount": "1000",
+  "serviceAmount": "60",
   "sign": "TEEMO_SIGN"
 }
 ```

@@ -40,11 +40,11 @@ description: 商户接受一个代收结果的回调
     "tradeNo": "TS2404000001BR0000075277250508",
     "sign": "TEEMO_SIGN",
     "merchantOrderNo": "123456780",
-    "paymentAmount": "1000.00",
+    "paymentAmount": "1000",
     "paymentOrderNo": "TSOcqgv0fepo103dmt3uuu233s1136",
     "status": 2,
     "paymentType":1,
-    "serviceAmount":"60.00",
+    "serviceAmount":"60",
     "paymentInfo":"646180503010250443",
     "completeTime": "2025-01-01 00:00:00",
     "errorMessage": null
