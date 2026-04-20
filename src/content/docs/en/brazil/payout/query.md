@@ -92,13 +92,13 @@ description: Merchant queries the status of a payout order
     "totalRefundAmount": "1000.00",
     "refundDetails": [
       {
-        "refundNo": "R001-20260417002149463108",
+        "refundNo": "T001-20260417002149463108",
         "refundAmount": "500.00",
         "refundStatus": 2,
         "refundTime": "2026-04-17 00:21:50"
       },
       {
-        "refundNo": "R001-20260417002149463108123123",
+        "refundNo": "T001-20260417002149463108123123",
         "refundAmount": "500.00",
         "refundStatus": 2,
         "refundTime": "2026-04-17 00:21:50"

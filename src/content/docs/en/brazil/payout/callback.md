@@ -49,19 +49,19 @@ description: Merchant receives a payout result callback
 
 ```json title="Callback Example"
 {
-"amount": "300",
-"merchantOrderNo": "A0000000000000000000000000000085",
-"tradeNo": "TF2405220001BR0000527108668641",
-"refundTime": "2026-04-20 04:17:29",
-"completeTime": "2026-04-20 04:17:29",
-"refundStatus": 2,
-"serviceAmount": "0",
-"refundNo": "R002-TF2405220001BR0000527108668641",
-"status": 5,
-"refundAmount": "200",
-"errorMessage": null,
-"errorCode": null,
-"sign": ""
+  "amount": "300",
+  "merchantOrderNo": "OrderNoExample",
+  "tradeNo": "TF2501010001BR0000000000000000",
+  "completeTime": "2026-04-20 04:17:29",
+  "status": 5,
+  "serviceAmount": "0",
+  "refundStatus": 2,
+  "refundNo": "T002-TF2405220001BR0000527108668641",
+  "refundAmount": "200",
+  "refundTime": "2026-04-20 04:17:29",
+  "errorMessage": null,
+  "errorCode": null,
+  "sign": ""
 }
 ```
 

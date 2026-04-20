@@ -47,13 +47,13 @@ description: 商户查询一个代付订单的状态
 | refundDetails     | Array  | yes |    | 退款明细                              |
 | - refundNo        | String | yes |    | 退款单号                              |
 | - refundAmount    | String | yes |    | 当次退款金额                            |
-| - refundStatus    | String | yes |    | 当次退款状态  0（部分退款）1（全额退款）            |
+| - refundStatus    | Int    | yes |    | 当次退款状态  0（部分退款）1（全额退款）            |
 | - refundTime      | String | yes |    | 当次退款时间                            |
 | errorCode         | number | yes |    | 订单失败状态错误码                         |
 | errorMessage      | String | yes |    | 订单失败错误信息                          |
 | completeTime      | String | yes |    | 完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式 |
 
-```json
+```json title=成功示例
 {
   "code": 200,
   "data": {
@@ -92,13 +92,13 @@ description: 商户查询一个代付订单的状态
     "totalRefundAmount": "1000.00",
     "refundDetails": [
       {
-        "refundNo": "R001-20260417002149463108",
+        "refundNo": "T001-20260417002149463108",
         "refundAmount": "500.00",
         "refundStatus": 2,
         "refundTime": "2026-04-17 00:21:50"
       },
       {
-        "refundNo": "R001-20260417002149463108123123",
+        "refundNo": "T001-20260417002149463108123123",
         "refundAmount": "500.00",
         "refundStatus": 2,
         "refundTime": "2026-04-17 00:21:50"
