@@ -6,24 +6,24 @@ description: Merchant queries the status of a payout order
 ### Request URL
 
 | method | url                      |
-| ------ | ------------------------ |
+|--------|--------------------------|
 | POST   | /api/pay/payout/query/v1 |
 
 ### Header Information
 
 | Header Parameter | Description       |
-| --------------- |-------------------|
-| timestamp      | Request timestamp |
-| nonce          | Random value      |
-| country        | Country code (BR) |
-| app_code       | Application ID    |
+|------------------|-------------------|
+| timestamp        | Request timestamp |
+| nonce            | Random value      |
+| country          | Country code (BR) |
+| app_code         | Application ID    |
 
 ### Request Parameters
 
 | Field           | Type   | Required | Length | Description           |
-| --------------- | ------ | -------- | ------ | --------------------- |
+|-----------------|--------|----------|--------|-----------------------|
 | merchantOrderNo | String | yes      | 32     | Merchant order number |
-| sign           | String | yes      |        | Signature            |
+| sign            | String | yes      |        | Signature             |
 
 ```json title="Request Example"
 {
@@ -34,24 +34,24 @@ description: Merchant queries the status of a payout order
 
 ### Response Parameters
 
-| Parameter          | Type    | Required | Length | Description                                                       |
-| ----------------- | ------- | -------- | ------ | ----------------------------------------------------------------- |
-| merchantOrderNo   | String | yes | 32 | 商户订单号                             |
-| tradeNo           | String | yes |    | 平台订单号                             |
-| amount            | String | yes |    | 代付金额                              |
-| status            | Int    | yes |    | 代付状态,2:成功 3:失败                    |
-| serviceAmount     | String | yes |    | 服务费用  =  固收金额 +  交易金额 * 服务费率      |
-| immService        | String | yes |    | 固收金额                              |
-| serviceRate       | String | yes |    | 服务费率                              |
-| totalRefundAmount | String | yes |    | 退款总金额                             |
-| refundDetails     | Array  | yes |    | 退款明细                              |
-| - refundNo        | String | yes |    | 退款单号                              |
-| - refundAmount    | String | yes |    | 当次退款金额                            |
-| - refundStatus    | String | yes |    | 当次退款状态  0（部分退款）1（全额退款）            |
-| - refundTime      | String | yes |    | 当次退款时间                            |
-| errorCode         | number | yes |    | 订单失败状态错误码                         |
-| errorMessage      | String | yes |    | 订单失败错误信息                          |
-| completeTime      | String | yes |    | 完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式 |
+| Parameter         | Type   | Required | Length | Description                                                              |
+|-------------------|--------|----------|--------|--------------------------------------------------------------------------|
+| merchantOrderNo   | String | yes      | 32     | Merchant order number                                                    |
+| tradeNo           | String | yes      |        | Platform order number                                                    |
+| amount            | String | yes      |        | Payout amount                                                            |
+| status            | Int    | yes      |        | Payout status, 2: Success 3: Failed                                      |
+| serviceAmount     | String | yes      |        | Service fee = Fixed fee + Transaction amount * Service rate              |
+| immService        | String | yes      |        | Fixed fee                                                                |
+| serviceRate       | String | yes      |        | Service rate                                                             |
+| totalRefundAmount | String | yes      |        | Total refund amount                                                      |
+| refundDetails     | Array  | yes      |        | Refund details                                                           |
+| - refundNo        | String | yes      |        | Refund number                                                            |
+| - refundAmount    | String | yes      |        | Refund amount for this transaction                                       |
+| - refundStatus    | String | yes      |        | Refund status 0 (Partial refund) 1 (Full refund)                         |
+| - refundTime      | String | yes      |        | Refund time for this transaction                                         |
+| errorCode         | number | yes      |        | Order failure error code                                                 |
+| errorMessage      | String | yes      |        | Order failure error message                                              |
+| completeTime      | String | yes      |        | Completion time in current country timezone, format: yyyy-MM-dd HH:mm:ss |
 
 ```json
 {
@@ -74,7 +74,7 @@ description: Merchant queries the status of a payout order
 
 ```
 
-```json title=退款示例
+```json title=Refund Example
 {
   "code": 200,
   "data": {
@@ -117,3 +117,4 @@ description: Merchant queries the status of a payout order
   "msg": "Order not found",
   "success": false
 }
+```
