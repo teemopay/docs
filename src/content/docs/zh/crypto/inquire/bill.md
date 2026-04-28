@@ -72,7 +72,7 @@ description: 订单列表
 | - amount                 | String | yes |    | 订单原始金额                                            |
 | - transactionAmount      | String | yes |    | 流水实际入账金额（不扣除手续费）。失败 0.00                          |
 | - serviceAmount          | String | yes |    | 手续费总额（固定费 + 百分比费）                                 |
-| - status                 | String | yes |    | 状态：1-交易中, 2-成功, 3-失败,4 - 退款                       |
+| - status                 | String | yes |    | 状态：1-交易中, 2-成功, 3-失败,4 - 退款,5 - 部分退款,5 - 部分退款                       |
 | - settleStatus           | String | yes |    | 结算状态：0-未结, 1-已结                                   |
 | - createTime             | String | yes |    | 创建时间 - 当前国家时区 yyyy-MM-dd HH:mm:ss格式               |
 | - completeTime           | String | yes |    | 完成时间 -当前国家时区 yyyy-MM-dd HH:mm:ss格式                |

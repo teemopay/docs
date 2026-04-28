@@ -30,7 +30,7 @@ description: Order List
 | pageIndex | String  | no      |        | Cursor: No need to pass for the first page request; must be passed for non-first pages to locate the pagination start position.                              |
 | pageSize  | Integer | no      |        | Query quantity: Default 500, maximum 1000.                                             |
 | type      | String  | yes     |        | Business type: PAYIN, PAYOUT, only one type can be queried at a time                                     |
-| status    | Integer | no      |        | Status: 1: Processing  2: Success  3: Failed 4: Refund                                     |
+| status    | Integer | no      |        | Status: 1: Processing  2: Success  3: Failed 4: Refund 5: Part Refund                                     |
 | beginTime | String  | yes     |        | Start time: Format: yyyy-MM-dd HH:mm:ss.SSS. Constraint: No earlier than 90 days before the current date, no later than the current time      |
 | endTime   | String  | yes     |        | End time: Format: yyyy-MM-dd HH:mm:ss.SSS. Constraint: endTime - beginTime ≤ 31 days |
 | sign      | String  | yes     |        | Signature                                                                |
