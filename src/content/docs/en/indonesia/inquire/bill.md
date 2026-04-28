@@ -20,7 +20,7 @@ description: Order List
 
 ### Notes
 
-1. Provides real-time transaction query for the past 90 days. Pull efficiency: A single query takes a natural month (e.g., 00:00:00 on the 1st to 23:59:59 on the 31st) as the interval.
+1. Provides real-time transaction query for the past 180 days. Pull efficiency: A single query takes a natural month (e.g., 00:00:00 on the 1st to 23:59:59 on the 31st) as the interval.
 2. Status coverage logic: For payout business, some country systems may have the possibility of "success first then refund". When processing the data returned by queryList, merchants should treat status == 4 (refund) as the order funds have been reversed. Do not treat it as a new order, but associate it with the original business order for status reconciliation.
 
 ### Request Parameters
@@ -77,6 +77,12 @@ description: Order List
 | — completeTime      | String | yes     |        | Completion time — Current country time zone yyyy-MM-dd HH:mm:ss format  |
 | — settleTime        | String | yes     |        | Settlement time — Current country time zone yyyy-MM-dd HH:mm:ss format |
 | — failReason        | String | yes     |        | Error reason                                |
+| — paymentList       | List   | yes     |        | For PAYIN business only. List of payment transaction details associated with the order. Returns empty array or not returned when type=PAYOUT |
+| • paymentSingleOrderNo   | String | yes     |        | Single payment notification transaction number, used for merchant reconciliation |
+| • paymentStatementAmount | String | yes     |        | Single settlement amount                              |
+| • settleTime             | String | yes     |        | Single settlement time                                |
+| • settleStatus           | String | yes     |        | Single settlement status: 0-Unsettled, 1-Settled      |
+| • completeTime           | String | yes     |        | Single completion time                                |
 
 ```json title=Response Example
 {
@@ -96,7 +102,16 @@ description: Order List
         "failReason": null,
         "createTime": "2026-02-27 03:00:47",
         "completeTime": "2026-02-27 03:01:08",
-        "settleTime": null
+        "settleTime": null,
+        "paymentList": [
+          {
+            "paymentSingleOrderNo": "TSO4h8r26014h54553440l5vxs41u8",
+            "paymentStatementAmount": "5000.00",
+            "settleStatus": 0,
+            "settleTime": null,
+            "completeTime": "2026-02-27 03:01:08"
+          }
+        ]
       }
     ]
   },

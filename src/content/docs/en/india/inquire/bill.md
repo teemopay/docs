@@ -20,7 +20,7 @@ description: Order List
 
 ## Notes
 
-1. Provides real-time transaction queries for the past 90 days. For efficiency, query in intervals of one calendar month (e.g., from the 1st at 00:00:00 to the last day at 23:59:59).
+1. Provides real-time transaction queries for the past 180 days. For efficiency, query in intervals of one calendar month (e.g., from the 1st at 00:00:00 to the last day at 23:59:59).
 2. **Status update logic for payouts:** In some countries, a transaction may succeed and then be refunded. When processing `queryList` results, if `status == 4` (Refund), treat it as a reversal on the original order — do not process it as a new order.
 
 ## Request Parameters
@@ -79,6 +79,12 @@ description: Order List
 | — completeTime | String | Yes | Completion time — local timezone, format: `yyyy-MM-dd HH:mm:ss` |
 | — settleTime | String | Yes | Settlement time — local timezone, format: `yyyy-MM-dd HH:mm:ss` |
 | — failReason | String | Yes | Failure reason |
+| — paymentList | List | Yes | For PAYIN business only. List of payment transaction details associated with the order. Returns empty array or not returned when type=PAYOUT |
+| • paymentSingleOrderNo | String | Yes | Single payment notification transaction number, used for merchant reconciliation |
+| • paymentStatementAmount | String | Yes | Single settlement amount |
+| • settleTime | String | Yes | Single settlement time |
+| • settleStatus | String | Yes | Single settlement status: 0-Unsettled, 1-Settled |
+| • completeTime | String | Yes | Single completion time |
 
 **Response Example**
 ```json
