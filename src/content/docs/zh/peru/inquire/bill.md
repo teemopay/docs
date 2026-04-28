@@ -62,47 +62,62 @@ description: 订单列表
 
 ### 返回参数
 
-| 参数                  | 类型     | 必需  | 长度 | 描述                                  |
-|---------------------|--------|-----|----|-------------------------------------|
-| pageIndex           | String | yes |    | 游标                                  |
-| records             | List   | yes |    |                                     |
-| — type              | String | yes |    | 业务类型：PAYIN (代收), PAYOUT (代付)        |
-| — merchantOrderNo   | String | yes |    | 商户单号                                |
-| — tradeNo           | String | yes |    | 平台单号                                |
-| — amount            | String | yes |    | 订单原始金额                              |
-| — transactionAmount | String | yes |    | 流水实际入账金额（不扣除手续费）。失败 0.00            |
-| — serviceAmount     | String | yes |    | 手续费总额（固定费 + 百分比费）                   |
-| — status            | String | yes |    | 状态：1-交易中, 2-成功, 3-失败,4 - 退款         |
-| — settleStatus      | String | yes |    | 结算状态：0-未结, 1-已结                     |
-| — createTime        | String | yes |    | 创建时间 — 当前国家时区 yyyy-MM-dd HH:mm:ss格式 |
-| — completeTime      | String | yes |    | 完成时间 —当前国家时区 yyyy-MM-dd HH:mm:ss格式  |
-| — settleTime        | String | yes |    | 结算时间 — 当前国家时区 yyyy-MM-dd HH:mm:ss格式 |
-| — failReason        | String | yes |    | 错误原因                                |
+| 参数                       | 类型     | 必需  | 长度 | 描述                                                |
+|--------------------------|--------|-----|----|---------------------------------------------------|
+| pageIndex                | String | yes |    | 游标                                                |
+| records                  | List   | yes |    |                                                   |
+| - type                   | String | yes |    | 业务类型：PAYIN (代收), PAYOUT (代付)                      |
+| - merchantOrderNo        | String | yes |    | 商户单号                                              |
+| - tradeNo                | String | yes |    | 平台单号                                              |
+| - amount                 | String | yes |    | 订单原始金额                                            |
+| - transactionAmount      | String | yes |    | 流水实际入账金额（不扣除手续费）。失败 0.00                          |
+| - serviceAmount          | String | yes |    | 手续费总额（固定费 + 百分比费）                                 |
+| - status                 | String | yes |    | 状态：1-交易中, 2-成功, 3-失败,4 - 退款                       |
+| - settleStatus           | String | yes |    | 结算状态：0-未结, 1-已结                                   |
+| - createTime             | String | yes |    | 创建时间 - 当前国家时区 yyyy-MM-dd HH:mm:ss格式               |
+| - completeTime           | String | yes |    | 完成时间 -当前国家时区 yyyy-MM-dd HH:mm:ss格式                |
+| - settleTime             | String | yes |    | 结算时间 - 当前国家时区 yyyy-MM-dd HH:mm:ss格式               |
+| - failReason             | String | yes |    | 错误原因                                              |
+| - paymentList            | List   | yes |    | 代收业务专用。订单关联的支付流水详情列表。当 type=PAYOUT 时，该字段返回空数组或不返回 |
+| • paymentSingleOrderNo   | String | yes |    | 单次支付通知流水号，用于商户对账关联。                               |
+| • paymentStatementAmount | String | yes |    | 单次结算金额                                            |
+| • settleTime             | String | yes |    | 单次结算时间                                            |
+| • settleStatus           | String | yes |    | 单次结算状态  0-未结, 1-已结                                |
+| • completeTime           | String | yes |    | 单次完成时间                                            |
 
 ```json title=返回示例
 {
   "code": 200,
   "data": {
-    "pageIndex": "KgntH8WpwV0lKKYXQr8MY1EgdicDUz/V4l8nCk4QRty3",
     "records": [
       {
         "type": "PAYIN",
-        "merchantOrderNo": "2C2741241kCApltr2IATMy0c9900440",
-        "tradeNo": "TS24052200000491357178416",
-        "amount": "5000.00",
-        "transactionAmount": "5000.00",
-        "serviceAmount": "26.00",
+        "merchantOrderNo": "LD2604280543139046766732578816",
+        "tradeNo": "TS2405220001AR0000532820828350",
+        "amount": "400.00",
+        "transactionAmount": "400.00",
+        "serviceAmount": "0.00",
         "status": 2,
-        "settleStatus": null,
+        "settleStatus": 0,
         "failReason": null,
-        "createTime": "2026-02-27 03:00:47",
-        "completeTime": "2026-02-27 03:01:08",
-        "settleTime": null
+        "createTime": "2026-04-28 05:43:24",
+        "completeTime": "2026-04-28 05:43:39",
+        "settleTime": null,
+        "paymentList": [
+          {
+            "paymentSingleOrderNo": "TSO4h8r26014h54553440l5vxs41u8",
+            "paymentStatementAmount": "400.00",
+            "settleStatus": 0,
+            "settleTime": null,
+            "completeTime": "2026-04-28 05:43:39"
+          }
+        ]
       }
-    ]
+    ],
+    "pageIndex": "HniK3YZucTudM/kfEpQCLtFVnFaBlcv1K0MG+phCUd2EfYIt"
   },
   "msg": "success",
-  "traceId": "70fc57471a9143e3b7806d473cf33958.90.17727811039671545"
+  "traceId": "8da08d717dbf46a5becdb3776f67640c.113.17773658218864081"
 }
 ```
 
