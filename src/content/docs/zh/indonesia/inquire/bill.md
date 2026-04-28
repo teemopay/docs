@@ -80,10 +80,10 @@ description: 订单列表
 | - failReason             | String | yes |    | 错误原因                                              |
 | - paymentList            | List   | yes |    | 代收业务专用。订单关联的支付流水详情列表。当 type=PAYOUT 时，该字段返回空数组或不返回 |
 | • paymentSingleOrderNo   | String | yes |    | 单次支付通知流水号，用于商户对账关联。                               |
-| • paymentStatementAmount | String | yes |    | 单次结算金额                                            |
-| • settleTime             | String | yes |    | 单次结算时间                                            |
-| • settleStatus           | String | yes |    | 单次结算状态  0-未结, 1-已结                                |
-| • completeTime           | String | yes |    | 单次完成时间                                            |
+| • paymentStatementAmount | String | yes |    | 当次入账金额                                            |
+| • settleTime             | String | yes |    | 当次结算时间                                            |
+| • settleStatus           | String | yes |    | 当次结算状态  0-未结, 1-已结                                |
+| • completeTime           | String | yes |    | 当次完成时间                                            |
 
 ```json title=返回示例
 {
