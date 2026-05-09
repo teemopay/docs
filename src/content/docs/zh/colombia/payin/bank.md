@@ -1,0 +1,56 @@
+---
+title: 银行列表
+description: 代收支持的银行列表
+---
+
+| 银行代码 | 银行名称 |
+| -------- | ------------------------------ |
+| 1831     | ACCION FIDUCIARIA |
+| 1815     | ALIANZA FIDUCIARIA |
+| 1558     | BAN100 |
+| 1059     | BANCAMIA S.A. |
+| 1040     | BANCO AGRARIO |
+| 1052     | BANCO AV VILLAS |
+| 1013     | BANCO BBVA COLOMBIA S.A. |
+| 1032     | BANCO CAJA SOCIAL |
+| 1066     | BANCO COOPERATIVO COOPCENTRAL |
+| 1051     | BANCO DAVIVIENDA |
+| 1001     | BANCO DE BOGOTA |
+| 1023     | BANCO DE OCCIDENTE |
+| 1062     | BANCO FALABELLA |
+| 1063     | BANCO FINANDINA S.A. BIC |
+| 1012     | BANCO GNB SUDAMERIS |
+| 1006     | BANCO ITAU |
+| 1071     | BANCO J.P. MORGAN COLOMBIA S.A. |
+| 1047     | BANCO MUNDO MUJER S.A. |
+| 1060     | BANCO PICHINCHA S.A. |
+| 1002     | BANCO POPULAR |
+| 1065     | BANCO SANTANDER COLOMBIA |
+| 1069     | BANCO SERFINANZA |
+| 1303     | BANCO UNION |
+| 1007     | BANCOLOMBIA |
+| 1061     | BANCOOMEVA S.A. |
+| 1808     | BOLD CF |
+| 1283     | CFA COOPERATIVA FINANCIERA |
+| 1009     | CITIBANK |
+| 1812     | COINK SA |
+| 1370     | COLTEFINANCIERA |
+| 1292     | CONFIAR COOPERATIVA FINANCIERA |
+| 1289     | COTRAFA |
+| 1816     | CREZCAMOS |
+| 1097     | DALE |
+| 1019     | DAVIbank S.A. / SCOTIABANK COLPATRIA |
+| 1551     | DAVIPLATA |
+| 1802     | DING |
+| 1121     | FINANCIERA JURISCOOP SA COMPAÑÍA DE FINANCIAMIENTO |
+| 1814     | GLOBAL66 |
+| 1637     | IRIS |
+| 1286     | JFK COOPERATIVA FINANCIERA |
+| 1070     | LULO BANK |
+| 1801     | MOVII S.A. |
+| 1507     | NEQUI |
+| 1809     | NU |
+| 1824     | PAYCASH |
+| 1803     | POWWI |
+| 1811     | RAPPIPAY |
+| 1804     | UALÁ |

@@ -20,44 +20,44 @@ description: 商户创建收银台
 
 ## 支付方式列表（paymentType）
 
-| 支付方式名称                 | PaymentType |
-|------------------------|-------------|
-| PSE                      | 201         |
-| NEQUI_PUSH               | 213         |
-| EFECTY                   | 205         |
-| BREB                     | 212         |
-| DAVIPLATA                | 206         |
-| MOVI                     | 207         |
+| 支付方式名称     | PaymentType |
+|------------|-------------|
+| PSE        | 201         |
+| NEQUI_PUSH | 213         |
+| EFECTY     | 205         |
+| BREB       | 212         |
+| DAVIPLATA  | 206         |
+| MOVI       | 207         |
 
 ### 请求参数
 
-| 字段              | 类型     | 必需 | 长度  | 描述                                                                                                   |
-|-----------------|--------|----|-----|------------------------------------------------------------------------------------------------------|
-| merchantOrderNo | String | 是  | 32  | 商户订单号                                                                                                |
-| paymentType     | Int    | 否  |     | 支付方式，详见上方支付方式列表。不传输则返回配置的支付方式                                                            |
-| amount          | String | 是  | 20  | 金额                                                                                                   |
-| expirationTime  | String | 否  |     | 页面过期时间 【最小一天,最长七天 毫秒级时间戳 eg:1735660800000】                                                           |
-| idType          | String | 否  | 32  | 如果传输会携带到页面上；身份证类型: CC(6-10位数;身份证)、CE(6-10位数)、NIT(9位数;税号)、PA(9位数;护照)                                  |
-| idCardNumber    | String | 否  | 50  | 如果传输会携带到页面上；身份证号码: CC 10位数、CE 6-10位数、NIT 9位数、PA 数字加字母                                                |
-| realName        | String | 否  | 64  | 如果传输会携带到页面上；用户姓名                                                                                     |
-| phone           | String | 否  | 50  | 如果传输会携带到页面上；10位数字以3开头；如果是钱包支付则传输钱包账号                                                                 |
-| email           | String | 否  | 50  | 如果传输会携带到页面上；付款人邮箱; 务必符合正则表达式                                                                         |
-| remark          | String | 否  |     | 如果传输会携带到页面上；订单备注                                                                                     |
-| bankCode        | String | 否  |     | 如果传输会携带到页面上；付款银行（当PSE 时需要）                                                                           |
-| callbackUrl     | String | 否  | 200 | 回调地址（若不传递，取商户后台配置的回调地址）                                                                              |
-| sign            | String | 是  |     | 签名                                                                                                   |
+| 字段              | 类型     | 必需 | 长度  | 描述                                                                  |
+|-----------------|--------|----|-----|---------------------------------------------------------------------|
+| merchantOrderNo | String | 是  | 32  | 商户订单号                                                               |
+| paymentType     | Int    | 否  |     | 支付方式，详见上方支付方式列表。不传输则返回配置的支付方式                                       |
+| amount          | String | 是  | 20  | 金额                                                                  |
+| expirationTime  | String | 否  |     | 页面过期时间 【最小一天,最长七天 毫秒级时间戳 eg:1735660800000】                          |
+| idType          | String | 否  | 32  | 如果传输会携带到页面上；身份证类型: CC(6-10位数;身份证)、CE(6-10位数)、NIT(9位数;税号)、PA(9位数;护照) |
+| idCardNumber    | String | 否  | 50  | 如果传输会携带到页面上；身份证号码: CC 10位数、CE 6-10位数、NIT 9位数、PA 数字加字母               |
+| realName        | String | 否  | 64  | 如果传输会携带到页面上；用户姓名                                                    |
+| phone           | String | 否  | 50  | 如果传输会携带到页面上；10位数字以3开头；如果是钱包支付则传输钱包账号                                |
+| email           | String | 否  | 50  | 如果传输会携带到页面上；付款人邮箱; 务必符合正则表达式                                        |
+| remark          | String | 否  |     | 如果传输会携带到页面上；订单备注                                                    |
+| bankCode        | String | 否  |     | 如果传输会携带到页面上；付款银行（当PSE 时需要参考代收银行列表）                                  |
+| callbackUrl     | String | 否  | 200 | 回调地址（若不传递，取商户后台配置的回调地址）                                             |
+| sign            | String | 是  |     | 签名                                                                  |
 
 ```json title=请求示例
 {
   "merchantOrderNo": "example",
-  "paymentType":201,
+  "paymentType": 201,
   "idType": "CE",
   "idCardNumber": "example",
   "realName": "",
-  "phone":"3231example2111",
-  "email":"123example@123.com",
+  "phone": "3231example2111",
+  "email": "123example@123.com",
   "bankCode": 1815,
-  "amount" : "100",
+  "amount": "100",
   "sign": "example"
 }
 ```
