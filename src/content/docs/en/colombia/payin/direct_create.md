@@ -51,8 +51,8 @@ and generate keys here: 👉 https://www.banrep.gov.co/es/bre-b/simuladores-curs
 | paymentType     | Int    | yes      |        | Payment types, see list above                                                                                                                                                                |
 | amount          | String | yes      | 20     | Payin amount, integer only, in COP                                                                                                                                                           |
 | expirationTime  | Long   | no       |        | Expiration timestamp                                                                                                                                                                         |
-| realName        | String | yes      | 64     | User’s full name                                                                                                                                                                             |
-| email           | String | yes      | 50     | User’s email (must match a valid regex format)                                                                                                                                               |
+| realName        | String | yes      | 64     | User's full name                                                                                                                                                                             |
+| email           | String | yes      | 50     | User's email (must match a valid regex format)                                                                                                                                               |
 | phone           | String | yes      | 50     | Phone number, 10 digits, no country code     【When the payment method is 202, this mobile phone number must be the user's wallet account.】                                                   |
 | idCardNumber    | String | No       | 50     | ID Number: CC (10 digits), CE (6-10 digits), NIT (9 digits). <br/> Mandatory when the paymentType is 201 (PSE) or 202 (WALLET).                                                              |
 | idType          | String | No       | 32     | Id Type: CC (6-10 digits; ID Card), CE (6-10 digits), NIT (9 digits; Tax Identification Number), PA (9 digits; Passport). <br/> Mandatory when the paymentType is 201 (PSE) or 202 (WALLET). |
@@ -60,7 +60,7 @@ and generate keys here: 👉 https://www.banrep.gov.co/es/bre-b/simuladores-curs
 | sign            | String | yes      |        | Signature                                                                                                                                                                                    |
 | callbackUrl     | String | no       | 200    | Callback URL                                                                                                                                                                                 |
 
-```json title="请求示例"
+```json title="Request Example"
 {
   "realName": "TeemoPay",
   "amount": "10000",
@@ -76,7 +76,7 @@ and generate keys here: 👉 https://www.banrep.gov.co/es/bre-b/simuladores-curs
 }
 ```
 
-```json title="请求示例"
+```json title="Request Example"
 {
   "realName": "TeemoPay",
   "amount": "10000",

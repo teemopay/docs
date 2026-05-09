@@ -174,14 +174,14 @@ export default defineConfig({
               en: "🇨🇴 Colombia",
               zh: "🇨🇴 哥伦比亚",
             },
-            link: "/colombia/payin/create",
+            link: "/colombia/payin/cashier_create",
             items: [
               {
                 label: "Payin",
                 translations: {
                   zh: "代收",
                 },
-                items: ["colombia/payin/create", "colombia/payin/callback", "colombia/payin/query"],
+                items: ["colombia/payin/cashier_create","colombia/payin/direct_create", "colombia/payin/callback", "colombia/payin/query"],
               },
               {
                 label: "Payout",
