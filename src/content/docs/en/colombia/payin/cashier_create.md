@@ -18,12 +18,23 @@ description: Merchant creates a cashier
 | country     | CO  |
 | app_code    | App code   |
 
+## Supported Payment Types (paymentType)
+
+| Payment Method Name | PaymentType |
+|---------------------|-------------|
+| PSE                 | 201         |
+| NEQUI_PUSH          | 213         |
+| EFECTY              | 205         |
+| BREB                | 212         |
+| DAVIPLATA           | 206         |
+| MOVI                | 207         |
+
 ### Request Parameters
 
 | Field           | Type     | Required | Length  | Description                            |
 |-----------------|--------|-----|-------|-------------------------------|
 | merchantOrderNo | String | Yes   | 32    | Merchant order number                         |
-| paymentType     | Int    | No   |      | If not passed, configured payment methods will be returned; Payment methods: PSE (201), WALLET - NEQUI_PUSH (213), EFECTY (205), BREB (212), DAVIPLATA (206), MOVI (207) |
+| paymentType     | Int    | No   |      | Payment type, see list above. If not passed, configured payment methods will be returned |
 | amount          | String | Yes   | 20    | Amount                             |
 | expirationTime  | String | No   |      | Page expiration time 【Minimum 1 day, maximum 7 days in millisecond timestamp, e.g.: 1735660800000】 |
 | idType          | String | No   | 32    | If passed, will be carried to the page; ID type: CC (6-10 digits; ID card), CE (6-10 digits), NIT (9 digits; Tax ID), PA (9 digits; Passport) |

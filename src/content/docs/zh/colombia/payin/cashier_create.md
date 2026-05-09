@@ -18,12 +18,23 @@ description: 商户创建收银台
 | country   | CO     |
 | app_code  | app编号  |
 
+## 支付方式列表（paymentType）
+
+| 支付方式名称                 | PaymentType |
+|------------------------|-------------|
+| PSE                      | 201         |
+| NEQUI_PUSH               | 213         |
+| EFECTY                   | 205         |
+| BREB                     | 212         |
+| DAVIPLATA                | 206         |
+| MOVI                     | 207         |
+
 ### 请求参数
 
 | 字段              | 类型     | 必需 | 长度  | 描述                                                                                                   |
 |-----------------|--------|----|-----|------------------------------------------------------------------------------------------------------|
 | merchantOrderNo | String | 是  | 32  | 商户订单号                                                                                                |
-| paymentType     | Int    | 否  |     | 不传输则返回配置的支付方式；支付方式 PSE（201）、WALLET - NEQUI_PUSH（213）、EFECTY（205）、BREB（212）、DAVIPLATA (206)、MOVI（207） |
+| paymentType     | Int    | 否  |     | 支付方式，详见上方支付方式列表。不传输则返回配置的支付方式                                                            |
 | amount          | String | 是  | 20  | 金额                                                                                                   |
 | expirationTime  | String | 否  |     | 页面过期时间 【最小一天,最长七天 毫秒级时间戳 eg:1735660800000】                                                           |
 | idType          | String | 否  | 32  | 如果传输会携带到页面上；身份证类型: CC(6-10位数;身份证)、CE(6-10位数)、NIT(9位数;税号)、PA(9位数;护照)                                  |
