@@ -6,46 +6,49 @@ description: Merchant creates a cashier
 ### Request URL
 
 | method | url                          |
-| ------ |------------------------------|
+|--------|------------------------------|
 | POST   | /api/checkout/payment/create |
 
 ### Header Information
 
-| Header Parameter | Description   |
-|-------------|---------|
-| timestamp   | Request timestamp   |
-| nonce       | Random value     |
-| country     | CO  |
-| app_code    | App code   |
+| Header Parameter | Description       |
+|------------------|-------------------|
+| timestamp        | Request timestamp |
+| nonce            | Random value      |
+| country          | CO                |
+| app_code         | App code          |
 
 ## Supported Payment Types (paymentType)
 
 | Payment Method Name | PaymentType |
 |---------------------|-------------|
 | PSE                 | 201         |
-| NEQUI_PUSH          | 213         |
 | EFECTY              | 205         |
-| BREB                | 212         |
-| DAVIPLATA           | 206         |
-| MOVI                | 207         |
+| DAVIPLATA           | 207         |
+| Transfiya           | 209         |
+| MOVII               | 210         |
+| DALE                | 211         |
+| BRE_B               | 212         |
+| NEQUI_PUSH          | 213         |
+| BRE_B_QR            | 214         |
 
 ### Request Parameters
 
-| Field           | Type     | Required | Length  | Description                            |
-|-----------------|--------|-----|-------|-------------------------------|
-| merchantOrderNo | String | Yes   | 32    | Merchant order number                         |
-| paymentType     | Int    | No   |      | Payment type, see list above. If not passed, configured payment methods will be returned |
-| amount          | String | Yes   | 20    | Amount                             |
-| expirationTime  | String | No   |      | Page expiration time 【Minimum 1 day, maximum 7 days in millisecond timestamp, e.g.: 1735660800000】 |
-| idType          | String | No   | 32    | If passed, will be carried to the page; ID type: CC (6-10 digits; ID card), CE (6-10 digits), NIT (9 digits; Tax ID), PA (9 digits; Passport) |
-| idCardNumber    | String | No   | 50    | If passed, will be carried to the page; ID number: CC 10 digits, CE 6-10 digits, NIT 9 digits, PA alphanumeric |
-| realName        | String | No   | 64    | If passed, will be carried to the page; User name     |
-| phone           | String | No   | 50    | If passed, will be carried to the page; 10 digits starting with 3; for wallet payment, pass the wallet account |
-| email           | String | No   | 50    | If passed, will be carried to the page; Payer email; must comply with regex expression |
-| remark          | String | No   |      | If passed, will be carried to the page; Order remarks     |
-| bankCode        | String | No   |      | If passed, will be carried to the page; Payment bank (required when using PSE) |
-| callbackUrl     | String | No   | 200   | Callback address (if not passed, the callback address configured in the merchant backend will be used) |
-| sign            | String | Yes   |      | Signature                             |
+| Field           | Type   | Required | Length | Description                                                                                                                                   |
+|-----------------|--------|----------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String | Yes      | 32     | Merchant order number                                                                                                                         |
+| paymentType     | Int    | No       |        | Payment type, see list above. If not passed, configured payment methods will be returned                                                      |
+| amount          | String | Yes      | 20     | Amount                                                                                                                                        |
+| expirationTime  | String | No       |        | Page expiration time 【Minimum 1 day, maximum 7 days in millisecond timestamp, e.g.: 1735660800000】                                            |
+| idType          | String | No       | 32     | If passed, will be carried to the page; ID type: CC (6-10 digits; ID card), CE (6-10 digits), NIT (9 digits; Tax ID), PA (9 digits; Passport) |
+| idCardNumber    | String | No       | 50     | If passed, will be carried to the page; ID number: CC 10 digits, CE 6-10 digits, NIT 9 digits, PA alphanumeric                                |
+| realName        | String | No       | 64     | If passed, will be carried to the page; User name                                                                                             |
+| phone           | String | No       | 50     | If passed, will be carried to the page; 10 digits starting with 3; for wallet payment, pass the wallet account                                |
+| email           | String | No       | 50     | If passed, will be carried to the page; Payer email; must comply with regex expression                                                        |
+| remark          | String | No       |        | If passed, will be carried to the page; Order remarks                                                                                         |
+| bankCode        | String | No       |        | If passed, will be carried to the page; Payment bank (required when using PSE)                                                                |
+| callbackUrl     | String | No       | 200    | Callback address (if not passed, the callback address configured in the merchant backend will be used)                                        |
+| sign            | String | Yes      |        | Signature                                                                                                                                     |
 
 ```json title=Request Example
 {
@@ -66,15 +69,15 @@ description: Merchant creates a cashier
 
 ### Response Parameters
 
-| Parameter       | Type     | Required | Length | Description                                                      |
-|-----------------|--------|----| ---- |---------------------------------------------------------|
-| merchantOrderNo | String | Yes  | 32   | Merchant order number                                                   |
-| tradeNo         | String | Yes  |      | Platform order number                                                   |
-| amount          | String | Yes  |      | Order transaction amount                                                  |
-| status          | Int    | Yes  |      | Collection status: 0-Processing, 3-Failed                                         |
-| checkoutLink    | String | Yes  |      | Cashier address                                                   |
-| expirationTime  | String | Yes  |      | Cashier address expiration time                                               |
-| errorMsg        | String | No |      | Error message, returned on failure                                              |
+| Parameter       | Type   | Required | Length | Description                               |
+|-----------------|--------|----------|--------|-------------------------------------------|
+| merchantOrderNo | String | Yes      | 32     | Merchant order number                     |
+| tradeNo         | String | Yes      |        | Platform order number                     |
+| amount          | String | Yes      |        | Order transaction amount                  |
+| status          | Int    | Yes      |        | Collection status: 0-Processing, 3-Failed |
+| checkoutLink    | String | Yes      |        | Cashier address                           |
+| expirationTime  | String | Yes      |        | Cashier address expiration time           |
+| errorMsg        | String | No       |        | Error message, returned on failure        |
 
 ```json title=Success Response Example
 {
@@ -94,24 +97,25 @@ description: Merchant creates a cashier
 ```
 
 ### Error Codes
-| Error Code      | Error Message                                                            | Solution                                   |
-|----------------------|--------------------------------------------------------------------------|--------------------------------------------|
-| 412                  | Please try again later                                                   | Please try again later                                 |
-| 414                  | *                                                                        | Modify corresponding parameters                               |
-| 416                  | Application not found                                                     | app_code error, please modify                       |
-| 424                  | This payment method is not configured                                     | Collection method not configured, please contact us to configure the corresponding collection method |
-| 426                  | merchant order duplicate                                                 | Please use a different merchant order number                           |
-| 427                  | The callback notification address for collection must not be empty.       | Collection callback address not configured, please configure the collection callback address     |
-| 445                  | Amount must be an integer                                                 | Amount must be an integer                             |
-| 460                  | The current payment method is unavailable.                                | Current collection method unavailable, please change                 |
-| 473                  | Merchant joint verification error: *                                      | Configuration error, please contact us                       |
-| 500                  | Business Error                                                           | Please contact us                                 |
+
+| Error Code | Error Message                                                       | Solution                                                                                             |
+|------------|---------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| 412        | Please try again later                                              | Please try again later                                                                               |
+| 414        | *                                                                   | Modify corresponding parameters                                                                      |
+| 416        | Application not found                                               | app_code error, please modify                                                                        |
+| 424        | This payment method is not configured                               | Collection method not configured, please contact us to configure the corresponding collection method |
+| 426        | merchant order duplicate                                            | Please use a different merchant order number                                                         |
+| 427        | The callback notification address for collection must not be empty. | Collection callback address not configured, please configure the collection callback address         |
+| 445        | Amount must be an integer                                           | Amount must be an integer                                                                            |
+| 460        | The current payment method is unavailable.                          | Current collection method unavailable, please change                                                 |
+| 473        | Merchant joint verification error: *                                | Configuration error, please contact us                                                               |
+| 500        | Business Error                                                      | Please contact us                                                                                    |
 
 ```json title=Error Response Example
 {
-    "code": 426,
-    "data": null,
-    "msg": "merchant order duplicate",
-    "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
+  "code": 426,
+  "data": null,
+  "msg": "merchant order duplicate",
+  "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
 }
 ```

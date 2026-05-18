@@ -23,11 +23,14 @@ description: 商户创建收银台
 | 支付方式名称     | PaymentType |
 |------------|-------------|
 | PSE        | 201         |
-| NEQUI_PUSH | 213         |
 | EFECTY     | 205         |
-| BREB       | 212         |
-| DAVIPLATA  | 206         |
-| MOVI       | 207         |
+| DAVIPLATA  | 207         |
+| Transfiya  | 209         |
+| MOVII      | 210         |
+| DALE       | 211         |
+| BRE_B      | 212         |
+| NEQUI_PUSH | 213         |
+| BRE_B_QR   | 214         |
 
 ### 请求参数
 
