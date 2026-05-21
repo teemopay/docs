@@ -49,7 +49,7 @@ title: 悬账订单列表
 | records                | List   | yes |    | 悬账流水信息                |
 | — suspenseBankId       | String | yes |    | 单次次入账凭证id （bankid）    |
 | — suspenseAmount       | String | yes |    | 单次入账金额                |
-| — theoreticalAmount    | String | yes |    | 建议金额                  |
+| — theoreticalAmount    | String | yes |    | 建议金额 (补单范围)           |
 | — suspenseIdCardNumber | String | yes |    | 实际付款人身份信息（CUIT 或 DNI） |
 | — suspenseRealName     | String | yes |    | 实际付款人姓名               |
 | — suspenseCallbackTime | String | yes |    | 该流水入账时间               |

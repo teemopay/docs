@@ -49,7 +49,7 @@ Specifically for the AR (Argentina) market, querying unprocessed suspense transa
 | records                | List   | yes      |        | Suspense transaction information                |
 | — suspenseBankId       | String | yes      |        | Single transaction voucher id (bankid)          |
 | — suspenseAmount       | String | yes      |        | Single credit amount                            |
-| — theoreticalAmount    | String | yes      |        | Suggested amount                                |
+| — theoreticalAmount    | String | yes      |        | Suggested amount (Claim order range)            |
 | — suspenseIdCardNumber | String | yes      |        | Actual payer identity information (CUIT or DNI) |
 | — suspenseRealName     | String | yes      |        | Actual payer name                               |
 | — suspenseCallbackTime | String | yes      |        | Transaction credit time                         |
