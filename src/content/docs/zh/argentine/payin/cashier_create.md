@@ -20,20 +20,20 @@ description: 商户创建收银台
 
 ### 请求参数
 
-| 字段              | 类型     | 必需 | 长度  | 描述                                                                                 |
-|-----------------|--------|----|-----|------------------------------------------------------------------------------------|
-| merchantOrderNo | String | 是  | 32  | 商户订单号                                                                              |
-| paymentType     | Int    | 否  |     | 不传输则返回配置的支付方式；支付方式 【901（QR）、902 （CVU）、905 (Rapipago)、906 (Pagofacil)】 |
-| amount          | String | 是  | 20  | 金额                                                                                 |
-| expirationTime  | String | 否  | 20  | 过期时间、毫秒级时间戳 eg:1735660800000 【默认一天，最小10分钟,最长七天 】                                   |
-| idType          | String | 是  | 50  | 个人身份类型：DNI 、CUIT、CUIL  【推荐使用CUIT】                                                  |
-| idCardNumber    | String | 是  | 11  | 个人身份号：DNI （7位或8位数字）、CUIT（11位数字，首位必须是2或3）、CUIL（11位数字）                               |
-| phone           | String | 否  | 10  | 10位数字不加区号                                                                          |
-| email           | String | 否  | 50  | 付款人邮箱; 务必符合正则表达式                                                                   |
-| realName        | String | 是  | 50  | 付款人名字,建议全字母大写                                                                      |
-| callbackUrl     | String | 否  | 200 | 代收回调地址 （若不传递，取商户后台配置的回调地址）                                                         |
-| remark          | String | 否  | 200 | 备注信息                                                                               |
-| sign            | String | 是  |     | 签名                                                                                 |
+| 字段              | 类型     | 必需 | 长度  | 描述                                                                                                                             |
+|-----------------|--------|----|-----|--------------------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String | 是  | 32  | 商户订单号                                                                                                                          |
+| paymentType     | Int    | 否  |     | 不传输则返回配置的支付方式；支付方式 【901（QR）、902 （CVU）、905 (Rapipago)、906 (Pagofacil)】                                                          |
+| amount          | String | 是  | 20  | 金额    <br/> <br/> <span style="color: red;">  若商户开启了减免金额，amount必须是是100的倍数,否则收银台提交系统会进行拦截 </span>                               |
+| expirationTime  | String | 否  | 20  | 过期时间、毫秒级时间戳 eg:1735660800000 【默认一天，最小10分钟,最长七天 】  <br/> <br/> <span style="color: red;">  若商户开启了减免金额，收银台提交后过期时间将置为15分钟 </span> |
+| idType          | String | 是  | 50  | 个人身份类型：DNI 、CUIT、CUIL  【推荐使用CUIT】                                                                                              |
+| idCardNumber    | String | 是  | 11  | 个人身份号：DNI （7位或8位数字）、CUIT（11位数字，首位必须是2或3）、CUIL（11位数字）                                                                           |
+| phone           | String | 否  | 10  | 10位数字不加区号                                                                                                                      |
+| email           | String | 否  | 50  | 付款人邮箱; 务必符合正则表达式                                                                                                               |
+| realName        | String | 是  | 50  | 付款人名字,建议全字母大写                                                                                                                  |
+| callbackUrl     | String | 否  | 200 | 代收回调地址 （若不传递，取商户后台配置的回调地址）                                                                                                     |
+| remark          | String | 否  | 200 | 备注信息                                                                                                                           |
+| sign            | String | 是  |     | 签名                                                                                                                             |
 
 ```json title=请求示例
 {
@@ -42,7 +42,8 @@ description: 商户创建收银台
   "amount": "1000",
   "expirationTime": "1765943486000",
   "idType": "CUIT",
-  "idCardNumber": "31231233434",  // 虚构仅作为演示
+  "idCardNumber": "31231233434",
+  // 虚构仅作为演示
   "phone": "3111111111",
   "email": "213@123.com",
   "realName": "张三",
@@ -82,22 +83,22 @@ description: 商户创建收银台
 
 ### 错误码
 
-| 异常码 | 异常信息                                                                | 处理方案                                           |
-|-----|---------------------------------------------------------------------|------------------------------------------------|
-| 412 | Please try again later                                              | 请稍后重试                                          |
-| 414 | *                                                                   | 更改对应参数                                         |
-| 416 | Application not found                                               | app_code异常，请更改                                 |
-| 424 | This payment method is not configured                               | 代收方式未配置，请联系我们配置对应代收方式                          |
-| 426 | merchant order duplicate                                            | 请更换商户订单号                                       |
-| 427 | The callback notification address for collection must not be empty. | 未配置代收回调地址，请配置代收回调地址                            |
-| 438 | Phone number is error                                               | 请检查并更改手机号                                      |
-| 460 | The current payment method is unavailable.                          | 当前代收方式不可用，请更换                                  |
-| 473 | Merchant joint verification error: *                                | 配置异常，请联系我们                                     |
-| 478 | Invalid format for expireTime                                | 使用UTC时间戳                                       |
-| 479 | The id type is error (Example: DNI, CUIT, CUIL. It is recommended to use CUIT.)                                 | 使用（DNI 、CUIT、CUIL）其中一个,【推荐使用CUIT】              |
-| 480 | ID card number error (DNI: must be 7–8 digits in length; CUIL: must be 11 digits in length; CUIT: must be 11 digits in length, with the first digit restricted to 2 or 3)                                | DNI （7位或8位数字）、CUIT（11位数字，首位必须是2或3）、CUIL（11位数字） |
+| 异常码 | 异常信息                                                                                                                                                                      | 处理方案                                           |
+|-----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
+| 412 | Please try again later                                                                                                                                                    | 请稍后重试                                          |
+| 414 | *                                                                                                                                                                         | 更改对应参数                                         |
+| 416 | Application not found                                                                                                                                                     | app_code异常，请更改                                 |
+| 424 | This payment method is not configured                                                                                                                                     | 代收方式未配置，请联系我们配置对应代收方式                          |
+| 426 | merchant order duplicate                                                                                                                                                  | 请更换商户订单号                                       |
+| 427 | The callback notification address for collection must not be empty.                                                                                                       | 未配置代收回调地址，请配置代收回调地址                            |
+| 438 | Phone number is error                                                                                                                                                     | 请检查并更改手机号                                      |
+| 460 | The current payment method is unavailable.                                                                                                                                | 当前代收方式不可用，请更换                                  |
+| 473 | Merchant joint verification error: *                                                                                                                                      | 配置异常，请联系我们                                     |
+| 478 | Invalid format for expireTime                                                                                                                                             | 使用UTC时间戳                                       |
+| 479 | The id type is error (Example: DNI, CUIT, CUIL. It is recommended to use CUIT.)                                                                                           | 使用（DNI 、CUIT、CUIL）其中一个,【推荐使用CUIT】              |
+| 480 | ID card number error (DNI: must be 7–8 digits in length; CUIL: must be 11 digits in length; CUIT: must be 11 digits in length, with the first digit restricted to 2 or 3) | DNI （7位或8位数字）、CUIT（11位数字，首位必须是2或3）、CUIL（11位数字） |
 
-| 500 | Business Error                                                      | 请联系我们                 |
+| 500 | Business Error | 请联系我们 |
 
 ```json title=返回示例
 {

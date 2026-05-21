@@ -49,6 +49,7 @@ Specifically for the AR (Argentina) market, querying unprocessed suspense transa
 | records                | List   | yes      |        | Suspense transaction information                |
 | — suspenseBankId       | String | yes      |        | Single transaction voucher id (bankid)          |
 | — suspenseAmount       | String | yes      |        | Single credit amount                            |
+| — theoreticalAmount    | String | yes      |        | Suggested amount                                |
 | — suspenseIdCardNumber | String | yes      |        | Actual payer identity information (CUIT or DNI) |
 | — suspenseRealName     | String | yes      |        | Actual payer name                               |
 | — suspenseCallbackTime | String | yes      |        | Transaction credit time                         |
@@ -62,6 +63,7 @@ Specifically for the AR (Argentina) market, querying unprocessed suspense transa
       {
         "suspenseBankId": "86VRPQ2GM4KDKQ1G2GLY0M",
         "suspenseAmount": "400.00",
+        "theoreticalAmount": "400.00",
         "suspenseIdCardNumber": "000000000",
         "suspenseRealName": "Teemopay",
         "suspenseCallbackTime": "2026-03-16 23:17:19",

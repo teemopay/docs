@@ -57,11 +57,12 @@ description: Merchant queries the status of order
 | ├─ serviceRate          | String    | Yes      |        | Service rate                                                                      |
 | ├─ immService           | String    | Yes      |        | Fixed service fee                                                                 |
 | ├─ paymentType          | Integer   | Yes      |        | Actual payment method                                                             |
+| ├─ identifier           | String    | Yes      |        | Voucher BankId                                                                    |
+| ├─ idCardNumber         | String    | Yes      |        | Real payer's identification information                                           |
+| ├─ payerName            | String    | Yes      |        | The real payer's name                                                             |
 | ├─ completeTime         | String    | Yes      |        | Completion time in current country timezone, format: yyyy-MM-dd HH:mm:ss          |
-| ├─ identifier            | String | yes  |     | Voucher Bank ID                                                                   |
-| ├─ idCardNumber           | String | yes  |     | real payee's identification information                                           |
-| ├─ payerName              | String | yes  |     | The real payee's name                                                           |
-```json title=返回示例
+
+```json title=Response Example
 {
   "code": 200,
   "data": {
@@ -78,19 +79,37 @@ description: Merchant queries the status of order
         "paymentSingleOrderNo": "TSOPaymentOrderNoExample1",
         "paymentStatementAmount": "1000.00",
         "paymentStatementStatus": 2,
-        "paymentStatementStatusName": "代收成功",
+        "paymentStatementStatusName": "Collection Successful",
         "completeTime": "2025-01-01 00:00:00",
         "serviceAmount": "15.00",
         "serviceRate": "0.0100",
         "immService": "5.00",
         "paymentType": 901,
         "identifier": "2321312321222",
-        "idCardNumber": "Carlos",
-        "payerName": "WEUSISH28282SDSAS"
+        "idCardNumber": "12345678",
+        "payerName": "CARLOS ALVAREZ"
       }
     ]
   },
   "msg": "success",
+  "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
+}
+```
+
+### Error Codes
+| Error Code | Error Message               | Handling Solution           |
+|------------|-----------------------------|-----------------------------|
+| 412        | Please try again later      | Please try again later      |
+| 414        | *                           | Please change parameter     |
+| 416        | Application not found       | app_code error, please change |
+| 434        | Merchant order not exist    | Please check the order number |
+| 500        | Business Error              | Please contact us           |
+
+```json title=Response Example
+{
+  "code": 416,
+  "data": null,
+  "msg": "Application not found",
   "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
 }
 ```

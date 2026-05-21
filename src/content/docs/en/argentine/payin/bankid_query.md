@@ -36,6 +36,7 @@ title: Query suspense record by BankId
 | Parameter            | Type    | Required | Length | Description                                     |
 |----------------------|---------|----------|--------|-------------------------------------------------|
 | suspenseAmount       | String  | yes      |        | Single credit amount                            |
+| theoreticalAmount    | String  | yes      |        | Suggested amount                                |
 | suspenseStatus       | Integer | yes      |        | 0: (Unclaimed) 1: (Claimed)                     |
 | suspenseIdCardNumber | String  | yes      |        | Actual payer identity information (CUIT or DNI) |
 | suspenseRealName     | String  | yes      |        | Actual payer name                               |

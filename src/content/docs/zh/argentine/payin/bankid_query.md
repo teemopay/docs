@@ -36,6 +36,7 @@ title: 根据凭证ID查询悬账流水
 | 参数                   | 类型      | 必需  | 长度 | 描述                    |
 |----------------------|---------|-----|----|-----------------------|
 | suspenseAmount       | String  | yes |    | 单次入账金额                |
+| theoreticalAmount    | String  | yes |    | 建议金额                  |
 | suspenseStatus       | Integer | yes |    | 0 ：（未认领） 1: （已认领）     |
 | suspenseIdCardNumber | String  | yes |    | 实际付款人身份信息（CUIT 或 DNI） |
 | suspenseRealName     | String  | yes |    | 实际付款人姓名               |
