@@ -26,8 +26,13 @@ description: Merchant requests to create a payment order
 | WALLET (nequi paymentlink) | 202         |
 | All (all in one checkoout) | 204         |
 | EFECTY (CASH)              | 205         |
+| Transfiya           | 209         |
+| MOVII               | 210         |
+| DALE                | 211         |
 | BREB                       | 212         |
 | NEQUI_PUSH （nequi direct）  | 213         |
+| BRE_B_QR            | 214         |
+
 
 ## 场景
 

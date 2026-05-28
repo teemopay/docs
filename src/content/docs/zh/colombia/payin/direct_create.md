@@ -26,8 +26,13 @@ description: 商户请求创建一个代收订单
 | WALLET (nequi) 支付链接  | 202         | 
 | CHECKOUT (包含所有方式支付链接 ) | 204         | 
 | EFECTY （线下）          | 205         | 
+| Transfiya  | 209         |
+| MOVII      | 210         |
+| DALE       | 211         |
 | BREB                 | 212         | 
 | NEQUI_PUSH （钱包直连）    | 213         | 
+| BRE_B_QR   | 214         |
+
 
 
 ## 场景
