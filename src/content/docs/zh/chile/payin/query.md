@@ -41,11 +41,11 @@ description: 商户查询一个代收订单的状态
 | paymentType                   | Int    | yes  | 1    | 代收方式                     |
 | transactionAmount             | String | yes  |   | 订单交易金额                       |
 | amount                        | String | yes  |   | 收款金额                       |
-| status                        | Int | yes  |      | 2-成功 3-失败                        |
+| status                        | Int | yes  |      | 	订单状态 【1 :支付中 2 : 支付成功 ,3: 支付失败】                     |
 | statementList                 | Object | no   |      | 代收流水信息                                   |
 | -- paymentSingleOrderNo       | String | yes  |      | 单次支付流水号                                 |
 | -- paymentStatementAmount     | String | yes  |      | 单次代收金额                                   |
-| -- paymentStatementStatus     | Int | yes  |      | 单次代收交易状态: 2-代收成功  |
+| -- paymentStatementStatus     | Int | yes  |      | 单次代收交易状态 【2:代收成功 3: 支付失败】  |
 | -- paymentStatementStatusName | String | yes  |      | 交易状态名称                                   |
 | -- message                    | String | no   |      | 交易信息                                       |
 

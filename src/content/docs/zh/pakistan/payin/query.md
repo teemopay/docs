@@ -48,7 +48,7 @@ description: 商户查询一个代收订单或收银台订单的状态
 | statementList                 | Object | no   |   | 代收流水信息                                |
 | -- paymentSingleOrderNo       | String | yes  |   | 单次支付流水号                               |
 | -- paymentStatementAmount     | String | yes  |   | 单次代收金额                                |
-| -- paymentStatementStatus     | Int    | yes  |   | 单次代收交易状态: 2-代收成功 3-代收失败               |
+| -- paymentStatementStatus     | Int    | yes  |   | 单次代收交易状态 【2:代收成功 3: 支付失败】               |
 | -- paymentStatementStatusName | String | yes  |   | 交易状态名称                                |
 | -- serviceAmount              | String | yes  |     | 服务费用  =  固收金额 +  交易金额 * 服务费率          |
 | -- serviceRate                | String | yes  |     | 服务费率                                  |
