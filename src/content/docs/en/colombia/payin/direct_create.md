@@ -23,10 +23,16 @@ description: Merchant requests to create a payment order
 | Payment Method Name        | PaymentType |
 |----------------------------|-------------|
 | PSE (Payment Online)       | 201         |
-| NEQUI (WALLET)             | 202         |
+| WALLET (nequi paymentlink) | 202         |
 | All (all in one checkoout) | 204         |
 | EFECTY (CASH)              | 205         |
-| BREB                       | 212         | 
+| Transfiya           | 209         |
+| MOVII               | 210         |
+| DALE                | 211         |
+| BREB                       | 212         |
+| NEQUI_PUSH （nequi direct）  | 213         |
+| BRE_B_QR            | 214         |
+
 
 ## 场景
 
@@ -53,7 +59,7 @@ and generate keys here: 👉 https://www.banrep.gov.co/es/bre-b/simuladores-curs
 | expirationTime  | Long   | no       |        | Expiration timestamp                                                                                                                                                                         |
 | realName        | String | yes      | 64     | User's full name                                                                                                                                                                             |
 | email           | String | yes      | 50     | User's email (must match a valid regex format)                                                                                                                                               |
-| phone           | String | yes      | 50     | Phone number, 10 digits, no country code     【When the payment method is 202, this mobile phone number must be the user's wallet account.】                                                   |
+| phone           | String | yes      | 50     | Phone number, 10 digits, no country code     【When the payment method are 202、213, this mobile phone number must be the user's wallet account.】                                              |
 | idCardNumber    | String | No       | 50     | ID Number: CC (10 digits), CE (6-10 digits), NIT (9 digits). <br/> Mandatory when the paymentType is 201 (PSE) or 202 (WALLET).                                                              |
 | idType          | String | No       | 32     | Id Type: CC (6-10 digits; ID Card), CE (6-10 digits), NIT (9 digits; Tax Identification Number), PA (9 digits; Passport). <br/> Mandatory when the paymentType is 201 (PSE) or 202 (WALLET). |
 | bankCode        | String | No       | 50     | Bank Code. <br/> Mandatory when the paymentType is 201 (PSE).<br> Bank List for Reference in Creating Payout-on-Behalf Services                                                              |
