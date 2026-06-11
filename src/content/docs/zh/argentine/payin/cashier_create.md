@@ -26,8 +26,8 @@ description: 商户创建收银台
 | paymentType     | Int    | 否  |     | 不传输则返回配置的支付方式；支付方式 【901（QR）、902 （CVU）、905 (Rapipago)、906 (Pagofacil)】                                                                                           |
 | amount          | String | 是  | 20  | 金额 (仅支持整数) 示例: 1000    <br/> <br/> <span style="color: red;">  减免场景:  amount必须是是100的倍数,否则收银台提交系统会进行拦截。<br/>  示例: 100、200、300、400 <br/> 反示例: 101、 110、210 </span> |
 | expirationTime  | String | 否  | 20  | 过期时间、毫秒级时间戳 eg:1735660800000 【默认一天，最小10分钟,最长七天 】  <br/> <br/> <span style="color: red;">  减免场景: 收银台提交后过期时间将置为15分钟 </span>                                       |
-| idType          | String | 是  | 50  | 个人身份类型：DNI 、CUIT、CUIL                                                                                                                                           |
-| idCardNumber    | String | 是  | 11  | 个人身份号：DNI （7位或8位数字）、CUIT（11位数字，首位必须是2或3）、CUIL（11位数字）                                                                                                            |
+| idType          | String | 是  | 50  | 个人身份类型：DNI 、CUIT、CUIL、USER_REF                                                                                                                                           |
+| idCardNumber    | String | 是  | 11  | 个人身份号：DNI （7位或8位数字）、CUIT（11位数字，首位必须是2或3）、CUIL（11位数字）、USER_REF(1-50位数字或字母)                                                                                                              |
 | phone           | String | 否  | 10  | 10位数字不加区号                                                                                                                                                       |
 | email           | String | 否  | 50  | 付款人邮箱; 务必符合正则表达式                                                                                                                                                |
 | realName        | String | 是  | 50  | 付款人名字,建议全字母大写                                                                                                                                                   |

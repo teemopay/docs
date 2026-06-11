@@ -36,8 +36,8 @@ description: 商户请求创建一个代收订单
 | realName        | String  | yes | 64   | 用户姓名 【建议全大写】                                                                                                                                                  |
 | email           | String  | no  | 50   | 用户邮箱 【满足正则表达式即可】                                                                                                                                              |
 | amount          | String  | yes | 20   | 代收金额 【比索:ARS】   <br/> <br/> <span style="color: red;">  减免场景: amount必须是是100的倍数,否则系统会进行拦截。 <br/>  示例: 100、200、300、400 <br/> 反示例: 101、 110、210 </span>  </span> |
-| idType          | String  | yes | 50   | 个人身份类型：DNI 、CUIT、CUIL  【推荐使用CUIT】                                                                                                                             |
-| idCardNumber    | String  | yes | 11   | 个人身份号：DNI （7位或8位数字）、CUIT（11位数字，首位必须是2或3）、CUIL（11位数字）                                                                                                          |
+| idType          | String  | yes | 50   | 个人身份类型：DNI 、CUIT、CUIL、USER_REF   【推荐使用CUIT】                                                                                                                             |
+| idCardNumber    | String  | yes | 11   | 个人身份号：DNI （7位或8位数字）、CUIT（11位数字，首位必须是2或3）、CUIL（11位数字）、USER_REF(1-50位数字或字母)                                                                                                          |
 | expirationTime  | Long    | no  |      | 过期时间 【最小一天,最长七天 毫秒级时间戳 eg:1735660800000】   <br/> <br/> <span style="color: red;">  减免场景: 过期时间将置为15分钟 </span>                                                  |
 | phone           | String  | no  | 20   | 用户手机号 【10位数】                                                                                                                                                  |
 | callbackUrl     | String  | no  | 200  | 代收回调地址 【若不传递，取商户后台配置的回调地址】                                                                                                                                    |
