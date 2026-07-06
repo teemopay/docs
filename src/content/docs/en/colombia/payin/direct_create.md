@@ -20,18 +20,18 @@ description: Merchant requests to create a payment order
 
 ## Supported Payment Types (paymentType)
 
-| Payment Method Name        | PaymentType |
-|----------------------------|-------------|
-| PSE (Payment Online)       | 201         |
-| WALLET (nequi paymentlink) | 202         |
-| All (all in one checkoout) | 204         |
-| EFECTY (CASH)              | 205         |
-| Transfiya           | 209         |
-| MOVII               | 210         |
-| DALE                | 211         |
-| BREB                       | 212         |
-| NEQUI_PUSH （nequi direct）  | 213         |
-| BRE_B_QR            | 214         |
+| Payment Method Name  | PaymentType |
+|----------------------|-------------|
+| PSE                  | 201         |
+| WALLET（NEQUI_PSE）   | 202         |
+| CHECKOUT             | 204         |
+| EFECTY               | 205         |
+| TRANSFIYA            | 209         |
+| MOVII (MOVIL_PSE)    | 210         |
+| DALE (DALE_PSE)      | 211         |
+| BREB_KEY             | 212         |
+| NEQUI_PUSH           | 213         |
+| BREB_QR              | 214         |
 
 
 ## 场景
@@ -49,7 +49,7 @@ the final amount provided in the callback for reconciliation purposes.
 Official Simulator (Generating your own Bre-B Key): You can access the official simulator to understand how to register
 and generate keys here: 👉 https://www.banrep.gov.co/es/bre-b/simuladores-curso#registro
 
-### Request Parameters
+### Request Parameters ([See specific payment method examples here](./request_response))
 
 | Field           | Type   | Required | Length | Description                                                                                                                                                                                  |
 |-----------------|--------|----------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -68,36 +68,22 @@ and generate keys here: 👉 https://www.banrep.gov.co/es/bre-b/simuladores-curs
 
 ```json title="Request Example"
 {
-  "realName": "TeemoPay",
-  "amount": "10000",
-  "phone": "1234567890",
-  "callbackUrl": "https://www.callbackexample.com",
-  "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
-  "email": "TeemoPay@example.com",
-  "idType": "CC",
-  "idCardNumber": "1234567890",
-  "bankCode": 1040,
+  "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000040",
+  "realName": "OPQRST UVWXYZ ABCDEFG HIJKLMN",
+  "amount": "30000.00",
+  "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
   "paymentType": 201,
-  "sign": "YOUR_SIGN"
-}
-```
-
-```json title="Request Example"
-{
-  "realName": "TeemoPay",
-  "amount": "10000",
+  "email": "12123123@ss.com",
   "phone": "1234567890",
-  "callbackUrl": "https://www.callbackexample.com",
-  "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
-  "email": "TeemoPay@example.com",
-  "idType": "CC",
-  "idCardNumber": "1234567890",
-  "paymentType": 202,
-  "sign": "YOUR_SIGN"
+  "bankCode": "1040",
+  "idType" : "CC",
+  "idCardNumber" : "123456789",
+  "sign": "uOunEdixuTptztITS1xVQK7EokviXGkNjnSupauc/keqQogkyigiks8R9gXG66RPAXgkMNFnM9xTOu0YBkajFE+oiQU+hvmiXg1TcPAy6RF0TZTmrI7Ya06NWtRUzIOPO0a6GyOjHA86hfIP3tfXRBB07F2AwnOXv8nzCKUGUY4=",
+  "expirationTime": 1718409600000
 }
 ```
 
-### Response Parameters
+### Response Parameters 
 
 | Field           | Type       | Required | Length | Description                                          |
 |-----------------|------------|----------|--------|------------------------------------------------------|
@@ -112,18 +98,18 @@ and generate keys here: 👉 https://www.banrep.gov.co/es/bre-b/simuladores-curs
 
 ```json title="Response Example"
 {
-  "msg": "success",
-  "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610299",
   "code": 200,
   "data": {
-    "amount": "10000",
-    "tradeNo": "TS2501010001CO0000000000000000",
-    "merchantOrderNo": "OrderNoExample",
-    "paymentType": 204,
-    "additionalInfo": {
-    },
-    "paymentInfo": "https://www.paymentLinkExample.com",
-    "status": 1
-  }
+    "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000040",
+    "amount": "30000.00",
+    "tradeNo": "TS2405220001CO0000000000010033",
+    "paymentType": 201,
+    "paymentInfo": "https://mock/pse/",
+    "additionalInfo": {},
+    "status": 1,
+    "errorMsg": null
+  },
+  "msg": "success",
+  "traceId": "30c38418a758434dba4da32fe73b5fd2.106.17833191761712117"
 }
 ```

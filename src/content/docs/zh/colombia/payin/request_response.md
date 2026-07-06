@@ -3,7 +3,7 @@ title: 直连支付方式请求和响应示例
 description: 哥伦比亚直连支付方式请求和响应示例
 ---
 
-## **PSE（网银支付 ACH） \- 201**
+## **PSE \- 201**
 
 
 
@@ -54,7 +54,7 @@ description: 哥伦比亚直连支付方式请求和响应示例
 
 
 
-## **WALLET \(****NEQUI\_PSE****\) 支付链接 \- 202**
+## **WALLET（NEQUI_PSE） \- 202**
 
 
 
@@ -105,7 +105,7 @@ description: 哥伦比亚直连支付方式请求和响应示例
 
 
 
-## **CHECKOUT（包含所有方式支付链接） \- 204**
+## **CHECKOUT \- 204**
 
 
 
@@ -160,7 +160,7 @@ description: 哥伦比亚直连支付方式请求和响应示例
 
 
 
-## **EFECTY（线下） \- 205**
+## **EFECTY \- 205**
 
 
 
@@ -211,7 +211,7 @@ description: 哥伦比亚直连支付方式请求和响应示例
 
 
 
-## **Transfiya \- 209**
+## **TRANSFIYA \- 209**
 
 
 
@@ -262,7 +262,7 @@ description: 哥伦比亚直连支付方式请求和响应示例
 
 
 
-## **MOVII \- 210**
+## **MOVII (MOVIL_PSE) \- 210**
 
 
 
@@ -313,7 +313,7 @@ description: 哥伦比亚直连支付方式请求和响应示例
 
 
 
-## **DALE \- 211**
+## **DALE (DALE_PSE) \- 211**
 
 
 
@@ -364,7 +364,7 @@ description: 哥伦比亚直连支付方式请求和响应示例
 
 
 
-## **BREB \- 212**
+## **BREB_KEY \- 212**
 
 
 
@@ -417,7 +417,7 @@ description: 哥伦比亚直连支付方式请求和响应示例
 
 
 
-## **NEQUI\_PUSH（钱包直连） \- 213**
+## **NEQUI_PUSH \- 213**
 
 
 
@@ -468,7 +468,7 @@ description: 哥伦比亚直连支付方式请求和响应示例
 
 
 
-## **BRE\_B\_QR \- 214**
+## **BREB_QR \- 214**
 
 
 
@@ -521,7 +521,7 @@ description: 哥伦比亚直连支付方式请求和响应示例
 
 
 
-## **DAVIPLATA \- 207**
+## **DAVIPLATA (DAVIPLATA_PSE) \- 207**
 
 
 

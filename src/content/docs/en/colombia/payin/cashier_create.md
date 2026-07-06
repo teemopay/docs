@@ -22,15 +22,15 @@ description: Merchant creates a cashier
 
 | Payment Method Name | PaymentType |
 |---------------------|-------------|
-| PSE                 | 201         |
-| EFECTY              | 205         |
-| DAVIPLATA           | 207         |
-| Transfiya           | 209         |
-| MOVII               | 210         |
-| DALE                | 211         |
-| BRE_B               | 212         |
-| NEQUI_PUSH          | 213         |
-| BRE_B_QR            | 214         |
+| PSE                       | 201         |
+| EFECTY                    | 205         |
+| DAVIPLATA (DAVIPLATA_PSE) | 207         |
+| TRANSFIYA                 | 209         |
+| MOVII (MOVIL_PSE)         | 210         |
+| DALE (DALE_PSE)           | 211         |
+| BREB_KEY                  | 212         |
+| NEQUI_PUSH                | 213         |
+| BREB_QR                   | 214         |
 
 ### Request Parameters
 

@@ -3,7 +3,7 @@ title: Direct Payment Method Request and Response Examples
 description: Colombia direct payment method request and response examples
 ---
 
-## **PSE (ACH Online Banking Payment) \- 201**
+## **PSE \- 201**
 
 
 
@@ -54,7 +54,7 @@ Response
 
 
 
-## **WALLET (NEQUI_PSE) Payment Link \- 202**
+## **WALLET（NEQUI_PSE） \- 202**
 
 
 
@@ -105,7 +105,7 @@ Response
 
 
 
-## **CHECKOUT (Payment Link Including All Methods) \- 204**
+## **CHECKOUT \- 204**
 
 
 
@@ -160,7 +160,7 @@ Response
 
 
 
-## **EFECTY (Offline) \- 205**
+## **EFECTY \- 205**
 
 
 
@@ -211,7 +211,7 @@ Response
 
 
 
-## **Transfiya \- 209**
+## **TRANSFIYA \- 209**
 
 
 
@@ -262,7 +262,7 @@ Response
 
 
 
-## **MOVII \- 210**
+## **MOVII (MOVIL_PSE) \- 210**
 
 
 
@@ -313,7 +313,7 @@ Response
 
 
 
-## **DALE \- 211**
+## **DALE (DALE_PSE) \- 211**
 
 
 
@@ -364,7 +364,7 @@ Response
 
 
 
-## **BREB \- 212**
+## **BREB_KEY \- 212**
 
 
 
@@ -417,7 +417,7 @@ Response
 
 
 
-## **NEQUI_PUSH (Wallet Direct) \- 213**
+## **NEQUI_PUSH \- 213**
 
 
 
@@ -468,7 +468,7 @@ Response
 
 
 
-## **BRE\_B\_QR \- 214**
+## **BREB_QR \- 214**
 
 
 
@@ -521,7 +521,7 @@ Response
 
 
 
-## **DAVIPLATA \- 207**
+## **DAVIPLATA (DAVIPLATA_PSE) \- 207**
 
 
 
