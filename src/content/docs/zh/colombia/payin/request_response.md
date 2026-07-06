@@ -572,7 +572,7 @@ description: 哥伦比亚直连支付方式请求和响应示例
 
 
 
-## **CO\_DAVIPLATA\_PUSH \- 215**
+## **DAVIPLATA_PUSH \- 215**
 
 
 

@@ -32,6 +32,7 @@ description: 商户请求创建一个代收订单
 | BREB_KEY                | 212         |
 | NEQUI_PUSH              | 213         |
 | BREB_QR                 | 214         |
+| DAVIPLATA_PUSH          | 215         |
 
 
 

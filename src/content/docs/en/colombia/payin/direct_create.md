@@ -32,6 +32,7 @@ description: Merchant requests to create a payment order
 | BREB_KEY             | 212         |
 | NEQUI_PUSH           | 213         |
 | BREB_QR              | 214         |
+| DAVIPLATA_PUSH       | 215         |
 
 
 ## 场景

@@ -73,10 +73,11 @@ Banks that can process transactions on Saturdays：
 Account Types:
 
 | ID  | Description                    |
-| --- |--------------------------------|
+|-----|--------------------------------|
 | 201 | AHORRO  （savings account）      |
 | 202 | CORRIENTE （checking account）   |
 | 203 | TRNASFIYA   （transfer service） |
+| 204 | BREB         |
 
 ID Document Types:
 

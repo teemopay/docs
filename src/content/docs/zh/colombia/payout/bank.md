@@ -75,7 +75,7 @@ description: 代付支持的银行列表
 | 201 | AHORRO （savings 储蓄）       |
 | 202 | CORRIENTE （checking 活期账户） |
 | 203 | TRNASFIYA  (转账服务)             |
-
+| 204 | BREB         |
 
 
 证件信息：

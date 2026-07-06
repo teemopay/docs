@@ -27,7 +27,7 @@ description: 商户请求创建一个代付订单
 | bankCode        | String | yes | 50 | 银行编码                                                                             |
 | bankName        | String | yes | 50 | 银行名称                                                                             |
 | accountType     | Int    | yes |    | 账户类型 201-AHORRO(储蓄) 202-CORRIENTE(活期)  203-PHONE(手机号码) 204 - BREB 详情请看银行列表中的账户类型 |
-| bankAccount     | String | yes | 50 | 收款账号   accountType为203时传输收款人电话号码,3开头10位数字                                        |
+| bankAccount     | String | yes | 50 | 收款账号   accountType为203时传输收款人电话号码,3开头10位数字。<br/>当 accountType 为 204(BREB) 时，按以下类型传值：<br/>PHONE 手机号 (无前缀) 仅限数字，长度固定 10 位 (以 3 开头)<br/>EMAIL 邮箱标准邮件格式，长度 6-255 位<br/>DOCUMENT 个人证件号纯数字，长度 6-12 位<br/>NIT 税号 纯数字，长度 9-10 位<br/>ALIAS 别名 (Alias)以 @ 开头，后接 3-30 位字母数字字符 |
 | realName        | String | yes | 40 | 用户姓名 不包含特殊字符，建议全大写                                                               |
 | idCardNumber    | String | yes | 50 | 收款人证件号码                                                                          |
 | idType          | Stirng | yes | 32 | CC(6-10位数；身份证) ,  CE（6-10位数）, NIT（9位数；税号）, PA（9位数；护照）                            |
