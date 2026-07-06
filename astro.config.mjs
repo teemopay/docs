@@ -181,7 +181,7 @@ export default defineConfig({
                 translations: {
                   zh: "代收",
                 },
-                items: ["colombia/payin/cashier_create","colombia/payin/direct_create", "colombia/payin/callback", "colombia/payin/query", "colombia/payin/bank"],
+                items: ["colombia/payin/cashier_create","colombia/payin/direct_create", "colombia/payin/callback", "colombia/payin/query", "colombia/payin/bank", "colombia/payin/request_response"],
               },
               {
                 label: "Payout",
