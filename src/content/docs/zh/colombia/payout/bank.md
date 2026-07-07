@@ -51,6 +51,7 @@ description: 代付支持的银行列表
 | 1023     | WESTERN BANK                   |
 | 1047     | WOMEN'S WORLD BANK             |
 | 1097     | DALE                           |
+| 1098     | BREB                           |
 
 周末能处理：
 
@@ -88,4 +89,3 @@ description: 代付支持的银行列表
 | 2    | CE（外国人身份） | 6-10位              |
 | 3    | NIT （税号）     | 9位                 |
 | 4    | PA （护照）      | 数字+字母           |
-

@@ -51,6 +51,7 @@ description: Supported Bank List for Payout
 | 1023      | WESTERN BANK                   |
 | 1047      | WOMEN'S WORLD BANK             |
 | 1097      | DALE                           |
+| 1098      | BREB                           |
 
 Banks that can process transactions on Saturdays：
 
