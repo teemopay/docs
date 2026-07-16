@@ -23,6 +23,7 @@ description: 商户创建收银台
 | 支付方式名称     | PaymentType |
 |------------|-------------|
 | PSE                       | 201         |
+| WALLET（NEQUI_PSE）         | 202         |
 | EFECTY                    | 205         |
 | DAVIPLATA (DAVIPLATA_PSE) | 207         |
 | TRANSFIYA                 | 209         |

@@ -23,6 +23,7 @@ description: Merchant creates a cashier
 | Payment Method Name | PaymentType |
 |---------------------|-------------|
 | PSE                       | 201         |
+| WALLET（NEQUI_PSE）         | 202         |
 | EFECTY                    | 205         |
 | DAVIPLATA (DAVIPLATA_PSE) | 207         |
 | TRANSFIYA                 | 209         |
