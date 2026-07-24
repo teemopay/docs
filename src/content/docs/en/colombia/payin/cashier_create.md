@@ -54,14 +54,14 @@ description: Merchant creates a cashier
 
 ```json title=Request Example
 {
-  "merchantOrderNo": "test-order",
+  "merchantOrderNo": "OrderNoExample",
   "paymentType": 201,
   "amount": "100",
   "idType": "CC",
   "idCardNumber": "1234567890",
-  "realName": "Test User",
-  "phone": "3111111111",
-  "email": "user@example.com",
+  "realName": "TeemoPay",
+  "phone": "3000000000",
+  "email": "TeemoPay@example.com",
   "remark": "order remark",
   "bankCode": "1052",
   "callbackUrl": "https://www.callbackexample.com",
@@ -85,11 +85,11 @@ description: Merchant creates a cashier
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "test-order",
-    "tradeNo": "TS2509080002COexample754",
+    "merchantOrderNo": "OrderNoExample",
+    "tradeNo": "TS2501010001CO0000000000000000",
     "amount": "100",
     "status": 0,
-    "checkoutLink": "https://test-co-payin.teemopay.com/#/?tradeNo=TS2509080002COexample754",
+    "checkoutLink": "https://test-co-payin.teemopay.com/#/?tradeNo=TS2501010001CO0000000000000000",
     "expirationTime": "2025-09-17 13:53:45.959",
     "errorMsg": null
   },

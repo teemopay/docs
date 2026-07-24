@@ -37,16 +37,15 @@ description: 商户创建收银台
 
 ```json title=请求示例
 {
-  "merchantOrderNo": "ceshi-test",
+  "merchantOrderNo": "OrderNoExample",
   "paymentType": 901,
   "amount": "1000",
   "expirationTime": "1765943486000",
   "idType": "CUIT",
   "idCardNumber": "31231233434",
-  // 虚构仅作为演示
-  "phone": "3111111111",
-  "email": "213@123.com",
-  "realName": "张三",
+  "phone": "1123456789",
+  "email": "TeemoPay@example.com",
+  "realName": "TeemoPay",
   "callbackUrl": "https://www.callbackexample.com",
   "sign": "YOUR_SIGN"
 }
@@ -68,11 +67,11 @@ description: 商户创建收银台
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "ceshi-test",
-    "tradeNo": "TS2509080002ARexample754",
+    "merchantOrderNo": "OrderNoExample",
+    "tradeNo": "TS2501010001AR0000000000000000",
     "amount": "100",
     "status": 0,
-    "checkoutLink": "https://test-ar-payin.teemopay.com/#/?tradeNo=TS2509080002ARexample754",
+    "checkoutLink": "https://test-ar-payin.teemopay.com/#/?tradeNo=TS2501010001AR0000000000000000",
     "expirationTime": "2025-09-17 13:53:45.959",
     "errorMsg": null
   },

@@ -46,7 +46,6 @@ description: Merchant receives a payout result callback
   "completeTime": "2025-05-01 00:00:00",
   "sign": "TEEMO_SIGN"
 }
-
 ```
 
 
@@ -63,7 +62,6 @@ description: Merchant receives a payout result callback
   "completeTime": "2025-05-01 00:00:00",
   "sign": "TEEMO_SIGN"
 }
-
 
 ```
 
@@ -94,9 +92,6 @@ description: Merchant receives a payout result callback
 | SUCCESS | String | Yes      |        | Must return `"SUCCESS"`, otherwise it will be retried |
 
 
-```json title= response example
-{
-  SUCCESS
-}
-
+```text title= response example
+SUCCESS
 ```

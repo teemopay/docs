@@ -70,12 +70,12 @@ public class SignUtils {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("merchantOrderNo", "TEST" + 1234567890);
         jsonObject.put("idCardNumber", "1234567890");
-        jsonObject.put("realName", "TEST");
+        jsonObject.put("realName", "TeemoPay");
         jsonObject.put("amount", "1000");
         jsonObject.put("callbackUrl", "https://www.teemopay.com");
         jsonObject.put("paymentType", 1);
         jsonObject.put("email", "test@gmail.com");
-        jsonObject.put("phone", "1234567890");
+        jsonObject.put("phone", "3000000000");
 
         // 计算签名
         String sign = signature(jsonObject, nonce, privateKey);

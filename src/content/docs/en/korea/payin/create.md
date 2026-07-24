@@ -70,17 +70,17 @@ description: Create a payin order
 
 ```json title="request example"
 {
-  "merchantOrderNo": "802_test",
+  "merchantOrderNo": "OrderNoExample",
   "paymentType": 802,
   "amount": "100",
-  "realName": "realname",
-  "merchantName": "12312321",
+  "realName": "TeemoPay",
+  "merchantName": "MerchantNameExample",
   "bankCode": "002", 
   "bankAccount": "345345345", 
   "accountHolderNumber": "234234", 
-  "phone": "01012131231",
-  "email": "123@123.com",
-  "sign": "123213"
+  "phone": "01012345678",
+  "email": "TeemoPay@example.com",
+  "sign": "YOUR_SIGN"
 }
 ```
 
@@ -126,9 +126,9 @@ description: Create a payin order
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "802_test_012",
+    "merchantOrderNo": "OrderNoExample",
     "amount": "1000.00",
-    "tradeNo": "TS2509080002KR0000465606537906",
+    "tradeNo": "TS2501010001KR0000000000000000",
     "paymentInfo":"https://test-kr-payin.teemopay.com/TS2509080002KR0000465606537906",
     "paymentType": 802,
     "status": 0,

@@ -42,20 +42,19 @@ description: Create a payout order
 
 ```json
 {
-  "merchantOrderNo": "ds111ad111022911111111111131",
-  "realName": "Carlos",
+  "merchantOrderNo": "OrderNoExample",
+  "realName": "TeemoPay",
   "bankCode": "1",
   "bankName": "BANK",
   "accountType": 101,
   "bankAccount": "1234567890123456",
   "amount": "100000",
-  "callbackUrl": "http://127.0.0.1:8075/sys/dictionary/test",
-  "sign": "YOUR SIGN",
+  "callbackUrl": "https://www.callbackexample.com",
+  "sign": "YOUR_SIGN",
   "idType": "DNI",
-  "phone": "13175025118",
+  "phone": "081234567890",
   "idCardNumber": "12345678"
 }
-
 ```
 
 ### Response Parameters
@@ -73,13 +72,12 @@ description: Create a payout order
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "ds111ad111002911111111111131",
-    "tradeNo": "TF2405220001MX0000048840060444",
+    "merchantOrderNo": "OrderNoExample",
+    "tradeNo": "TF2501010001ID0000000000000000",
     "amount": "100",
     "status": 1
   },
   "msg": "success",
   "success": true
 }
-
 ```

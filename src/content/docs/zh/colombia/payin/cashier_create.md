@@ -54,16 +54,16 @@ description: 商户创建收银台
 
 ```json title=请求示例
 {
-  "merchantOrderNo": "example",
+  "merchantOrderNo": "OrderNoExample",
   "paymentType": 201,
   "idType": "CE",
   "idCardNumber": "example",
-  "realName": "",
-  "phone": "3231example2111",
-  "email": "123example@123.com",
+  "realName": "TeemoPay",
+  "phone": "3000000000",
+  "email": "TeemoPay@example.com",
   "bankCode": 1815,
   "amount": "100",
-  "sign": "example"
+  "sign": "YOUR_SIGN"
 }
 ```
 
@@ -83,11 +83,11 @@ description: 商户创建收银台
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "ceshi-test",
-    "tradeNo": "TS2509080002COexample754",
+    "merchantOrderNo": "OrderNoExample",
+    "tradeNo": "TS2501010001CO0000000000000000",
     "amount": "100",
     "status": 0,
-    "checkoutLink": "https://test-co-payin.teemopay.com/#/?tradeNo=TS2509080002COexample754",
+    "checkoutLink": "https://test-co-payin.teemopay.com/#/?tradeNo=TS2501010001CO0000000000000000",
     "expirationTime": "2025-09-17 13:53:45.959",
     "errorMsg": null
   },

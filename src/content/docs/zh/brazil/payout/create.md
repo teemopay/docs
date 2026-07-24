@@ -37,16 +37,16 @@ description: 商户请求创建一个代付订单
 ```json
 {
     "merchantOrderNo": "OrderNoExample",
-    "realName": "Carlos",
+    "realName": "TeemoPay",
     "bankCode": "1",
     "bankName": "BANK",
     "accountType": 401,
     "bankAccount": "12345678901",
     "amount": "1000.01",
-    "callbackUrl": "http://127.0.0.1:8075/sys/dictionary/test",
-    "sign": "YOUR SIGN",
+    "callbackUrl": "https://www.callbackexample.com",
+    "sign": "YOUR_SIGN",
     "idType": "CPF",
-    "phone": "+5512345678901",
+    "phone": "11987654321",
     "idCardNumber": "12345678901"
 }
 ```
@@ -65,7 +65,7 @@ description: 商户请求创建一个代付订单
     "code": 200,
     "data": {
         "merchantOrderNo": "OrderNoExample",
-        "tradeNo": "TF2405220001BR0000509326631881",
+        "tradeNo": "TF2501010001BR0000000000000000",
         "amount": "300.11",
         "status": 1
     },

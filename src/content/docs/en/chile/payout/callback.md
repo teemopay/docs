@@ -65,6 +65,6 @@ description: Merchant receives a payout result callback
 | --------- | ------ | -------- | ------ | -------------------------------------------------------------------- |
 | SUCCESS   | String | yes      |        | Must return "SUCCESS" otherwise callback will be repeated            |
 
-```json title="Response Example"
+```text title="Response Example"
 SUCCESS
 ```

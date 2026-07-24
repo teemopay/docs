@@ -46,7 +46,6 @@ description: Received a Callback
   "completeTime": "2025-05-01 00:00:00",
   "sign": "TEEMO_SIGN"
 }
-
 ```
 
 ### Error Code Explanations:
@@ -67,6 +66,6 @@ description: Received a Callback
 | SUCCESS   | String | yes      |        | Must return `"SUCCESS"` or the callback will be retried |
 
 
-```json
+```text title=Response Example
 SUCCESS
 ```

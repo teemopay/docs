@@ -92,7 +92,7 @@ description: 订单列表
     "records": [
       {
         "type": "PAYIN",
-        "merchantOrderNo": "LD2604280543139046766732578816",
+        "merchantOrderNo": "OrderNoExample",
         "tradeNo": "TS2405220001MX0000532820828350",
         "amount": "600.00",
         "transactionAmount": "600.00",

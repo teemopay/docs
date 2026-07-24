@@ -101,6 +101,6 @@ description: Merchant receives a collection result callback
 | SUCCESS | String | yes      | Must return "SUCCESS", otherwise callback will be retried |
 
 
-```json title= response example
+```text title= response example
 SUCCESS
 ```

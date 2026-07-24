@@ -47,14 +47,15 @@ description: Merchant requests to create a collection order
 
 ```json
 {
-  "merchantOrderNo": "C27412415HkF6U9SnXRrxitBWD647lw7",
-  "realName": "aaaaaa",
+  "merchantOrderNo": "OrderNoExample",
+  "realName": "TeemoPay",
   "amount": "100.1",
-  "callbackUrl": "http://test.domin.com",
+  "callbackUrl": "https://www.callbackexample.com",
   "paymentType": 401,
-  "email": "1QWWQWQ2891@qq.com",
-  "phone": "123456789",
+  "email": "TeemoPay@example.com",
+  "phone": "11987654321",
   "idCardNumber": "1234567890",
-  "sign": "YOUR SIGN",
+  "sign": "YOUR_SIGN",
   "expirationTime": 1717092000000
 }
+```

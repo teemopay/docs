@@ -60,7 +60,6 @@ description: Payout Query
   "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
 }
 
-
 ```
 ```json title= Sample order no exist
 {

@@ -53,7 +53,7 @@ description: 商户请求创建一个代收订单
   "amount": "1000",
   "phone": "01012345678",
   "callbackUrl": "https://www.callbackexample.com",
-  "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+  "merchantOrderNo": "OrderNoExample",
   "email": "TeemoPay@example.com",
   "paymentType": 801,
   "sign": "YOUR_SIGN"
@@ -64,9 +64,9 @@ description: 商户请求创建一个代收订单
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "802_test_012",
+    "merchantOrderNo": "OrderNoExample",
     "amount": "1000.00",
-    "tradeNo": "TS2509080002KR0000465606537906",
+    "tradeNo": "TS2501010001KR0000000000000000",
     "paymentInfo": "https://test-kr-payin.teemopay.com/TS2509080002KR0000465606537906",
     "paymentType": 802,
     "status": 0,
@@ -99,14 +99,14 @@ description: 商户请求创建一个代收订单
   "code": 200,
   "data": {
     "amount": "1000.00",
-    "tradeNo": "TS2405220001KR0000430564883184",
+    "tradeNo": "TS2501010001KR0000000000000000",
     "additionalInfo": {
       "bankCode": "IBK",
       "bankName": "기업은행",
       "expiredTime": 1761022567000,
       "paymentLink": "https://test-kr-payin.teemopay.com/TS2405220001KR0000430564883184"
     },
-    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+    "merchantOrderNo": "OrderNoExample",
     "paymentInfo": "29900000000000",
     "paymentType": 801,
     "status": 1
@@ -120,9 +120,9 @@ description: 商户请求创建一个代收订单
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "802_test_012",
+    "merchantOrderNo": "OrderNoExample",
     "amount": "1000.00",
-    "tradeNo": "TS2509080002KR0000465606537906",
+    "tradeNo": "TS2501010001KR0000000000000000",
     "paymentInfo": "https://test-kr-payin.teemopay.com/TS2509080002KR0000465606537906",
     "paymentType": 802,
     "status": 0,
@@ -168,9 +168,9 @@ description: 商户请求创建一个代收订单
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+    "merchantOrderNo": "OrderNoExample",
     "amount": null,
-    "tradeNo": "TS2405220001KR0000430564883184",
+    "tradeNo": "TS2501010001KR0000000000000000",
     "paymentType": 801,
     "paymentInfo": null,
     "additionalInfo": null,

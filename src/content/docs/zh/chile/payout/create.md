@@ -45,7 +45,7 @@ description: 商户请求创建一个代付订单
     "idType": "CC",
     "accountType": 201,
     "merchantOrderNo": "OrderNoExample",
-    "realName": "TEEMO",
+    "realName": "TeemoPay",
     "phone": "923456789",
     "idCardNumber": "0234567890",
     "callbackUrl": "https://www.callbackexample.com",
@@ -72,7 +72,7 @@ description: 商户请求创建一个代付订单
         "amount": "10000",
         "merchantOrderNo": "OrderNoExample",
         "status": 1,
-        "tradeNo": "TF2501010001CO0000000000000000"
+        "tradeNo": "TF2501010001CL0000000000000000"
     }
 }
 ```

@@ -40,7 +40,7 @@ description: 商户请求创建一个代付订单
     "accountType": 1001,
     "bankCode": "ICIC0000001",
     "bankAccount": "1234567890123456789012",
-    "realName": "realName",
+    "realName": "TeemoPay",
     "phone": "6123456789",
     "callbackUrl": "https://www.callbackexample.com",
     "sign": "YOUR_SIGN"
@@ -65,7 +65,7 @@ description: 商户请求创建一个代付订单
         "amount": "1000.00",
         "merchantOrderNo": "OrderNoExample",
         "status": 1,
-        "tradeNo": "TF2501010001AR0000000000000000"
+        "tradeNo": "TF2501010001IN0000000000000000"
     }
 }
 ```

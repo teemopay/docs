@@ -17,7 +17,7 @@ description: Merchant creates a cashier order
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | PK                |
-| appCode          | Application ID    |
+| app_code         | Application ID    |
 
 
 
@@ -57,8 +57,8 @@ description: Merchant creates a cashier order
     "email": "TeemoPay@example.com",
     "idCardNumber": "1234567890123",
     "callbackUrl": "https://www.callbackexample.com",
-    "phone": "03000000000",
-    "realName" : "TEEMO",
+    "phone": "3000000000",
+    "realName": "TeemoPay",
     "sign": "YOUR_SIGN"
 }
 ```

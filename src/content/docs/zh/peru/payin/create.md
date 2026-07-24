@@ -50,12 +50,12 @@ description: 商户请求创建一个代收订单
 
 ```json title="请求示例"
 {
-    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+    "merchantOrderNo": "OrderNoExample",
     "paymentType": 101,
     "amount": "10.00",
     "realName": "TeemoPay",
     "email": "TeemoPay@example.com",
-    "phone": "900000000",
+    "phone": "912345678",
     "callbackUrl": "https://www.callbackexample.com",
     "sign": "YOUR_SIGN"
 }
@@ -86,8 +86,8 @@ description: 商户请求创建一个代收订单
   "code": 200,
   "data": {
     "amount": "10.00",
-    "tradeNo": "TS2405220001PE0000430564883184",
-    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+    "tradeNo": "TS2501010001PE0000000000000000",
+    "merchantOrderNo": "OrderNoExample",
     "paymentType": 101,
     "additionalInfo": {
       "thirdOrderNum": "12345678901"
@@ -130,9 +130,9 @@ description: 商户请求创建一个代收订单
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+        "merchantOrderNo": "OrderNoExample",
         "amount": null,
-        "tradeNo": "TS2405220001PE0000430564883184",
+        "tradeNo": "TS2501010001PE0000000000000000",
         "paymentType": 1,
         "paymentInfo": null,
         "additionalInfo": null,

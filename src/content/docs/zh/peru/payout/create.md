@@ -41,10 +41,10 @@ description: 商户请求创建一个代付订单
     "bankAccount": "1234567899276",
     "bankCode": "2",
     "bankName": "INTERBANK",
-    "realName": "TEEMO",
+    "realName": "TeemoPay",
     "amount": "100.00",
     "idType": "DNI",
-    "phone": "123456789",
+    "phone": "912345678",
     "cciNumber": "12345678901203910293",
     "accountType": "101",
     "idCardNumber": "12345678",
@@ -52,7 +52,6 @@ description: 商户请求创建一个代付订单
     "callbackUrl": "https://www.callbackexample.com",
     "merchantOrderNo": "OrderNoExample"
 }
-
 ```
 
 ### 返回参数

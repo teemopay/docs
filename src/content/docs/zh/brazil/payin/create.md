@@ -43,14 +43,14 @@ description: 商户请求创建一个代收订单
 ```json
 {
   "merchantOrderNo": "OrderNoExample",
-  "realName": "aaaaaa",
+  "realName": "TeemoPay",
   "amount": "100.1",
-  "callbackUrl": "http://test.domin.com",
+  "callbackUrl": "https://www.callbackexample.com",
   "paymentType": 401,
-  "email": "1QWWQWQ2891@qq.com",
-  "phone": "12345678901",
+  "email": "TeemoPay@example.com",
+  "phone": "11987654321",
   "idCardNumber": "12345678901",
-  "sign": "YOUR SIGN",
+  "sign": "YOUR_SIGN",
   "expirationTime": 1735660800000
 }
 ```
@@ -81,7 +81,7 @@ description: 商户请求创建一个代收订单
     "data": {
         "merchantOrderNo": "OrderNoExample",
         "amount": "100.1",
-        "tradeNo": "TS2405220001BR0000509313375376",
+        "tradeNo": "TS2501010001BR0000000000000000",
         "paymentType": 401,
         "paymentInfo": "00020126920014br.gov.bcb.xxx.xxx.coop.br",
         "additionalInfo": {

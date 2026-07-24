@@ -44,8 +44,8 @@ description: 商户请求创建一个代付订单
                 "bankAccount": "1234567890123456",
                 "amount": "10000",
                 "callbackUrl": "https://www.callbackexample.com",
-                "sign": "YOUR SIGN",
-                "phone": "0800000000",
+                "sign": "YOUR_SIGN",
+                "phone": "081234567890",
                 "email": "TeemoPay@example.com"
 }
 ```

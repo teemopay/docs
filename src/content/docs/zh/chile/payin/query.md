@@ -67,7 +67,7 @@ description: 商户查询一个代收订单的状态
                 "paymentStatementStatusName": "代收成功",
                 "message": null
             }
-        ],
+        ]
     },
     "msg": "success",
     "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"

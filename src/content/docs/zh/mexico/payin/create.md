@@ -41,7 +41,7 @@ description: 商户请求创建一个代收订单
 | amount          | String | yes | 20   | 代收金额(比索)                                          |
 | expirationTime  | Long   | no  |      | 过期时间 当 paymentType 为 4、5时有效,默认为一天 毫秒级时间戳 eg:1735660800000                |
 | phone           | String | no  | 20   | 手机号                                               |
-| callbackUrl     | String | no  | 200  | 代付回调地址，若不传, 则以商户配置为准                              |
+| callbackUrl     | String | no  | 200  | 代收回调地址，若不传, 则以商户配置为准                              |
 | sign            | String | yes |      | 签名                                                |
 
 
@@ -49,10 +49,10 @@ description: 商户请求创建一个代收订单
 {
     "realName": "TeemoPay",
     "amount": "1000.00",
-    "phone": "1000000000",
+    "phone": "3000000000",
     "sign": "YOUR_SIGN",
     "callbackUrl": "https://www.callbackexample.com",
-    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+    "merchantOrderNo": "OrderNoExample",
     "email": "TeemoPay@example.com",
     "paymentType": 1
 }
@@ -83,11 +83,11 @@ description: 商户请求创建一个代收订单
   "code": 200,
   "data": {
     "amount": "1000.00",
-    "tradeNo": "TS2405220001MX0000430564883184",
+    "tradeNo": "TS2501010001MX0000000000000000",
     "additionalInfo": {
       "paymentLink": "https://test-mx-payin.teemopay.com/TS2405220001MX0000315772003922"
     },
-    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+    "merchantOrderNo": "OrderNoExample",
     "paymentInfo": "684180093000000000",
     "paymentType": 1,
     "status": 1
@@ -104,8 +104,8 @@ description: 商户请求创建一个代收订单
   "code": 200,
   "data": {
     "amount": "1000.00",
-    "tradeNo": "TS2405220001MX0000430564883184",
-    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+    "tradeNo": "TS2501010001MX0000000000000000",
+    "merchantOrderNo": "OrderNoExample",
     "paymentType": 4,
     "additionalInfo": {
       "paymentLink": "https://www.paycashLinkExample.com"
@@ -125,8 +125,8 @@ description: 商户请求创建一个代收订单
   "code": 200,
   "data": {
     "amount": "1000.00",
-    "tradeNo": "TS2405220001MX0000430564883184",
-    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+    "tradeNo": "TS2501010001MX0000000000000000",
+    "merchantOrderNo": "OrderNoExample",
     "paymentType": 4,
     "additionalInfo": {
       "paymentLink": "https://www.paycashLinkExample.com"
@@ -141,8 +141,8 @@ description: 商户请求创建一个代收订单
 ```json
 {
   "amount": "1000.00",
-  "tradeNo": "TS2405220001MX0000430564883184",
-  "merchantOrderNo": "ABCDEFG",
+  "tradeNo": "TS2501010001MX0000000000000000",
+  "merchantOrderNo": "OrderNoExample",
   "paymentType": 6,
   "additionalInfo": {
     "paymentLink": "https://www.paycashglobXXXXXXXm/formato.php?referencia=ATQyMDY0OTczNDIzMg==&interno=1"
@@ -185,9 +185,9 @@ description: 商户请求创建一个代收订单
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+        "merchantOrderNo": "OrderNoExample",
         "amount": null,
-        "tradeNo": "TS2405220001MX0000430564883184",
+        "tradeNo": "TS2501010001MX0000000000000000",
         "paymentType": 1,
         "paymentInfo": null,
         "additionalInfo": null,

@@ -61,7 +61,7 @@ description: Merchant receives a payout result callback
   "refundTime": "2026-04-20 04:17:29",
   "errorMessage": null,
   "errorCode": null,
-  "sign": ""
+  "sign": "TEEMO_SIGN"
 }
 ```
 
@@ -80,6 +80,6 @@ description: Merchant receives a payout result callback
 |-----------|--------|----------|--------|-----------------------------------------------------------|
 | SUCCESS   | String | yes      |        | Must return "SUCCESS" otherwise callback will be repeated |
 
-```json title="Response Example"
+```text title="Response Example"
 SUCCESS
 ```

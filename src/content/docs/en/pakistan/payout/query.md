@@ -33,7 +33,6 @@ description: Merchant query the status of a payout order
   "merchantOrderNo": "OrderNoExample",
   "sign": "YOUR_SIGN"
 }
-
 ```
 
 ### Response Parameters
@@ -71,7 +70,6 @@ description: Merchant query the status of a payout order
   "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
 
 }
-
 ```
 ```json title= query Failure example
 {

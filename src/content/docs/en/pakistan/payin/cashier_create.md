@@ -17,7 +17,7 @@ description: Merchant creates a cashier order
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | PK                |
-| appCode          | Application ID    |
+| app_code         | Application ID    |
 
 ### Request Parameters
 
@@ -36,13 +36,13 @@ description: Merchant creates a cashier order
 
 ```json title= request example 
 {
-  "merchantOrderNo": "ceshi-test",
+  "merchantOrderNo": "OrderNoExample",
   "paymentType" : 303,
   "amount": 100,
-  "phone": "3111111111",
-  "email" : "213@123.com",
+  "phone": "3000000000",
+  "email": "TeemoPay@example.com",
   "callbackUrl": "https://www.callbackexample.com",
-  "sign" : "YOUR_SIGN"
+  "sign": "YOUR_SIGN"
 }
 ```
 

@@ -48,7 +48,7 @@ description: 商户请求创建一个代收订单
 {
   "realName": "TeemoPay",
   "amount": "1000",
-  "phone": "6234567890",
+  "phone": "6123456789",
   "callbackUrl": "https://www.callbackexample.com",
   "merchantOrderNo": "OrderNoExample",
   "email": "TeemoPay@example.com",
@@ -80,7 +80,7 @@ description: 商户请求创建一个代收订单
     "data": {
         "merchantOrderNo": "OrderNoExample",
         "amount": "1000",
-        "tradeNo": "TS2405220001IN0000518954661212",
+        "tradeNo": "TS2501010001IN0000000000000000",
         "paymentType": 1001,
         "paymentInfo": "https://cashier.deviukpay.com/checkoutV3?orderId=PI202604081245327E6D587A9350619B&sign=FC4BF498CFF2D13AD06B4937FC8B0FA5",
         "additionalInfo": {},
@@ -100,7 +100,7 @@ description: 商户请求创建一个代收订单
     "data": {
         "merchantOrderNo": "OrderNoExample",
         "amount": "1000",
-        "tradeNo": "TS2405220001IN0000518955279892",
+        "tradeNo": "TS2501010001IN0000000000000000",
         "paymentType": 1002,
         "paymentInfo": "https://cashier.deviukpay.com/checkoutV3?orderId=PI202604081246507CBDA2C4CDB913B4&sign=04AF43E5CDCA07AE97C0F58A451F422B",
         "additionalInfo": {},
@@ -120,7 +120,7 @@ description: 商户请求创建一个代收订单
     "data": {
         "merchantOrderNo": "OrderNoExample",
         "amount": "1000",
-        "tradeNo": "TS2405220001IN0000518955487076",
+        "tradeNo": "TS2501010001IN0000000000000000",
         "paymentType": 1003,
         "paymentInfo": "phonepe://native?data=eyJjb250YWN0Ijp7ImNic05hbWUiOiIiLCJuaWNrTmFtZSI6IiIsInZwYSI6InRpd2FyaWJoYXJhdDc4OUBmcmVlY2hhcmdlIiwidHlwZSI6IlZQQSJ9LCJwMnBQYXltZW50Q2hlY2tvdXRQYXJhbXMiOnsibm90ZSI6IkRvIG5vdCBtb2RpZnkgdGhlIGFtb3VudCIsImlzQnlEZWZhdWx0S25vd25Db250YWN0Ijp0cnVlLCJlbmFibGVTcGVlY2hUb1RleHQiOmZhbHNlLCJhbGxvd0Ftb3VudEVkaXQiOmZhbHNlLCJzaG93UXJDb2RlT3B0aW9uIjpmYWxzZSwiZGlzYWJsZVZpZXdIaXN0b3J5Ijp0cnVlLCJzaG91bGRTaG93VW5zYXZlZENvbnRhY3RCYW5uZXIiOmZhbHNlLCJpc1JlY3VycmluZyI6ZmFsc2UsImNoZWNrb3V0VHlwZSI6IkRFRkFVTFQiLCJ0cmFuc2FjdGlvbkNvbnRleHQiOiJwMnAiLCJpbml0aWFsQW1vdW50Ijo5OTg2NC4wMCwiZGlzYWJsZU5vdGVzRWRpdCI6dHJ1ZSwic2hvd0tleWJvYXJkIjp0cnVlLCJjdXJyZW5jeSI6IklOUiIsInNob3VsZFNob3dNYXNrZWROdW1iZXIiOnRydWV9fQ==&id=p2ppayment",
         "additionalInfo": {},
@@ -140,7 +140,7 @@ description: 商户请求创建一个代收订单
     "data": {
         "merchantOrderNo": "OrderNoExample",
         "amount": "1000",
-        "tradeNo": "TS2405220001IN0000518955617780",
+        "tradeNo": "TS2501010001IN0000000000000000",
         "paymentType": 1004,
         "paymentInfo": "paytmmp://cash_wallet?pa=tiwaribharat789@freecharge&pn=ashish&tr=000011&tn=00001&am=998.51&cu=INR&featuretype=money_transfer",
         "additionalInfo": {},
@@ -187,9 +187,9 @@ description: 商户请求创建一个代收订单
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": OrderNoExample,
+    "merchantOrderNo": "OrderNoExample",
     "amount": null,
-    "tradeNo": "TS2405220001AR0000430564883184",
+    "tradeNo": "TS2501010001IN0000000000000000",
     "paymentType": 1001,
     "paymentInfo": null,
     "additionalInfo": null,

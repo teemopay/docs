@@ -64,7 +64,7 @@ SERVIFACIL
 {
     "realName": "TeemoPay",
     "amount": "10000",
-    "phone": "1234567890",
+    "phone": "923456789",
     "callbackUrl": "https://www.callbackexample.com",
     "merchantOrderNo": "OrderNoExample",
     "email": "TeemoPay@example.com",
@@ -93,7 +93,7 @@ SERVIFACIL
   "code": 200,
   "data": {
     "amount": "10000",
-    "tradeNo": "TS2501010001CO0000000000000000",
+    "tradeNo": "TS2501010001CL0000000000000000",
     "merchantOrderNo": "OrderNoExample",
     "paymentType": 601,
     "additionalInfo": {

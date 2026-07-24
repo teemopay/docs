@@ -16,7 +16,7 @@ description: Merchant queries the status of a cashier order
 | timestamp        | Request timestamp       |
 | nonce            | Random string           |
 | country          | Country code (e.g., PK) |
-| appCode          | Application ID          |
+| app_code         | Application ID          |
 
 ### Request Parameters
 

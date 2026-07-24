@@ -63,7 +63,7 @@ description: Merchant requests to create a payment order
     "amount": "10.00",
     "realName": "TeemoPay",
     "email": "TeemoPay@example.com",
-    "phone": "900000000",
+    "phone": "912345678",
     "callbackUrl": "https://www.callbackexample.com",
     "sign": "YOUR_SIGN"
 }
@@ -100,5 +100,4 @@ description: Merchant requests to create a payment order
     "status": 1
   }
 }
-
 ```

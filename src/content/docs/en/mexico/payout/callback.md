@@ -49,7 +49,6 @@ description: Receive a payout result callback
   "completeTime": "2025-05-01 00:00:00",
   "sign": "TEEMO_SIGN"
 }
-
 ```
 
 
@@ -92,8 +91,6 @@ description: Receive a payout result callback
 | --------- | ------ | -------- | ------ | --------------------------------------------- |
 | SUCCESS   | String | Yes      |        | Must return `"SUCCESS"`, otherwise will retry |
 
-```json title= Callback Response
-{
-  SUCCESS
-}
+```text title= Callback Response
+SUCCESS
 ```

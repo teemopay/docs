@@ -42,7 +42,7 @@ description: 商户请求创建一个代付订单
     "amount": "1000",
     "accountType": 901,
     "bankAccount": "1234567890123456789012",
-    "realName": "realName",
+    "realName": "TeemoPay",
     "idCardNumber": "12345678",
     "idType": "DNI",
     "callbackUrl": "https://www.callbackexample.com",

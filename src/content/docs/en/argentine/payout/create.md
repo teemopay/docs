@@ -42,7 +42,7 @@ description: Create a payout order
     "amount": "1000",
     "accountType": 901,
     "bankAccount": "1234567890123456789012",
-    "realName": "realName",
+    "realName": "TeemoPay",
     "idCardNumber": "12345678",
     "idType": "DNI",
     "callbackUrl": "https://www.callbackexample.com",
@@ -62,7 +62,7 @@ description: Create a payout order
 ```json title=Return Example
 {
   "merchantOrderNo": "OrderNoExample",
-  "tradeNo": "TF201806251011",
+  "tradeNo": "TF2501010001AR0000000000000000",
   "status": 1,
   "sign": "TEEMO_SIGN"
 }

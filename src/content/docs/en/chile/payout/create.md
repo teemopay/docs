@@ -45,7 +45,7 @@ description: Merchant requests to create a payout order
     "idType": "CC",
     "accountType": 201,
     "merchantOrderNo": "OrderNoExample",
-    "realName": "TEEMO",
+    "realName": "TeemoPay",
     "phone": "923456789",
     "idCardNumber": "0234567890",
     "callbackUrl": "https://www.callbackexample.com",

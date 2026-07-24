@@ -41,7 +41,6 @@ description: Create a payout order
   "callbackUrl": "https://www.callbackexample.com",
   "sign": "YOUR_SIGN"
 }
-
 ```
 
 ### Response Parameters
@@ -64,8 +63,7 @@ description: Create a payout order
     "amount": "1000.00",
     "merchantOrderNo": "OrderNoExample",
     "status": 1,
-    "tradeNo": "TF2501010001MX0000000000000000"
+    "tradeNo": "TF2501010001BP0000000000000000"
   }
 }
-
 ```

@@ -59,13 +59,13 @@ description: 商户接受一个代付结果的回调
   "completeTime": "2026-04-20 04:17:29",
   "status": 5,
   "serviceAmount": "0",
-  "refundStatus": 2,  // 当次退款状态：0（部分退款）1（全额退款）
-  "refundNo": "T002-TF2405220001BR0000527108668641", // 当次退款单号
-  "refundAmount": "200", // 当次退款金额
-  "refundTime": "2026-04-20 04:17:29", // 当次退款时间
+  "refundStatus": 2,
+  "refundNo": "RefundNoExample",
+  "refundAmount": "200",
+  "refundTime": "2026-04-20 04:17:29",
   "errorMessage": null,
   "errorCode": null,
-  "sign": ""
+  "sign": "TEEMO_SIGN"
 }
 ```
 
@@ -84,6 +84,6 @@ description: 商户接受一个代付结果的回调
 |---------|--------|-----|----|----------------------|
 | SUCCESS | String | yes |    | 必须返回"SUCCESS"否则会重复回调 |
 
-```json
+```text title=Response Example
 SUCCESS
 ```

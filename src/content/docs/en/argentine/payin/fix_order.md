@@ -28,7 +28,7 @@ title: Fix Order
 ```json title=Request Example
 {
   "bankId": "pvbankid104",
-  "merchantOrderNo": "cvu_test_204",
+  "merchantOrderNo": "OrderNoExample",
   "sign": "YOUR_SIGN"
 }
 ```
@@ -51,7 +51,7 @@ title: Fix Order
     "amount": "5.00",
     "tradeNo": "TS2405220001AR0000505867138310",
     "bankId": "xiashjadyuqwgbeqwe——1638",
-    "merchantOrderNo": "cvu_test_212",
+    "merchantOrderNo": "OrderNoExample",
     "callbackTime": "2026-03-20 05:50:24",
     "status": 1
   },

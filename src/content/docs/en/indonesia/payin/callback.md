@@ -58,9 +58,6 @@ description: Merchant receives a payment result callback
 | ------- | ------ | -------- | ------------------------------------------------------- |
 | SUCCESS | String | yes      | Must return `"SUCCESS"` or the callback will be retried |
 
-```json title= Request Example
-{
-  SUCCESS
-
-}
+```text title=Response Example
+SUCCESS
 ```

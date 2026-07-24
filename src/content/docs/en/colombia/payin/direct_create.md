@@ -69,17 +69,17 @@ and generate keys here: 👉 https://www.banrep.gov.co/es/bre-b/simuladores-curs
 
 ```json title="Request Example"
 {
-  "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000040",
-  "realName": "OPQRST UVWXYZ ABCDEFG HIJKLMN",
+  "merchantOrderNo": "OrderNoExample",
+  "realName": "TeemoPay",
   "amount": "30000.00",
-  "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
+  "callbackUrl": "https://www.callbackexample.com",
   "paymentType": 201,
-  "email": "12123123@ss.com",
-  "phone": "1234567890",
+  "email": "TeemoPay@example.com",
+  "phone": "3000000000",
   "bankCode": "1040",
   "idType" : "CC",
   "idCardNumber" : "123456789",
-  "sign": "uOunEdixuTptztITS1xVQK7EokviXGkNjnSupauc/keqQogkyigiks8R9gXG66RPAXgkMNFnM9xTOu0YBkajFE+oiQU+hvmiXg1TcPAy6RF0TZTmrI7Ya06NWtRUzIOPO0a6GyOjHA86hfIP3tfXRBB07F2AwnOXv8nzCKUGUY4=",
+  "sign": "YOUR_SIGN",
   "expirationTime": 1718409600000
 }
 ```
@@ -101,9 +101,9 @@ and generate keys here: 👉 https://www.banrep.gov.co/es/bre-b/simuladores-curs
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000040",
+    "merchantOrderNo": "OrderNoExample",
     "amount": "30000.00",
-    "tradeNo": "TS2405220001CO0000000000010033",
+    "tradeNo": "TS2501010001CO0000000000000000",
     "paymentType": 201,
     "paymentInfo": "https://mock/pse/",
     "additionalInfo": {},

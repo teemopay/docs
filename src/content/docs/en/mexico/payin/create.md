@@ -67,7 +67,7 @@ Each repayment is identified by the paymentOrderNo field in the callback.
 | amount          | String | Yes      | 20     | Collection amount (Peso)                                                                                   |
 | expirationTime  | Long   | No       |        | Expiration time, required in certain conditions, e.g.: 1717048800000, mandatory when paymentType is 4 or 5 |
 | phone           | String | No       | 20     | Phone number                                                                                               |
-| callbackUrl     | String | No       | 200    | Payout callback URL, if not provided, merchant configuration will be used                                  |
+| callbackUrl     | String | No       | 200    | Payin callback URL, if not provided, merchant configuration will be used                                   |
 | sign            | String | Yes      |        | Signature                                                                                                  |
 
 
@@ -79,7 +79,7 @@ Each repayment is identified by the paymentOrderNo field in the callback.
 {
     "realName": "TeemoPay",
     "amount": "1000.00",
-    "phone": "1000000000",
+    "phone": "3000000000",
     "sign": "YOUR_SIGN",
     "callbackUrl": "https://www.callbackexample.com",
     "merchantOrderNo": "OrderNoExample",
@@ -176,8 +176,8 @@ Each repayment is identified by the paymentOrderNo field in the callback.
 ```json
 {
   "amount": "1000.00",
-  "tradeNo": "TS2404070001MX0000205873135769",
-  "merchantOrderNo": "ABCDEFG",
+  "tradeNo": "TS2501010001MX0000000000000000",
+  "merchantOrderNo": "OrderNoExample",
   "paymentType": 6,
   "additionalInfo": {
     "paymentLink": "https://www.paycashglobXXXXXXXm/formato.php?referencia=ATQyMDY0OTczNDIzMg==&interno=1"

@@ -71,7 +71,6 @@ description: 商户查询一个代付订单的状态
   "msg": "success",
   "traceId": "2e0e38e3e9a24b60b4f57c6d2ced196a.115.17744291515713103"
 }
-
 ```
 
 ```json title=退款示例
@@ -108,7 +107,6 @@ description: 商户查询一个代付订单的状态
   "msg": "success",
   "traceId": "dcf1aee524564c5485a655d09a02aa02.86.17766720253031143"
 }
-
 ```
 
 ### 错误码

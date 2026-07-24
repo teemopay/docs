@@ -36,17 +36,17 @@ description: Merchant requests to create a payout order
 
 ```json title="Request Example"
 {
-                "merchantOrderNo": "ds111ad111022911111111111131",
-                "realName": "Carlos",
+                "merchantOrderNo": "OrderNoExample",
+                "realName": "TeemoPay",
                 "bankCode": "1",
                 "bankName": "BCP",
                 "accountType": 101,
                 "bankAccount": "1234567890123456",
                 "amount": "100000",
-                "callbackUrl": "http://127.0.0.1:8075/sys/dictionary/test",
-                "sign": "YOUR SIGN",
+                "callbackUrl": "https://www.callbackexample.com",
+                "sign": "YOUR_SIGN",
                 "idType": "DNI",
-                "phone": "13175025118",
+                "phone": "3000000000",
                 "idCardNumber": "12345678"
 }
 ```
@@ -64,8 +64,8 @@ description: Merchant requests to create a payout order
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "ds111ad111002911111111111131",
-        "tradeNo": "TF2405220001CO0000048840060444",
+        "merchantOrderNo": "OrderNoExample",
+        "tradeNo": "TF2501010001CO0000000000000000",
         "amount": "100",
         "status": 1
     },

@@ -71,7 +71,6 @@ description: Merchant queries the status of a payout order
   "msg": "success",
   "traceId": "2e0e38e3e9a24b60b4f57c6d2ced196a.115.17744291515713103"
 }
-
 ```
 
 ```json title=Refund Example
@@ -108,7 +107,6 @@ description: Merchant queries the status of a payout order
   "msg": "success",
   "traceId": "dcf1aee524564c5485a655d09a02aa02.86.17766720253031143"
 }
-
 ```
 
 ```json title="Order Not Found Response Example"

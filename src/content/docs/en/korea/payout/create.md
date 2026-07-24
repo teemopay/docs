@@ -41,10 +41,10 @@ description: Create a payout order
   "bankName": "Shinhan Bank",
   "accountType": 801,
   "bankAccount": "12345678998765",
-  "realName": "realName",
+  "realName": "TeemoPay",
   "idType": "RRN",
   "callbackUrl": "https://www.callbackexample.com",
-  "sign": "YOUR_SIGN"
+  "sign": "TEEMO_SIGN"
 }
 ```
 
@@ -60,8 +60,8 @@ description: Create a payout order
 ```json title=Return Example
 {
   "merchantOrderNo": "OrderNoExample",
-  "tradeNo": "TF201806251011",
+  "tradeNo": "TF2501010001KR0000000000000000",
   "status": 1,
-  "sign": "TEEMO_SIGN"
+  "sign": "YOUR_SIGN"
 }
 ```
