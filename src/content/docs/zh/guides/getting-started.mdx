@@ -1,17 +1,15 @@
 ---
 title: 快速开始
-description: 快速开始使用 Teemopay
+description: 快速开始使用 TeemoPay
 ---
 
 import { Steps } from "@astrojs/starlight/components";
 
 ## 简介
 
-Teemopay 是一个全球化的支付平台，为全球的商户提供支付解决方案。
-我们的目标是为商户提供一个简单、安全、高效的支付解决方案，帮助商户快速接入全球市场。
+TeemoPay 为跨境商户提供本地化支付能力, 覆盖代收、代付、账户查询、订单查询、回调通知等核心接口, 帮助商户用统一的接入方式对接不同国家和地区的本地支付网络.
 
-在实现愿景的第一站，我们选择进入南美市场，随着业务的发展，我们将逐步拓展，
-感谢您的支持与陪伴，我们将不断努力，为您提供更好的服务。
+我们的服务范围不只限于拉丁美洲市场. 当前文档已覆盖拉丁美洲、亚洲和 USDT 等业务场景, 商户可以根据目标市场选择对应国家的 API 文档进行接入. 不同国家的字段规则、银行列表、手机号格式、证件要求和回调字段可能存在差异, 请以对应国家页面为准.
 
 ## 步骤
 
@@ -19,56 +17,81 @@ Teemopay 是一个全球化的支付平台，为全球的商户提供支付解�
 
 1. 商务对接
 
-   a. 确认您的价格和结算周期；
+   a. 确认开通国家、业务类型、费率、结算周期和上线计划;
 
-   b. 我们为您开通测试商户和对应国家的账户；
+   b. 我们为您开通测试商户、应用和对应国家的测试权限;
+
+   c. 获取测试环境的 `app_code`, 商户后台账号和联调联系人.
 
 2. 阅读接入指南
 
-   a. 阅读 [操作手册](/zh/guides/operation-manual) 了解商户后台操作；
+   a. 阅读 [操作手册](/zh/guides/operation-manual) 了解商户后台、应用和公钥交换流程;
 
-   b. 阅读 [创建密钥](/zh/guides/create-keys) 了解如何创建和使用密钥；
+   b. 阅读 [创建密钥](/zh/guides/create-keys) 生成商户公私钥, 并完成平台公钥交换;
 
-   c. 阅读 [鉴权示例](/zh/guides/authentication) 了解如何进行鉴权；
+   c. 阅读 [鉴权示例](/zh/guides/authentication) 确认请求头、签名、验签和回调验签规则;
 
-3. 创建密钥
+   d. 阅读 [时区说明](/zh/guides/timezone) 确认各国家返回时间字段使用的固定时区.
 
-   a. 依照 [使用密钥](/zh/guides/create-keys) 创建您的公私钥；
+3. 选择国家 API
 
-   b. 在 Teemopay 商户后台，将您的公钥与平台公钥进行交换；
+   a. 根据业务地区进入拉丁美洲、亚洲或 USDT 对应文档;
 
-4. 接入支付
+   b. 先确认支付方式、必填字段、金额规则、手机号/证件格式、银行编码和账户类型;
 
-   a. 根据您的需求阅读对应国家的 API 文档；
+   c. 按需接入代收、代付、查询和回调接口.
 
-   b. 根据 API 文档结合您的需求进行开发；
+4. 联调验证
 
-   c. 将您的开发周期和上线计划与我们分享，以便我们为您提供支持；
+   a. 使用测试商户发起创建订单请求, 确认签名、`merchantOrderNo`、`callbackUrl` 和金额格式正确;
 
-5. 发布上线
+   b. 验证订单查询、回调接收、回调验签和幂等处理;
 
-   a. 发布上线前，我们为您开通生产环境；
+   c. 对各国家特有字段做场景验证, 例如钱包账号、银行账号、手机号前缀、证件类型等.
 
-   b. 少量灰度后，正式上线；
+5. 生产上线
+
+   a. 上线前确认生产商户、生产应用、公钥交换和回调地址已配置完成;
+
+   b. 先进行小流量灰度, 观察创建成功率、支付成功率、回调到达率和代付结果;
+
+   c. 灰度稳定后正式放量, 如需新增国家可按同一接入模式扩展.
 
 </Steps>
 
 ## 资源
 
-接入指南
+### 接入指南
 
 - [操作手册](/zh/guides/operation-manual)
+- [更新记录](/zh/guides/changes)
 - [创建密钥](/zh/guides/create-keys)
 - [鉴权示例](/zh/guides/authentication)
+- [时区说明](/zh/guides/timezone)
 
-API 文档
+### API 文档
+
+拉丁美洲
 
 - [墨西哥](/zh/mexico/payin/create)
 - [秘鲁](/zh/peru/payin/create)
-- [哥伦比亚](/zh/colombia/payin/create)
-- [巴基斯坦](/zh/pakistan/payin/cashier_create)
+- [哥伦比亚](/zh/colombia/payin/cashier_create)
+- [巴西](/zh/brazil/payin/create)
+- [智利](/zh/chile/payin/create)
+- [阿根廷](/zh/argentine/payin/create)
 
-代收操作流程
+亚洲
+
+- [巴基斯坦](/zh/pakistan/payin/cashier_create)
+- [印度](/zh/india/payin/create)
+- [印度尼西亚](/zh/indonesia/payin/create)
+- [韩国](/zh/korea/payin/create)
+
+USDT
+
+- [USDT](/zh/crypto/payin/create)
+
+### 代收操作流程
 
 <a
   href="https://www.figma.com/proto/JFs7TlHPFEK2udJAtrh6Hj/Teemopay-Payin-Demo?page-id=0%3A1&node-id=43-2628&p=f&viewport=315%2C288%2C0.02&t=2pmwJfjtumjI0GZM-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=43%3A2628"

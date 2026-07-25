@@ -1,74 +1,97 @@
 ---
 title: Getting Started
-description: Getting started with Teemopay
+description: Getting started with TeemoPay
 ---
 
 import { Steps } from "@astrojs/starlight/components";
 
 ## Introduction
 
-Teemopay is a global payment platform providing payment solutions for merchants worldwide.
-Our goal is to provide merchants with a simple, secure and efficient payment solution to help them quickly enter the global market.
+TeemoPay provides localized payment capabilities for cross-border merchants, covering payin, payout, balance inquiry, order inquiry, callback notification, and other core APIs. Merchants can use one integration model to connect with local payment networks across different countries and regions.
 
-As the first step in realizing our vision, we have chosen to enter the South American market. As our business grows, we will gradually expand.
-Thank you for your support and companionship. We will continue to work hard to provide you with better services.
+Our coverage is not limited to Latin America. The current documentation includes Latin America, Asia, and USDT scenarios, so you can choose the API documentation that matches your target market. Field rules, bank lists, phone formats, document requirements, and callback fields may vary by country. Always follow the corresponding country page during integration.
 
 ## Steps
 
 <Steps>
 
-1. Business Connection
+1. Commercial setup
 
-   a. Confirm your price and settlement cycle;
+   a. Confirm enabled countries, business type, pricing, settlement cycle, and launch plan;
 
-   b. We will open a test merchant and corresponding account for you;
+   b. We will create a test merchant, application, and country permissions for you;
 
-2. Read the Integration Guide
+   c. Obtain the test `app_code`, merchant dashboard account, and integration contact.
 
-   a. Read [Operation Manual](/en/guides/operation-manual) to understand merchant background operations;
+2. Read the integration guide
 
-   b. Read [Create Keys](/en/guides/create-keys) to understand how to create and use keys;
+   a. Read [Operation Manual](/en/guides/operation-manual) to understand the merchant dashboard, applications, and public key exchange;
 
-   c. Read [Authentication Example](/en/guides/authentication) to understand how to authenticate;
+   b. Read [Create Keys](/en/guides/create-keys) to generate your merchant key pair and complete platform public key exchange;
 
-3. Create Keys
+   c. Read [Authentication Example](/en/guides/authentication) to confirm request headers, signing, verification, and callback verification rules;
 
-   a. Follow [Create Keys](/en/guides/create-keys) to create your public/private keys;
+   d. Read [Time Zone](/en/guides/timezone) to confirm the fixed time zone used by response time fields.
 
-   b. In the Teemopay merchant background, exchange your public key with the platform public key;
+3. Select country APIs
 
-4. Integrate Payment
+   a. Open the corresponding Latin America, Asia, or USDT documentation for your business region;
 
-   a. Read the API documentation of the corresponding country according to your needs;
+   b. Confirm payment methods, required fields, amount rules, phone/document formats, bank codes, and account types first;
 
-   b. Develop according to the API documentation and your needs;
+   c. Integrate payin, payout, query, and callback APIs as needed.
 
-   c. Share your development cycle and release plan with us so we can support you;
+4. Test the integration
 
-5. Release
+   a. Create orders with the test merchant and confirm the signature, `merchantOrderNo`, `callbackUrl`, and amount format;
 
-   a. Before releasing, we will open the production environment for you;
+   b. Verify order query, callback receiving, callback signature verification, and idempotent processing;
 
-   b. After a small amount of gray scale, it will be officially 上线;
+   c. Test country-specific fields such as wallet accounts, bank accounts, phone prefixes, and document types.
+
+5. Go live
+
+   a. Before launch, confirm the production merchant, production application, public key exchange, and callback URL are ready;
+
+   b. Start with a small traffic rollout and monitor order creation rate, payment success rate, callback delivery, and payout results;
+
+   c. After the rollout is stable, increase traffic. Additional countries can be added with the same integration model.
 
 </Steps>
 
 ## Resources
 
-Integration Guide
+### Integration Guide
 
 - [Operation Manual](/en/guides/operation-manual)
+- [Changes](/en/guides/changes)
 - [Create Keys](/en/guides/create-keys)
 - [Authentication Example](/en/guides/authentication)
+- [Time Zone](/en/guides/timezone)
 
-API Documentation
+### API Documentation
+
+Latin America
 
 - [Mexico](/en/mexico/payin/create)
 - [Peru](/en/peru/payin/create)
-- [Colombia](/en/colombia/payin/create)
-- [Pakistan](/en/pakistan/payin/cashier_create)
+- [Colombia](/en/colombia/payin/cashier_create)
+- [Brazil](/en/brazil/payin/create)
+- [Chile](/en/chile/payin/create)
+- [Argentina](/en/argentine/payin/create)
 
-Payin Demo
+Asia
+
+- [Pakistan](/en/pakistan/payin/cashier_create)
+- [India](/en/india/payin/create)
+- [Indonesia](/en/indonesia/payin/create)
+- [Korea](/en/korea/payin/create)
+
+USDT
+
+- [USDT](/en/crypto/payin/create)
+
+### Payin Demo
 
 <a
   href="https://www.figma.com/proto/JFs7TlHPFEK2udJAtrh6Hj/Teemopay-Payin-Demo?page-id=0%3A1&node-id=43-2628&p=f&viewport=315%2C288%2C0.02&t=2pmwJfjtumjI0GZM-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=43%3A2628"

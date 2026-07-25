@@ -1,0 +1,214 @@
+---
+import { Badge, Icon } from "@astrojs/starlight/components";
+import { AstroError } from "astro/errors";
+import type { ComponentProps } from "astro/types";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import starlightConfig from "virtual:starlight/user-config";
+import config from "virtual:starlight-sidebar-topics/config";
+
+interface Props {
+  current: (typeof config)[number];
+  currentSlug: string;
+}
+
+const { current, currentSlug } = Astro.props;
+
+const defaultLang = starlightConfig.defaultLocale?.lang || starlightConfig.defaultLocale?.locale || "en";
+
+const regionCountries = {
+  asia: [
+    { id: "pakistan", label: { en: "🇵🇰 Pakistan", zh: "🇵🇰 巴基斯坦" }, link: "/pakistan/payin/cashier_create" },
+    { id: "india", label: { en: "🇮🇳 India", zh: "🇮🇳 印度" }, link: "/india/payin/create" },
+    { id: "indonesia", label: { en: "🇮🇩 Indonesia", zh: "🇮🇩 印度尼西亚" }, link: "/indonesia/payin/create" },
+    { id: "korea", label: { en: "🇰🇷 Korea", zh: "🇰🇷 韩国" }, link: "/korea/payin/create" },
+  ],
+  "latin-america": [
+    { id: "mexico", label: { en: "🇲🇽 Mexico", zh: "🇲🇽 墨西哥" }, link: "/mexico/payin/create" },
+    { id: "peru", label: { en: "🇵🇪 Peru", zh: "🇵🇪 秘鲁" }, link: "/peru/payin/create" },
+    { id: "colombia", label: { en: "🇨🇴 Colombia", zh: "🇨🇴 哥伦比亚" }, link: "/colombia/payin/cashier_create" },
+    { id: "brazil", label: { en: "🇧🇷 Brazil", zh: "🇧🇷 巴西" }, link: "/brazil/payin/create" },
+    { id: "chile", label: { en: "🇨🇱 Chile", zh: "🇨🇱 智利" }, link: "/chile/payin/create" },
+    { id: "argentine", label: { en: "🇦🇷 Argentina", zh: "🇦🇷 阿根廷" }, link: "/argentine/payin/create" },
+  ],
+};
+
+function getTranslation(translations: Record<string, string>, link: string, description: string) {
+  const defaultTranslation = translations[defaultLang];
+
+  if (!defaultTranslation) {
+    throw new AstroError(
+      `The ${description} for "${link}" must have a key for the default language "${defaultLang}".`,
+      "Update the Starlight config to include a topic label for the default language.",
+    );
+  }
+
+  return Astro.currentLocale ? translations[Astro.currentLocale] ?? defaultTranslation : defaultTranslation;
+}
+
+function getLabel(label: string | Record<string, string>, link: string) {
+  return typeof label === "string" ? label : getTranslation(label, link, "topic label");
+}
+
+function getLocalizedLink(link: string) {
+  return Astro.currentLocale && !/^https?:\/\//.test(link) ? getRelativeLocaleUrl(Astro.currentLocale, link) : link;
+}
+
+function getCurrentRoot(slug: string) {
+  const parts = slug.split("/").filter(Boolean);
+  return parts[0] === "en" || parts[0] === "zh" ? parts[1] : parts[0];
+}
+
+const currentRoot = getCurrentRoot(currentSlug);
+---
+
+<ul>
+  {
+    config.map((topic) => {
+      const topicId = "id" in topic ? topic.id : undefined;
+      const region = topicId && topicId in regionCountries ? regionCountries[topicId as keyof typeof regionCountries] : undefined;
+      const label = getLabel(topic.label, topic.link);
+
+      if (region) {
+        const isCurrentRegion = topic.label === current.label && topic.link === current.link;
+
+        return (
+          <li class="region">
+            <div class:list={{ "region-label": true, "starlight-sidebar-topics-current": isCurrentRegion }}>{label}</div>
+            <ul class="country-list">
+              {region.map((country) => {
+                const countryLabel = getLabel(country.label, country.link);
+                const isCurrentCountry = country.id === currentRoot;
+
+                return (
+                  <li>
+                    <a href={getLocalizedLink(country.link)} class:list={{ "country-link": true, "starlight-sidebar-topics-current": isCurrentCountry }}>
+                      {countryLabel}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </li>
+        );
+      }
+
+      const isLinkTopic = topic.type === "link";
+      const isCurrent = isLinkTopic ? false : topic.label === current.label && topic.link === current.link;
+
+      return (
+        <li>
+          <a href={getLocalizedLink(topic.link)} class:list={{ "starlight-sidebar-topics-current": isCurrent }}>
+            {topic.icon && (
+              <div class="starlight-sidebar-topics-icon">
+                <Icon name={topic.icon as ComponentProps<typeof Icon>["name"]} />
+              </div>
+            )}
+            <div>
+              {label}
+              {topic.badge && (
+                <Badge
+                  class="starlight-sidebar-topics-badge"
+                  text={typeof topic.badge.text === "string" ? topic.badge.text : getTranslation(topic.badge.text, topic.link, "topic badge text")}
+                  variant={topic.badge.variant}
+                />
+              )}
+            </div>
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style>
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul::after {
+    content: "";
+    display: block;
+    margin-top: 1rem;
+    height: 1px;
+    border-top: 1px solid var(--sl-color-hairline-light);
+  }
+
+  li {
+    overflow-wrap: anywhere;
+  }
+
+  li + li {
+    margin-top: 0.25rem;
+  }
+
+  a,
+  .region-label {
+    align-items: center;
+    color: var(--sl-color-white);
+    display: flex;
+    font-size: var(--sl-text-base);
+    font-weight: 600;
+    gap: 0.5rem;
+    line-height: 1.5;
+    padding: 0.3em 0.5rem;
+    text-decoration: none;
+  }
+
+  a:is(.starlight-sidebar-topics-current, :hover, :focus-visible) {
+    color: var(--sl-color-accent-high);
+  }
+
+  .region-label {
+    color: var(--sl-color-gray-3);
+    cursor: default;
+    margin-top: 0.5rem;
+  }
+
+  .region:first-child .region-label {
+    margin-top: 0;
+  }
+
+  .region-label.starlight-sidebar-topics-current {
+    color: var(--sl-color-accent-high);
+  }
+
+  .country-list {
+    margin-inline-start: 1rem;
+    padding: 0;
+  }
+
+  .country-list::after {
+    display: none;
+  }
+
+  .country-link {
+    font-size: var(--sl-text-sm);
+    font-weight: 500;
+    padding-block: 0.2em;
+  }
+
+  :global([data-theme="light"]) a.starlight-sidebar-topics-current,
+  :global([data-theme="light"]) .region-label.starlight-sidebar-topics-current {
+    color: var(--sl-color-accent);
+  }
+
+  .starlight-sidebar-topics-icon {
+    align-items: center;
+    border-radius: 0.25rem;
+    border: 1px solid var(--sl-color-gray-4);
+    display: flex;
+    justify-content: center;
+    padding: 0.25rem;
+  }
+
+  a:is(.starlight-sidebar-topics-current, :hover, :focus-visible) .starlight-sidebar-topics-icon {
+    background-color: var(--sl-color-text-accent);
+    border-color: var(--sl-color-text-accent);
+    color: var(--sl-color-text-invert);
+  }
+
+  .starlight-sidebar-topics-badge {
+    margin-inline-start: 0.25em;
+  }
+</style>

@@ -4,6 +4,131 @@ import starlightSidebarTopics from "starlight-sidebar-topics";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 
+const sidebarGroup = (label, zh, items) => ({
+  label,
+  translations: {
+    zh,
+  },
+  items,
+});
+
+const paymentSections = ({ payin, payout, inquire }) =>
+  [
+    payin && sidebarGroup("Payin", "代收", payin),
+    payout && sidebarGroup("Payout", "代付", payout),
+    inquire && sidebarGroup("Inquire", "查询", inquire),
+  ].filter(Boolean);
+
+const countryGroup = ({ label, zh, sections }) => sidebarGroup(label, zh, paymentSections(sections));
+
+const countryGroups = {
+  mexico: countryGroup({
+    label: "🇲🇽 Mexico",
+    zh: "🇲🇽 墨西哥",
+    sections: {
+      payin: ["mexico/payin/cashier_create", "mexico/payin/create", "mexico/payin/callback", "mexico/payin/query"],
+      payout: ["mexico/payout/create", "mexico/payout/callback", "mexico/payout/query", "mexico/payout/bank"],
+      inquire: ["mexico/inquire/balance", "mexico/inquire/bill"],
+    },
+  }),
+  peru: countryGroup({
+    label: "🇵🇪 Peru",
+    zh: "🇵🇪 秘鲁",
+    sections: {
+      payin: ["peru/payin/create", "peru/payin/callback", "peru/payin/query"],
+      payout: ["peru/payout/create", "peru/payout/callback", "peru/payout/query", "peru/payout/bank"],
+      inquire: ["peru/inquire/balance", "peru/inquire/bill"],
+    },
+  }),
+  colombia: countryGroup({
+    label: "🇨🇴 Colombia",
+    zh: "🇨🇴 哥伦比亚",
+    sections: {
+      payin: [
+        "colombia/payin/cashier_create",
+        "colombia/payin/direct_create",
+        "colombia/payin/callback",
+        "colombia/payin/query",
+        "colombia/payin/bank",
+        "colombia/payin/request_response",
+      ],
+      payout: ["colombia/payout/create", "colombia/payout/callback", "colombia/payout/query", "colombia/payout/bank"],
+      inquire: ["colombia/inquire/balance", "colombia/inquire/bill"],
+    },
+  }),
+  brazil: countryGroup({
+    label: "🇧🇷 Brazil",
+    zh: "🇧🇷 巴西",
+    sections: {
+      payin: ["brazil/payin/create", "brazil/payin/callback", "brazil/payin/query"],
+      payout: ["brazil/payout/create", "brazil/payout/callback", "brazil/payout/query"],
+      inquire: ["brazil/inquire/balance", "brazil/inquire/bill"],
+    },
+  }),
+  chile: countryGroup({
+    label: "🇨🇱 Chile",
+    zh: "🇨🇱 智利",
+    sections: {
+      payin: ["chile/payin/create", "chile/payin/callback", "chile/payin/query"],
+      payout: ["chile/payout/create", "chile/payout/callback", "chile/payout/query", "chile/payout/bank"],
+      inquire: ["chile/inquire/balance", "chile/inquire/bill"],
+    },
+  }),
+  argentina: countryGroup({
+    label: "🇦🇷 Argentina",
+    zh: "🇦🇷 阿根廷",
+    sections: {
+      payin: [
+        "argentine/payin/cashier_create",
+        "argentine/payin/create",
+        "argentine/payin/callback",
+        "argentine/payin/query",
+        "argentine/payin/suspense_query",
+        "argentine/payin/bankid_query",
+        "argentine/payin/fix_order",
+      ],
+      payout: ["argentine/payout/create", "argentine/payout/callback", "argentine/payout/query", "argentine/payout/bank"],
+      inquire: ["argentine/inquire/balance", "argentine/inquire/bill"],
+    },
+  }),
+  pakistan: countryGroup({
+    label: "🇵🇰 Pakistan",
+    zh: "🇵🇰 巴基斯坦",
+    sections: {
+      payin: ["pakistan/payin/cashier_create", "pakistan/payin/direct_create", "pakistan/payin/callback", "pakistan/payin/query"],
+      payout: ["pakistan/payout/create", "pakistan/payout/callback", "pakistan/payout/query", "pakistan/payout/bank"],
+      inquire: ["pakistan/inquire/balance", "pakistan/inquire/bill"],
+    },
+  }),
+  india: countryGroup({
+    label: "🇮🇳 India",
+    zh: "🇮🇳 印度",
+    sections: {
+      payin: ["india/payin/create", "india/payin/callback", "india/payin/query"],
+      payout: ["india/payout/create", "india/payout/callback", "india/payout/query"],
+      inquire: ["india/inquire/balance", "india/inquire/bill"],
+    },
+  }),
+  indonesia: countryGroup({
+    label: "🇮🇩 Indonesia",
+    zh: "🇮🇩 印度尼西亚",
+    sections: {
+      payin: ["indonesia/payin/create", "indonesia/payin/callback", "indonesia/payin/query"],
+      payout: ["indonesia/payout/create", "indonesia/payout/callback", "indonesia/payout/query", "indonesia/payout/bank"],
+      inquire: ["indonesia/inquire/balance", "indonesia/inquire/bill"],
+    },
+  }),
+  korea: countryGroup({
+    label: "🇰🇷 Korea",
+    zh: "🇰🇷 韩国",
+    sections: {
+      payin: ["korea/payin/create", "korea/payin/callback", "korea/payin/query", "korea/payin/kycbank"],
+      payout: ["korea/payout/create", "korea/payout/callback", "korea/payout/query", "korea/payout/bank"],
+      inquire: ["korea/inquire/balance", "korea/inquire/bill"],
+    },
+  }),
+};
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://docs.teemopay.com",
@@ -73,7 +198,14 @@ export default defineConfig({
             link: "/guides/getting-started",
             icon: "open-book",
             badge: { text: "READ", variant: "success" },
-            items: ["guides/getting-started", "guides/changes", "guides/operation-manual", "guides/create-keys", "guides/authentication"],
+            items: [
+              "guides/getting-started",
+              "guides/changes",
+              "guides/operation-manual",
+              "guides/create-keys",
+              "guides/authentication",
+              "guides/timezone",
+            ],
           },
           {
             id: "crypto",
@@ -82,345 +214,42 @@ export default defineConfig({
               zh: "💰️ USDT",
             },
             link: "/crypto/payin/create",
-            items: [
-              {
-                label: "Payin",
-                translations: {
-                  zh: "代收",
-                },
-                items: ["crypto/payin/create", "crypto/payin/callback", "crypto/payin/query"],
-              },
-              {
-                label: "Payout",
-                translations: {
-                  zh: "代付",
-                },
-                items: ["crypto/payout/create", "crypto/payout/callback", "crypto/payout/query", "crypto/payout/bank"],
-              },
-              {
-                label: "Inquire",
-                translations: {
-                  zh: "查询",
-                },
-                items: ["crypto/inquire/balance", "crypto/inquire/bill"],
-              },
-            ],
+            items: paymentSections({
+              payin: ["crypto/payin/create", "crypto/payin/callback", "crypto/payin/query"],
+              payout: ["crypto/payout/create", "crypto/payout/callback", "crypto/payout/query", "crypto/payout/bank"],
+              inquire: ["crypto/inquire/balance", "crypto/inquire/bill"],
+            }),
           },
           {
-            id: "mexico",
+            id: "latin-america",
             label: {
-              en: "🇲🇽 Mexico",
-              zh: "🇲🇽 墨西哥",
+              en: "🌎 Latin America",
+              zh: "🌎 拉丁美洲",
             },
             link: "/mexico/payin/create",
             items: [
-              {
-                label: "Payin",
-                translations: {
-                  zh: "代收",
-                },
-                items: ["mexico/payin/cashier_create", "mexico/payin/create", "mexico/payin/callback", "mexico/payin/query"],
-              },
-              {
-                label: "Payout",
-                translations: {
-                  zh: "代付",
-                },
-                items: ["mexico/payout/create", "mexico/payout/callback", "mexico/payout/query", "mexico/payout/bank"],
-              },
-              {
-                label: "Inquire",
-                translations: {
-                  zh: "查询",
-                },
-                items: ["mexico/inquire/balance", "mexico/inquire/bill"],
-              },
+              countryGroups.mexico,
+              countryGroups.peru,
+              countryGroups.colombia,
+              countryGroups.brazil,
+              countryGroups.chile,
+              countryGroups.argentina,
             ],
           },
           {
-            id: "peru",
+            id: "asia",
             label: {
-              en: "🇵🇪 Peru",
-              zh: "🇵🇪 秘鲁",
-            },
-            link: "/peru/payin/create",
-            items: [
-              {
-                label: "Payin",
-                translations: {
-                  zh: "代收",
-                },
-                items: ["peru/payin/create", "peru/payin/callback", "peru/payin/query"],
-              },
-              {
-                label: "Payout",
-                translations: {
-                  zh: "代付",
-                },
-                items: ["peru/payout/create", "peru/payout/callback", "peru/payout/query", "peru/payout/bank"],
-              },
-              {
-                label: "Inquire",
-                translations: {
-                  zh: "查询",
-                },
-                items: ["peru/inquire/balance", "peru/inquire/bill"],
-              },
-            ],
-          },
-          {
-            id: "colombia",
-            label: {
-              en: "🇨🇴 Colombia",
-              zh: "🇨🇴 哥伦比亚",
-            },
-            link: "/colombia/payin/cashier_create",
-            items: [
-              {
-                label: "Payin",
-                translations: {
-                  zh: "代收",
-                },
-                items: ["colombia/payin/cashier_create","colombia/payin/direct_create", "colombia/payin/callback", "colombia/payin/query", "colombia/payin/bank", "colombia/payin/request_response"],
-              },
-              {
-                label: "Payout",
-                translations: {
-                  zh: "代付",
-                },
-                items: ["colombia/payout/create", "colombia/payout/callback", "colombia/payout/query", "colombia/payout/bank"],
-              },
-              {
-                label: "Inquire",
-                translations: {
-                  zh: "查询",
-                },
-                items: ["colombia/inquire/balance", "colombia/inquire/bill"],
-              },
-            ],
-          },
-          {
-            id: "pakistan",
-            label: {
-              en: "🇵🇰 Pakistan",
-              zh: "🇵🇰 巴基斯坦",
+              en: "🌏 Asia",
+              zh: "🌏 亚洲",
             },
             link: "/pakistan/payin/cashier_create",
-            items: [
-              {
-                label: "payin",
-                translations: {
-                  zh: "代收",
-                },
-                items: ["pakistan/payin/cashier_create", "pakistan/payin/direct_create","pakistan/payin/callback", "pakistan/payin/query"],
-              },
-              {
-                label: "Payout",
-                translations: {
-                  zh: "代付",
-                },
-                items: ["pakistan/payout/create", "pakistan/payout/callback", "pakistan/payout/query", "pakistan/payout/bank"],
-              },
-              {
-                label: "Inquire",
-                translations: {
-                  zh: "查询",
-                },
-                items: ["pakistan/inquire/balance", "pakistan/inquire/bill"],
-              },
-            ],
+            items: [countryGroups.pakistan, countryGroups.india, countryGroups.indonesia, countryGroups.korea],
           },
-          {
-            id: "brazil",
-            label: {
-              en: "🇧🇷 Brazil",
-              zh: "🇧🇷 巴西",
-            },
-            link: "/brazil/payin/create",
-            items: [
-              {
-                label: "Payin",
-                translations: {
-                  zh: "代收",
-                },
-                items: ["brazil/payin/create", "brazil/payin/callback", "brazil/payin/query"],
-              },
-              {
-                label: "Payout",
-                translations: {
-                  zh: "代付",
-                },
-                items: ["brazil/payout/create", "brazil/payout/callback", "brazil/payout/query"],
-              },
-              {
-                label: "Inquire",
-                translations: {
-                  zh: "查询",
-                },
-                items: ["brazil/inquire/balance", "brazil/inquire/bill"],
-              },
-            ],
-          },
-          {
-            id: "indonesia",
-            label: {
-              en: "🇮🇩 indonesia",
-              zh: "🇮🇩 印尼",
-            },
-            link: "/indonesia/payin/create",
-            items: [
-              {
-                label: "Payin",
-                translations: {
-                  zh: "代收",
-                },
-                items: ["indonesia/payin/create", "indonesia/payin/callback", "indonesia/payin/query"],
-              },
-              {
-                label: "Payout",
-                translations: {
-                  zh: "代付",
-                },
-                items: ["indonesia/payout/create", "indonesia/payout/callback", "indonesia/payout/query", "indonesia/payout/bank"],
-              },
-              {
-                label: "Inquire",
-                translations: {
-                  zh: "查询",
-                },
-                items: ["indonesia/inquire/balance", "indonesia/inquire/bill"],
-              },
-            ],
-          },
-          {
-            id: "chile",
-            label: {
-              en: "🇨🇱 chile",
-              zh: "🇨🇱 智利",
-            },
-            link: "/chile/payin/create",
-            items: [
-              {
-                label: "Payin",
-                translations: {
-                  zh: "代收",
-                },
-                items: ["chile/payin/create", "chile/payin/callback", "chile/payin/query"],
-              },
-              {
-                label: "Payout",
-                translations: {
-                  zh: "代付",
-                },
-                items: ["chile/payout/create", "chile/payout/callback", "chile/payout/query", "chile/payout/bank"],
-              },
-              {
-                label: "Inquire",
-                translations: {
-                  zh: "查询",
-                },
-                items: ["chile/inquire/balance", "chile/inquire/bill"],
-              },
-            ],
-          },
-          {
-            id: "korea",
-            label: {
-              en: "🇰🇷 korea",
-              zh: "🇰🇷 韩国",
-            },
-            link: "/korea/payin/create",
-            items: [
-              {
-                label: "Payin",
-                translations: {
-                  zh: "代收",
-                },
-                items: ["korea/payin/create", "korea/payin/callback", "korea/payin/query", "korea/payin/kycbank"],
-              },
-              {
-                label: "Payout",
-                translations: {
-                  zh: "代付",
-                },
-                items: ["korea/payout/create", "korea/payout/callback", "korea/payout/query", "korea/payout/bank"],
-              },
-              {
-                label: "Inquire",
-                translations: {
-                  zh: "查询",
-                },
-                items: ["korea/inquire/balance", "korea/inquire/bill"],
-              },
-            ],
-          },
-          {
-            id: "argentine",
-            label: {
-              en: "🇦🇷 argentine",
-              zh: "🇦🇷 阿根廷",
-            },
-            link: "/argentine/payin/create",
-            items: [
-              {
-                label: "Payin",
-                translations: {
-                  zh: "代收",
-                },
-                items: ["argentine/payin/cashier_create","argentine/payin/create", "argentine/payin/callback", "argentine/payin/query", "argentine/payin/suspense_query", "argentine/payin/bankid_query", "argentine/payin/fix_order"],
-              },
-              {
-                label: "Payout",
-                translations: {
-                  zh: "代付",
-                },
-                items: ["argentine/payout/create", "argentine/payout/callback", "argentine/payout/query", "argentine/payout/bank"],
-              },
-              {
-                label: "Inquire",
-                translations: {
-                  zh: "查询",
-                },
-                items: ["argentine/inquire/balance", "argentine/inquire/bill"],
-              },
-            ],
-          },
-          {
-            id: "india",
-            label: {
-              en: "🇮🇳 india",
-              zh: "🇮🇳 印度",
-            },
-            link: "/india/payin/create",
-            items: [
-              {
-                label: "Payin",
-                translations: {
-                  zh: "代收",
-                },
-                items: ["india/payin/create", "india/payin/callback", "india/payin/query"],
-              },
-              {
-                label: "Payout",
-                translations: {
-                  zh: "代付",
-                },
-                items: ["india/payout/create", "india/payout/callback", "india/payout/query"],
-              },
-              {
-                label: "Inquire",
-                translations: {
-                  zh: "查询",
-                },
-                items: ["india/inquire/balance", "india/inquire/bill"],
-              },
-            ],
-          }
-
         ]),
       ],
       // 重新渲染组件
       components: {
+        Sidebar: "./src/components/Sidebar.astro",
         ContentPanel: "./src/components/ContentPanel.astro",
       },
       // 自定义 css
