@@ -1,0 +1,11 @@
+---
+import Default from "@astrojs/starlight/components/MobileTableOfContents.astro";
+import type { Props } from "@astrojs/starlight/props";
+
+const { toc } = Astro.props;
+const filteredItems = toc?.items.filter(({ slug }) => slug !== "_top") ?? [];
+const filteredToc: Props["toc"] | undefined =
+  toc && filteredItems.length > 0 ? { ...toc, items: filteredItems } : undefined;
+---
+
+<Default {...Astro.props} toc={filteredToc} />

@@ -205,6 +205,7 @@ export default defineConfig({
               "guides/create-keys",
               "guides/authentication",
               "guides/timezone",
+              "guides/technical-faq",
             ],
           },
           {
@@ -251,6 +252,8 @@ export default defineConfig({
       components: {
         Sidebar: "./src/components/Sidebar.astro",
         ContentPanel: "./src/components/ContentPanel.astro",
+        TableOfContents: "./src/components/TableOfContents.astro",
+        MobileTableOfContents: "./src/components/MobileTableOfContents.astro",
       },
       // 自定义 css
       customCss: ["./src/tailwind.css"],
