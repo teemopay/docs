@@ -29,7 +29,7 @@ description: Merchant requests to create a payout order
 | bankName        | String | yes      | 50     | Bank name                                                                                                                                                          |
 | accountType     | Int    | yes      |        | Account type 101-AHORRO(Savings) 102-CORRIENTE(Current)  103 - WALLET（YAPE）                                                                                        |
 | bankAccount     | String | yes      | 50     | Beneficiary account number  (Same Bank Transfer Account)                                                                                                           |
-| cciNumber       | String | no       | 20     | <span style="color: red;"> Cross-bank transfer account: Must be a 20-digit pure number; (When bankAccount is 101 or 102, this account is a required field) </span> |
+| cciNumber       | String | no       | 20     | <span style="color: red;"> Cross-bank transfer account: Must be a 20-digit pure number; (When accountType is 101 or 102, this account is a required field) </span> |
 | realName        | String | yes      | 40     | Customer name                                                                                                                                                      |
 | idCardNumber    | String | yes      | 50     | Beneficiary ID number                                                                                                                                              |
 | idType          | String | yes      | 32     | DNI(8 digits; ID card), RUC(11 digits; Tax ID), CE(9 digits; Foreigner ID), PA(9 digits; Passport)                                                                 |
