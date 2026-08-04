@@ -26,18 +26,18 @@ description: Merchant requests to create a payment order
 
 ### Request Parameters
 
-| Field           | Type   | Required | Length | Description                                                   |
-|-----------------|--------|----------|--------|---------------------------------------------------------------|
-| merchantOrderNo | String | yes      | 32     | Merchant order number                                         |
-| paymentType     | Int    | yes      |        | Payment method: 2001-KHQR                                    |
-| amount          | String | yes      | 20     | Payment amount in Cambodian riel (KHR); integers only         |
-| realName        | String | yes      | 64     | Payer's real first and last name                              |
-| email           | String | yes      | 50     | Payer's real email address; must be in a valid email format   |
-| phone           | String | yes      | 50     | Phone number: 8-9 digits without country code; strictly validated |
-| idCardNumber    | String | yes      | 50     | Platform identity reference, up to 50 characters; strictly validated |
-| idType          | String | no       | 32     | ID type: USER_REF                                             |
-| sign            | String | yes      |        | Signature                                                     |
-| callbackUrl     | String | no       | 200    | Callback URL                                                  |
+| Field           | Type   | Required | Length | Description                                                 |
+|-----------------|--------|----------|--------|-------------------------------------------------------------|
+| merchantOrderNo | String | yes      | 32     | Merchant order number                                       |
+| paymentType     | Int    | yes      |        | Payment method: 2001-KHQR                                   |
+| amount          | String | yes      | 20     | Payment amount in Cambodian riel (KHR); integers only       |
+| realName        | String | yes      | 64     | Payer's real first and last name                            |
+| email           | String | yes      | 50     | Payer's real email address; must be in a valid email format |
+| phone           | String | yes      | 50     | Phone number: 8-9 digits without country code;              |
+| idCardNumber    | String | yes      | 50     | Platform identity reference, up to 50 characters;           |
+| idType          | String | no       | 32     | ID type: USER_REF                                           |
+| sign            | String | yes      |        | Signature                                                   |
+| callbackUrl     | String | no       | 200    | Callback URL                                                |
 
 ```json title="Request Example"
 {
@@ -87,16 +87,16 @@ description: Merchant requests to create a payment order
 
 ### Error Codes
 
-| Error Code | Error Message                                                         | Handling Solution                              |
-|------------|-----------------------------------------------------------------------|------------------------------------------------|
-| 412        | Please try again later                                                | Please try again later                         |
-| 414        | *                                                                     | Correct the corresponding parameter            |
-| 423        | This payment method is not supported                                  | Check the documentation or contact us          |
-| 426        | merchant order duplicate                                              | Use a different merchant order number          |
-| 427        | The callback notification address for collection must not be empty.   | Configure the payment callback URL             |
-| 466        | Payment method fee rate not configured.                               | Contact us to configure the payment fee rate   |
-| 473        | Merchant joint verification error: *                                  | Contact us to check the merchant configuration |
-| 500        | Business Error                                                        | Please contact us                              |
+| Error Code | Error Message                                                       | Handling Solution                              |
+|------------|---------------------------------------------------------------------|------------------------------------------------|
+| 412        | Please try again later                                              | Please try again later                         |
+| 414        | *                                                                   | Correct the corresponding parameter            |
+| 423        | This payment method is not supported                                | Check the documentation or contact us          |
+| 426        | merchant order duplicate                                            | Use a different merchant order number          |
+| 427        | The callback notification address for collection must not be empty. | Configure the payment callback URL             |
+| 466        | Payment method fee rate not configured.                             | Contact us to configure the payment fee rate   |
+| 473        | Merchant joint verification error: *                                | Contact us to check the merchant configuration |
+| 500        | Business Error                                                      | Please contact us                              |
 
 ```json title="Error Response Example"
 {

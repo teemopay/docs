@@ -27,8 +27,10 @@ description: 商户请求创建一个代付订单
 | bankCode        | String | yes | 50  | 银行编码                           |
 | bankName        | String | yes | 50  | 银行名称                           |
 | accountType     | Int    | yes |     | 代付方式：2002-BankTransfer（BAKONG） |
-| bankAccount     | String | yes | 50  | 收款账号，传输账户对应的信息，50 位以内          |
+| bankAccount     | String | yes | 50  | 收款账号: 传输账户对应的信息，50 位以内         |
 | realName        | String | yes | 255 | 用户姓名                           |
+| phone           | String | yes | 50  | 电话号码: 8-9 位，不含区号               |
+| email           | String | yes | 64  | 邮箱                             |
 | idCardNumber    | String | yes | 50  | 用户在平台的身份标识码                    |
 | idType          | String | yes | 32  | 证件类型：USER_REF                  |
 | callbackUrl     | String | no  | 200 | 代付回调地址，若不传，则以商户配置为准            |
@@ -43,6 +45,8 @@ description: 商户请求创建一个代付订单
   "accountType": 2002,
   "bankAccount": "BankAccountExample",
   "realName": "TeemoPay",
+  "phone": "12345678",
+  "email": "TeemoPay@example.com",
   "idCardNumber": "UserReferenceExample",
   "idType": "USER_REF",
   "callbackUrl": "https://www.callbackexample.com",
