@@ -65,15 +65,15 @@ description: 商户请求创建一个代付订单
 
 ```json title=成功示例
 {
-  "msg": "success",
-  "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298",
   "code": 200,
   "data": {
-    "amount": "10000",
     "merchantOrderNo": "OrderNoExample",
-    "status": 1,
-    "tradeNo": "TF2501010001CO0000000000000000"
-  }
+    "tradeNo": "TF2509080002KH00006005824Example",
+    "amount": "10000",
+    "status": 1
+  },
+  "msg": "success",
+  "traceId": "b6182161c5124d7bb18a132b3b5eab9e.88.17858360003880005"
 }
 ```
 

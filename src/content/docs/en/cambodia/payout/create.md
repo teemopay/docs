@@ -40,8 +40,8 @@ description: Merchant requests to create a payout order
 {
   "merchantOrderNo": "OrderNoExample",
   "amount": "10000",
-  "bankCode": "BankCodeExample",
-  "bankName": "BankNameExample",
+  "bankCode": "0001",
+  "bankName": "ABA Bank",
   "accountType": 2002,
   "bankAccount": "BankAccountExample",
   "realName": "TeemoPay",
@@ -71,29 +71,14 @@ description: Merchant requests to create a payout order
   "code": 200,
   "data": {
     "merchantOrderNo": "OrderNoExample",
-    "tradeNo": "TF2501010001KH0000000000000000",
-    "amount": "10000.00",
-    "status": 2,
-    "errorCode": null,
-    "errorMessage": null,
-    "completeTime": "2025-01-01 00:00:00"
+    "tradeNo": "TF2509080002KH00006005824Example",
+    "amount": "10000",
+    "status": 1
   },
   "msg": "success",
-  "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
+  "traceId": "b6182161c5124d7bb18a132b3b5eab9e.88.17858360003880005"
 }
 ```
-
-> Error Code Description:
-
-| errorCode | errorMessage                                                            | Suggestion                                                       |
-|-----------|-------------------------------------------------------------------------|------------------------------------------------------------------|
-| 1000      | The account does not exist or is restricted                             | Ask the user to use a different account                          |
-| 1001      | Return                                                                  | Refunded; retry within 24 hours after receiving the notification |
-| 1002      | Channel server fluctuations                                             | Channel fluctuation; retry after 10 minutes                      |
-| 1006      | User account frozen, kindly contact user to change card and retry.      | The user's account is restricted                                 |
-| 1007      | Abnormal user account, kindly contact user to verify account and retry. | The user's account information is invalid                        |
-| 1010      | Unstable network, kindly retry later.                                   | Channel fluctuation                                              |
-| 9999      | Others                                                                  | Other issue; cancel the order                                    |
 
 ### Error Codes
 
