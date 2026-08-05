@@ -118,6 +118,15 @@ const countryGroups = {
       inquire: ["indonesia/inquire/balance", "indonesia/inquire/bill"],
     },
   }),
+  cambodia: countryGroup({
+    label: "🇰🇭 Cambodia",
+    zh: "🇰🇭 柬埔寨",
+    sections: {
+      payin: ["cambodia/payin/create", "cambodia/payin/callback", "cambodia/payin/query"],
+      payout: ["cambodia/payout/create", "cambodia/payout/callback", "cambodia/payout/query", "cambodia/payout/bank"],
+      inquire: ["cambodia/inquire/balance", "cambodia/inquire/bill"],
+    },
+  }),
   korea: countryGroup({
     label: "🇰🇷 Korea",
     zh: "🇰🇷 韩国",
@@ -244,7 +253,7 @@ export default defineConfig({
               zh: "🌏 亚洲",
             },
             link: "/pakistan/payin/cashier_create",
-            items: [countryGroups.pakistan, countryGroups.india, countryGroups.indonesia, countryGroups.korea],
+            items: [countryGroups.pakistan, countryGroups.india, countryGroups.indonesia, countryGroups.cambodia, countryGroups.korea],
           },
         ]),
       ],
