@@ -35,7 +35,7 @@ description: Merchant requests to create a payment order
 | email           | String | yes      | 50     | Payer's real email address; must be in a valid email format |
 | phone           | String | yes      | 50     | Phone number: 8-9 digits without country code;              |
 | idCardNumber    | String | yes      | 50     | Platform identity reference, up to 50 characters;           |
-| idType          | String | no       | 32     | ID type: USER_REF                                           |
+| idType          | String | no       | 32     | ID type: NONE_KYC 、KYC                                      |
 | sign            | String | yes      |        | Signature                                                   |
 | callbackUrl     | String | no       | 200    | Callback URL                                                |
 
@@ -48,7 +48,7 @@ description: Merchant requests to create a payment order
   "email": "TeemoPay@example.com",
   "phone": "12345678",
   "idCardNumber": "UserReferenceExample",
-  "idType": "USER_REF",
+  "idType": "NONE_KYC",
   "callbackUrl": "https://www.callbackexample.com",
   "sign": "YOUR_SIGN"
 }

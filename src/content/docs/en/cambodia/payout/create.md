@@ -32,7 +32,7 @@ description: Merchant requests to create a payout order
 | phone           | String | yes      | 50     | Phone number: 8-9 digits without country code;                    |
 | email           | String | yes      | 64     | User email address                                                |
 | idCardNumber    | String | yes      | 50     | User's platform identity reference; strictly validated during KYC |
-| idType          | String | yes      | 32     | ID type: USER_REF; strictly validated during KYC                  |
+| idType          | String | yes      | 32     | ID type: NONE_KYC 、KYC                                            |
 | callbackUrl     | String | no       | 200    | Payout callback URL; merchant configuration is used when omitted  |
 | sign            | String | yes      |        | Signature                                                         |
 
@@ -48,7 +48,7 @@ description: Merchant requests to create a payout order
   "phone": "12345678",
   "email": "TeemoPay@example.com",
   "idCardNumber": "UserReferenceExample",
-  "idType": "USER_REF",
+  "idType": "NONE_KYC",
   "callbackUrl": "https://www.callbackexample.com",
   "sign": "YOUR_SIGN"
 }
