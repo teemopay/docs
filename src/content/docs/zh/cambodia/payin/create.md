@@ -35,7 +35,7 @@ description: 商户请求创建一个代收订单
 | email           | String | yes | 50  | 付款人邮箱，传用户真实邮箱，须满足邮箱格式 |
 | phone           | String | yes | 50  | 电话号码：8-9 位，不含区号       |
 | idCardNumber    | String | yes | 50  | 平台身份识别码，50 位以内，       |
-| idType          | String | no  | 32  | 证件类型：USER_REF         |
+| idType          | String | yes | 32  | 证件类型：NONE_KYC 、KYC         |
 | sign            | String | yes |     | 签名                    |
 | callbackUrl     | String | no  | 200 | 回调地址                  |
 
@@ -48,7 +48,7 @@ description: 商户请求创建一个代收订单
   "email": "TeemoPay@example.com",
   "phone": "12345678",
   "idCardNumber": "UserReferenceExample",
-  "idType": "USER_REF",
+  "idType": "NONE_KYC",
   "callbackUrl": "https://www.callbackexample.com",
   "sign": "YOUR_SIGN"
 }
