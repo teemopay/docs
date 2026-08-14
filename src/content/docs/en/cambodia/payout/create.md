@@ -18,23 +18,30 @@ description: Merchant requests to create a payout order
 | country          | Country code (KH) |
 | app_code         | Application ID    |
 
+### Supported Payout Methods (accountType)
+
+| Payout Method    | AccountType |
+|------------------|-------------|
+| BankTransfer     | 2001        |
+| BankTransfer_USD | 2002        |
+
 ### Request Parameters
 
-| Field           | Type   | Required | Length | Description                                                       |
-|-----------------|--------|----------|--------|-------------------------------------------------------------------|
-| merchantOrderNo | String | yes      | 32     | Merchant order number                                             |
-| amount          | String | yes      | 20     | Payout amount in Cambodian riel (KHR); integers only              |
-| bankCode        | String | yes      | 50     | Bank code                                                         |
-| bankName        | String | yes      | 50     | Bank name                                                         |
-| accountType     | Int    | yes      |        | Payout method: 2002-BankTransfer (BAKONG)                         |
-| bankAccount     | String | yes      | 50     | Recipient account information, up to 50 characters                |
-| realName        | String | yes      | 255    | Recipient name                                                    |
-| phone           | String | yes      | 50     | Phone number: 8-9 digits without country code;                    |
-| email           | String | yes      | 64     | User email address                                                |
-| idCardNumber    | String | yes      | 50     | User's platform identity reference; strictly validated during KYC |
-| idType          | String | yes      | 32     | ID type: NONE_KYC 、KYC                                            |
-| callbackUrl     | String | no       | 200    | Payout callback URL; merchant configuration is used when omitted  |
-| sign            | String | yes      |        | Signature                                                         |
+| Field           | Type   | Required | Length | Description                                                                                                                                                                                                               |
+|-----------------|--------|----------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String | yes      | 32     | Merchant order number                                                                                                                                                                                                     |
+| accountType     | Int    | yes      |        | Payout method: 2001-BankTransfer or 2002-BankTransfer_USD                                                                                                                                                                 |
+| amount          | String | yes      | 20     | Transaction amount: when accountType is 2001-BankTransfer, the currency is KHR and only integers are supported; when accountType is 2002-BankTransfer_USD, the currency is USD and up to two decimal places are supported |
+| bankCode        | String | yes      | 50     | Bank code                                                                                                                                                                                                                 |
+| bankName        | String | yes      | 50     | Bank name                                                                                                                                                                                                                 |
+| bankAccount     | String | yes      | 50     | Recipient account information, up to 50 characters                                                                                                                                                                        |
+| realName        | String | yes      | 255    | Recipient name                                                                                                                                                                                                            |
+| phone           | String | yes      | 50     | Phone number: 8-9 digits without country code;                                                                                                                                                                            |
+| email           | String | yes      | 64     | User email address                                                                                                                                                                                                        |
+| idCardNumber    | String | yes      | 50     | User's platform identity reference; strictly validated during KYC                                                                                                                                                         |
+| idType          | String | yes      | 32     | ID type: NONE_KYC 、KYC                                                                                                                                                                                                    |
+| callbackUrl     | String | no       | 200    | Payout callback URL; merchant configuration is used when omitted                                                                                                                                                          |
+| sign            | String | yes      |        | Signature                                                                                                                                                                                                                 |
 
 ```json title="Request Example"
 {

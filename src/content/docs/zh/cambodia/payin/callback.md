@@ -5,8 +5,8 @@ description: 商户接受一个代收结果的回调
 
 ### 回调地址
 
-| method | url        |
-|--------|------------|
+| method | url       |
+|--------|-----------|
 | POST   | 商户提供的回调地址 |
 
 ### 头部信息（header）
@@ -24,12 +24,12 @@ description: 商户接受一个代收结果的回调
 |-----------------|--------|-----|----|----------------------------------------|
 | merchantOrderNo | String | yes | 32 | 商户订单号                                  |
 | tradeNo         | String | yes |    | 平台订单号                                  |
-| paymentOrderNo  | String | yes | 30 | 平台代收当次支付流水号                           |
+| paymentOrderNo  | String | yes | 30 | 平台代收当次支付流水号                            |
 | status          | Int    | yes |    | 2-成功                                   |
 | paymentAmount   | String | yes |    | 当次实际支付金额                               |
 | serviceAmount   | String | yes |    | 服务费用，例如：18.02                          |
-| paymentInfo     | String | yes |    | 主要付款信息，返回实际用于付款的信息                    |
-| paymentType     | Int    | yes |    | 支付方式                                   |
+| paymentInfo     | String | yes |    | 主要付款信息，返回实际用于付款的信息                     |
+| paymentType     | Int    | yes |    | 支付方式：2001-KHQR、2002-KHQR_USD           |
 | completeTime    | String | yes |    | 该流水的完成时间，当前国家时区，格式：yyyy-MM-dd HH:mm:ss |
 | errorMessage    | String | no  |    | 订单失败错误信息                               |
 | sign            | String | yes |    | 签名                                     |
@@ -52,8 +52,8 @@ description: 商户接受一个代收结果的回调
 
 ### 回调返回
 
-| 参数      | 类型     | 必需  | 长度 | 描述                       |
-|---------|--------|-----|----|--------------------------|
+| 参数      | 类型     | 必需  | 长度 | 描述                    |
+|---------|--------|-----|----|-----------------------|
 | SUCCESS | String | yes |    | 必须返回“SUCCESS”，否则会重复回调 |
 
 ```text title=回调示例

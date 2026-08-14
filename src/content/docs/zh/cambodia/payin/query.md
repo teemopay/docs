@@ -38,22 +38,22 @@ description: 商户查询一个代收订单的状态
 |-------------------------------|--------|-----|----|----------------------------------------|
 | merchantOrderNo               | String | yes | 32 | 商户订单号                                  |
 | tradeNo                       | String | yes |    | 平台订单号                                  |
-| paymentType                   | Int    | yes |    | 代收方式                                   |
+| paymentType                   | Int    | yes |    | 代收方式：2001-KHQR、2002-KHQR_USD           |
 | transactionAmount             | String | yes |    | 订单交易金额                                 |
 | amount                        | String | yes |    | 收款金额                                   |
-| status                        | Int    | yes |    | 订单状态：1-支付中，2-支付成功，3-支付失败            |
+| status                        | Int    | yes |    | 订单状态：1-支付中，2-支付成功，3-支付失败               |
 | serviceAmount                 | String | yes |    | 服务费用，例如：18.02                          |
-| paymentInfo                   | String | yes |    | 主要付款信息，返回实际用于付款的信息                    |
+| paymentInfo                   | String | yes |    | 主要付款信息，返回实际用于付款的信息                     |
 | errorMessage                  | String | no  |    | 订单失败错误信息                               |
 | statementList                 | Object | no  |    | 代收流水信息                                 |
 | -- paymentSingleOrderNo       | String | yes |    | 单次支付流水号                                |
 | -- paymentStatementAmount     | String | yes |    | 单次代收金额                                 |
-| -- paymentStatementStatus     | Int    | yes |    | 单次代收交易状态：2-成功，3-失败                    |
+| -- paymentStatementStatus     | Int    | yes |    | 单次代收交易状态：2-成功，3-失败                     |
 | -- paymentStatementStatusName | String | yes |    | 交易状态名称                                 |
 | -- serviceAmount              | String | yes |    | 服务费用 = 固收金额 + 交易金额 × 服务费率              |
 | -- serviceRate                | String | yes |    | 服务费率                                   |
 | -- immService                 | String | yes |    | 固收金额                                   |
-| -- paymentType                | Int    | yes |    | 真实支付方式                                 |
+| -- paymentType                | Int    | yes |    | 真实支付方式：2001-KHQR、2002-KHQR_USD         |
 | -- completeTime               | String | yes |    | 该流水的完成时间，当前国家时区，格式：yyyy-MM-dd HH:mm:ss |
 
 ```json title=返回示例
@@ -90,13 +90,13 @@ description: 商户查询一个代收订单的状态
 
 ### 错误码
 
-| 异常码 | 异常信息                     | 处理方案              |
-|-----|--------------------------|-------------------|
-| 412 | Please try again later   | 请稍后重试             |
-| 414 | *                        | 更改对应参数            |
-| 416 | Application not found    | app_code 异常，请更改   |
-| 434 | Merchant order not exist | 请检查提交的订单号         |
-| 500 | Business Error           | 请联系我们             |
+| 异常码 | 异常信息                     | 处理方案            |
+|-----|--------------------------|-----------------|
+| 412 | Please try again later   | 请稍后重试           |
+| 414 | *                        | 更改对应参数          |
+| 416 | Application not found    | app_code 异常，请更改 |
+| 434 | Merchant order not exist | 请检查提交的订单号       |
+| 500 | Business Error           | 请联系我们           |
 
 ```json title=返回示例
 {

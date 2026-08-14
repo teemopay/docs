@@ -23,23 +23,24 @@ description: Merchant requests to create a payment order
 | Payment Method | PaymentType |
 |----------------|-------------|
 | KHQR           | 2001        |
+| KHQR_USD       | 2002        |
 
 ### Request Parameters
 
-| Field           | Type   | Required | Length | Description                                                 |
-|-----------------|--------|----------|--------|-------------------------------------------------------------|
-| merchantOrderNo | String | yes      | 32     | Merchant order number                                       |
-| paymentType     | Int    | yes      |        | Payment method: 2001-KHQR                                   |
-| amount          | String | yes      | 20     | Payment amount in Cambodian riel (KHR); integers only       |
-| realName        | String | yes      | 64     | Payer's real first and last name                            |
-| email           | String | yes      | 50     | Payer's real email address; must be in a valid email format |
-| phone           | String | yes      | 50     | Phone number: 8-9 digits without country code;              |
-| idCardNumber    | String | yes      | 50     | Platform identity reference, up to 50 characters;           |
-| idType          | String | no       | 32     | ID type: NONE_KYC 、KYC                                      |
-| sign            | String | yes      |        | Signature                                                   |
-| callbackUrl     | String | no       | 200    | Callback URL                                                |
+| Field           | Type   | Required | Length | Description                                                                                                                                                                                               |
+|-----------------|--------|----------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String | yes      | 32     | Merchant order number                                                                                                                                                                                     |
+| paymentType     | Int    | yes      |        | Payment method: 2001-KHQR or 2002-KHQR_USD                                                                                                                                                                |
+| amount          | String | yes      | 20     | Transaction amount: when paymentType is 2001-KHQR, the currency is KHR and only integers are supported; when paymentType is 2002-KHQR_USD, the currency is USD and up to two decimal places are supported |
+| realName        | String | yes      | 64     | Payer's real first and last name                                                                                                                                                                          |
+| email           | String | yes      | 50     | Payer's real email address; must be in a valid email format                                                                                                                                               |
+| phone           | String | yes      | 50     | Phone number: 8-9 digits without country code;                                                                                                                                                            |
+| idCardNumber    | String | yes      | 50     | Platform identity reference, up to 50 characters;                                                                                                                                                         |
+| idType          | String | no       | 32     | ID type: NONE_KYC 、KYC                                                                                                                                                                                    |
+| sign            | String | yes      |        | Signature                                                                                                                                                                                                 |
+| callbackUrl     | String | no       | 200    | Callback URL                                                                                                                                                                                              |
 
-```json title="Request Example"
+```json title="KHR Request Example"
 {
   "merchantOrderNo": "OrderNoExample",
   "paymentType": 2001,
@@ -61,7 +62,7 @@ description: Merchant requests to create a payment order
 | merchantOrderNo | String     | yes      | 32     | Merchant order number                                          |
 | tradeNo         | String     | yes      |        | Platform order number                                          |
 | amount          | String     | yes      |        | Transaction amount                                             |
-| paymentType     | Int        | yes      |        | Payment method                                                 |
+| paymentType     | Int        | yes      |        | Payment method: 2001-KHQR or 2002-KHQR_USD                     |
 | paymentInfo     | String     | yes      |        | Main payment information; the payment link returned upstream   |
 | additionalInfo  | JSONObject | no       |        | Additional payment information, including the original QR data |
 | status          | Int        | yes      |        | Order status: 2-Success, 3-Failed                              |

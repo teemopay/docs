@@ -22,6 +22,7 @@ description: 接口返回时间字段使用的时区
 | 巴基斯坦 | PK | UTC+5 |
 | 印度 | IN | UTC+5:30 |
 | 印度尼西亚 | ID | UTC+7 |
+| 柬埔寨 | KH | UTC+7 |
 | 韩国 | KR | UTC+9 |
 | USDT | BP | UTC+0 |
 

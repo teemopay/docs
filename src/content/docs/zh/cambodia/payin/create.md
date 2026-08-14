@@ -20,24 +20,25 @@ description: 商户请求创建一个代收订单
 
 ### 支持支付方式列表（paymentType）
 
-| 支付方式名称 | PaymentType |
-|--------|-------------|
-| KHQR   | 2001        |
+| 支付方式名称   | PaymentType |
+|----------|-------------|
+| KHQR     | 2001        |
+| KHQR_USD | 2002        |
 
 ### 请求参数
 
-| 字段              | 类型     | 必需  | 长度  | 描述                    |
-|-----------------|--------|-----|-----|-----------------------|
-| merchantOrderNo | String | yes | 32  | 商户订单号                 |
-| paymentType     | Int    | yes |     | 支付方式：2001-KHQR        |
-| amount          | String | yes | 20  | 代收金额（瑞尔 KHR），仅支持整数    |
-| realName        | String | yes | 64  | 付款人姓名，传用户真实姓与名        |
-| email           | String | yes | 50  | 付款人邮箱，传用户真实邮箱，须满足邮箱格式 |
-| phone           | String | yes | 50  | 电话号码：8-9 位，不含区号       |
-| idCardNumber    | String | yes | 50  | 平台身份识别码，50 位以内，       |
-| idType          | String | yes | 32  | 证件类型：NONE_KYC 、KYC         |
-| sign            | String | yes |     | 签名                    |
-| callbackUrl     | String | no  | 200 | 回调地址                  |
+| 字段              | 类型     | 必需  | 长度  | 描述                                                                                                  |
+|-----------------|--------|-----|-----|-----------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String | yes | 32  | 商户订单号                                                                                               |
+| paymentType     | Int    | yes |     | 支付方式：2001-KHQR、2002-KHQR_USD                                                                        |
+| amount          | String | yes | 20  | 交易金额：<br> paymentType 为 2001-KHQR 时，币种为 KHR，仅支持整数；<br> paymentType 为 2002-KHQR_USD 时，币种为 USD，支持两位小数 |
+| realName        | String | yes | 64  | 付款人姓名，传用户真实姓与名                                                                                      |
+| email           | String | yes | 50  | 付款人邮箱，传用户真实邮箱，须满足邮箱格式                                                                               |
+| phone           | String | yes | 50  | 电话号码：8-9 位，不含区号                                                                                     |
+| idCardNumber    | String | yes | 50  | 平台身份识别码，50 位以内，                                                                                     |
+| idType          | String | yes | 32  | 证件类型：NONE_KYC 、KYC                                                                                  |
+| sign            | String | yes |     | 签名                                                                                                  |
+| callbackUrl     | String | no  | 200 | 回调地址                                                                                                |
 
 ```json title=请求示例
 {
@@ -56,16 +57,16 @@ description: 商户请求创建一个代收订单
 
 ### 返回参数
 
-| 字段              | 类型         | 必需  | 长度 | 描述                   |
-|-----------------|------------|-----|----|----------------------|
-| merchantOrderNo | String     | yes | 32 | 商户订单号                |
-| tradeNo         | String     | yes |    | 平台订单号                |
-| amount          | String     | yes |    | 交易金额                 |
-| paymentType     | Int        | yes |    | 支付方式                 |
-| paymentInfo     | String     | yes |    | 主要付款信息，上游返回的支付链接     |
-| additionalInfo  | JSONObject | no  |    | 附加信息，包含辅助支付信息和原始二维码  |
-| status          | Int        | yes |    | 订单状态：1-支付中 2-成功，3-失败 |
-| errorMsg        | String     | no  |    | 错误信息，支付失败时返回         |
+| 字段              | 类型         | 必需  | 长度 | 描述                           |
+|-----------------|------------|-----|----|------------------------------|
+| merchantOrderNo | String     | yes | 32 | 商户订单号                        |
+| tradeNo         | String     | yes |    | 平台订单号                        |
+| amount          | String     | yes |    | 交易金额                         |
+| paymentType     | Int        | yes |    | 支付方式：2001-KHQR、2002-KHQR_USD |
+| paymentInfo     | String     | yes |    | 主要付款信息，上游返回的支付链接             |
+| additionalInfo  | JSONObject | no  |    | 附加信息，包含辅助支付信息和原始二维码          |
+| status          | Int        | yes |    | 订单状态：1-支付中 2-成功，3-失败         |
+| errorMsg        | String     | no  |    | 错误信息，支付失败时返回                 |
 
 ```json title=成功示例
 {

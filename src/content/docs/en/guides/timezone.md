@@ -22,6 +22,7 @@ We use fixed UTC offsets for all supported countries and regions. Daylight savin
 | Pakistan | PK | UTC+5 |
 | India | IN | UTC+5:30 |
 | Indonesia | ID | UTC+7 |
+| Cambodia | KH | UTC+7 |
 | Korea | KR | UTC+9 |
 | USDT | BP | UTC+0 |
 

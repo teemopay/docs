@@ -18,23 +18,30 @@ description: 商户请求创建一个代付订单
 | country   | KH     |
 | app_code  | app 编号 |
 
+### 支持代付方式列表（accountType）
+
+| 代付方式名称           | AccountType |
+|------------------|-------------|
+| BankTransfer     | 2001        |
+| BankTransfer_USD | 2002        |
+
 ### 请求参数
 
-| 字段              | 类型     | 必需  | 长度  | 描述                             |
-|-----------------|--------|-----|-----|--------------------------------|
-| merchantOrderNo | String | yes | 32  | 商户订单号                          |
-| amount          | String | yes | 20  | 代付金额（瑞尔 KHR），仅支持整数             |
-| bankCode        | String | yes | 50  | 银行编码                           |
-| bankName        | String | yes | 50  | 银行名称                           |
-| accountType     | Int    | yes |     | 代付方式：2002-BankTransfer（BAKONG） |
-| bankAccount     | String | yes | 50  | 收款账号: 传输账户对应的信息，50 位以内         |
-| realName        | String | yes | 255 | 用户姓名                           |
-| phone           | String | yes | 50  | 电话号码: 8-9 位，不含区号               |
-| email           | String | yes | 64  | 邮箱                             |
-| idCardNumber    | String | yes | 50  | 用户在平台的身份标识码                    |
-| idType          | String | yes | 32  | 证件类型：NONE_KYC 、KYC             |
-| callbackUrl     | String | no  | 200 | 代付回调地址，若不传，则以商户配置为准            |
-| sign            | String | yes |     | 签名                             |
+| 字段              | 类型     | 必需  | 长度  | 描述                                                                                                                   |
+|-----------------|--------|-----|-----|----------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String | yes | 32  | 商户订单号                                                                                                                |
+| accountType     | Int    | yes |     | 代付方式：2001-BankTransfer、2002-BankTransfer_USD                                                                         |
+| amount          | String | yes | 20  | 交易金额: <br> accountType 为 2001-BankTransfer 时，币种为 KHR，仅支持整数；<br> accountType 为 2002-BankTransfer_USD 时，币种为 USD，支持两位小数 |
+| bankCode        | String | yes | 50  | 银行编码                                                                                                                 |
+| bankName        | String | yes | 50  | 银行名称                                                                                                                 |
+| bankAccount     | String | yes | 50  | 收款账号: 传输账户对应的信息，50 位以内                                                                                               |
+| realName        | String | yes | 255 | 用户姓名                                                                                                                 |
+| phone           | String | yes | 50  | 电话号码: 8-9 位，不含区号                                                                                                     |
+| email           | String | yes | 64  | 邮箱                                                                                                                   |
+| idCardNumber    | String | yes | 50  | 用户在平台的身份标识码                                                                                                          |
+| idType          | String | yes | 32  | 证件类型：NONE_KYC 、KYC                                                                                                   |
+| callbackUrl     | String | no  | 200 | 代付回调地址，若不传，则以商户配置为准                                                                                                  |
+| sign            | String | yes |     | 签名                                                                                                                   |
 
 ```json title=请求示例
 {

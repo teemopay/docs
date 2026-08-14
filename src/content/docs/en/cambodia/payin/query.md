@@ -38,7 +38,7 @@ description: Merchant queries the status of a payment order
 |--------------------------------|--------|----------|--------|---------------------------------------------------------------------|
 | merchantOrderNo                | String | yes      | 32     | Merchant order number                                               |
 | tradeNo                        | String | yes      |        | Platform order number                                               |
-| paymentType                    | Int    | yes      |        | Payment method                                                      |
+| paymentType                    | Int    | yes      |        | Payment method: 2001-KHQR or 2002-KHQR_USD                          |
 | transactionAmount              | String | yes      |        | Order transaction amount                                            |
 | amount                         | String | yes      |        | Payment amount                                                      |
 | status                         | Int    | yes      |        | Order status: 1-Processing, 2-Success, 3-Failed                     |
@@ -53,7 +53,7 @@ description: Merchant queries the status of a payment order
 | -- serviceAmount               | String | yes      |        | Service fee = fixed fee + transaction amount × service fee rate     |
 | -- serviceRate                 | String | yes      |        | Service fee rate                                                    |
 | -- immService                  | String | yes      |        | Fixed fee                                                           |
-| -- paymentType                 | Int    | yes      |        | Actual payment method                                               |
+| -- paymentType                 | Int    | yes      |        | Actual payment method: 2001-KHQR or 2002-KHQR_USD                   |
 | -- completeTime                | String | yes      |        | Completion time in local timezone, format: yyyy-MM-dd HH:mm:ss      |
 
 ```json title="Response Example"
