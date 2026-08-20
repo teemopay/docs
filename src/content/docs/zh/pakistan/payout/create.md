@@ -24,7 +24,7 @@ description: 商户请求创建一个代付订单
 |-----------------|--------|-----|------|-------------------------------------------------------------------------------------------------------------------|
 | merchantOrderNo | String | yes | 32   | 商户订单号                                                                                                             |
 | amount          | String | yes | 20   | 代付金额 巴基斯坦卢比 需传整数                                                                                                  |
-| accountType     | Int    | yes |      | 账户类型 </br> 301(BANK) </br> 302(E-wallet) — 将在不久后下线该支付方式、</br> 303（EASYPAISA）、</br> 304（JAZZCASH）                     |
+| accountType     | Int    | yes |      | 账户类型 </br> 301(BANK) </br> 302(E-wallet) — 将在不久后下线、</br> 303（EASYPAISA）、</br> 304（JAZZCASH）                     |
 | bankCode        | String | yes | 50   | 银行编码 </br> 账户类型(accountType)301取银行列表bankCode、</br> 302取银行列表E-Wallet中code、</br> 303固定传EASYPAISA、</br> 304固定传JAZZCASH |
 | bankName        | String | yes | 50   | 银行名称 与银行编码字段相同                                                                                                    |
 | bankAccount     | String | yes | 50   | 银行/钱包账户                                                                                                           |
