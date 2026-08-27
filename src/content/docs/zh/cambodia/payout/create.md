@@ -31,7 +31,7 @@ description: 商户请求创建一个代付订单
 |-----------------|--------|-----|-----|----------------------------------------------------------------------------------------------------------------------|
 | merchantOrderNo | String | yes | 32  | 商户订单号                                                                                                                |
 | accountType     | Int    | yes |     | 代付方式：2001-BankTransfer、2002-BankTransfer_USD                                                                         |
-| amount          | String | yes | 20  | 交易金额: <br> accountType 为 2001-BankTransfer 时，币种为 KHR，仅支持整数；<br> accountType 为 2002-BankTransfer_USD 时，币种为 USD，支持两位小数 |
+| amount          | String | yes | 20  | 交易金额（交易限额请参考 [KYC额度说明](/zh/cambodia/kyc/limits)）：<br> accountType 为 2001-BankTransfer 时，币种为 KHR，仅支持整数；<br> accountType 为 2002-BankTransfer_USD 时，币种为 USD，支持两位小数 |
 | bankCode        | String | yes | 50  | 银行编码                                                                                                                 |
 | bankName        | String | yes | 50  | 银行名称                                                                                                                 |
 | bankAccount     | String | yes | 50  | 收款账号: 传输账户对应的信息，50 位以内                                                                                               |
@@ -100,6 +100,7 @@ description: 商户请求创建一个代付订单
 | 473 | Merchant joint verification error: *                                | 商户配置异常，请联系我们          |
 | 475 | The id card type is error                                           | 证件类型异常，请检查并更改         |
 | 476 | The id card number is error                                         | 证件号异常，请检查并更改          |
+| 618 | This user is non‑KYC approved. Transaction amount cannot exceed the non‑KYC limit. | 该用户未通过KYC认证，交易金额不得超过非KYC限额 |
 | 500 | Business Error                                                      | 请联系我们                 |
 
 ```json title=返回示例

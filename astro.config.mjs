@@ -12,11 +12,12 @@ const sidebarGroup = (label, zh, items) => ({
   items,
 });
 
-const paymentSections = ({ payin, payout, inquire }) =>
+const paymentSections = ({ payin, payout, kyc, inquire }) =>
   [
     payin && sidebarGroup("Payin", "代收", payin),
     payout && sidebarGroup("Payout", "代付", payout),
     inquire && sidebarGroup("Inquire", "查询", inquire),
+    kyc && sidebarGroup("KYC Authentication", "KYC认证", kyc),
   ].filter(Boolean);
 
 const countryGroup = ({ label, zh, sections }) => sidebarGroup(label, zh, paymentSections(sections));
@@ -124,6 +125,7 @@ const countryGroups = {
     sections: {
       payin: ["cambodia/payin/create", "cambodia/payin/callback", "cambodia/payin/query"],
       payout: ["cambodia/payout/create", "cambodia/payout/callback", "cambodia/payout/query", "cambodia/payout/bank"],
+      kyc: ["cambodia/kyc/apply", "cambodia/kyc/status", "cambodia/kyc/callback", "cambodia/kyc/limits"],
       inquire: ["cambodia/inquire/balance", "cambodia/inquire/bill"],
     },
   }),

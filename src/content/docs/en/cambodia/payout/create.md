@@ -31,7 +31,7 @@ description: Merchant requests to create a payout order
 |-----------------|--------|----------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | merchantOrderNo | String | yes      | 32     | Merchant order number                                                                                                                                                                                                     |
 | accountType     | Int    | yes      |        | Payout method: 2001-BankTransfer or 2002-BankTransfer_USD                                                                                                                                                                 |
-| amount          | String | yes      | 20     | Transaction amount: when accountType is 2001-BankTransfer, the currency is KHR and only integers are supported; when accountType is 2002-BankTransfer_USD, the currency is USD and up to two decimal places are supported |
+| amount          | String | yes      | 20     | Transaction amount (see [KYC Limits](/en/cambodia/kyc/limits) for transaction limits): when accountType is 2001-BankTransfer, the currency is KHR and only integers are supported; when accountType is 2002-BankTransfer_USD, the currency is USD and up to two decimal places are supported |
 | bankCode        | String | yes      | 50     | Bank code                                                                                                                                                                                                                 |
 | bankName        | String | yes      | 50     | Bank name                                                                                                                                                                                                                 |
 | bankAccount     | String | yes      | 50     | Recipient account information, up to 50 characters                                                                                                                                                                        |
@@ -103,6 +103,7 @@ description: Merchant requests to create a payout order
 | 473        | Merchant joint verification error: *                                | Contact us to check the merchant configuration |
 | 475        | The id card type is error                                           | Check and correct the ID type                  |
 | 476        | The id card number is error                                         | Check and correct the ID number                |
+| 618        | This user is non‑KYC approved. Transaction amount cannot exceed the non‑KYC limit. | Complete KYC or reduce the transaction amount to within the non-KYC limit |
 | 500        | Business Error                                                      | Please contact us                              |
 
 ```json title="Error Response Example"

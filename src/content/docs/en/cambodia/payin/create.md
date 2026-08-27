@@ -31,7 +31,7 @@ description: Merchant requests to create a payment order
 |-----------------|--------|----------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | merchantOrderNo | String | yes      | 32     | Merchant order number                                                                                                                                                                                     |
 | paymentType     | Int    | yes      |        | Payment method: 2001-KHQR or 2002-KHQR_USD                                                                                                                                                                |
-| amount          | String | yes      | 20     | Transaction amount: when paymentType is 2001-KHQR, the currency is KHR and only integers are supported; when paymentType is 2002-KHQR_USD, the currency is USD and up to two decimal places are supported |
+| amount          | String | yes      | 20     | Transaction amount (see [KYC Limits](/en/cambodia/kyc/limits) for transaction limits): when paymentType is 2001-KHQR, the currency is KHR and only integers are supported; when paymentType is 2002-KHQR_USD, the currency is USD and up to two decimal places are supported |
 | realName        | String | yes      | 64     | Payer's real first and last name                                                                                                                                                                          |
 | email           | String | yes      | 50     | Payer's real email address; must be in a valid email format                                                                                                                                               |
 | phone           | String | yes      | 50     | Phone number: 8-9 digits without country code;                                                                                                                                                            |
@@ -97,6 +97,7 @@ description: Merchant requests to create a payment order
 | 427        | The callback notification address for collection must not be empty. | Configure the payment callback URL             |
 | 466        | Payment method fee rate not configured.                             | Contact us to configure the payment fee rate   |
 | 473        | Merchant joint verification error: *                                | Contact us to check the merchant configuration |
+| 618        | This user is non‑KYC approved. Transaction amount cannot exceed the non‑KYC limit. | Complete KYC or reduce the transaction amount to within the non-KYC limit |
 | 500        | Business Error                                                      | Please contact us                              |
 
 ```json title="Error Response Example"
