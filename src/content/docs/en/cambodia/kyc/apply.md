@@ -22,13 +22,13 @@ After KYC approval, the system automatically increases the user's payout and pay
 
 ### Request Parameters
 
-| Field        | Required | Type   | Description                                                      |
-|--------------|----------|--------|------------------------------------------------------------------|
-| idCardNumber | yes      | String | Merchant-side user ID                                            |
-| phone        | yes      | String | User's real Cambodian phone number: 8-9 digits without area code |
-| realName     | yes      | String | User's name                                                      |
-| callbackUrl  | yes      | String | Callback URL                                                     |
-| sign         | yes      | String | Signature                                                        |
+| Field        | Type   | Required | Length | Description                                                      |
+|--------------|--------|----------|--------|------------------------------------------------------------------|
+| idCardNumber | String | yes      | 50     | Merchant-side user ID                                            |
+| phone        | String | yes      | 8-9    | User's real Cambodian phone number: 8-9 digits without area code |
+| realName     | String | yes      | 64     | User's name                                                      |
+| callbackUrl  | String | yes      | 200    | Callback URL                                                     |
+| sign         | String | yes      |        | Signature                                                        |
 
 ```json title="Request Example"
 {
@@ -42,12 +42,12 @@ After KYC approval, the system automatically increases the user's payout and pay
 
 ### Response Parameters
 
-| Field                | Required | Type   | Description                                                                                  |
-|----------------------|----------|--------|----------------------------------------------------------------------------------------------|
-| phone                | yes      | String | User's real Cambodian phone number: 8-9 digits without area code                             |
-| authenticationStatus | yes      | String | KYC status: 0-Pending verification, 1-Under review, 2-Approved, 3-Rejected, 4-Failed          |
-| authenticationUrl    | yes      | String | Verification URL. If rejected, the user can use it to resubmit verification information     |
-| errorMsg             | yes      | String | Failure reason                                                                               |
+| Field                | Type   | Required | Length | Description                                                                              |
+|----------------------|--------|----------|--------|------------------------------------------------------------------------------------------|
+| phone                | String | yes      | 8-9    | User's real Cambodian phone number: 8-9 digits without area code                         |
+| authenticationStatus | String | yes      |        | KYC status: 0-Pending verification, 1-Under review, 2-Approved, 3-Rejected, 4-Failed      |
+| authenticationUrl    | String | yes      |        | Verification URL. If rejected, the user can use it to resubmit verification information |
+| errorMsg             | String | yes      |        | Failure reason                                                                           |
 
 ```json title="Success Example"
 {

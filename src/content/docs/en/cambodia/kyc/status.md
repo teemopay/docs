@@ -34,10 +34,10 @@ description: Merchant queries a user's KYC verification status
 
 ### Response Parameters
 
-| Field                | Required | Type   | Description                                                               |
-|----------------------|----------|--------|---------------------------------------------------------------------------|
-| authenticationStatus | yes      | String | KYC status: 0-Pending verification, 1-Under review, 2-Approved, 3-Rejected, 4-Failed |
-| errorMsg             | yes      | String | Failure reason                                                            |
+| Field                | Type   | Required | Length | Description                                                               |
+|----------------------|--------|----------|--------|---------------------------------------------------------------------------|
+| authenticationStatus | String | yes      |        | KYC status: 0-Pending verification, 1-Under review, 2-Approved, 3-Rejected, 4-Failed |
+| errorMsg             | String | yes      |        | Failure reason                                                            |
 
 ```json title="Success Example"
 {
