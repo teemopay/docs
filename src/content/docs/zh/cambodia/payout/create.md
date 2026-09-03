@@ -39,7 +39,7 @@ description: 商户请求创建一个代付订单
 | phone           | String | yes | 50  | 电话号码: 8-9 位，不含区号                                                                                                     |
 | email           | String | yes | 64  | 邮箱                                                                                                                   |
 | idCardNumber    | String | yes | 50  | 用户在平台的身份标识码                                                                                                          |
-| idType          | String | yes | 32  | 证件类型：NONE_KYC 、KYC                                                                                                   |
+| idType          | String | no  | 32  | 证件类型：NONE_KYC 、KYC                                                                                                   |
 | callbackUrl     | String | no  | 200 | 代付回调地址，若不传，则以商户配置为准                                                                                                  |
 | sign            | String | yes |     | 签名                                                                                                                   |
 
