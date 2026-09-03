@@ -104,11 +104,3 @@ description: List of supported banks for payout
 |KHUSHHALI_MICRO_FINANCE_BANK|
 |ZARAI_TARAQITI_BANK|
 |SEEDCREED_FINACIAL_SERVICES_LIMITED|
-
-
-### E-Wallet
-
-| code      |
-| --------- |
-| EASYPAISA |
-| JAZZCASH  |
