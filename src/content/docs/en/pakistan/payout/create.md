@@ -26,7 +26,7 @@ description: Merchant requests to create a payout order
 | amount          | String | yes      | 20         | Payout amount in PKR, must be an integer                                                                                                                                                                                              |
 | bankCode        | String | yes      | 50         | Bank Code </br> For accountType 301, take bankCode from the bank list; </br> For accountType 302, take code from the E-Wallet list; </br> For accountType 303, always pass EASYPAISA; </br> For accountType 304, always pass JAZZCASH |
 | bankName        | String | yes      | 50         | Bank name, same as bank code                                                                                                                                                                                                          |
-| accountType     | Int    | yes      |            | Account type: </br> 301 (BANK), </br> 302 (E-Wallet)  — this payment method will be discontinued soon  </br> 303 (EASYPAISA)  </br> 304 (JAZZCASH)                                                                                    |
+| accountType     | Int    | yes      |            | Account type: </br> 301 (BANK)  </br> 303 (EASYPAISA)  </br> 304 (JAZZCASH)                                                                                                                                                           |
 | bankAccount     | String | yes      | 50         | Bank/Wallet account number                                                                                                                                                                                                            |
 | realName        | String | yes      | 255        | Customer name                                                                                                                                                                                                                         |
 | idCardNumber    | String | yes      | 13         | ID number (13 digits)                                                                                                                                                                                                                 |
@@ -43,7 +43,7 @@ description: Merchant requests to create a payout order
   "amount": "1000",
   "bankCode": "EASYPAISA",
   "bankName": "EASYPAISA",
-  "accountType": 302,
+  "accountType": 303,
   "bankAccount": "3000000000",
   "realName": "TeemoPay",
   "idCardNumber": "3000000000000",

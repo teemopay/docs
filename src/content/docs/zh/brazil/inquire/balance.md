@@ -2,6 +2,12 @@
 title: 余额查询
 description: 余额查询
 ---
+### 请求地址
+
+| method | url                       |
+| ------ | ------------------------- |
+| POST   | /api/pay/merchant/balance |
+
 
 ### 头部信息（header）
 
