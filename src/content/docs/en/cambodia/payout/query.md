@@ -16,7 +16,7 @@ description: Merchant queries the status of a payout order
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | Country code (KH) |
-| app_code         | Application ID    |
+| appCode         | Application ID    |
 
 ### Request Parameters
 
@@ -73,7 +73,7 @@ description: Merchant queries the status of a payout order
 |------------|----------------------------------|-------------------------------------------|
 | 412        | Please try again later           | Please try again later                    |
 | 414        | *                                | Correct the corresponding parameter       |
-| 416        | Application not found            | Check and correct the `app_code`           |
+| 416        | Application not found            | Check and correct the `appCode`           |
 | 417        | Merchant account not found       | Contact us to check the merchant account  |
 | 418        | Merchant account is closed       | Contact us to check the merchant account  |
 | 434        | Merchant order not exist         | Check the submitted merchant order number |

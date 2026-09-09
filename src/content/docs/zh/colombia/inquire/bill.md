@@ -16,7 +16,7 @@ description: 订单列表
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
 | country   | CO     |
-| app_code  | app 编号 |
+| appCode  | app 编号 |
 
 ### 注意事项
 

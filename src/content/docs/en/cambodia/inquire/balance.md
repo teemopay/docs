@@ -16,7 +16,7 @@ description: Balance Query
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | Country code (KH) |
-| app_code         | Application ID    |
+| appCode         | Application ID    |
 
 ### Request Parameters
 
@@ -57,7 +57,7 @@ description: Balance Query
 |------------|--------------------------------|------------------------------------------|
 | 412        | Please try again later         | Please try again later                   |
 | 414        | *                              | Correct the corresponding parameter      |
-| 416        | Application not found          | Check and correct the `app_code`          |
+| 416        | Application not found          | Check and correct the `appCode`          |
 | 417        | Merchant account not found     | Contact us to check the merchant account |
 | 500        | Business Error                 | Please contact us                        |
 

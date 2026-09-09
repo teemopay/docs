@@ -16,7 +16,7 @@ description: Order List
 | timestamp | Request timestamp |
 | nonce | Random value |
 | country | IN |
-| app_code | Application code |
+| appCode | Application code |
 
 ## Notes
 

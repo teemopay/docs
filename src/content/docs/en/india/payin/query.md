@@ -16,7 +16,7 @@ description: Merchant queries the status of a payment order
 | timestamp | Request timestamp |
 | nonce | Random value |
 | country | IN |
-| app_code | Application code |
+| appCode | Application code |
 
 ## Request Parameters
 
@@ -101,7 +101,7 @@ description: Merchant queries the status of a payment order
 |------|---------|------------|
 | 412 | Please try again later | Retry later |
 | 414 | * | Correct the corresponding parameter |
-| 416 | Application not found | Invalid `app_code`, please update |
+| 416 | Application not found | Invalid `appCode`, please update |
 | 434 | Merchant order not exist | Check the submitted order number |
 | 500 | Business Error | Contact us |
 

@@ -16,7 +16,7 @@ description: 商户查询一个代付订单的状态
 | timestamp                 | 请求时间戳  |
 | nonce                     | 随机值    |
 | country                   | KR     |
-| app_code                  | app编号  |
+| appCode                  | app编号  |
 
 ### 请求参数
 
@@ -73,7 +73,7 @@ description: 商户查询一个代付订单的状态
 |--------|------------------------|----------------------------|
 | 412    | Please try again later  | 请稍后重试                 |
 | 414    | *                      | 更改对应参数               |
-| 416    | Application not found  | app_code异常，请更改       |
+| 416    | Application not found  | appCode异常，请更改       |
 | 417    | Merchant account not found | 商户账户未找到，请联系我们 |
 | 418    | Merchant account is closed | 商户账户已关闭，请联系我们 |
 | 434    | Merchant order not exist | 请检查提交的订单号   |

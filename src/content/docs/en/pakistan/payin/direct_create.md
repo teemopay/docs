@@ -17,7 +17,7 @@ description: Merchant creates a cashier order
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | PK                |
-| app_code         | Application ID    |
+| appCode         | Application ID    |
 
 
 

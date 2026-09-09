@@ -16,7 +16,7 @@ description: Merchant requests to create a payment order
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | Country code (PE) |
-| app_code         | Application ID    |
+| appCode         | Application ID    |
 
 ### Supported Payment Methods (paymentType)
 

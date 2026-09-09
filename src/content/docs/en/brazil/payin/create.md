@@ -16,7 +16,7 @@ description: Merchant requests to create a collection order
 | timestamp        | Request timestamp       |
 | nonce            | Random value            |
 | country          | Country code (e.g., BR) |
-| app_code         | Application ID          |
+| appCode         | Application ID          |
 
 ### Supported Payment Methods (paymentType)
 

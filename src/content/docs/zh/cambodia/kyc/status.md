@@ -16,7 +16,7 @@ description: 商户查询用户的KYC认证状态
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
 | country   | KH     |
-| app_code  | app 编号 |
+| appCode  | app 编号 |
 
 ### 请求参数
 

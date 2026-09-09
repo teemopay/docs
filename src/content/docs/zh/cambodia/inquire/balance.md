@@ -16,7 +16,7 @@ description: 余额查询
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
 | country   | KH     |
-| app_code  | app 编号 |
+| appCode  | app 编号 |
 
 ### 请求参数
 
@@ -57,7 +57,7 @@ description: 余额查询
 |-----|------------------------------|---------------------|
 | 412 | Please try again later       | 请稍后重试               |
 | 414 | *                            | 更改对应参数              |
-| 416 | Application not found        | app_code 异常，请更改     |
+| 416 | Application not found        | appCode 异常，请更改     |
 | 417 | Merchant account not found   | 商户账户未找到，请联系我们       |
 | 500 | Business Error               | 请联系我们               |
 

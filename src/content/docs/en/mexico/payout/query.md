@@ -16,7 +16,7 @@ description: Query a payout order
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | Country code (MX) |
-| app_code         | Application ID    |
+| appCode         | Application ID    |
 
 ### Request Parameters
 

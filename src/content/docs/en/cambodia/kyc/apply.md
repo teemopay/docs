@@ -18,7 +18,7 @@ After KYC approval, the system automatically increases the user's payout and pay
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | Country code (KH) |
-| app_code         | Application ID    |
+| appCode         | Application ID    |
 
 ### Request Parameters
 

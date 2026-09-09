@@ -16,7 +16,7 @@ description: Merchant requests to create a payout order
 | timestamp        | Request timestamp       |
 | nonce            | Random value            |
 | country          | Country code (e.g., BR) |
-| app_code         | Application ID          |
+| appCode         | Application ID          |
 
 ### Request Parameters
 

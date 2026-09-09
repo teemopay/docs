@@ -34,7 +34,7 @@ Different interfaces have different request parameters, but all request paramete
 | Field        | Type             | Required | Length                                                   | Description                               |
 | ------------ | ---------------- | -------- | -------------------------------------------------------- | ----------------------------------------- |
 | Content-Type | application/json | yes      | Fixed value. All requests must be POST with data in body |                                           |
-| app_code     | String           | yes      | 32                                                       | Application code assigned to merchant     |
+| appCode     | String           | yes      | 32                                                       | Application code assigned to merchant     |
 | country      | String           | yes      | 2                                                        | MX-Mexico PE-Peru CO-Colombia PK-Pakistan |
 | nonce        | String           | yes      | 32                                                       | Must be 32-character non-repeating string |
 | timestamp    | String           | yes      | 13                                                       | Current timestamp (milliseconds)          |

@@ -17,7 +17,7 @@ description: Merchant creates a cashier order
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | AR                |
-| app_code         | Application ID    |
+| appCode         | Application ID    |
 
 ### Request Parameters
 
@@ -89,7 +89,7 @@ description: Merchant creates a cashier order
 |------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
 | 412        | Please try again later                                                                                                                                                  | Please try again later                                      |
 | 414        | *                                                                                                                                                                       | Please change the corresponding parameter                   |
-| 416        | Application not found                                                                                                                                                   | app_code error, please change                               |
+| 416        | Application not found                                                                                                                                                   | appCode error, please change                               |
 | 424        | This payment method is not configured                                                                                                                                   | Payment method not configured, please contact us            |
 | 426        | merchant order duplicate                                                                                                                                                | Please change merchant order number                         |
 | 427        | The callback notification address for collection must not be empty.                                                                                                     | Collection callback URL not configured, please configure    |

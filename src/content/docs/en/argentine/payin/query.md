@@ -16,7 +16,7 @@ description: Merchant queries the status of order
 | timestamp        | Request timestamp       |
 | nonce            | Random string           |
 | country          | Country code (e.g., AR) |
-| app_code         | Application ID          |
+| appCode         | Application ID          |
 
 ### Request Parameters
 
@@ -101,7 +101,7 @@ description: Merchant queries the status of order
 |------------|-----------------------------|-----------------------------|
 | 412        | Please try again later      | Please try again later      |
 | 414        | *                           | Please change parameter     |
-| 416        | Application not found       | app_code error, please change |
+| 416        | Application not found       | appCode error, please change |
 | 434        | Merchant order not exist    | Please check the order number |
 | 500        | Business Error              | Please contact us           |
 

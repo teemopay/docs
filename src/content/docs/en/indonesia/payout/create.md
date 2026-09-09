@@ -17,7 +17,7 @@ description: Create a payout order
 | timestamp       | Request timestamp |
 | nonce           | Random string     |
 | country         | Country ID        |
-| app_code        | Application code  |
+| appCode        | Application code  |
 
 
 

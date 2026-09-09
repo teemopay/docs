@@ -17,7 +17,7 @@ description: 直连Easypaisa和Jazzcash
 | timestamp   | 请求时间戳   |
 | nonce       | 随机值     |
 | country     | PK  |
-| app_code    | app编号   |
+| appCode    | app编号   |
 
 
 

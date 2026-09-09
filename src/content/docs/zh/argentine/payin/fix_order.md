@@ -15,7 +15,7 @@ title: 补单接口
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
 | country   | AR     |
-| app_code  | app 编号 |
+| appCode  | app 编号 |
 
 ### 请求参数
 

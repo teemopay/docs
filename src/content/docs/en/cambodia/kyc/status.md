@@ -16,7 +16,7 @@ description: Merchant queries a user's KYC verification status
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | Country code (KH) |
-| app_code         | Application ID    |
+| appCode         | Application ID    |
 
 ### Request Parameters
 

@@ -16,7 +16,7 @@ description: Merchant creates a cashier
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | CO                |
-| app_code         | App code          |
+| appCode         | App code          |
 
 ## Supported Payment Types (paymentType)
 
@@ -104,7 +104,7 @@ description: Merchant creates a cashier
 |------------|---------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | 412        | Please try again later                                              | Please try again later                                                                               |
 | 414        | *                                                                   | Modify corresponding parameters                                                                      |
-| 416        | Application not found                                               | app_code error, please modify                                                                        |
+| 416        | Application not found                                               | appCode error, please modify                                                                        |
 | 424        | This payment method is not configured                               | Collection method not configured, please contact us to configure the corresponding collection method |
 | 426        | merchant order duplicate                                            | Please use a different merchant order number                                                         |
 | 427        | The callback notification address for collection must not be empty. | Collection callback address not configured, please configure the collection callback address         |

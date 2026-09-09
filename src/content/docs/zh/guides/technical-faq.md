@@ -103,7 +103,7 @@ Q: 测试环境和生产环境 API 域名是否相同?
 
 > - 是否使用了测试环境域名调用生产应用.
 > - 是否使用了生产环境域名调用测试应用.
-> - `app_code` 是否属于当前环境.
+> - `appCode` 是否属于当前环境.
 > - 请求头中的 `country` 是否与接口域名和开通国家一致.
 
 Q: `Merchant joint verification error: The merchant has not configured the corresponding payment method fee rate` 是什么原因?
@@ -115,7 +115,7 @@ Q: `Merchant joint verification error: The merchant has not configured the corre
 > - 测试环境和生产环境配置不一致.
 > - 路由或通道配置未生效.
 
-> 遇到该错误时, 请将请求环境、国家、`app_code`、`paymentType` 和订单号提供给 TeemoPay 对接人员排查.
+> 遇到该错误时, 请将请求环境、国家、`appCode`、`paymentType` 和订单号提供给 TeemoPay 对接人员排查.
 
 Q: 接口请求不通时应该先检查什么?
 
@@ -125,7 +125,7 @@ Q: 接口请求不通时应该先检查什么?
 > - 商户后台应用是否启用.
 > - 服务器出口 IP 是否已加入白名单.
 > - 请求方法是否为 `POST`.
-> - 请求头是否包含 `app_code`, `country`, `nonce`, `timestamp`.
+> - 请求头是否包含 `appCode`, `country`, `nonce`, `timestamp`.
 > - 请求体是否为合法 JSON.
 
 > 如果您的服务器无法连通 TeemoPay API 域名, 请提供服务器出口 IP 和请求时间, 方便定位网络或白名单问题.

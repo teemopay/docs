@@ -16,7 +16,7 @@ description: 商户创建收银台
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
 | country   | CO     |
-| app_code  | app编号  |
+| appCode  | app编号  |
 
 ## 支付方式列表（paymentType）
 
@@ -102,7 +102,7 @@ description: 商户创建收银台
 |-----|---------------------------------------------------------------------|-----------------------|
 | 412 | Please try again later                                              | 请稍后重试                 |
 | 414 | *                                                                   | 更改对应参数                |
-| 416 | Application not found                                               | app_code异常，请更改        |
+| 416 | Application not found                                               | appCode异常，请更改        |
 | 424 | This payment method is not configured                               | 代收方式未配置，请联系我们配置对应代收方式 |
 | 426 | merchant order duplicate                                            | 请更换商户订单号              |
 | 427 | The callback notification address for collection must not be empty. | 未配置代收回调地址，请配置代收回调地址   |

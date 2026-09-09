@@ -16,7 +16,7 @@ description: Create a payin order
 | timestamp        | Request timestamp       |
 | nonce            | Random string           |
 | country          | Country code (e.g., KR) |
-| app_code         | Application ID          |
+| appCode         | Application ID          |
 
 ### Supported Payment Types (paymentType)
 

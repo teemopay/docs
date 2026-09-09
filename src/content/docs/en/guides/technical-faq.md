@@ -103,7 +103,7 @@ Q: Are test and production API domains the same?
 
 > - Whether a test domain is being used with a production application.
 > - Whether a production domain is being used with a test application.
-> - Whether `app_code` belongs to the current environment.
+> - Whether `appCode` belongs to the current environment.
 > - Whether the `country` request header matches the API domain and enabled country.
 
 Q: What does `Merchant joint verification error: The merchant has not configured the corresponding payment method fee rate` mean?
@@ -115,7 +115,7 @@ Q: What does `Merchant joint verification error: The merchant has not configured
 > - Test and production configurations are inconsistent.
 > - Routing or channel configuration has not taken effect.
 
-> When this happens, provide the request environment, country, `app_code`, `paymentType`, and order number to your TeemoPay integration contact.
+> When this happens, provide the request environment, country, `appCode`, `paymentType`, and order number to your TeemoPay integration contact.
 
 Q: What should we check first if the API request cannot connect?
 
@@ -125,7 +125,7 @@ Q: What should we check first if the API request cannot connect?
 > - Whether the merchant application is enabled.
 > - Whether the server outbound IP is allowlisted.
 > - Whether the request method is `POST`.
-> - Whether request headers include `app_code`, `country`, `nonce`, and `timestamp`.
+> - Whether request headers include `appCode`, `country`, `nonce`, and `timestamp`.
 > - Whether the request body is valid JSON.
 
 > If your server cannot connect to the TeemoPay API domain, provide the server outbound IP and request time for network or allowlist troubleshooting.

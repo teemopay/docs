@@ -18,7 +18,7 @@ KYC认证通过，系统将直接提高用户代付代收额度；若认证失�
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
 | country   | KH     |
-| app_code  | app 编号 |
+| appCode  | app 编号 |
 
 ### 请求参数
 

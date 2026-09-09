@@ -16,7 +16,7 @@ description: Balance Inquiry
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | MX                |
-| app_code         | Application ID    |
+| appCode         | Application ID    |
 
 
 ### Request Parameters

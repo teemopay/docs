@@ -14,7 +14,7 @@ description: Merchant requests to create a payment order
 | timestamp        | Request timestamp  |
 | nonce            | Random value       |
 | country          | IN                 |
-| app_code         | App code           |
+| appCode         | App code           |
 
 ## Payment Type List
 | Payment Method Name | PaymentType (Request Parameter) |
