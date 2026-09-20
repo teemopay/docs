@@ -24,14 +24,16 @@ description: Merchant requests to create a payment order
 |----------------|-------------|
 | KHQR           | 2001        |
 | KHQR_USD       | 2002        |
+| VA_USD         | 2003        |
+| VA_KHR         | 2004        |
 
 ### Request Parameters
 
 | Field           | Type   | Required | Length | Description                                                                                                                                                                                               |
 |-----------------|--------|----------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | merchantOrderNo | String | yes      | 32     | Merchant order number                                                                                                                                                                                     |
-| paymentType     | Int    | yes      |        | Payment method: 2001-KHQR or 2002-KHQR_USD                                                                                                                                                                |
-| amount          | String | yes      | 20     | Transaction amount (see [KYC Limits](/en/cambodia/kyc/limits) for transaction limits): when paymentType is 2001-KHQR, the currency is KHR and only integers are supported; when paymentType is 2002-KHQR_USD, the currency is USD and up to two decimal places are supported |
+| paymentType     | Int    | yes      |        | Payment method: 2001-KHQR, 2002-KHQR_USD, 2003-VA_USD, or 2004-VA_KHR                                                                                                                                     |
+| amount          | String | yes      | 20     | Transaction amount (see [Limits](/en/cambodia/kyc/limits)): for 2001-KHQR or 2004-VA_KHR, the currency is KHR and only integers are supported; for 2002-KHQR_USD or 2003-VA_USD, the currency is USD and up to two decimal places are supported                             |
 | realName        | String | yes      | 64     | Payer's real first and last name                                                                                                                                                                          |
 | email           | String | yes      | 50     | Payer's real email address; must be in a valid email format                                                                                                                                               |
 | phone           | String | yes      | 50     | Phone number: 8-9 digits without country code;                                                                                                                                                            |
@@ -62,7 +64,7 @@ description: Merchant requests to create a payment order
 | merchantOrderNo | String     | yes      | 32     | Merchant order number                                          |
 | tradeNo         | String     | yes      |        | Platform order number                                          |
 | amount          | String     | yes      |        | Transaction amount                                             |
-| paymentType     | Int        | yes      |        | Payment method: 2001-KHQR or 2002-KHQR_USD                     |
+| paymentType     | Int        | yes      |        | Payment method: 2001-KHQR, 2002-KHQR_USD, 2003-VA_USD, or 2004-VA_KHR |
 | paymentInfo     | String     | yes      |        | Main payment information; the payment link returned upstream   |
 | additionalInfo  | JSONObject | no       |        | Additional payment information, including the original QR data |
 | status          | Int        | yes      |        | Order status: 2-Success, 3-Failed                              |
