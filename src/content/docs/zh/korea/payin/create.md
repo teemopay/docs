@@ -37,13 +37,13 @@ description: 商户请求创建一个代收订单
 | idCardNumber        | String  | yes | 64   | 用户ID 。用户在平台注册账号的ID                                                                                                                                                                 |
 | ipAddress           | String  | no  | 64   | 付款人的客户端IP地址,当支付方式为803或者804时,ipAddress为必传字段,请确保传入的IP地址为真实用户IP,而非服务器代理IP <br> 频率限制<br> 单个IP地址每日累计发起交易上限为10笔<br>单个IP地址每日成功交易上限为3笔<br>注:超出频控阈值的交易请求将被拒绝，请在业务层做好相应的异常拦截与提示              |
 | merchantName        | String  | yes | 64   | 收款人名称                                                                                                                                                                              |
-| email               | String  | yes | 50   | 用户邮箱 【满足正则表达式即可】当支付方式为803或者804时,email为必传字段                                                                                                                                         |
+| email               | String  | no | 50 | 用户邮箱，须符合标准邮箱格式；支付方式为 803 (KAKAOPAY) 时必填 |
 | amount              | String  | yes | 20   | 代收金额 【整数 单位元 货币:KRW】                                                                                                                                                               |
 | bankCode            | String  | no  | 20   | 银行代码 ：代表接收转账或进行认证的金融机构标识。需传输由韩国金融结算院（KFTC）定义的 3 位标准代码（例如：国民银行 004，新韩银行 088）。当支付方式 设为 802 时，系统将触发特定的 KYC 逻辑，允许可选输 bankCode。若该代码下未传输识别码，用户需在跳转后的 H5/App 认证页面内手动补全身份信息。 【传值参考kyc银行列表】 |
 | bankAccount         | String  | no  | 20   | 持有人账户：用于实名认证（KYC）的标识信息。当支付方式 为 802 时，本字段支持可选传输：若调用接口时携带此字段，系统将预填至 KYC 认证页面以提升用户体验；若不传输，则由用户在认证流程中手动填写。                                                                             |
 | accountHolderNumber | String  | yes | 20   | 账户持有人识别码(accountHolderNum):用于实名认证标识信息。填写规范:1.个人用户:请提供居民注册号码(ResidentID)的前6位数字,格式为生年月日YYMMDD(例:950101);2.企业用户:请提供10位数字的事业者登录号(BusinessRegistration Number)                          |
 | expirationTime      | Long    | no  |      | 过期时间 【最大两个小时，为空默认两个小时； 毫秒级时间戳 eg:1735660800000】                                                                                                                                    |
-| phone               | String  | yes | 20   | 用户手机号 【11 位数字；以 010 开头；没有区号】当支付方式为803或者804时,phone为必传字段                                                                                                                             |
+| phone               | String  | no | 11 | 用户手机号，固定 11 位数字且以 010 开头；支付方式为 804 (TOSSPAY) 时必填 |
 | callbackUrl         | String  | no  | 200  | 代收回调地址 【若不传递，取商户后台配置的回调地址】                                                                                                                                                         |
 | sign                | String  | yes |      | 签名                                                                                                                                                                                 |
 
