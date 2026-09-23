@@ -20,10 +20,10 @@ These per-transaction limits apply to all users and are not affected by KYC stat
 
 | Currency | Payment Method | Per-Transaction Limit |
 |---|---|---:|
-| USD | KHQR (QR) | 0.01–20,000 USD |
-| USD | VA | 0.01–50,000 USD |
-| KHR | KHQR (QR) | 100–80,000,000 KHR |
-| KHR | VA | 100–200,000,000 KHR |
+| USD | 2002 | 0.01–20,000 USD |
+| USD | 2003 | 0.01–50,000 USD |
+| KHR | 2001 | 100–80,000,000 KHR |
+| KHR | 2004 | 100–200,000,000 KHR |
 
 ## Payout — Per-Transaction Limits
 
