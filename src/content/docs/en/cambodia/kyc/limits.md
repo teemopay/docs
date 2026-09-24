@@ -29,10 +29,10 @@ These per-transaction limits apply to all users and are not affected by KYC stat
 
 Payout limits are not affected by KYC status.
 
-| Currency | Per-Transaction Limit |
-|---|---:|
-| USD | 0.01–50,000 USD |
-| KHR | 100–200,000,000 KHR |
+| Currency | Payment Method | Per-Transaction Limit |
+|---|---|---:|
+| USD | 2002 | 0.01–50,000 USD |
+| KHR | 2001 | 100–200,000,000 KHR |
 
 ## Business Rules
 
