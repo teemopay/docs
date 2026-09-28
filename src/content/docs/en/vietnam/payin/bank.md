@@ -1,0 +1,34 @@
+---
+title: Bank List
+description: Supported bank list for payin
+---
+
+| Bank Code | Bank Name |
+|---|---|
+| 1001 | INDUSTRIAL BANK OF KOREA - HCM |
+| 1002 | VIETNAM-RUSSIA JOINT VENTURE BANK (VRB) |
+| 1003 | AGRIBANK |
+| 1004 | NONGHYUP BANK - HANOI |
+| 1005 | ACB |
+| 1006 | ABBANK |
+| 1007 | BAC A BANK |
+| 1008 | VIET CAPITAL BANK |
+| 1009 | BAOVIET BANK |
+| 1010 | LPBANK |
+| 1011 | VIETINBANK |
+| 1012 | PVCOMBANK |
+| 1013 | OCEANBANK |
+| 1014 | GPBANK |
+| 1015 | BIDV |
+| 1016 | DONGA BANK |
+| 1017 | SEABANK |
+| 1018 | MSB |
+| 1019 | KIENLONGBANK |
+| 2001 | BANK BCA |
+| 2002 | BANK BNI |
+| 2003 | BANK BRI |
+| 2004 | BANK BSI |
+| 2005 | BANK CIMB |
+| 2006 | BANK MANDIRI |
+| 2007 | BANK DANAMON |
+| 2008 | BANK PERMATA |
