@@ -24,4 +24,6 @@ description: 代收支持的银行列表
 | SEABANK          | Southeast Asia Commercial Joint Stock Bank                 |
 | MSB              | Vietnam Maritime Commercial Joint Stock Bank               |
 | KIENLONGBANK     | Kien Long Commercial Joint Stock Bank                      |
-| TCB              | TCB                                                        |
+| TCB              | Vietnam Technological and Commercial Joint Stock Bank      |
+| MB               | Military Commercial Joint Stock Bank                       |
+
