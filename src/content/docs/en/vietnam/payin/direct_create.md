@@ -37,7 +37,7 @@ description: Merchant requests to create a payment order
 | realName        | String | yes      | 64     | Payer name |
 | email           | String | yes      | 50     | Payer email (must match a valid regex format) |
 | phone           | String | yes      | 50     | Phone number: 10 digits starting with 0 |
-| bankCode        | String | no       | 50     | Bank code; see the [Bank List](./bank). Required when `paymentType` is 2102 (VA) |
+| bankCode        | String | no       | 50     | Bank code; see the [Bank List](/en/vietnam/payin/bank). Required when `paymentType` is 2102 (VA) |
 | sign            | String | yes      |        | Signature                                                                                                                                                                                    |
 | callbackUrl     | String | no       | 200    | Callback URL                                                                                                                                                                                 |
 

@@ -38,7 +38,7 @@ description: 商户请求创建一个代收订单
 | realName        | String | yes | 64  | 付款人姓名 |
 | email           | String | yes | 50  | 付款人邮箱：满足正则表达式即可 |
 | phone           | String | yes | 50  | 电话号码，以 0 开头的 10 位数字 |
-| bankCode        | String | no  | 50  | 银行编码，参考[银行列表](./bank)；`paymentType` 为 2102（VA）时必填 |
+| bankCode        | String | no  | 50  | 银行编码，参考[银行列表](/zh/vietnam/payin/bank)；`paymentType` 为 2102（VA）时必填 |
 | sign            | String | yes |     | 签名                                                                                                  |
 | callbackUrl     | String | no  | 200 | 回调地址                                                                                                |
 
