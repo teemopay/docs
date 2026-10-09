@@ -20,10 +20,10 @@ description: Merchant requests to create a payout order
 
 ## Supported Account Types (accountType)
 
-| Account Type Name | AccountType |
-|---|---:|
-| BANK | 2101 |
-| Wallet | 2102 |
+| AccountType | Account Type Name |
+|---:|---|
+| 2101 | BANK |
+| 2102 | Wallet |
 
 ### Request Parameters
 

@@ -5,7 +5,7 @@ description: Supported Bank and Wallet List for Payout
 
 ## BANK (accountType = 2101)
 
-These bank codes apply to account type (accountType) `BANK`.
+These bank codes apply to account type (accountType) `2101（BANK）`.
 
 | Bank Code | Bank Name |
 |---|---|
@@ -181,7 +181,7 @@ These bank codes apply to account type (accountType) `BANK`.
 
 ## Wallet (accountType = 2102)
 
-These bank codes apply to account type (accountType) `Wallet`.
+These bank codes apply to account type (accountType) `2102（Wallet）`.
 
 
 | bankCode | bankName |

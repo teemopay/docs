@@ -20,10 +20,10 @@ description: 商户请求创建一个代付订单
 
 ## 支持账户类型列表（accountType）
 
-| 账户类型名称 | AccountType |
-|---|---:|
-| BANK | 2101 |
-| Wallet | 2102 |
+| AccountType | 账户类型名称 |
+|---:|---|
+| 2101 | BANK |
+| 2102 | Wallet |
 
 ### 请求参数
 

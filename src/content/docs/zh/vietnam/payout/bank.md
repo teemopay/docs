@@ -5,7 +5,7 @@ description: 代付支持的银行和钱包列表
 
 ## BANK（accountType = 2101）
 
-此银行编码适用于账户类型（accountType）为 `BANK`。
+此银行编码适用于账户类型（accountType）为 `2101（BANK）`。
 
 | 银行代码 | 银行名称 |
 |---|---|
@@ -181,7 +181,7 @@ description: 代付支持的银行和钱包列表
 
 ## Wallet（accountType = 2102）
 
-此银行编码适用于账户类型（accountType）为 `Wallet`。
+此银行编码适用于账户类型（accountType）为 `2102（Wallet）`。
 
 | bankCode | bankName |
 |---|---|
