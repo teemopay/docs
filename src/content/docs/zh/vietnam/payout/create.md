@@ -18,14 +18,22 @@ description: 商户请求创建一个代付订单
 | country | VN |
 | appCode | app 编号 |
 
+## 支持账户类型列表（accountType）
+
+| 账户类型名称 | AccountType |
+|---|---:|
+| BANK | 2101 |
+| Wallet | 2102 |
+
 ### 请求参数
 
 | 字段 | 类型 | 必需 | 长度 | 描述 |
 |---|---|---|---:|---|
 | merchantOrderNo | String | yes | 32 | 商户订单号 |
+| accountType | Int | yes | | 账户类型，详见[账户类型列表](#支持账户类型列表accounttype) |
 | amount | String | yes | 20 | 代付金额；(越南盾)VND,支持整数 |
-| bankCode | String | yes | 50 | 银行编码 |
-| bankName | String | yes | 50 | 银行名称 |
+| bankCode | String | yes | 50 | 银行编码；参考[银行列表](/zh/vietnam/payout/bank) |
+| bankName | String | yes | 50 | 银行名称；参考[银行列表](/zh/vietnam/payout/bank) |
 | bankAccount | String | yes | 32 | 收款账号：传输用户真实收款账号信息 |
 | realName | String | yes | 255 | 用户姓名：传用户的真实姓与名 |
 | idCardNumber | String | yes | 32 | 证件号码 |
@@ -38,6 +46,7 @@ description: 商户请求创建一个代付订单
 ```json title=请求示例
 {
   "merchantOrderNo": "PayoutOrderExample",
+  "accountType": 2101,
   "amount": "30000",
   "bankCode": "1001",
   "bankName": "ABBANK",

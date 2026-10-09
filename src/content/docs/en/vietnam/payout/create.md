@@ -18,14 +18,22 @@ description: Merchant requests to create a payout order
 | country | VN |
 | appCode | Application ID |
 
+## Supported Account Types (accountType)
+
+| Account Type Name | AccountType |
+|---|---:|
+| BANK | 2101 |
+| Wallet | 2102 |
+
 ### Request Parameters
 
 | Field | Type | Required | Length | Description |
 |---|---|---|---:|---|
 | merchantOrderNo | String | yes | 32 | Merchant order number |
+| accountType | Int | yes | | Account type, see the [account type list](#supported-account-types-accounttype) |
 | amount | String | yes | 20 | Payout amount; Vietnamese dong (VND), integer supported |
-| bankCode | String | yes | 50 | Bank code |
-| bankName | String | yes | 50 | Bank name |
+| bankCode | String | yes | 50 | Bank code; see the [Bank List](/en/vietnam/payout/bank) |
+| bankName | String | yes | 50 | Bank name; see the [Bank List](/en/vietnam/payout/bank) |
 | bankAccount | String | yes | 32 | Recipient account: provide the user's real receiving account information |
 | realName | String | yes | 255 | User name: provide the user's real first and last name |
 | idCardNumber | String | yes | 32 | Identity document number |
@@ -38,6 +46,7 @@ description: Merchant requests to create a payout order
 ```json title="Request Example"
 {
   "merchantOrderNo": "PayoutOrderExample",
+  "accountType": 2101,
   "amount": "30000",
   "bankCode": "1001",
   "bankName": "ABBANK",
