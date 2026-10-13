@@ -50,3 +50,23 @@ description: Merchant requests to create a payout order
     "idCardNumber": "12345678"
 }
 ```
+
+
+### Return Parameters
+
+| Parameter       | Type   | Required | Length | Description                         |
+| --------------- | ------ | -------- | ------ | ----------------------------------- |
+| merchantOrderNo | String | yes      | 32     | Merchant order number               |
+| tradeNo         | String | yes      |        | Platform order number               |
+| status          | Int    | yes      |        | Reimbursement status 【1: Payment in progress 3: Failure (can be re-initiated)】 |
+| amount          | String | yes      |        | Transaction amount                  |
+
+```json title=Return Example
+{
+  "merchantOrderNo": "OrderNoExample",
+  "tradeNo": "TF2501010001BR0000000000000000",
+  "status": 1,
+  "sign": "TEEMO_SIGN"
+}
+```
+

@@ -66,7 +66,7 @@ description: 商户请求创建一个代收订单
 | paymentInfo     | String     | yes | 32  | 主要付款信息，返回的是实际用于付款的信息，例如：付款编号 |
 | additionalInfo  | JSONObject | no  |     | 扩展信息                         |
 | -- paymentLink       | String | no  |   | 付款链接信息                                     |
-| status          | Int        | yes |     | 代收状态, 1:成功 3:失败                |
+| status          | Int        | yes |     | 代收状态, 1:支付中 3:已失败                |
 | errorMsg        | String     | no  |     | 错误信息,失败时返回                   |
 
 ### additionalInfo （附加字段）字段说明
