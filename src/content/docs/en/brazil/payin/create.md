@@ -53,6 +53,7 @@ description: Merchant requests to create a collection order
   "amount": "100.1",
   "callbackUrl": "https://www.callbackexample.com",
   "paymentType": 401,
+  "status": 1,
   "email": "TeemoPay@example.com",
   "phone": "11987654321",
   "idCardNumber": "1234567890",
