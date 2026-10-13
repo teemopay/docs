@@ -20,11 +20,14 @@ description: Merchant requests to create a payment order
 
 ## Supported Payment Types (paymentType)
 
-| Payment Method Name | PaymentType |
-|---------------------|------------:|
-| QR                  |        2101 |
-| VA                  |        2102 |
-| Wallet              |        2103 |
+| PaymentType | Payment Method Name |
+|-------------|--------------------:|
+| 2101        |                  QR |        
+| 2102        |                  VA |       
+| 2103        |              Wallet |       
+| 2104        |               VA_MB |        
+| 2105        |              VA_MSB |       
+| 2106        |             VA_BIDV |     
 
 ### Request Parameters
 

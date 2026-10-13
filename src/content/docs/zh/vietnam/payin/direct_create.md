@@ -20,25 +20,28 @@ description: 商户请求创建一个代收订单
 
 ## 支持支付方式列表（paymentType）
 
-| 支付方式名称 | PaymentType |
-|--------|------------:|
-| QR     |        2101 |
-| VA     |        2102 |
-| Wallet |        2103 |
+| PaymentType |  支付方式名称 |
+|-------------|--------:|
+| 2101        |      QR |        
+| 2102        |      VA |       
+| 2103        |  Wallet |       
+| 2104        |   VA_MB |        
+| 2105        |  VA_MSB |       
+| 2106        | VA_BIDV |       
 
 ### 请求参数
 
-| 字段              | 类型     | 必需  | 长度  | 描述                                                                    |
-|-----------------|--------|-----|-----|-----------------------------------------------------------------------|
-| merchantOrderNo | String | yes | 32  | 商户订单号                                                                 |
-| paymentType     | Int    | yes |     | 支付方式，详见[支付方式列表](#支持支付方式列表paymenttype)                                 |
-| amount          | String | yes | 20  | 代收金额（VND），仅支持整数                                                       |
-| realName        | String | yes | 64  | 付款人姓名                                                                 |
-| email           | String | yes | 50  | 付款人邮箱：满足正则表达式即可                                                       |
-| phone           | String | yes | 50  | 电话号码，以 0 开头的 10 位数字                                                   |
+| 字段              | 类型     | 必需  | 长度  | 描述                                                                      |
+|-----------------|--------|-----|-----|-------------------------------------------------------------------------|
+| merchantOrderNo | String | yes | 32  | 商户订单号                                                                   |
+| paymentType     | Int    | yes |     | 支付方式，详见[支付方式列表](#支持支付方式列表paymenttype)                                   |
+| amount          | String | yes | 20  | 代收金额（VND），仅支持整数                                                         |
+| realName        | String | yes | 64  | 付款人姓名                                                                   |
+| email           | String | yes | 50  | 付款人邮箱：满足正则表达式即可                                                         |
+| phone           | String | yes | 50  | 电话号码，以 0 开头的 10 位数字                                                     |
 | bankCode        | String | no  | 50  | 银行编码，参考[银行列表](/zh/vietnam/payin/bank)；</br> `paymentType` 为 2102（VA）时必填 |
-| sign            | String | yes |     | 签名                                                                    |
-| callbackUrl     | String | no  | 200 | 回调地址                                                                  |
+| sign            | String | yes |     | 签名                                                                      |
+| callbackUrl     | String | no  | 200 | 回调地址                                                                    |
 
 ```json title="请求示例"
 {
