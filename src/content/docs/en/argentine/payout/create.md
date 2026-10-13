@@ -50,7 +50,7 @@ description: Create a payout order
 }
 ```
 
-### Return Parameters
+### Response Parameters
 
 | Parameter       | Type   | Required | Length | Description                         |
 | --------------- | ------ | -------- | ------ | ----------------------------------- |
@@ -59,7 +59,7 @@ description: Create a payout order
 | status          | Int    | yes      |        | Reimbursement status 【1: Payment in progress 3: Failure (can be re-initiated)】 |
 | amount          | String | yes      |        | Transaction amount                  |
 
-```json title=Return Example
+```json title=Response Example
 {
   "merchantOrderNo": "OrderNoExample",
   "tradeNo": "TF2501010001AR0000000000000000",
