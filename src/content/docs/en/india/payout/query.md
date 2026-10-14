@@ -44,6 +44,7 @@ description: Merchant queries the status of a payout order
 | serviceAmount | String | Yes | Service fee = fixed fee + transaction amount × service rate |
 | immService | String | Yes | Fixed fee |
 | serviceRate | String | Yes | Service rate |
+| voucherUrl   | String | Yes | Voucher address                                                 |
 | errorCode | Number | Yes | Error code when order fails |
 | errorMessage | String | Yes | Error message when order fails |
 | completeTime | String | Yes | Completion time — local timezone, format: `yyyy-MM-dd HH:mm:ss` |

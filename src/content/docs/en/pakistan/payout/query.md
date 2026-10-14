@@ -46,6 +46,7 @@ description: Merchant query the status of a payout order
 | serviceAmount   | String | yes      |            | Service fee = fixed fee + (transaction amount \* service rate) (Added 20250506)    |
 | immService      | String | yes      |            | Fixed fee amount (Added 20250506)                                                  |
 | serviceRate     | String | yes      |            | Service rate (Added 20250506)                                                      |
+| voucherUrl      | String | yes      |            | Voucher address                                                                  |
 | errorCode       | number | yes      |            | Error code for failed order (Added 20250506)                                       |
 | errorMessage    | String | yes      |            | Error message for failed order (Added 20250506)                                    |
 | completeTime    | String | yes      |            | Completion time in local time zone, format: yyyy-MM-dd HH:mm:ss (Added 20250506) |

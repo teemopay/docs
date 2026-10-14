@@ -26,6 +26,12 @@ description: Query a payout order
 | sign            | String | yes      | -      | Signature             |
 
 
+### Response Parameters
+
+| Field | Type | Required | Length | Description |
+| ----- | ---- | -------- | ------ | ----------- |
+| voucherUrl | String | yes | | Voucher address |
+
 ```json title = ""
 {
   "msg": "success",

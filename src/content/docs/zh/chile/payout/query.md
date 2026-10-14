@@ -43,6 +43,7 @@ description: 商户查询一个代付订单的状态
 | -- tradeNo         | String  | yes  |    | 平台订单号                    |
 | -- amount          | String  | yes  |    | 代付金额                     |
 | -- status          | Int  | yes  |    | 代付状态,2:成功 3:失败     |
+| -- voucherUrl      | String | yes  |    | 凭证地址               |
 
 ```json title=返回示例
 {

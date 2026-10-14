@@ -45,6 +45,7 @@ description: Payout Query
 |    tradeNo         | String  | yes      |        | Platform order number                                |
 |    amount          | String  | yes      |        | Payout amount                                        |
 |    status          | Int     | yes      |        | Payout status: 2 = Success, 3 = Failed, 4 = Refunded |
+| voucherUrl         | String  | yes      |        | Voucher address                                      |
 
 
 ```json title=Sample Response

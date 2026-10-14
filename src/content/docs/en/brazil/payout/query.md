@@ -49,6 +49,7 @@ description: Merchant queries the status of a payout order
 | - refundAmount    | String | yes      |        | Refund amount for this transaction                                       |
 | - refundStatus    | String | yes      |        | Refund status 0 (Partial refund) 1 (Full refund)                         |
 | - refundTime      | String | yes      |        | Refund time for this transaction                                         |
+| voucherUrl        | String | yes      |        | Voucher address                                                          |
 | errorCode         | number | yes      |        | Order failure error code                                                 |
 | errorMessage      | String | yes      |        | Order failure error message                                              |
 | completeTime      | String | yes      |        | Completion time in current country timezone, format: yyyy-MM-dd HH:mm:ss |

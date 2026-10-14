@@ -49,6 +49,7 @@ description: 商户查询一个代付订单的状态
 | - refundAmount    | String | yes |    | 当次退款金额                            |
 | - refundStatus    | Int    | yes |    | 当次退款状态  0（部分退款）1（全额退款）            |
 | - refundTime      | String | yes |    | 当次退款时间                            |
+| voucherUrl        | String | yes |    | 凭证地址                              |
 | errorCode         | number | yes |    | 订单失败状态错误码                         |
 | errorMessage      | String | yes |    | 订单失败错误信息                          |
 | completeTime      | String | yes |    | 完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式 |
