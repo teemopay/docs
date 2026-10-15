@@ -92,7 +92,7 @@ description: Merchant requests to create a payment order
 |-------------|--------|----------|--------------------------------------------------------|
 | paymentLink | String | yes      | Payment link                                           |
 | qrString    | String | yes      | QR code string for QR payment, applicable to 2101 (QR) |
-| accountNo   | String | yes      | VA account number, applicable to 2102 (VA)             |
+| va   | String | yes      | VA account number, applicable to 2102 (VA)             |
 
 ```json title="2101 (QR) Response Example"
 {
@@ -106,7 +106,7 @@ description: Merchant requests to create a payment order
     "additionalInfo": {
       "paymentLink": "https://Example",
       "qrString": "QR_CODE_Example",
-      "accountNo": "VA_Example"
+      "va": "VA_Example"
     },
     "status": 1,
     "errorMsg": null
@@ -128,7 +128,7 @@ description: Merchant requests to create a payment order
     "additionalInfo": {
       "paymentLink": "https://Example",
       "qrString": "QR_CODE_Example",
-      "accountNo": "VA_Example"
+      "va": "VA_Example"
     },
     "status": 1,
     "errorMsg": null

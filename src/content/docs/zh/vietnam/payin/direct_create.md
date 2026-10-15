@@ -92,7 +92,7 @@ description: 商户请求创建一个代收订单
 |-------------|--------|-----|--------------|
 | paymentLink | String | yes | 支付链接         |
 | qrString    | String | yes | 二维码支付QrCode串 |
-| accountNo   | String | yes | VA 账号        |
+| va          | String | yes | VA 账号        |
 
 ```json title="2101（QR）返回示例"
 {
@@ -106,7 +106,7 @@ description: 商户请求创建一个代收订单
     "additionalInfo": {
       "paymentLink": "https://Example",
       "qrString": "QR_CODE_Example",
-      "accountNo": "VA_Example"
+      "va": "VA_Example"
     },
     "status": 1,
     "errorMsg": null
@@ -127,7 +127,7 @@ description: 商户请求创建一个代收订单
     "paymentInfo": "1234567890123",
     "additionalInfo": {
       "paymentLink": "https://Example",
-      "accountNo": "VA_Example",
+      "va": "VA_Example",
       "qrString": "QR_CODE_Example"
     },
     "status": 1,
