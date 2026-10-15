@@ -75,23 +75,24 @@ description: Merchant requests to create a payment order
 
 ### Response Parameters
 
-| Field           | Type       | Required | Length | Description                                        |
-|-----------------|------------|----------|--------|----------------------------------------------------|
-| merchantOrderNo | String     | yes      | 32     | Merchant order number                              |
-| tradeNo         | String     | yes      |        | Platform order number                              |
-| amount          | String     | yes      |        | Transaction amount                                 |
-| paymentType     | Int        | yes      |        | Payment type                                       |
+| Field           | Type       | Required | Length | Description                                                                                                                          |
+|-----------------|------------|----------|--------|--------------------------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String     | yes      | 32     | Merchant order number                                                                                                                |
+| tradeNo         | String     | yes      |        | Platform order number                                                                                                                |
+| amount          | String     | yes      |        | Transaction amount                                                                                                                   |
+| paymentType     | Int        | yes      |        | Payment type                                                                                                                         |
 | paymentInfo     | String     | yes      |        | Primary payment information<br />For example: 2101 returns the QR code string for QR payment<br />2102 returns the VA account number |
-| additionalInfo  | JSONObject | no       |        | Additional payment information; see the fields below |
-| status          | Int        | yes      |        | Payin status: 1 = Paying, 3 = Failed               |
-| errorMsg        | String     | no       |        | Error message (returned only in case of failure)   |
+| additionalInfo  | JSONObject | no       |        | Additional payment information; see the fields below                                                                                 |
+| status          | Int        | yes      |        | Payin status: 1 = Paying, 3 = Failed                                                                                                 |
+| errorMsg        | String     | no       |        | Error message (returned only in case of failure)                                                                                     |
 
 #### additionalInfo Object
 
-| Field     | Type   | Required | Description |
-|-----------|--------|----------|-------------|
-| qrString  | String | no       | QR code string for QR payment, applicable to 2101 (QR) |
-| accountNo | String | no       | VA account number, applicable to 2102 (VA) |
+| Field       | Type   | Required | Description                                            |
+|-------------|--------|----------|--------------------------------------------------------|
+| paymentLink | String | yes      | Payment link                                           |
+| qrString    | String | yes      | QR code string for QR payment, applicable to 2101 (QR) |
+| accountNo   | String | yes      | VA account number, applicable to 2102 (VA)             |
 
 ```json title="2101 (QR) Response Example"
 {
@@ -103,7 +104,9 @@ description: Merchant requests to create a payment order
     "paymentType": 2101,
     "paymentInfo": "QR_CODE_STRING_EXAMPLE",
     "additionalInfo": {
-      "qrString": "QR_CODE_STRING_EXAMPLE"
+      "paymentLink": "https://Example",
+      "qrString": "QR_CODE_Example",
+      "accountNo": "VA_Example"
     },
     "status": 1,
     "errorMsg": null
@@ -123,7 +126,9 @@ description: Merchant requests to create a payment order
     "paymentType": 2102,
     "paymentInfo": "1234567890123",
     "additionalInfo": {
-      "accountNo": "1234567890123"
+      "paymentLink": "https://Example",
+      "qrString": "QR_CODE_Example",
+      "accountNo": "VA_Example"
     },
     "status": 1,
     "errorMsg": null

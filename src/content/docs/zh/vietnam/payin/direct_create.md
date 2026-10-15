@@ -20,10 +20,10 @@ description: 商户请求创建一个代收订单
 
 ## 支持支付方式列表（paymentType）
 
-| PaymentType |  支付方式名称 |
-|-------------|--------:|
-| 2101        |      QR |
-| 2102        |      VA |
+| PaymentType | 支付方式名称 |
+|-------------|-------:|
+| 2101        |     QR |
+| 2102        |     VA |
 
 <!--
 | 2103        |  Wallet |
@@ -75,23 +75,24 @@ description: 商户请求创建一个代收订单
 
 ### 返回参数
 
-| 字段              | 类型         | 必需  | 长度 | 描述                 |
-|-----------------|------------|-----|----|--------------------|
-| merchantOrderNo | String     | yes | 32 | 商户订单号              |
-| tradeNo         | String     | yes |    | 平台订单号              |
-| amount          | String     | yes |    | 交易金额               |
-| paymentType     | Int        | yes |    | 支付方式               |
+| 字段              | 类型         | 必需  | 长度 | 描述                                                      |
+|-----------------|------------|-----|----|---------------------------------------------------------|
+| merchantOrderNo | String     | yes | 32 | 商户订单号                                                   |
+| tradeNo         | String     | yes |    | 平台订单号                                                   |
+| amount          | String     | yes |    | 交易金额                                                    |
+| paymentType     | Int        | yes |    | 支付方式                                                    |
 | paymentInfo     | String     | yes |    | 主要付款信息<br />例如：2101 代表二维码支付 qrCode 串<br />2102 代表 VA 账号 |
-| additionalInfo  | JSONObject | no  |    | 附加付款信息，字段说明见下表 |
-| status          | Int        | yes |    | 代收状态, 1:支付中 3:已失败  |
-| errorMsg        | String     | no  |    | 错误信息,失败时返回         |
+| additionalInfo  | JSONObject | no  |    | 附加付款信息，字段说明见下表                                          |
+| status          | Int        | yes |    | 代收状态, 1:支付中 3:已失败                                       |
+| errorMsg        | String     | no  |    | 错误信息,失败时返回                                              |
 
 #### additionalInfo 对象
 
-| 字段      | 类型   | 必需 | 描述 |
-|-----------|--------|------|------|
-| qrString  | String | no   | 二维码支付 qrCode 串，适用于 2101（QR） |
-| accountNo | String | no   | VA 账号，适用于 2102（VA） |
+| 字段          | 类型     | 必需  | 描述           |
+|-------------|--------|-----|--------------|
+| paymentLink | String | yes | 支付链接         |
+| qrString    | String | yes | 二维码支付QrCode串 |
+| accountNo   | String | yes | VA 账号        |
 
 ```json title="2101（QR）返回示例"
 {
@@ -103,7 +104,9 @@ description: 商户请求创建一个代收订单
     "paymentType": 2101,
     "paymentInfo": "QR_CODE_STRING_EXAMPLE",
     "additionalInfo": {
-      "qrString": "QR_CODE_STRING_EXAMPLE"
+      "paymentLink": "https://Example",
+      "qrString": "QR_CODE_Example",
+      "accountNo": "VA_Example"
     },
     "status": 1,
     "errorMsg": null
@@ -123,7 +126,9 @@ description: 商户请求创建一个代收订单
     "paymentType": 2102,
     "paymentInfo": "1234567890123",
     "additionalInfo": {
-      "accountNo": "1234567890123"
+      "paymentLink": "https://Example",
+      "accountNo": "VA_Example",
+      "qrString": "QR_CODE_Example"
     },
     "status": 1,
     "errorMsg": null
