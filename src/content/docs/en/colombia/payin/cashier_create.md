@@ -43,7 +43,7 @@ description: Merchant creates a cashier
 | amount          | String | Yes      | 20     | Amount                                                                                                                                        |
 | expirationTime  | String | No       |        | Page expiration time 【Minimum 1 day, maximum 7 days in millisecond timestamp, e.g.: 1735660800000】                                            |
 | idType          | String | No       | 32     | If passed, will be carried to the page; ID type: CC (6-10 digits; ID card), CE (6-10 digits), NIT (9 digits; Tax ID), PA (9 digits; Passport) |
-| idCardNumber    | String | No       | 50     | If passed, will be carried to the page; ID number: CC 10 digits, CE 6-10 digits, NIT 9 digits, PA alphanumeric                                |
+| idCardNumber    | String | No       | 50     | If passed, will be carried to the page; ID number: CC 10 digits, CE 6-10 digits, NIT 9 digits, PA alphanumeric    </br> If the idCardNumber is not empty, then the idType must be filled in.                      |
 | realName        | String | No       | 64     | If passed, will be carried to the page; User name                                                                                             |
 | phone           | String | No       | 50     | If passed, will be carried to the page; 10 digits starting with 3; for wallet payment, pass the wallet account                                |
 | email           | String | No       | 50     | If passed, will be carried to the page; Payer email; must comply with regex expression                                                        |
