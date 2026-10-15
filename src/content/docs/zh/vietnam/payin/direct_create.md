@@ -22,12 +22,15 @@ description: 商户请求创建一个代收订单
 
 | PaymentType |  支付方式名称 |
 |-------------|--------:|
-| 2101        |      QR |        
-| 2102        |      VA |       
-| 2103        |  Wallet |       
-| 2104        |   VA_MB |        
-| 2105        |  VA_MSB |       
-| 2106        | VA_BIDV |       
+| 2101        |      QR |
+| 2102        |      VA |
+
+<!--
+| 2103        |  Wallet |
+| 2104        |   VA_MB |
+| 2105        |  VA_MSB |
+| 2106        | VA_BIDV |
+-->
 
 ### 请求参数
 
@@ -43,13 +46,27 @@ description: 商户请求创建一个代收订单
 | sign            | String | yes |     | 签名                                                                      |
 | callbackUrl     | String | no  | 200 | 回调地址                                                                    |
 
-```json title="请求示例"
+```json title="2101（QR）请求示例"
 {
   "merchantOrderNo": "OrderNoExample",
   "realName": "TeemoPay",
   "amount": "30000",
   "callbackUrl": "https://www.callbackexample.com",
   "paymentType": 2101,
+  "email": "TeemoPay@example.com",
+  "phone": "0900000000",
+  "sign": "YOUR_SIGN"
+}
+```
+
+```json title="2102（VA）请求示例"
+{
+  "merchantOrderNo": "OrderNoExampleVA",
+  "realName": "TeemoPay",
+  "amount": "30000",
+  "callbackUrl": "https://www.callbackexample.com",
+  "paymentType": 2102,
+  "bankCode": "1001",
   "email": "TeemoPay@example.com",
   "phone": "0900000000",
   "sign": "YOUR_SIGN"
@@ -64,12 +81,19 @@ description: 商户请求创建一个代收订单
 | tradeNo         | String     | yes |    | 平台订单号              |
 | amount          | String     | yes |    | 交易金额               |
 | paymentType     | Int        | yes |    | 支付方式               |
-| paymentInfo     | String     | yes |    | 主要付款信息，返回上游返回的支付链接 |
-| additionalInfo  | JSONObject | no  |    | 附加信息，原始二维码         |
+| paymentInfo     | String     | yes |    | 主要付款信息<br />例如：2101 代表二维码支付 qrCode 串<br />2102 代表 VA 账号 |
+| additionalInfo  | JSONObject | no  |    | 附加付款信息，字段说明见下表 |
 | status          | Int        | yes |    | 代收状态, 1:支付中 3:已失败  |
 | errorMsg        | String     | no  |    | 错误信息,失败时返回         |
 
-```json
+#### additionalInfo 对象
+
+| 字段      | 类型   | 必需 | 描述 |
+|-----------|--------|------|------|
+| qrString  | String | no   | 二维码支付 qrCode 串，适用于 2101（QR） |
+| accountNo | String | no   | VA 账号，适用于 2102（VA） |
+
+```json title="2101（QR）返回示例"
 {
   "code": 200,
   "data": {
@@ -77,8 +101,30 @@ description: 商户请求创建一个代收订单
     "amount": "30000",
     "tradeNo": "TS2501010001VN0000000000000000",
     "paymentType": 2101,
-    "paymentInfo": "https://mock/payment/",
-    "additionalInfo": {},
+    "paymentInfo": "QR_CODE_STRING_EXAMPLE",
+    "additionalInfo": {
+      "qrString": "QR_CODE_STRING_EXAMPLE"
+    },
+    "status": 1,
+    "errorMsg": null
+  },
+  "msg": "success",
+  "traceId": "30c38418a758434dba4da32fe73b5fd2.106.17833191761712117"
+}
+```
+
+```json title="2102（VA）返回示例"
+{
+  "code": 200,
+  "data": {
+    "merchantOrderNo": "OrderNoExampleVA",
+    "amount": "30000",
+    "tradeNo": "TS2501010001VN0000000000000001",
+    "paymentType": 2102,
+    "paymentInfo": "1234567890123",
+    "additionalInfo": {
+      "accountNo": "1234567890123"
+    },
     "status": 1,
     "errorMsg": null
   },

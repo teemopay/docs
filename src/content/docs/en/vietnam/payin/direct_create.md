@@ -22,12 +22,15 @@ description: Merchant requests to create a payment order
 
 | PaymentType | Payment Method Name |
 |-------------|--------------------:|
-| 2101        |                  QR |        
-| 2102        |                  VA |       
-| 2103        |              Wallet |       
-| 2104        |               VA_MB |        
-| 2105        |              VA_MSB |       
-| 2106        |             VA_BIDV |     
+| 2101        |                  QR |
+| 2102        |                  VA |
+
+<!--
+| 2103        |              Wallet |
+| 2104        |               VA_MB |
+| 2105        |              VA_MSB |
+| 2106        |             VA_BIDV |
+-->
 
 ### Request Parameters
 
@@ -43,13 +46,27 @@ description: Merchant requests to create a payment order
 | sign            | String | yes      |        | Signature                                                                                             |
 | callbackUrl     | String | no       | 200    | Callback URL                                                                                          |
 
-```json title="Request Example"
+```json title="2101 (QR) Request Example"
 {
   "merchantOrderNo": "OrderNoExample",
   "realName": "TeemoPay",
   "amount": "30000",
   "callbackUrl": "https://www.callbackexample.com",
   "paymentType": 2101,
+  "email": "TeemoPay@example.com",
+  "phone": "0900000000",
+  "sign": "YOUR_SIGN"
+}
+```
+
+```json title="2102 (VA) Request Example"
+{
+  "merchantOrderNo": "OrderNoExampleVA",
+  "realName": "TeemoPay",
+  "amount": "30000",
+  "callbackUrl": "https://www.callbackexample.com",
+  "paymentType": 2102,
+  "bankCode": "1001",
   "email": "TeemoPay@example.com",
   "phone": "0900000000",
   "sign": "YOUR_SIGN"
@@ -64,12 +81,19 @@ description: Merchant requests to create a payment order
 | tradeNo         | String     | yes      |        | Platform order number                              |
 | amount          | String     | yes      |        | Transaction amount                                 |
 | paymentType     | Int        | yes      |        | Payment type                                       |
-| paymentInfo     | String     | yes      |        | Payment link returned by the upstream channel      |
-| additionalInfo  | JSONObject | no       |        | Additional information, including original QR code |
+| paymentInfo     | String     | yes      |        | Primary payment information<br />For example: 2101 returns the QR code string for QR payment<br />2102 returns the VA account number |
+| additionalInfo  | JSONObject | no       |        | Additional payment information; see the fields below |
 | status          | Int        | yes      |        | Payin status: 1 = Paying, 3 = Failed               |
 | errorMsg        | String     | no       |        | Error message (returned only in case of failure)   |
 
-```json title="Response Example"
+#### additionalInfo Object
+
+| Field     | Type   | Required | Description |
+|-----------|--------|----------|-------------|
+| qrString  | String | no       | QR code string for QR payment, applicable to 2101 (QR) |
+| accountNo | String | no       | VA account number, applicable to 2102 (VA) |
+
+```json title="2101 (QR) Response Example"
 {
   "code": 200,
   "data": {
@@ -77,8 +101,30 @@ description: Merchant requests to create a payment order
     "amount": "30000",
     "tradeNo": "TS2501010001VN0000000000000000",
     "paymentType": 2101,
-    "paymentInfo": "https://mock/payment/",
-    "additionalInfo": {},
+    "paymentInfo": "QR_CODE_STRING_EXAMPLE",
+    "additionalInfo": {
+      "qrString": "QR_CODE_STRING_EXAMPLE"
+    },
+    "status": 1,
+    "errorMsg": null
+  },
+  "msg": "success",
+  "traceId": "30c38418a758434dba4da32fe73b5fd2.106.17833191761712117"
+}
+```
+
+```json title="2102 (VA) Response Example"
+{
+  "code": 200,
+  "data": {
+    "merchantOrderNo": "OrderNoExampleVA",
+    "amount": "30000",
+    "tradeNo": "TS2501010001VN0000000000000001",
+    "paymentType": 2102,
+    "paymentInfo": "1234567890123",
+    "additionalInfo": {
+      "accountNo": "1234567890123"
+    },
     "status": 1,
     "errorMsg": null
   },
