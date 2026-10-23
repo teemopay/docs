@@ -40,6 +40,7 @@ description: Merchant requests to create a payment order
 | paymentType     | Int    | yes      |        | Payment type, see the [payment type list](#supported-payment-types-paymenttype)                       |
 | amount          | String | yes      | 20     | Payin amount in VND, integer only                                                                     |
 | realName        | String | yes      | 64     | Payer name                                                                                            |
+| merchantName    | String | no       | 64     | Payee Account                                                                                           |
 | email           | String | yes      | 50     | Payer email (must match a valid regex format)                                                         |
 | phone           | String | yes      | 50     | Phone number: 10 digits starting with 0                                                               |
 | bankCode        | String | no       | 50     | Bank code; see the [Bank List](/en/vietnam/payin/bank).</br> Required when `paymentType` is 2102 (VA) |
@@ -92,7 +93,7 @@ description: Merchant requests to create a payment order
 |-------------|--------|----------|--------------------------------------------------------|
 | paymentLink | String | yes      | Payment link                                           |
 | qrString    | String | yes      | QR code string for QR payment, applicable to 2101 (QR) |
-| va   | String | yes      | VA account number, applicable to 2102 (VA)             |
+| va          | String | yes      | VA account number, applicable to 2102 (VA)             |
 
 ```json title="2101 (QR) Response Example"
 {
