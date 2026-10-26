@@ -34,24 +34,25 @@ description: Supported Bank List for Payout
 | 504      | BBVA (Bco Bilbao Vizcaya Arg)            |
 | 507      | Banco del Desarrollo                     |
 | 672      | Coopeuch                                 |
-
+| 732      | Los Andes                                |
+| 730      | Tenpo                                    |
+| 875      | Mercado Pago                             |
 
 ACCOUNT TPYE：
 
 | ID  | 描述                           |
 |-----|------------------------------|
-| 601 | AHORRO （SAVING ACCOUNT）             |
+| 601 | AHORRO （SAVING ACCOUNT）      |
 | 602 | CORRIENTE （CHECKING ACCOUNT） |
 | 603 | VISTA  (VISTA ACCOUNT)       |
-| 604 | RUT  (RUT ACCOUNT)                |
-| 605 | SALARY  ( SALARY ACCOUNT)         |
+| 604 | RUT  (RUT ACCOUNT)           |
+| 605 | SALARY  ( SALARY ACCOUNT)    |
 
+DOCUMENT TYPE
 
- DOCUMENT TYPE
-
-| DOCUMENT TYPE | EXAMPLE     | LENGTH                  | DESCRIPTION                                               | RULES                                                                                  |
-|---------------|-------------|--------------------------|-----------------------------------------------------------|----------------------------------------------------------------------------------------|
-| RUT           | 12345678K   | 9 digits (8 numbers + 1 check digit) | Rol Único Tributario, Chilean tax ID used for individuals and companies. | The check digit can be a number or the letter 'K'. Format: xxxxxxxx-z. API should send it as xxxxxxxxz (alphanumeric only). |
-| RUN           | 23456789K   | 9 digits (8 numbers + 1 check digit) | Rol Único Nacional, a unique ID for Chilean residents, foreign residents, or anyone staying in Chile on non-tourist visas. | Same format as RUT: 8 digits + 1 check digit (number or 'K'), use alphanumeric only (e.g., 23456789K). |
-| CE            | 34567890123 | 9 to 16 digits           | Carnet de Extranjería, foreign national ID (e.g., Colombia).              | Numbers only, length between 9 to 16 digits.                                            |
-| PASS          | A1234567890 | 9 to 16 characters       | Passport, used for identification of non-national residents.              | Can include both letters and numbers, length 9–16, send as-is.                          |
+| DOCUMENT TYPE | EXAMPLE     | LENGTH                               | DESCRIPTION                                                                                                                | RULES                                                                                                                       |
+|---------------|-------------|--------------------------------------|----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| RUT           | 12345678K   | 9 digits (8 numbers + 1 check digit) | Rol Único Tributario, Chilean tax ID used for individuals and companies.                                                   | The check digit can be a number or the letter 'K'. Format: xxxxxxxx-z. API should send it as xxxxxxxxz (alphanumeric only). |
+| RUN           | 23456789K   | 9 digits (8 numbers + 1 check digit) | Rol Único Nacional, a unique ID for Chilean residents, foreign residents, or anyone staying in Chile on non-tourist visas. | Same format as RUT: 8 digits + 1 check digit (number or 'K'), use alphanumeric only (e.g., 23456789K).                      |
+| CE            | 34567890123 | 9 to 16 digits                       | Carnet de Extranjería, foreign national ID (e.g., Colombia).                                                               | Numbers only, length between 9 to 16 digits.                                                                                |
+| PASS          | A1234567890 | 9 to 16 characters                   | Passport, used for identification of non-national residents.                                                               | Can include both letters and numbers, length 9–16, send as-is.                                                              |
