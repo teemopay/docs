@@ -68,7 +68,7 @@ description: Merchant requests to create a payment order
 | paymentType     | Int        | yes      | 10     | Payment Method 【901: QR】                                       |
 | paymentInfo     | String     | yes      | 32     | Main payment information 【QR code, CVU code, or payment number】 |
 | additionalInfo  | JSONObject | no       | -      | Additional Information                                         |
-| status          | Int        | yes      | -      | Order Status 【1: Payment in Progress; 3: Payment Failed】       |
+| status          | Int        | yes      | -      | Order Status 【0: init; 1: Payment in Progress; 3: Payment Failed】       |
 | errorMsg        | String     | no       | -      | Error Message 【Returned when payment fails】                    |
 
 ### Response Examples
