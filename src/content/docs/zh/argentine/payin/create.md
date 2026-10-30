@@ -73,7 +73,7 @@ description: 商户请求创建一个代收订单
 | paymentType     | Int        | yes | 10 | 支付方式 【901:QR】                       |
 | paymentInfo     | String     | yes | 32 | 主要付款信息 【返回的是实际用于付款的信息，例如：付款编号，二维码串】 |
 | additionalInfo  | JSONObject | no  |    | 附加信息 【辅助支付信息使用】                     |
-| status          | Int        | yes |    | 订单状态 【0: 受理中  1: 支付中  3: 支付失败】              |
+| status          | Int        | yes |    | 订单状态 【0: 已受理  1: 支付中  3: 支付失败】              |
 | errorMsg        | String     | no  |    | 错误信息【支付失败时返回】                       |
 
 ### 响应示例
