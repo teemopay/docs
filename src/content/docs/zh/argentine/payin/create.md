@@ -115,7 +115,7 @@ description: 商户请求创建一个代收订单
   "code": 426,
   "data": null,
   "msg": "merchant order duplicate",
-  "traceId": "f2b58c9c394d4b1595dd4e448ac741bc.2256.17645844263770017"
+  "traceId": "f2b58c9c394d4b1595dd4e448ac741bc.2256.17645844263770018"
 }
 ```
 
