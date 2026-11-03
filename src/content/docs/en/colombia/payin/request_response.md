@@ -405,7 +405,7 @@ Response
                 "paymentType": 212,
                 "paymentInfo": "https://mock/breb",
                 "additionalInfo": {
-                        "paymentFactory": "@mockdakjfjsdf"
+                        "paymentFactor": "@mockdakjfjsdf"
                 },
                 "status": 1,
                 "errorMsg": null
@@ -509,7 +509,7 @@ Response
                 "paymentType": 214,
                 "paymentInfo": "https://mock/breb-qr",
                 "additionalInfo": {
-                        "paymentFactory": "mockqrString"
+                        "paymentFactor": "mockqrString"
                 },
                 "status": 1,
                 "errorMsg": null

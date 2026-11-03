@@ -405,7 +405,7 @@ description: 哥伦比亚直连支付方式请求和响应示例
                 "paymentType": 212,
                 "paymentInfo": "https://mock/breb",
                 "additionalInfo": {
-                        "paymentFactory": "@mockdakjfjsdf"
+                        "paymentFactor": "@mockdakjfjsdf"
                 },
                 "status": 1,
                 "errorMsg": null
@@ -509,7 +509,7 @@ description: 哥伦比亚直连支付方式请求和响应示例
                 "paymentType": 214,
                 "paymentInfo": "https://mock/breb-qr",
                 "additionalInfo": {
-                        "paymentFactory": "mockqrString"
+                        "paymentFactor": "mockqrString"
                 },
                 "status": 1,
                 "errorMsg": null
