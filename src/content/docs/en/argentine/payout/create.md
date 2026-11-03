@@ -16,7 +16,7 @@ description: Create a payout order
 | timestamp        | Request timestamp     |
 | nonce            | Random value          |
 | country          | Country code (AR)     |
-| app_code         | Application ID        |
+| appCode         | Application ID        |
 
 ### Request Parameters
 
@@ -42,7 +42,7 @@ description: Create a payout order
     "amount": "1000",
     "accountType": 901,
     "bankAccount": "1234567890123456789012",
-    "realName": "realName",
+    "realName": "TeemoPay",
     "idCardNumber": "12345678",
     "idType": "DNI",
     "callbackUrl": "https://www.callbackexample.com",
@@ -50,7 +50,7 @@ description: Create a payout order
 }
 ```
 
-### Return Parameters
+### Response Parameters
 
 | Parameter       | Type   | Required | Length | Description                         |
 | --------------- | ------ | -------- | ------ | ----------------------------------- |
@@ -59,10 +59,10 @@ description: Create a payout order
 | status          | Int    | yes      |        | Reimbursement status 【1: Payment in progress 3: Failure (can be re-initiated)】 |
 | amount          | String | yes      |        | Transaction amount                  |
 
-```json title=Return Example
+```json title=Response Example
 {
   "merchantOrderNo": "OrderNoExample",
-  "tradeNo": "TF201806251011",
+  "tradeNo": "TF2501010001AR0000000000000000",
   "status": 1,
   "sign": "TEEMO_SIGN"
 }

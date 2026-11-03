@@ -16,7 +16,7 @@ description: Merchant creates a cashier
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | CO                |
-| app_code         | App code          |
+| appCode         | App code          |
 
 ## Supported Payment Types (paymentType)
 
@@ -43,7 +43,7 @@ description: Merchant creates a cashier
 | amount          | String | Yes      | 20     | Amount                                                                                                                                        |
 | expirationTime  | String | No       |        | Page expiration time 【Minimum 1 day, maximum 7 days in millisecond timestamp, e.g.: 1735660800000】                                            |
 | idType          | String | No       | 32     | If passed, will be carried to the page; ID type: CC (6-10 digits; ID card), CE (6-10 digits), NIT (9 digits; Tax ID), PA (9 digits; Passport) |
-| idCardNumber    | String | No       | 50     | If passed, will be carried to the page; ID number: CC 10 digits, CE 6-10 digits, NIT 9 digits, PA alphanumeric                                |
+| idCardNumber    | String | No       | 50     | If passed, will be carried to the page; ID number: CC 10 digits, CE 6-10 digits, NIT 9 digits, PA alphanumeric    </br> If the idCardNumber is not empty, then the idType must be filled in.                      |
 | realName        | String | No       | 64     | If passed, will be carried to the page; User name                                                                                             |
 | phone           | String | No       | 50     | If passed, will be carried to the page; 10 digits starting with 3; for wallet payment, pass the wallet account                                |
 | email           | String | No       | 50     | If passed, will be carried to the page; Payer email; must comply with regex expression                                                        |
@@ -54,14 +54,14 @@ description: Merchant creates a cashier
 
 ```json title=Request Example
 {
-  "merchantOrderNo": "test-order",
+  "merchantOrderNo": "OrderNoExample",
   "paymentType": 201,
   "amount": "100",
   "idType": "CC",
   "idCardNumber": "1234567890",
-  "realName": "Test User",
-  "phone": "3111111111",
-  "email": "user@example.com",
+  "realName": "TeemoPay",
+  "phone": "3000000000",
+  "email": "TeemoPay@example.com",
   "remark": "order remark",
   "bankCode": "1052",
   "callbackUrl": "https://www.callbackexample.com",
@@ -85,11 +85,11 @@ description: Merchant creates a cashier
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "test-order",
-    "tradeNo": "TS2509080002COexample754",
+    "merchantOrderNo": "OrderNoExample",
+    "tradeNo": "TS2501010001CO0000000000000000",
     "amount": "100",
     "status": 0,
-    "checkoutLink": "https://test-co-payin.teemopay.com/#/?tradeNo=TS2509080002COexample754",
+    "checkoutLink": "https://test-co-payin.teemopay.com/#/?tradeNo=TS2501010001CO0000000000000000",
     "expirationTime": "2025-09-17 13:53:45.959",
     "errorMsg": null
   },
@@ -104,7 +104,7 @@ description: Merchant creates a cashier
 |------------|---------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | 412        | Please try again later                                              | Please try again later                                                                               |
 | 414        | *                                                                   | Modify corresponding parameters                                                                      |
-| 416        | Application not found                                               | app_code error, please modify                                                                        |
+| 416        | Application not found                                               | appCode error, please modify                                                                        |
 | 424        | This payment method is not configured                               | Collection method not configured, please contact us to configure the corresponding collection method |
 | 426        | merchant order duplicate                                            | Please use a different merchant order number                                                         |
 | 427        | The callback notification address for collection must not be empty. | Collection callback address not configured, please configure the collection callback address         |

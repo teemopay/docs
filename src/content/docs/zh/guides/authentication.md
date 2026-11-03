@@ -21,7 +21,7 @@ description: 鉴权和加密说明
 4. 请求体字段名按照 ASCII 进行升序排序, 拼接为 a=1&b=2, 只对有值字段进行排序 (空值和空字符不参与加签)
 5. 对排序结果后增加 nonce=123, 排序后为 a=1&b=2&nonce=123 
 6. 使用私钥对 a=1&b=2&nonce=123 进行加签, 放入请求体中 sign 字段
-7. 平台收到请求后会对 timestamp, nonce 和 sign 进行验签, 验证失败直接返回失败
+7. 平台收到请求后会对  nonce 和 sign 进行验签, 验证失败直接返回失败
 
 平台回调商户会进行以上操作, 建议商户对参数进行加签
 
@@ -34,7 +34,7 @@ description: 鉴权和加密说明
 | 字段         | 类型             | 必需 | 长度                                                   | 签名                                      |
 | ------------ | ---------------- | ---- | ------------------------------------------------------ | ----------------------------------------- |
 | Content-Type | application/json | yes  | 固定值.所有请求参数必须为 POST, 数据都必须放在 body 中 |
-| app_code     | String           | yes  | 32                                                     | 分配给商户应用的 code                     |
+| appCode     | String           | yes  | 32                                                     | 分配给商户应用的 code                     |
 | country      | String           | yes  | 2                                                      | MX-墨西哥 PE-秘鲁 CO-哥伦比亚 PK-巴基斯坦 |
 | nonce        | String           | yes  | 32                                                     | 必须为 32 位不重复字符串                  |
 | timestamp    | String           | yes  | 13                                                     | 当前时间戳(毫秒)                          |
@@ -70,12 +70,12 @@ public class SignUtils {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("merchantOrderNo", "TEST" + 1234567890);
         jsonObject.put("idCardNumber", "1234567890");
-        jsonObject.put("realName", "TEST");
+        jsonObject.put("realName", "TeemoPay");
         jsonObject.put("amount", "1000");
         jsonObject.put("callbackUrl", "https://www.teemopay.com");
         jsonObject.put("paymentType", 1);
         jsonObject.put("email", "test@gmail.com");
-        jsonObject.put("phone", "1234567890");
+        jsonObject.put("phone", "3000000000");
 
         // 计算签名
         String sign = signature(jsonObject, nonce, privateKey);

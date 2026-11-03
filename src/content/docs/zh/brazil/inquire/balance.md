@@ -2,6 +2,12 @@
 title: 余额查询
 description: 余额查询
 ---
+### 请求地址
+
+| method | url                       |
+| ------ | ------------------------- |
+| POST   | /api/pay/merchant/balance |
+
 
 ### 头部信息（header）
 
@@ -10,7 +16,7 @@ description: 余额查询
 | timestamp   | 请求时间戳  |
 | nonce       | 随机值      |
 | country     | BR   |
-| app_code    | app 编号    |
+| appCode    | app 编号    |
 ### 请求参数
 
 | 字段   | 类型     | 必需  | 长度  | 描述  |
@@ -49,7 +55,7 @@ description: 余额查询
 |--------|------------------------|----------------------------|
 | 412    | Please try again later  | 请稍后重试                 |
 | 414    | *                      | 更改对应参数               |
-| 416    | Application not found  | app_code异常，请更改       |
+| 416    | Application not found  | appCode异常，请更改       |
 | 417    | Merchant account not found | 商户账户未找到，请联系我们 |
 | 500    | Business Error         | 请联系我们                 |
 

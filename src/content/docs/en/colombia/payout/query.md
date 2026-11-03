@@ -16,7 +16,7 @@ description: Merchant queries the status of a payout order
 | timestamp      | Request timestamp |
 | nonce          | Random value      |
 | country        | Country code (CO) |
-| app_code       | Application ID    |
+| appCode       | Application ID    |
 
 ### Request Parameters
 
@@ -40,6 +40,7 @@ description: Merchant queries the status of a payout order
 |  tradeNo        | String  | yes      |        | Platform order number                                              |
 |  amount         | String  | yes      |        | Payout amount                                                      |
 |  status         | Int     | yes      |        | 1-Processing 2-Payout Success 3-Payout Failed 4-Refund             |
+| voucherUrl      | String  | yes      |        | Voucher address                                                    |
 
 ```json title="Response Example"
 {

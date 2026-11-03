@@ -16,7 +16,7 @@ description: 商户请求创建一个代付订单
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
 | country   | MX     |
-| app_code  | app编号  |
+| appCode  | app编号  |
 
 ### 注意事项
 
@@ -42,10 +42,10 @@ description: 商户请求创建一个代付订单
 ```json title=请求示例
 {
   "bankAccount": "123456789987654321",
-  "realName": "TEEMO",
+  "realName": "TeemoPay",
   "bankCode": "40002",
   "amount": "1000.00",
-  "phone": "1000000000",
+  "phone": "3000000000",
   "accountType": 40,
   "idCardNumber": "GAPG00000000000000",
   "sign": "YOUR_SIGN",

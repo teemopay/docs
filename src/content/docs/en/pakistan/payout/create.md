@@ -6,47 +6,46 @@ description: Merchant requests to create a payout order
 ### Request URL
 
 | method | url                       |
-| ------ | ------------------------- |
+|--------|---------------------------|
 | POST   | /api/pay/payout/create/v1 |
 
 ### Headers
 
-| Header Parameter | Description      |
-| ---------------- |------------------|
+| Header Parameter | Description       |
+|------------------|-------------------|
 | timestamp        | Request timestamp |
-| nonce            | Random value     |
-| country          | PK |
-| appCode         | Application ID   |
+| nonce            | Random value      |
+| country          | PK                |
+| appCode         | Application ID    |
 
 ### Request Parameters
 
-| Field           | Type   | Required | Max Length | Description                                       |
-| --------------- | ------ | -------- | ---------- |---------------------------------------------------|
-| merchantOrderNo | String | yes      | 32         | Merchant order number                             |
-| amount          | String | yes      | 20         | Payout amount in PKR, must be an integer          |
-| bankCode        | String | yes      | 50         | Bank code: use bankCode if 301, WalletCode if 302 |
-| bankName        | String | yes      | 50         | Bank name, same as bank code                      |
-| accountType     | Int    | yes      |            | Account type: 301 (BANK), 302 (E-Wallet)          |
-| bankAccount     | String | yes      | 255        | Bank/Wallet account number                        |
-| realName        | String | yes      | 255        | Customer name                                     |
-| idCardNumber    | String | yes      | 13         | ID number (13 digits)                             |
-| idType          | String | yes      | 32         | Fixed value: CERT                                 |
-| phone           | String | yes      | 10         | Phone number (10 digits)                          |
-| email           | String | no       | 64         | Customer email                                    |
-| userIBAN        | String | no       | 64         | International Bank Account Number (IBAN)          |
-| callbackUrl     | String | no       | 200        | Callback URL, (If not transmitted, the callback URL configured in the merchant backend will be used.)                                  |
-| sign            | String | yes      |            | Signature                                         |
-
+| Field           | Type   | Required | Max Length | Description                                                                                                                                                                                                                          |
+|-----------------|--------|----------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String | yes      | 32         | Merchant order number                                                                                                                                                                                                                |
+| amount          | String | yes      | 20         | Payout amount in PKR, must be an integer                                                                                                                                                                                             |
+| bankCode        | String | yes      | 50         | Bank Code </br> For accountType 301, take bankCode from the bank list; </br> For accountType 303, always pass EASYPAISA; </br> For accountType 304, always pass JAZZCASH |
+| bankName        | String | yes      | 50         | Bank name, same as bank code                                                                                                                                                                                                         |
+| accountType     | Int    | yes      |            | Account type: </br> 301 (BANK)  </br> 303 (EASYPAISA)  </br> 304 (JAZZCASH)                                                                                                                                                          |
+| bankAccount     | String | yes      | 50         | Bank/Wallet account number                                                                                                                                                                                                           |
+| realName        | String | yes      | 255        | Customer name                                                                                                                                                                                                                        |
+| idCardNumber    | String | yes      | 13         | ID number (13 digits)                                                                                                                                                                                                                |
+| idType          | String | yes      | 32         | Fixed value: CERT                                                                                                                                                                                                                    |
+| phone           | String | yes      | 10         | Phone number (10 digits)                                                                                                                                                                                                             |
+| email           | String | no       | 64         | Customer email                                                                                                                                                                                                                       |
+| userIBAN        | String | no       | 64         | International Bank Account Number (IBAN)                                                                                                                                                                                             |
+| callbackUrl     | String | no       | 200        | Callback URL, (If not transmitted, the callback URL configured in the merchant backend will be used.)                                                                                                                                |
+| sign            | String | yes      |            | Signature                                                                                                                                                                                                                            |
 
 ```json title= request example
 {
-  "merchantOrderNo": "2503231308020924",
+  "merchantOrderNo": "OrderNoExample",
   "amount": "1000",
   "bankCode": "EASYPAISA",
   "bankName": "EASYPAISA",
-  "accountType": 302,
+  "accountType": 303,
   "bankAccount": "3000000000",
-  "realName": "TEEMO",
+  "realName": "TeemoPay",
   "idCardNumber": "3000000000000",
   "idType": "CERT",
   "phone": "3000000000",
@@ -58,13 +57,11 @@ description: Merchant requests to create a payout order
 ### Response Parameters
 
 | Field           | Type   | Required | Max Length | Description                                           |
-| --------------- | ------ | -------- | ---------- | ----------------------------------------------------- |
+|-----------------|--------|----------|------------|-------------------------------------------------------|
 | merchantOrderNo | String | yes      | 32         | Merchant order number                                 |
 | tradeNo         | String | yes      |            | Platform order number                                 |
 | status          | Int    | yes      |            | Payout status: 1 - Processing, 3 - Failed (can retry) |
 | amount          | String | yes      |            | Transaction amount                                    |
-
-
 
 ```json title= response example
 {
@@ -75,8 +72,7 @@ description: Merchant requests to create a payout order
     "amount": "1000",
     "merchantOrderNo": "OrderNoExample",
     "status": 1,
-    "tradeNo": "TF2501010001CPK0000000000000000"
-}
-
+    "tradeNo": "TF2501010001PK0000000000000000"
+  }
 }
 ```

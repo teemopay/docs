@@ -16,7 +16,7 @@ description: 商户创建收银台
 | timestamp   | 请求时间戳   |
 | nonce       | 随机值     |
 | country     | PK  |
-| app_code    | app编号   |
+| appCode    | app编号   |
 
 ### 请求参数
 
@@ -34,13 +34,13 @@ description: 商户创建收银台
 
 ```json title=请求示例
 {
-  "merchantOrderNo": "ceshi-test",
+  "merchantOrderNo": "OrderNoExample",
   "paymentType" : 303,
   "amount": 100,
-  "phone": "3111111111",
-  "email" : "213@123.com",
+  "phone": "3000000000",
+  "email": "TeemoPay@example.com",
   "callbackUrl": "https://www.callbackexample.com",
-  "sign" : "YOUR_SIGN"
+  "sign": "YOUR_SIGN"
 }
 ```
 
@@ -60,11 +60,11 @@ description: 商户创建收银台
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "ceshi-test",
-    "tradeNo": "TS2509080002PKexample754",
+    "merchantOrderNo": "OrderNoExample",
+    "tradeNo": "TS2501010001PK0000000000000000",
     "amount": "100",
     "status": 0,
-    "checkoutLink": "https://test-pk-payin.teemopay.com/#/?tradeNo=TS2509080002PKexample754",
+    "checkoutLink": "https://test-pk-payin.teemopay.com/#/?tradeNo=TS2501010001PK0000000000000000",
     "expirationTime": "2025-09-17 13:53:45.959",
     "errorMsg": null
   },
@@ -78,7 +78,7 @@ description: 商户创建收银台
 |----------------------|--------------------------------------------------------------------------|--------------------------------------------|
 | 412                  | Please try again later                                                   | 请稍后重试                                 |
 | 414                  | *                                                                        | 更改对应参数                               |
-| 416                  | Application not found                                                     | app_code异常，请更改                       |
+| 416                  | Application not found                                                     | appCode异常，请更改                       |
 | 424                  | This payment method is not configured                                     | 代收方式未配置，请联系我们配置对应代收方式 |
 | 426                  | merchant order duplicate                                                 | 请更换商户订单号                           |
 | 427                  | The callback notification address for collection must not be empty.       | 未配置代收回调地址，请配置代收回调地址     |

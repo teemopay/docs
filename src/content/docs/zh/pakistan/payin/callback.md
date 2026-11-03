@@ -96,7 +96,7 @@ tbody={[["SUCCESS", "String", "yes", '必须返回"SUCCESS"否则会重复回调
 | ------- | ------ | ---- | ---- | ------------------------------- |
 | SUCCESS | String | yes  |      | 必须返回"SUCCESS"否则会重复回调 |
 
-```json title=回调示例
+```text title=回调示例
 SUCCESS
 ```
 

@@ -16,7 +16,7 @@ description: 商户请求创建一个代付订单
 | timestamp                 | 请求时间戳  |
 | nonce                     | 随机值    |
 | country                   | BP     |
-| app_code                  | app编号  |
+| appCode                  | app编号  |
 
 ### 请求参数
 
@@ -59,7 +59,7 @@ description: 商户请求创建一个代付订单
         "amount": "1000.00",
         "merchantOrderNo": "OrderNoExample",
         "status": 1,
-        "tradeNo": "TF2501010001MX0000000000000000"
+        "tradeNo": "TF2501010001BP0000000000000000"
     }
 }
 ```

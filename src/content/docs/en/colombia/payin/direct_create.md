@@ -16,7 +16,7 @@ description: Merchant requests to create a payment order
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | Country code (CO) |
-| app_code         | Application ID    |
+| appCode         | Application ID    |
 
 ## Supported Payment Types (paymentType)
 
@@ -60,26 +60,26 @@ and generate keys here: 👉 https://www.banrep.gov.co/es/bre-b/simuladores-curs
 | expirationTime  | Long   | no       |        | Expiration timestamp                                                                                                                                                                         |
 | realName        | String | yes      | 64     | User's full name                                                                                                                                                                             |
 | email           | String | yes      | 50     | User's email (must match a valid regex format)                                                                                                                                               |
-| phone           | String | yes      | 50     | Phone number, 10 digits, no country code     【When the payment method are 202、213, this mobile phone number must be the user's wallet account.】                                              |
+| phone           | String | yes      | 10     | Phone number, exactly 10 digits, starting with 3 and without a country code. For payment methods 202 and 213, this mobile number must be the user's wallet account. |
 | idCardNumber    | String | No       | 50     | ID Number: CC (10 digits), CE (6-10 digits), NIT (9 digits). <br/> Mandatory when the paymentType is 201 (PSE) or 202 (WALLET).                                                              |
 | idType          | String | No       | 32     | Id Type: CC (6-10 digits; ID Card), CE (6-10 digits), NIT (9 digits; Tax Identification Number), PA (9 digits; Passport). <br/> Mandatory when the paymentType is 201 (PSE) or 202 (WALLET). |
-| bankCode        | String | No       | 50     | Bank Code. <br/> Mandatory when the paymentType is 201 (PSE).<br> Bank List for Reference in Creating Payout-on-Behalf Services                                                              |
+| bankCode        | String | Conditionally required | 50 | Bank code. Required when `paymentType` is 201 (PSE). See the payout bank list for supported values. |
 | sign            | String | yes      |        | Signature                                                                                                                                                                                    |
 | callbackUrl     | String | no       | 200    | Callback URL                                                                                                                                                                                 |
 
 ```json title="Request Example"
 {
-  "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000040",
-  "realName": "OPQRST UVWXYZ ABCDEFG HIJKLMN",
+  "merchantOrderNo": "OrderNoExample",
+  "realName": "TeemoPay",
   "amount": "30000.00",
-  "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
+  "callbackUrl": "https://www.callbackexample.com",
   "paymentType": 201,
-  "email": "12123123@ss.com",
-  "phone": "1234567890",
+  "email": "TeemoPay@example.com",
+  "phone": "3000000000",
   "bankCode": "1040",
   "idType" : "CC",
   "idCardNumber" : "123456789",
-  "sign": "uOunEdixuTptztITS1xVQK7EokviXGkNjnSupauc/keqQogkyigiks8R9gXG66RPAXgkMNFnM9xTOu0YBkajFE+oiQU+hvmiXg1TcPAy6RF0TZTmrI7Ya06NWtRUzIOPO0a6GyOjHA86hfIP3tfXRBB07F2AwnOXv8nzCKUGUY4=",
+  "sign": "YOUR_SIGN",
   "expirationTime": 1718409600000
 }
 ```
@@ -101,9 +101,9 @@ and generate keys here: 👉 https://www.banrep.gov.co/es/bre-b/simuladores-curs
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000040",
+    "merchantOrderNo": "OrderNoExample",
     "amount": "30000.00",
-    "tradeNo": "TS2405220001CO0000000000010033",
+    "tradeNo": "TS2501010001CO0000000000000000",
     "paymentType": 201,
     "paymentInfo": "https://mock/pse/",
     "additionalInfo": {},

@@ -17,7 +17,7 @@ description: Merchant creates a cashier order
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | AR                |
-| appCode          | Application ID    |
+| appCode         | Application ID    |
 
 ### Request Parameters
 
@@ -25,7 +25,7 @@ description: Merchant creates a cashier order
 |-----------------|--------| -------- |--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | merchantOrderNo | String | Yes      | 32     | Merchant order number                                                                                                                                            |
 | paymentType     | Int    | No       |        | If not passed, configured payment methods will be returned; Payment methods: 【901 (QR), 902 (CVU), 905 (Rapipago), 906 (Pagofacil)】                            |
-| amount          | String | Yes      | 20     | Amount (Integer only). Example: 1000. <br/> <br/> <span style="color: red;">Amount Reduction Scenario: The amount must be a multiple of 100, otherwise the system will block the submission.<br/>Examples: 100, 200, 300, 400<br/>Invalid examples: 101, 110, 210</span>                                   |
+| amount          | String | Yes      | 20     | Amount (integer only). The amount must be a multiple of 10; otherwise, the system blocks the submission. Examples: 10, 110, 120, 130. Invalid examples: 11, 111, 121, 131. |
 | expirationTime  | String | No       | 20     | Expiration time, millisecond-level timestamp, e.g.: 1735660800000 [Default: one day, minimum: 10 minutes, maximum: seven days]. <br/> <br/> <span style="color: red;">Amount Reduction Scenario: The expiration time will be set to 15 minutes after submission.</span> |
 | idType          | String | Yes      | 50     | Personal identification type: DNI, CUIT, CUIL, USER_REF. 【It is recommended to use CUIT】                                                                                                                                       |
 | idCardNumber    | String | Yes      | 11     | Personal Identification Number: DNI (7 or 8 digits), CUIT (11 digits, the first digit must be 2 or 3), CUIL (11 digits), USER_REF(1-50 alphanumeric characters)                                                                                                                      |
@@ -38,15 +38,15 @@ description: Merchant creates a cashier order
 
 ```json title= request example 
 {
-  "merchantOrderNo": "ceshi-test",
+  "merchantOrderNo": "OrderNoExample",
   "paymentType": 901,
   "amount": "1000",
   "expirationTime": "1765943486000",
   "idType": "CUIT",
   "idCardNumber": "31231233434",
-  "phone": "3111111111",
-  "email": "213@123.com",
-  "realName": "ZHANG SAN",
+  "phone": "1123456789",
+  "email": "TeemoPay@example.com",
+  "realName": "TeemoPay",
   "callbackUrl": "https://www.callbackexample.com",
   "sign": "YOUR_SIGN"
 }
@@ -70,11 +70,11 @@ description: Merchant creates a cashier order
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "ceshi-test",
-    "tradeNo": "TS2509080002ARexample754",
+    "merchantOrderNo": "OrderNoExample",
+    "tradeNo": "TS2501010001AR0000000000000000",
     "amount": "100",
     "status": 0,
-    "checkoutLink": "https://test-ar-payin.teemopay.com/#/?tradeNo=TS2509080002ARexample754",
+    "checkoutLink": "https://test-ar-payin.teemopay.com/#/?tradeNo=TS2501010001AR0000000000000000",
     "expirationTime": "2025-09-17 13:53:45.959",
     "errorMsg": null
   },
@@ -89,7 +89,7 @@ description: Merchant creates a cashier order
 |------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
 | 412        | Please try again later                                                                                                                                                  | Please try again later                                      |
 | 414        | *                                                                                                                                                                       | Please change the corresponding parameter                   |
-| 416        | Application not found                                                                                                                                                   | app_code error, please change                               |
+| 416        | Application not found                                                                                                                                                   | appCode error, please change                               |
 | 424        | This payment method is not configured                                                                                                                                   | Payment method not configured, please contact us            |
 | 426        | merchant order duplicate                                                                                                                                                | Please change merchant order number                         |
 | 427        | The callback notification address for collection must not be empty.                                                                                                     | Collection callback URL not configured, please configure    |

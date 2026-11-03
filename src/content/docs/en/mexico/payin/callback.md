@@ -69,10 +69,8 @@ description: Receive a payin result callback
 | ------- | ------ | -------- | --------------------------------------------------------------- |
 | SUCCESS | String | Yes      | Must return `"SUCCESS"`, otherwise the callback will be retried |
 
-```json title= callback response
-{
-  SUCCESS
-}
+```text title= callback response
+SUCCESS
 ```
 
 

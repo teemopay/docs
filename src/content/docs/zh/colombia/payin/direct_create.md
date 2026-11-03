@@ -16,7 +16,7 @@ description: 商户请求创建一个代收订单
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
 | country   | CO     |
-| app_code  | app 编号 |
+| appCode  | app 编号 |
 
 ## 支持支付方式列表（paymentType）
 
@@ -55,26 +55,26 @@ App 内手动输入金额，实际支付数额可能与订单不符。系统会�
 | expirationTime  | Long   | no  |     | 过期时间                                                                                                |
 | realName        | String | yes | 64  | 用户姓名                                                                                                |
 | email           | String | yes | 50  | 用户邮箱：满足正则表达式即可                                                                                      |
-| phone           | String | yes | 50  | 电话号码10位数,不包含区号   【当支付方式是202、213的时候，此手机号码必须是用户的钱包账号】                                                 |
+| phone           | String | yes | 10  | 手机号码固定 10 位数字，以 3 开头，不包含国家或地区码；当支付方式为 202、213 时，该手机号必须为用户的钱包账号 |
 | idCardNumber    | String | no  | 50  | 身份证号码: CC 10位数、CE 6-10位数、NIT 9位数 <br/> 当paymentType为201(PSE)和202(WALLET)的时候必填                       |
 | idType          | String | no  | 32  | 身份证类型: CC(6-10位数;身份证)、CE(6-10位数)、NIT(9位数;税号)、PA(9位数;护照)<br/> 当paymentType为201(PSE)和202(WALLET)的时候必填 |
-| bankCode        | String | no  | 50  | 银行编码<br/>当paymentType为201(PSE)时必填<br/>参考创建代付的银行列表                                                   |
+| bankCode        | String | no | 50 | 银行编码；`paymentType` 为 201 (PSE) 时必填，可选值参考代付银行列表 |
 | sign            | String | yes |     | 签名                                                                                                  |
 | callbackUrl     | String | no  | 200 | 回调地址                                                                                                |
 
 ```json title="请求示例"
 {
-  "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000040",
-  "realName": "OPQRST UVWXYZ ABCDEFG HIJKLMN",
+  "merchantOrderNo": "OrderNoExample",
+  "realName": "TeemoPay",
   "amount": "30000.00",
-  "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
+  "callbackUrl": "https://www.callbackexample.com",
   "paymentType": 201,
-  "email": "12123123@ss.com",
-  "phone": "1234567890",
+  "email": "TeemoPay@example.com",
+  "phone": "3000000000",
   "bankCode": "1040",
   "idType" : "CC",
   "idCardNumber" : "123456789",
-  "sign": "uOunEdixuTptztITS1xVQK7EokviXGkNjnSupauc/keqQogkyigiks8R9gXG66RPAXgkMNFnM9xTOu0YBkajFE+oiQU+hvmiXg1TcPAy6RF0TZTmrI7Ya06NWtRUzIOPO0a6GyOjHA86hfIP3tfXRBB07F2AwnOXv8nzCKUGUY4=",
+  "sign": "YOUR_SIGN",
   "expirationTime": 1718409600000
 }
 ```
@@ -96,9 +96,9 @@ App 内手动输入金额，实际支付数额可能与订单不符。系统会�
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000040",
+    "merchantOrderNo": "OrderNoExample",
     "amount": "30000.00",
-    "tradeNo": "TS2405220001CO0000000000010033",
+    "tradeNo": "TS2501010001CO0000000000000000",
     "paymentType": 201,
     "paymentInfo": "https://mock/pse/",
     "additionalInfo": {},
@@ -146,9 +146,9 @@ App 内手动输入金额，实际支付数额可能与订单不符。系统会�
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+    "merchantOrderNo": "OrderNoExample",
     "amount": null,
-    "tradeNo": "TS2405220001CO0000430564883184",
+    "tradeNo": "TS2501010001CO0000000000000000",
     "paymentType": 201,
     "paymentInfo": null,
     "additionalInfo": null,

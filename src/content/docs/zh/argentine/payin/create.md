@@ -16,7 +16,7 @@ description: 商户请求创建一个代收订单
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
 | country   | AR     |
-| app_code  | app编号  |
+| appCode  | app编号  |
 
 ### 支付方式列表（paymentType）
 
@@ -27,32 +27,36 @@ description: 商户请求创建一个代收订单
 | Rapipago  | 905                |
 | Pagofacil | 906                |
 
+### 注意事项
+1. 当paymentType支付方式为902:CVU时,一笔订单对应一次付款,还款金额由用户决定,可能出现不足额或者超过期望收款金额的情况,商户必须正确处理该逻辑。当用户还款时都会进行回调,足额或超过订单金额时回调的订单状态为2:已完成,不足额时回调的状态为1:支付中。查询同理。
+
+
 ### 请求参数
 
-| 字段              | 类型      | 必需  | 最大长度 | 描述                                                                                                                                                            |
-|-----------------|---------|-----|------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| merchantOrderNo | String  | yes | 32   | 商户订单号                                                                                                                                                         |
-| paymentType     | Integer | yes |      | 支付方式 【901（QR）、902 （CVU）、905 (RAPIPAGO)、906 (PAGOFACIL)】                                                                                                       |
-| realName        | String  | yes | 64   | 用户姓名 【建议全大写】                                                                                                                                                  |
-| email           | String  | no  | 50   | 用户邮箱 【满足正则表达式即可】                                                                                                                                              |
-| amount          | String  | yes | 20   | 代收金额 【比索:ARS】   <br/> <br/> <span style="color: red;">  减免场景: amount必须是是100的倍数,否则系统会进行拦截。 <br/>  示例: 100、200、300、400 <br/> 反示例: 101、 110、210 </span>  </span> |
-| idType          | String  | yes | 50   | 个人身份类型：DNI 、CUIT、CUIL、USER_REF   【推荐使用CUIT】                                                                                                                             |
-| idCardNumber    | String  | yes | 11   | 个人身份号：DNI （7位或8位数字）、CUIT（11位数字，首位必须是2或3）、CUIL（11位数字）、USER_REF(1-50位数字或字母)                                                                                                          |
-| expirationTime  | Long    | no  |      | 过期时间 【最小一天,最长七天 毫秒级时间戳 eg:1735660800000】   <br/> <br/> <span style="color: red;">  减免场景: 过期时间将置为15分钟 </span>                                                  |
-| phone           | String  | no  | 20   | 用户手机号 【10位数】                                                                                                                                                  |
-| callbackUrl     | String  | no  | 200  | 代收回调地址 【若不传递，取商户后台配置的回调地址】                                                                                                                                    |
-| sign            | String  | yes |      | 签名                                                                                                                                                            |
+| 字段              | 类型      | 必需  | 最大长度 | 描述                                                                                                                                                          |
+|-----------------|---------|-----|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String  | yes | 32   | 商户订单号                                                                                                                                                       |
+| paymentType     | Integer | yes |      | 支付方式 【901（QR）、902 （CVU）、905 (RAPIPAGO)、906 (PAGOFACIL)】                                                                                                     |
+| realName        | String  | yes | 64   | 用户姓名 【建议全大写】                                                                                                                                                |
+| email           | String  | no  | 50   | 用户邮箱 【满足正则表达式即可】                                                                                                                                            |
+| amount          | String  | yes | 20   | 代收金额 【比索:ARS】   <br/> <br/> <span style="color: red;">  减免场景: amount必须是是10的倍数,否则系统会进行拦截。 <br/>  示例: 10、110、120、130 <br/> 反示例: 111、 121、131 </span>  </span> |
+| idType          | String  | yes | 50   | 个人身份类型：DNI 、CUIT、CUIL、USER_REF   【推荐使用CUIT】                                                                                                                 |
+| idCardNumber    | String  | yes | 11   | 个人身份号：DNI （7位或8位数字）、CUIT（11位数字，首位必须是2或3）、CUIL（11位数字）、USER_REF(1-50位数字或字母)                                                                                   |
+| expirationTime  | Long    | no  |      | 过期时间 【最小一天,最长七天 毫秒级时间戳 eg:1735660800000】   <br/> <br/> <span style="color: red;">  减免场景: 过期时间将置为15分钟 </span>                                                |
+| phone           | String  | no  | 20   | 用户手机号 【10位数】                                                                                                                                                |
+| callbackUrl     | String  | no  | 200  | 代收回调地址 【若不传递，取商户后台配置的回调地址】                                                                                                                                  |
+| sign            | String  | yes |      | 签名                                                                                                                                                          |
 
 ```json title="请求示例"
 {
   "realName": "TeemoPay",
   "merchantName": "MerchantNameExample",
   "amount": "1000",
-  "idType": "DNI"
+  "idType": "DNI",
   "idCardNumber": "12345678",
-  "phone": "1234567890",
+  "phone": "1123456789",
   "callbackUrl": "https://www.callbackexample.com",
-  "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+  "merchantOrderNo": "OrderNoExample",
   "email": "TeemoPay@example.com",
   "paymentType": 902,
   "sign": "YOUR_SIGN"
@@ -69,7 +73,7 @@ description: 商户请求创建一个代收订单
 | paymentType     | Int        | yes | 10 | 支付方式 【901:QR】                       |
 | paymentInfo     | String     | yes | 32 | 主要付款信息 【返回的是实际用于付款的信息，例如：付款编号，二维码串】 |
 | additionalInfo  | JSONObject | no  |    | 附加信息 【辅助支付信息使用】                     |
-| status          | Int        | yes |    | 订单状态 【1: 支付中  3: 支付失败】              |
+| status          | Int        | yes |    | 订单状态 【0: 初始化  1: 支付中  3: 支付失败】              |
 | errorMsg        | String     | no  |    | 错误信息【支付失败时返回】                       |
 
 ### 响应示例
@@ -81,12 +85,10 @@ description: 商户请求创建一个代收订单
   "code": 200,
   "data": {
     "amount": "1000.00",
-    "tradeNo": "TS2405220001AR0000430564883184",
+    "tradeNo": "TS2501010001AR0000000000000000",
     "additionalInfo": null,
-    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
-    "paymentInfo": "K8xY3pQ7zW2dE9sR4fT1gH6jU8lM3nB5vC2xZ7qA9wS4eD1rF8tG3yH6uJ9iK2oL5pM8aN3bV7cX9dZ4
-    eW1fY3gH6jK8lM2nP5qR7sT9uV2wX4yZ6aB8cD1eF3gH5jK7lM9nO2pQ4rS6tU8vW1xY3zA5bC7dE9fG2hJ4kL6mN8oP1qR3sT5uV7wX9yZ2aB4cD6eF8gH1jK3lM5nO7pQ9rS1tU3vW5xY7zA2bC4dE6fG8hJ1kL3mN5oP7qR9sT1uV3wX5yZ7aB9cD1eF3gH5jK7
-    ",
+    "merchantOrderNo": "OrderNoExample",
+    "paymentInfo": "PaymentInfoExample",
     "paymentType": 901,
     "status": 1
   }
@@ -113,7 +115,7 @@ description: 商户请求创建一个代收订单
   "code": 426,
   "data": null,
   "msg": "merchant order duplicate",
-  "traceId": "f2b58c9c394d4b1595dd4e448ac741bc.2256.17645844263770017"
+  "traceId": "f2b58c9c394d4b1595dd4e448ac741bc.2256.17645844263770018"
 }
 ```
 
@@ -130,9 +132,9 @@ description: 商户请求创建一个代收订单
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+    "merchantOrderNo": "OrderNoExample",
     "amount": null,
-    "tradeNo": "TS2405220001AR0000430564883184",
+    "tradeNo": "TS2501010001AR0000000000000000",
     "paymentType": 901,
     "paymentInfo": null,
     "additionalInfo": null,

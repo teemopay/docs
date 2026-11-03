@@ -16,7 +16,7 @@ description: Merchant query the status of a payment order
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | Country code (PE) |
-| app_code         | Application ID    |
+| appCode         | Application ID    |
 
 ### Request Parameters
 
@@ -60,7 +60,7 @@ description: Merchant query the status of a payment order
   "status": "2",
   "statementList": [
     {
-      "paymentSingleOrderNo": "OrderNoExample",
+      "paymentSingleOrderNo": "TSOPaymentOrderNoExample1",
       "paymentStatementAmount": "10",
       "paymentStatementStatus": "2",
       "paymentStatementStatusName": "Payment Success",

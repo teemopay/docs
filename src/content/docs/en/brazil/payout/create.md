@@ -16,7 +16,7 @@ description: Merchant requests to create a payout order
 | timestamp        | Request timestamp       |
 | nonce            | Random value            |
 | country          | Country code (e.g., BR) |
-| app_code         | Application ID          |
+| appCode         | Application ID          |
 
 ### Request Parameters
 
@@ -36,16 +36,37 @@ description: Merchant requests to create a payout order
 
 ```json
 {
-    "merchantOrderNo": "ds111ad111022911111111111131",
-    "realName": "Carlos",
+    "merchantOrderNo": "OrderNoExample",
+    "realName": "TeemoPay",
     "bankCode": "1",
     "bankName": "BANK",
     "accountType": 101,
     "bankAccount": "1234567890123456",
     "amount": "100000",
-    "callbackUrl": "http://127.0.0.1:8075/sys/dictionary/test",
-    "sign": "YOUR SIGN",
+    "callbackUrl": "https://www.callbackexample.com",
+    "sign": "YOUR_SIGN",
     "idType": "DNI",
-    "phone": "13175025118",
+    "phone": "11987654321",
     "idCardNumber": "12345678"
 }
+```
+
+
+### Response Parameters
+
+| Parameter       | Type   | Required | Length | Description                         |
+| --------------- | ------ | -------- | ------ | ----------------------------------- |
+| merchantOrderNo | String | yes      | 32     | Merchant order number               |
+| tradeNo         | String | yes      |        | Platform order number               |
+| status          | Int    | yes      |        | Reimbursement status 【1: Payment in progress 3: Failure (can be re-initiated)】 |
+| amount          | String | yes      |        | Transaction amount                  |
+
+```json title=Response Example
+{
+  "merchantOrderNo": "OrderNoExample",
+  "tradeNo": "TF2501010001BR0000000000000000",
+  "status": 1,
+  "sign": "TEEMO_SIGN"
+}
+```
+

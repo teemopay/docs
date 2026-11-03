@@ -43,7 +43,6 @@ description: Merchant receives a payout result callback
   "completeTime": "2025-05-01 00:00:00",
   "sign": "TEEMO_SIGN"
 }
-
 ```
 
 ### Error Code Explanations:
@@ -64,6 +63,6 @@ description: Merchant receives a payout result callback
 | SUCCESS   | String | yes      |        | Must return `"SUCCESS"` or the callback will be retried |
 
 
-```json
+```text title=Response Example
 SUCCESS
 ```

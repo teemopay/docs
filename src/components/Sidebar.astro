@@ -1,0 +1,129 @@
+---
+import Default from "@astrojs/starlight/components/Sidebar.astro";
+import type { Props } from "@astrojs/starlight/props";
+import { AstroError } from "astro/errors";
+import config from "virtual:starlight-sidebar-topics/config";
+
+import TopicNav from "./TopicNav.astro";
+
+const { entry, sidebar, slug } = Astro.props;
+
+let currentSidebar = sidebar;
+let currentTopic: Topic | undefined = undefined;
+
+if (entry["data"].template !== "splash") {
+  currentTopic = getCurrentTopic(config, sidebar, slug, entry);
+  if (!currentTopic) {
+    throw new AstroError(
+      `Failed to find the topic for the \`${slug}\` page.`,
+      `Either include this page in the sidebar configuration of the desired topic using the \`items\` property or associate an unlisted page with a topic using the \`topic\` frontmatter field.`,
+    );
+  }
+  currentSidebar = currentTopic.sidebar;
+  if (isRegionalTopic(currentTopic.config)) {
+    const currentCountrySidebar = getCurrentSidebarTopic(currentTopic.sidebar);
+    if (currentCountrySidebar) currentSidebar = currentCountrySidebar.entries;
+  }
+}
+
+function getCurrentTopic(
+  topicConfig: typeof config,
+  sidebarEntries: SidebarEntry[],
+  currentSlug: string,
+  currentEntry: Props["entry"],
+): Topic | undefined {
+  const topicId = typeof currentEntry.data.topic === "string" ? currentEntry.data.topic : undefined;
+  if (topicId) return getTopicById(topicConfig, sidebarEntries, topicId);
+
+  const topicFromSlug = getTopicFromSlug(topicConfig, sidebarEntries, currentSlug);
+  if (topicFromSlug) return topicFromSlug;
+
+  const currentSidebarTopic = getCurrentSidebarTopic(sidebarEntries);
+  if (!currentSidebarTopic) return undefined;
+
+  const currentTopicConfig = topicConfig[Number.parseInt(currentSidebarTopic.label, 10)];
+  if (!currentTopicConfig) return undefined;
+
+  return { config: currentTopicConfig, sidebar: currentSidebarTopic.entries };
+}
+
+function getTopicFromSlug(topicConfig: typeof config, sidebarEntries: SidebarEntry[], currentSlug: string): Topic | undefined {
+  let groupTopicIndex = -1;
+  const slugLocale = getLocaleFromSlug(currentSlug);
+
+  for (const topic of topicConfig) {
+    if (topic.type === "group") groupTopicIndex++;
+
+    if (!/^https?:\/\//.test(topic.link) && arePathnamesEqual(getLocalizedSlug(stripSlashes(topic.link), slugLocale), currentSlug) && groupTopicIndex !== -1) {
+      const sidebarTopic = sidebarEntries[groupTopicIndex];
+      if (sidebarTopic?.type === "group") return { config: topic, sidebar: sidebarTopic.entries };
+      break;
+    }
+  }
+
+  return undefined;
+}
+
+function getTopicById(topicConfig: typeof config, sidebarEntries: SidebarEntry[], id: string): Topic | undefined {
+  let groupTopicIndex = -1;
+
+  for (const topic of topicConfig) {
+    if (topic.type === "group") groupTopicIndex++;
+
+    if (topic.type === "group" && "id" in topic && topic.id === id) {
+      const sidebarTopic = sidebarEntries[groupTopicIndex];
+      if (sidebarTopic?.type === "group") return { config: topic, sidebar: sidebarTopic.entries };
+      break;
+    }
+  }
+
+  return undefined;
+}
+
+function getCurrentSidebarTopic(sidebarEntries: SidebarEntry[]) {
+  return sidebarEntries.find((topic) => topic.type === "group" && Boolean(getCurrentSidebarEntry(topic.entries))) as SidebarTopic | undefined;
+}
+
+function getCurrentSidebarEntry(sidebarEntries: SidebarEntry[]): SidebarEntry | undefined {
+  return sidebarEntries.find((sidebarEntry) => {
+    if (sidebarEntry.type === "link") return sidebarEntry.isCurrent;
+    return getCurrentSidebarEntry(sidebarEntry.entries);
+  });
+}
+
+function isRegionalTopic(topic: (typeof config)[number]) {
+  return topic.type === "group" && "id" in topic && (topic.id === "asia" || topic.id === "latin-america");
+}
+
+function getLocaleFromSlug(slug: string) {
+  const [maybeLocale] = stripSlashes(slug).split("/");
+  return maybeLocale === "en" || maybeLocale === "zh" ? maybeLocale : undefined;
+}
+
+function getLocalizedSlug(slug: string, locale: string | undefined) {
+  return locale ? `${locale}/${slug}` : slug;
+}
+
+function arePathnamesEqual(left: string, right: string) {
+  return stripSlashes(left) === stripSlashes(right);
+}
+
+function stripSlashes(value: string) {
+  return value.replace(/^\/+|\/+$/g, "");
+}
+
+type SidebarEntry = Props["sidebar"][number];
+
+interface SidebarTopic {
+  label: string;
+  entries: SidebarEntry[];
+}
+
+interface Topic {
+  config: (typeof config)[number];
+  sidebar: SidebarEntry[];
+}
+---
+
+{entry["data"].template !== "splash" && currentTopic && <TopicNav current={currentTopic.config} currentSlug={slug} />}
+<Default {...Astro.props} sidebar={currentSidebar}><slot /></Default>

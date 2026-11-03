@@ -39,7 +39,7 @@ description: 商户接受一个代收结果的回调
 {
     "tradeNo": "TS2404000001BR0000075277250508",
     "sign": "TEEMO_SIGN",
-    "merchantOrderNo": "123456780",
+    "merchantOrderNo": "OrderNoExample",
     "paymentAmount": "1000",
     "paymentOrderNo": "TSOcqgv0fepo103dmt3uuu233s1136",
     "status": 2,
@@ -49,7 +49,6 @@ description: 商户接受一个代收结果的回调
     "completeTime": "2025-01-01 00:00:00",
     "errorMessage": null
 }
-
 ```
 
 ### 回调返回
@@ -63,6 +62,6 @@ description: 商户接受一个代收结果的回调
 | ------- | ------ | ---- | ---- | ------------------------------- |
 | SUCCESS | String | yes  |      | 必须返回"SUCCESS"否则会重复回调 |
 
-```json title=回调示例
+```text title=回调示例
 SUCCESS
 ```

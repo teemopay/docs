@@ -16,7 +16,7 @@ description: Create a payout order
 | timestamp        | Request timestamp     |
 | nonce            | Random value          |
 | country          | Country code (MX)     |
-| app_code         | Application ID        |
+| appCode         | Application ID        |
 
 ### matters need attention
 
@@ -41,16 +41,16 @@ description: Create a payout order
 
 ```json title=Request Example
 {
-  "outTradeNo": "OrderNoExample",
+  "merchantOrderNo": "OrderNoExample",
   "amount": "100",
   "bankCode": "646",
   "bankName": "STP",
   "accountType": 3,
   "bankAccount": "1234567890",
-  "realName": "John Doe",
+  "realName": "TeemoPay",
   "idCardNumber": "1234567890",
-  "callbackUrl": "https://merchant.com/api/payout/callback",
-  "sign": "YOUR_SIGN"
+  "callbackUrl": "https://www.callbackexample.com",
+  "sign": "TEEMO_SIGN"
 }
 ```
 
@@ -66,8 +66,8 @@ description: Create a payout order
 ```json title=Return Example
 {
   "merchantOrderNo": "OrderNoExample",
-  "tradeNo": "TF201806251011",
+  "tradeNo": "TF2501010001MX0000000000000000",
   "status": 1,
-  "sign": "TEEMO_SIGN"
+  "sign": "YOUR_SIGN"
 }
 ```

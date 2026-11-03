@@ -45,6 +45,7 @@ description: Payout Query
 |    tradeNo         | String  | yes      |        | Platform order number                                |
 |    amount          | String  | yes      |        | Payout amount                                        |
 |    status          | Int     | yes      |        | Payout status: 2 = Success, 3 = Failed, 4 = Refunded |
+| voucherUrl         | String  | yes      |        | Voucher address                                      |
 
 
 ```json title=Sample Response
@@ -59,7 +60,6 @@ description: Payout Query
   "msg": "success",
   "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
 }
-
 
 ```
 ```json title= Sample order no exist

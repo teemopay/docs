@@ -16,7 +16,7 @@ description: Query a payout order
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | Country code (MX) |
-| app_code         | Application ID    |
+| appCode         | Application ID    |
 
 ### Request Parameters
 
@@ -25,6 +25,12 @@ description: Query a payout order
 | merchantOrderNo | String | yes      | 32     | Merchant order number |
 | sign            | String | yes      | -      | Signature             |
 
+
+### Response Parameters
+
+| Field | Type | Required | Length | Description |
+| ----- | ---- | -------- | ------ | ----------- |
+| voucherUrl | String | yes | | Voucher address |
 
 ```json title = ""
 {

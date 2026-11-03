@@ -16,7 +16,7 @@ description: 商户请求创建一个代收订单
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
 | country   | ID |
-| app_code  | app 编号 |
+| appCode  | app 编号 |
 
 ## 支持支付方式列表（paymentType）
 
@@ -64,7 +64,7 @@ description: 商户请求创建一个代收订单
   "paymentType": 502,
   "email": "TeemoPay@example.com",
   "channel": "DANA",
-  "phone": "0800000000",
+  "phone": "081234567890",
   "sign": "YOUR_SIGN"
 }
 ```

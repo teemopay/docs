@@ -1,0 +1,124 @@
+---
+title: 银行列表
+description: 代付支持的银行和钱包列表
+---
+
+## BANK（accountType = 2101）
+
+此银行编码适用于账户类型（accountType）为 `2101（BANK）`。
+
+| 银行代码 | 银行名称 |
+|---|---|
+| 1001 | ABC |
+| 1002 | ABBANK |
+| 1003 | ANZ |
+| 1004 | ASIA_BANK |
+| 1005 | ACB |
+| 1006 | BAC_A_BANK |
+| 1007 | BANGKOK_BANK |
+| 1008 | BIDC |
+| 1009 | BIDV |
+| 1010 | BOC |
+| 1011 | BOCOM |
+| 1012 | BOI |
+| 1013 | SINOPAC |
+| 1014 | BAOVIETBANK |
+| 1015 | BNP_PARIBAS |
+| 1016 | BPCE_IOM |
+| 1017 | BUSAN_BANK |
+| 1018 | BVBANK |
+| 1019 | CAKE |
+| 1020 | CREDIT_AGRICOLE_CIB |
+| 1021 | CATHAY_BANK |
+| 1022 | CATHAY_UNITED_BANK |
+| 1023 | CCB |
+| 1024 | CIMB |
+| 1025 | CITI |
+| 1026 | COOPBANK |
+| 1027 | CBBANK |
+| 1028 | CTBC |
+| 1029 | DAEGU_BANK |
+| 1030 | DBS |
+| 1031 | DEUTSCHE_BANK |
+| 1032 | DONGA_BANK |
+| 1033 | ESUN_BANK |
+| 1034 | FCB |
+| 1035 | GPBANK |
+| 1036 | HDBANK |
+| 1037 | HONG_LEONG_BANK |
+| 1038 | HSBC |
+| 1039 | HUA_NAN_BANK |
+| 1040 | IVB |
+| 1041 | ICBC |
+| 1042 | IBK |
+| 1043 | VCB |
+| 1044 | JPMORGAN |
+| 1045 | KASIKORNBANK |
+| 1046 | KOOKMIN_BANK |
+| 1047 | KEB_HANA_BANK |
+| 1048 | KIENLONGBANK |
+| 1049 | LIOBANK |
+| 1050 | LPBANK |
+| 1051 | MAYBANK |
+| 1052 | MEGA_BANK |
+| 1053 | MHB |
+| 1054 | MBBANK |
+| 1055 | MIZUHO |
+| 1056 | MBV |
+| 1057 | MUFG |
+| 1058 | NAM_A_BANK |
+| 1059 | NCB |
+| 1060 | NATIXIS |
+| 1061 | NONGHYUP |
+| 1062 | OCBC |
+| 1063 | OCB |
+| 1064 | PGBANK |
+| 1065 | PUBLIC_BANK |
+| 1066 | SAIGONBANK |
+| 1067 | SCB_VN |
+| 1068 | SACOMBANK |
+| 1069 | SHB |
+| 1070 | SCSB |
+| 1071 | SHINHAN |
+| 1072 | SCB_TH |
+| 1073 | SEABANK |
+| 1074 | STANDARD_CHARTERED |
+| 1075 | SBV |
+| 1076 | SMBC |
+| 1077 | TAIPEI_FUBON |
+| 1078 | TPBANK |
+| 1079 | TIMO |
+| 1080 | TNEX |
+| 1081 | UBANK |
+| 1082 | UMEE |
+| 1083 | UOB |
+| 1084 | VIET_HOA_BANK |
+| 1085 | VIETABANK |
+| 1086 | AGRIBANK |
+| 1087 | VBSP |
+| 1088 | VDB |
+| 1089 | EXIMBANK |
+| 1090 | VIB |
+| 1091 | VIETINBANK |
+| 1092 | MSB |
+| 1093 | VPBANK |
+| 1094 | PVCOMBANK |
+| 1095 | TECHCOMBANK |
+| 1096 | VIETBANK |
+| 1097 | VRB |
+| 1098 | VIKKI |
+| 1099 | VUNG_TAU_BANK |
+| 1100 | WOORI_BANK |
+
+## Wallet（accountType = 2102）
+
+此银行编码适用于账户类型（accountType）为 `2102（Wallet）`。
+
+| bankCode | bankName |
+|---|---|
+| MOBIFONE | MOBIFONE |
+| MOMO | MOMO |
+| PAYOO | PAYOO |
+| VIETTEL_MONEY | VIETTEL_MONEY |
+| VNPT_MONEY | VNPT_MONEY |
+| ZALOPAY | ZALOPAY |

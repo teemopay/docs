@@ -15,7 +15,7 @@ title: 悬账订单列表
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
 | country   | AR     |
-| app_code  | app 编号 |
+| appCode  | app 编号 |
 
 ### 注意事项
 
@@ -37,7 +37,7 @@ title: 悬账订单列表
   "beginTime": "2026-03-10 00:00:00",
   "endTime": "2026-03-17 23:59:59",
   "pageSize": 1,
-  "sign": "SIGN_STR_XXXX"
+  "sign": "YOUR_SIGN"
 }
 ```
 

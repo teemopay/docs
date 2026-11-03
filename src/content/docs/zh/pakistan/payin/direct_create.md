@@ -17,7 +17,7 @@ description: 直连Easypaisa和Jazzcash
 | timestamp   | 请求时间戳   |
 | nonce       | 随机值     |
 | country     | PK  |
-| app_code    | app编号   |
+| appCode    | app编号   |
 
 
 
@@ -57,8 +57,8 @@ description: 直连Easypaisa和Jazzcash
     "paymentType": 304,
     "email": "TeemoPay@example.com",
     "callbackUrl": "https://www.callbackexample.com",
-    "phone": "03000000000",
-    "realName" : "TEEMO",
+    "phone": "3000000000",
+    "realName": "TeemoPay",
     "sign": "YOUR_SIGN"
 }
 ```

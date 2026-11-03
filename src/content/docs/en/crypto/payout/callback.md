@@ -48,7 +48,6 @@ description: Callback
   "completeTime": "2025-05-01 00:00:00",
   "sign": "TEEMO_SIGN"
 }
-
 ```
 
 
@@ -65,7 +64,6 @@ description: Callback
   "completeTime": "2025-05-01 00:00:00",
   "sign": "TEEMO_SIGN"
 }
-
 ```
 
 ```json title= Refund Callback
@@ -81,7 +79,6 @@ description: Callback
   "completeTime": "2025-05-01 00:00:00",
   "sign": "TEEMO_SIGN"
 }
-
 
 ```
 
@@ -102,6 +99,6 @@ description: Callback
 | SUCCESS   | String | yes      |        | Must return `"SUCCESS"` to avoid retry |
 
 
-```json title= Sample Response
+```text title= Sample Response
 SUCCESS
 ```

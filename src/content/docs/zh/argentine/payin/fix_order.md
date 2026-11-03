@@ -15,7 +15,7 @@ title: 补单接口
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
 | country   | AR     |
-| app_code  | app 编号 |
+| appCode  | app 编号 |
 
 ### 请求参数
 
@@ -28,7 +28,7 @@ title: 补单接口
 ```json title=请求示例
 {
   "bankId": "pvbankid104",
-  "merchantOrderNo": "cvu_test_204",
+  "merchantOrderNo": "OrderNoExample",
   "sign": "YOUR_SIGN"
 }
 ```
@@ -51,7 +51,7 @@ title: 补单接口
     "amount": "5.00",
     "tradeNo": "TS2405220001AR0000505867138310",
     "bankId": "xiashjadyuqwgbeqwe——1638",
-    "merchantOrderNo": "cvu_test_212",
+    "merchantOrderNo": "OrderNoExample",
     "callbackTime": "2026-03-20 05:50:24",
     "status": 1
   },

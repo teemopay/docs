@@ -16,7 +16,7 @@ description: Merchant queries the status of a payout order
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | Country code (BR) |
-| app_code         | Application ID    |
+| appCode         | Application ID    |
 
 ### Request Parameters
 
@@ -49,6 +49,7 @@ description: Merchant queries the status of a payout order
 | - refundAmount    | String | yes      |        | Refund amount for this transaction                                       |
 | - refundStatus    | String | yes      |        | Refund status 0 (Partial refund) 1 (Full refund)                         |
 | - refundTime      | String | yes      |        | Refund time for this transaction                                         |
+| voucherUrl        | String | yes      |        | Voucher address                                                          |
 | errorCode         | number | yes      |        | Order failure error code                                                 |
 | errorMessage      | String | yes      |        | Order failure error message                                              |
 | completeTime      | String | yes      |        | Completion time in current country timezone, format: yyyy-MM-dd HH:mm:ss |
@@ -71,7 +72,6 @@ description: Merchant queries the status of a payout order
   "msg": "success",
   "traceId": "2e0e38e3e9a24b60b4f57c6d2ced196a.115.17744291515713103"
 }
-
 ```
 
 ```json title=Refund Example
@@ -108,7 +108,6 @@ description: Merchant queries the status of a payout order
   "msg": "success",
   "traceId": "dcf1aee524564c5485a655d09a02aa02.86.17766720253031143"
 }
-
 ```
 
 ```json title="Order Not Found Response Example"

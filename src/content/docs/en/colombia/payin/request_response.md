@@ -13,17 +13,17 @@ Request
 
 ```json
 {
-    "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000040",
-    "realName": "OPQRST UVWXYZ ABCDEFG HIJKLMN",
+    "merchantOrderNo": "OrderNoExample",
+    "realName": "TeemoPay",
     "amount": "30000.00",
-    "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
+    "callbackUrl": "https://www.callbackexample.com",
     "paymentType": 201,
-    "email": "12123123@ss.com",
-    "phone": "1234567890",
+    "email": "TeemoPay@example.com",
+    "phone": "3000000000",
     "bankCode": "1040",
     "idType" : "CC",
     "idCardNumber" : "123456789",
-    "sign": "uOunEdixuTptztITS1xVQK7EokviXGkNjnSupauc/keqQogkyigiks8R9gXG66RPAXgkMNFnM9xTOu0YBkajFE+oiQU+hvmiXg1TcPAy6RF0TZTmrI7Ya06NWtRUzIOPO0a6GyOjHA86hfIP3tfXRBB07F2AwnOXv8nzCKUGUY4=",
+    "sign": "YOUR_SIGN",
     "expirationTime": 1718409600000
 }
 ```
@@ -38,7 +38,7 @@ Response
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000040",
+        "merchantOrderNo": "OrderNoExample",
         "amount": "30000.00",
         "tradeNo": "TS2405220001CO0000000000010033",
         "paymentType": 201,
@@ -64,17 +64,17 @@ Request
 
 ```json
 {
-    "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000042",
-    "realName": "OPQRST UVWXYZ ABCDEFG HIJKLMN",
+    "merchantOrderNo": "OrderNoExample",
+    "realName": "TeemoPay",
     "amount": "30000.00",
-    "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
+    "callbackUrl": "https://www.callbackexample.com",
     "paymentType": 202,
-    "email": "12123123@ss.com",
-    "phone": "1234567890",
+    "email": "TeemoPay@example.com",
+    "phone": "3000000000",
     "bankCode": "1040",
     "idType" : "CC",
     "idCardNumber" : "123456789",
-    "sign": "uOunEdixuTptztITS1xVQK7EokviXGkNjnSupauc/keqQogkyigiks8R9gXG66RPAXgkMNFnM9xTOu0YBkajFE+oiQU+hvmiXg1TcPAy6RF0TZTmrI7Ya06NWtRUzIOPO0a6GyOjHA86hfIP3tfXRBB07F2AwnOXv8nzCKUGUY4=",
+    "sign": "YOUR_SIGN",
     "expirationTime": 1718409600000
 }
 ```
@@ -89,7 +89,7 @@ Response
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000042",
+        "merchantOrderNo": "OrderNoExample",
         "amount": "30000.00",
         "tradeNo": "TS2405220001CO0000000000010035",
         "paymentType": 202,
@@ -119,17 +119,17 @@ Request
 
 ```json
 {
-    "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000043",
-    "realName": "OPQRST UVWXYZ ABCDEFG HIJKLMN",
+    "merchantOrderNo": "OrderNoExample",
+    "realName": "TeemoPay",
     "amount": "30000.00",
-    "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
+    "callbackUrl": "https://www.callbackexample.com",
     "paymentType": 204,
-    "email": "12123123@ss.com",
-    "phone": "1234567890",
+    "email": "TeemoPay@example.com",
+    "phone": "3000000000",
     "bankCode": "1040",
     "idType" : "CC",
     "idCardNumber" : "123456789",
-    "sign": "uOunEdixuTptztITS1xVQK7EokviXGkNjnSupauc/keqQogkyigiks8R9gXG66RPAXgkMNFnM9xTOu0YBkajFE+oiQU+hvmiXg1TcPAy6RF0TZTmrI7Ya06NWtRUzIOPO0a6GyOjHA86hfIP3tfXRBB07F2AwnOXv8nzCKUGUY4=",
+    "sign": "YOUR_SIGN",
     "expirationTime": 1718409600000
 }
 ```
@@ -144,7 +144,7 @@ Response
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000043",
+        "merchantOrderNo": "OrderNoExample",
         "amount": "30000.00",
         "tradeNo": "TS2405220001CO0000000000010036",
         "paymentType": 204,
@@ -170,17 +170,17 @@ Request
 
 ```json
 {
-    "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000052",
-    "realName": "OPQRST UVWXYZ ABCDEFG HIJKLMN",
+    "merchantOrderNo": "OrderNoExample",
+    "realName": "TeemoPay",
     "amount": "30000.00",
-    "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
+    "callbackUrl": "https://www.callbackexample.com",
     "paymentType": 205,
-    "email": "12123123@ss.com",
-    "phone": "1234567890",
+    "email": "TeemoPay@example.com",
+    "phone": "3000000000",
     "bankCode": "1040",
     "idType" : "CC",
     "idCardNumber" : "123456789",
-    "sign": "uOunEdixuTptztITS1xVQK7EokviXGkNjnSupauc/keqQogkyigiks8R9gXG66RPAXgkMNFnM9xTOu0YBkajFE+oiQU+hvmiXg1TcPAy6RF0TZTmrI7Ya06NWtRUzIOPO0a6GyOjHA86hfIP3tfXRBB07F2AwnOXv8nzCKUGUY4=",
+    "sign": "YOUR_SIGN",
     "expirationTime": 1718409600000
 }
 ```
@@ -195,7 +195,7 @@ Response
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000052",
+        "merchantOrderNo": "OrderNoExample",
         "amount": "30000.00",
         "tradeNo": "TS2405220001CO0000000000010045",
         "paymentType": 205,
@@ -221,17 +221,17 @@ Request
 
 ```json
 {
-    "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000053",
-    "realName": "OPQRST UVWXYZ ABCDEFG HIJKLMN",
+    "merchantOrderNo": "OrderNoExample",
+    "realName": "TeemoPay",
     "amount": "30000.00",
-    "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
+    "callbackUrl": "https://www.callbackexample.com",
     "paymentType": 209,
-    "email": "12123123@ss.com",
-    "phone": "1234567890",
+    "email": "TeemoPay@example.com",
+    "phone": "3000000000",
     "bankCode": "1040",
     "idType" : "CC",
     "idCardNumber" : "123456789",
-    "sign": "uOunEdixuTptztITS1xVQK7EokviXGkNjnSupauc/keqQogkyigiks8R9gXG66RPAXgkMNFnM9xTOu0YBkajFE+oiQU+hvmiXg1TcPAy6RF0TZTmrI7Ya06NWtRUzIOPO0a6GyOjHA86hfIP3tfXRBB07F2AwnOXv8nzCKUGUY4=",
+    "sign": "YOUR_SIGN",
     "expirationTime": 1718409600000
 }
 ```
@@ -246,7 +246,7 @@ Response
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000053",
+        "merchantOrderNo": "OrderNoExample",
         "amount": "30000.00",
         "tradeNo": "TS2405220001CO0000000000010046",
         "paymentType": 209,
@@ -272,17 +272,17 @@ Request
 
 ```json
 {
-    "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000044",
-    "realName": "OPQRST UVWXYZ ABCDEFG HIJKLMN",
+    "merchantOrderNo": "OrderNoExample",
+    "realName": "TeemoPay",
     "amount": "30000.00",
-    "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
+    "callbackUrl": "https://www.callbackexample.com",
     "paymentType": 210,
-    "email": "12123123@ss.com",
-    "phone": "1234567890",
+    "email": "TeemoPay@example.com",
+    "phone": "3000000000",
     "bankCode": "1040",
     "idType" : "CC",
     "idCardNumber" : "123456789",
-    "sign": "uOunEdixuTptztITS1xVQK7EokviXGkNjnSupauc/keqQogkyigiks8R9gXG66RPAXgkMNFnM9xTOu0YBkajFE+oiQU+hvmiXg1TcPAy6RF0TZTmrI7Ya06NWtRUzIOPO0a6GyOjHA86hfIP3tfXRBB07F2AwnOXv8nzCKUGUY4=",
+    "sign": "YOUR_SIGN",
     "expirationTime": 1718409600000
 }
 ```
@@ -297,7 +297,7 @@ Response
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000044",
+        "merchantOrderNo": "OrderNoExample",
         "amount": "30000.00",
         "tradeNo": "TS2405220001CO0000000000010037",
         "paymentType": 210,
@@ -323,17 +323,17 @@ Request
 
 ```json
 {
-    "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000051",
-    "realName": "OPQRST UVWXYZ ABCDEFG HIJKLMN",
+    "merchantOrderNo": "OrderNoExample",
+    "realName": "TeemoPay",
     "amount": "30000.00",
-    "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
+    "callbackUrl": "https://www.callbackexample.com",
     "paymentType": 211,
-    "email": "12123123@ss.com",
-    "phone": "1234567890",
+    "email": "TeemoPay@example.com",
+    "phone": "3000000000",
     "bankCode": "1040",
     "idType" : "CC",
     "idCardNumber" : "123456789",
-    "sign": "uOunEdixuTptztITS1xVQK7EokviXGkNjnSupauc/keqQogkyigiks8R9gXG66RPAXgkMNFnM9xTOu0YBkajFE+oiQU+hvmiXg1TcPAy6RF0TZTmrI7Ya06NWtRUzIOPO0a6GyOjHA86hfIP3tfXRBB07F2AwnOXv8nzCKUGUY4=",
+    "sign": "YOUR_SIGN",
     "expirationTime": 1718409600000
 }
 ```
@@ -348,7 +348,7 @@ Response
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000051",
+        "merchantOrderNo": "OrderNoExample",
         "amount": "30000.00",
         "tradeNo": "TS2405220001CO0000000000010044",
         "paymentType": 211,
@@ -374,17 +374,17 @@ Request
 
 ```json
 {
-    "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000054",
-    "realName": "OPQRST UVWXYZ ABCDEFG HIJKLMN",
+    "merchantOrderNo": "OrderNoExample",
+    "realName": "TeemoPay",
     "amount": "30000.00",
-    "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
+    "callbackUrl": "https://www.callbackexample.com",
     "paymentType": 212,
-    "email": "12123123@ss.com",
-    "phone": "1234567890",
+    "email": "TeemoPay@example.com",
+    "phone": "3000000000",
     "bankCode": "1040",
     "idType" : "CC",
     "idCardNumber" : "123456789",
-    "sign": "uOunEdixuTptztITS1xVQK7EokviXGkNjnSupauc/keqQogkyigiks8R9gXG66RPAXgkMNFnM9xTOu0YBkajFE+oiQU+hvmiXg1TcPAy6RF0TZTmrI7Ya06NWtRUzIOPO0a6GyOjHA86hfIP3tfXRBB07F2AwnOXv8nzCKUGUY4=",
+    "sign": "YOUR_SIGN",
     "expirationTime": 1718409600000
 }
 ```
@@ -399,7 +399,7 @@ Response
 {
         "code": 200,
         "data": {
-                "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000054",
+                "merchantOrderNo": "OrderNoExample",
                 "amount": "30000.00",
                 "tradeNo": "TS2405220001CO0000000000010047",
                 "paymentType": 212,
@@ -427,17 +427,17 @@ Request
 
 ```json
 {
-    "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000047",
-    "realName": "OPQRST UVWXYZ ABCDEFG HIJKLMN",
+    "merchantOrderNo": "OrderNoExample",
+    "realName": "TeemoPay",
     "amount": "30000.00",
-    "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
+    "callbackUrl": "https://www.callbackexample.com",
     "paymentType": 213,
-    "email": "12123123@ss.com",
-    "phone": "1234567890",
+    "email": "TeemoPay@example.com",
+    "phone": "3000000000",
     "bankCode": "1040",
     "idType" : "CC",
     "idCardNumber" : "123456789",
-    "sign": "uOunEdixuTptztITS1xVQK7EokviXGkNjnSupauc/keqQogkyigiks8R9gXG66RPAXgkMNFnM9xTOu0YBkajFE+oiQU+hvmiXg1TcPAy6RF0TZTmrI7Ya06NWtRUzIOPO0a6GyOjHA86hfIP3tfXRBB07F2AwnOXv8nzCKUGUY4=",
+    "sign": "YOUR_SIGN",
     "expirationTime": 1718409600000
 }
 ```
@@ -452,7 +452,7 @@ Response
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000047",
+        "merchantOrderNo": "OrderNoExample",
         "amount": "30000.00",
         "tradeNo": "TS2405220001CO0000000000010040",
         "paymentType": 213,
@@ -478,17 +478,17 @@ Request
 
 ```json
 {
-    "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000055",
-    "realName": "OPQRST UVWXYZ ABCDEFG HIJKLMN",
+    "merchantOrderNo": "OrderNoExample",
+    "realName": "TeemoPay",
     "amount": "30000.00",
-    "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
+    "callbackUrl": "https://www.callbackexample.com",
     "paymentType": 214,
-    "email": "12123123@ss.com",
-    "phone": "1234567890",
+    "email": "TeemoPay@example.com",
+    "phone": "3000000000",
     "bankCode": "1040",
     "idType" : "CC",
     "idCardNumber" : "123456789",
-    "sign": "uOunEdixuTptztITS1xVQK7EokviXGkNjnSupauc/keqQogkyigiks8R9gXG66RPAXgkMNFnM9xTOu0YBkajFE+oiQU+hvmiXg1TcPAy6RF0TZTmrI7Ya06NWtRUzIOPO0a6GyOjHA86hfIP3tfXRBB07F2AwnOXv8nzCKUGUY4=",
+    "sign": "YOUR_SIGN",
     "expirationTime": 1718409600000
 }
 ```
@@ -503,7 +503,7 @@ Response
 {
         "code": 200,
         "data": {
-                "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000055",
+                "merchantOrderNo": "OrderNoExample",
                 "amount": "30000.00",
                 "tradeNo": "TS2405220001CO0000000000010048",
                 "paymentType": 214,
@@ -531,17 +531,17 @@ Request
 
 ```json
 {
-    "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000049",
-    "realName": "OPQRST UVWXYZ ABCDEFG HIJKLMN",
+    "merchantOrderNo": "OrderNoExample",
+    "realName": "TeemoPay",
     "amount": "30000.00",
-    "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
+    "callbackUrl": "https://www.callbackexample.com",
     "paymentType": 207,
-    "email": "12123123@ss.com",
-    "phone": "1234567890",
+    "email": "TeemoPay@example.com",
+    "phone": "3000000000",
     "bankCode": "1040",
     "idType" : "CC",
     "idCardNumber" : "123456789",
-    "sign": "uOunEdixuTptztITS1xVQK7EokviXGkNjnSupauc/keqQogkyigiks8R9gXG66RPAXgkMNFnM9xTOu0YBkajFE+oiQU+hvmiXg1TcPAy6RF0TZTmrI7Ya06NWtRUzIOPO0a6GyOjHA86hfIP3tfXRBB07F2AwnOXv8nzCKUGUY4=",
+    "sign": "YOUR_SIGN",
     "expirationTime": 1718409600000
 }
 ```
@@ -556,7 +556,7 @@ Response
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000049",
+        "merchantOrderNo": "OrderNoExample",
         "amount": "30000.00",
         "tradeNo": "TS2405220001CO0000000000010042",
         "paymentType": 207,
@@ -582,17 +582,17 @@ Request
 
 ```json
 {
-    "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000050",
-    "realName": "OPQRST UVWXYZ ABCDEFG HIJKLMN",
+    "merchantOrderNo": "OrderNoExample",
+    "realName": "TeemoPay",
     "amount": "30000.00",
-    "callbackUrl": "http://192.168.110.138:8075/sys/dictionary/test",
+    "callbackUrl": "https://www.callbackexample.com",
     "paymentType": 215,
-    "email": "12123123@ss.com",
-    "phone": "1234567890",
+    "email": "TeemoPay@example.com",
+    "phone": "3000000000",
     "bankCode": "1040",
     "idType" : "CC",
     "idCardNumber" : "123456789",
-    "sign": "uOunEdixuTptztITS1xVQK7EokviXGkNjnSupauc/keqQogkyigiks8R9gXG66RPAXgkMNFnM9xTOu0YBkajFE+oiQU+hvmiXg1TcPAy6RF0TZTmrI7Ya06NWtRUzIOPO0a6GyOjHA86hfIP3tfXRBB07F2AwnOXv8nzCKUGUY4=",
+    "sign": "YOUR_SIGN",
     "expirationTime": 1718409600000
 }
 ```
@@ -607,7 +607,7 @@ Response
 {
     "code": 200,
     "data": {
-        "merchantOrderNo": "C0041241HmIRUJ6qsqV9UHz8n0000050",
+        "merchantOrderNo": "OrderNoExample",
         "amount": "30000.00",
         "tradeNo": "TS2405220001CO0000000000010043",
         "paymentType": 215,

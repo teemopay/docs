@@ -16,7 +16,7 @@ description: 商户查询一个代收订单的状态
 | timestamp                 | 请求时间戳 |
 | nonce                     | 随机值  |
 | country                   | CL   |
-| app_code                  | app编号 |
+| appCode                  | app编号 |
 
 ### 请求参数
 
@@ -67,7 +67,7 @@ description: 商户查询一个代收订单的状态
                 "paymentStatementStatusName": "代收成功",
                 "message": null
             }
-        ],
+        ]
     },
     "msg": "success",
     "traceId": "0801113131dd4951a36d19022a31b303.94.17423567008990449"
@@ -79,7 +79,7 @@ description: 商户查询一个代收订单的状态
 |--------|------------------------|--------------------|
 | 412    | Please try again later  | 请稍后重试         |
 | 414    | *                      | 更改对应参数       |
-| 416    | Application not found  | app_code异常，请更改 |
+| 416    | Application not found  | appCode异常，请更改 |
 | 434    | Merchant order not exist | 请检查提交的订单号   |
 | 500    | Business Error         | 请联系我们         |
 

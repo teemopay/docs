@@ -16,7 +16,7 @@ description: 商户请求创建一个代收订单
 | timestamp   | 请求时间戳  |
 | nonce       | 随机值    |
 | country     | CL     |
-| app_code    | app 编号 |
+| appCode    | app 编号 |
 
 ## 支持支付方式列表（paymentType）
 
@@ -64,7 +64,7 @@ SERVIFACIL
 {
     "realName": "TeemoPay",
     "amount": "10000",
-    "phone": "1234567890",
+    "phone": "923456789",
     "callbackUrl": "https://www.callbackexample.com",
     "merchantOrderNo": "OrderNoExample",
     "email": "TeemoPay@example.com",
@@ -93,7 +93,7 @@ SERVIFACIL
   "code": 200,
   "data": {
     "amount": "10000",
-    "tradeNo": "TS2501010001CO0000000000000000",
+    "tradeNo": "TS2501010001CL0000000000000000",
     "merchantOrderNo": "OrderNoExample",
     "paymentType": 601,
     "additionalInfo": {

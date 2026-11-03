@@ -16,7 +16,7 @@ description: 商户请求创建一个代收订单
 | timestamp                 | 请求时间戳  |
 | nonce                     | 随机值    |
 | country                   | BP     |
-| app_code                  | app编号  |
+| appCode                  | app编号  |
 
 
 ### 请求参数
@@ -25,7 +25,7 @@ description: 商户请求创建一个代收订单
 |-----------------| ------ |-----|------|---------------------------------------------------|
 | merchantOrderNo | String | yes | 32   | 商户订单号                                             |
 | amount          | String | yes | 20   | 代收金额                                      |
-| callbackUrl     | String | no  | 200  | 代付回调地址，若不传, 则以商户配置为准                              |
+| callbackUrl     | String | no  | 200  | 代收回调地址，若不传, 则以商户配置为准                              |
 | sign            | String | yes |      | 签名                                                |
 
 
@@ -34,7 +34,7 @@ description: 商户请求创建一个代收订单
     "amount": "1000",
     "sign": "YOUR_SIGN",
     "callbackUrl": "https://www.callbackexample.com",
-    "merchantOrderNo": "OrderNoExample",
+    "merchantOrderNo": "OrderNoExample"
 }
 ```
 

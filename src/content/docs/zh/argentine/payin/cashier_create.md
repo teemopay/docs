@@ -16,7 +16,7 @@ description: 商户创建收银台
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
 | country   | AR     |
-| app_code  | app编号  |
+| appCode  | app编号  |
 
 ### 请求参数
 
@@ -24,7 +24,7 @@ description: 商户创建收银台
 |-----------------|--------|----|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | merchantOrderNo | String | 是  | 32  | 商户订单号                                                                                                                                                           |
 | paymentType     | Int    | 否  |     | 不传输则返回配置的支付方式；支付方式 【901（QR）、902 （CVU）、905 (Rapipago)、906 (Pagofacil)】                                                                                           |
-| amount          | String | 是  | 20  | 金额 (仅支持整数) 示例: 1000    <br/> <br/> <span style="color: red;">  减免场景:  amount必须是是100的倍数,否则收银台提交系统会进行拦截。<br/>  示例: 100、200、300、400 <br/> 反示例: 101、 110、210 </span> |
+| amount          | String | 是  | 20  | 金额（仅支持整数），必须是 10 的倍数，否则系统会拦截提交。示例：10、110、120、130；反例：11、111、121、131 |
 | expirationTime  | String | 否  | 20  | 过期时间、毫秒级时间戳 eg:1735660800000 【默认一天，最小10分钟,最长七天 】  <br/> <br/> <span style="color: red;">  减免场景: 收银台提交后过期时间将置为15分钟 </span>                                       |
 | idType          | String | 是  | 50  | 个人身份类型：DNI 、CUIT、CUIL、USER_REF                                                                                                                                           |
 | idCardNumber    | String | 是  | 11  | 个人身份号：DNI （7位或8位数字）、CUIT（11位数字，首位必须是2或3）、CUIL（11位数字）、USER_REF(1-50位数字或字母)                                                                                                              |
@@ -37,16 +37,15 @@ description: 商户创建收银台
 
 ```json title=请求示例
 {
-  "merchantOrderNo": "ceshi-test",
+  "merchantOrderNo": "OrderNoExample",
   "paymentType": 901,
   "amount": "1000",
   "expirationTime": "1765943486000",
   "idType": "CUIT",
   "idCardNumber": "31231233434",
-  // 虚构仅作为演示
-  "phone": "3111111111",
-  "email": "213@123.com",
-  "realName": "张三",
+  "phone": "1123456789",
+  "email": "TeemoPay@example.com",
+  "realName": "TeemoPay",
   "callbackUrl": "https://www.callbackexample.com",
   "sign": "YOUR_SIGN"
 }
@@ -59,7 +58,7 @@ description: 商户创建收银台
 | merchantOrderNo | String | 是  | 32 | 商户订单号           |
 | tradeNo         | String | 是  |    | 平台订单号           |
 | amount          | String | 是  |    | 订单交易金额          |
-| status          | Int    | 是  |    | 代收状态,0:受理中 3-失败 |
+| status          | Int    | 是  |    | 代收状态,0:初始化   3-失败 |
 | checkoutLink    | String | 是  |    | 主要付款信息，返回付款链接   |
 | expirationTime  | String | 是  |    | 收银台地址过期时间       |
 | errorMsg        | String | no |    | 错误信息,失败时返回      |
@@ -68,11 +67,11 @@ description: 商户创建收银台
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "ceshi-test",
-    "tradeNo": "TS2509080002ARexample754",
+    "merchantOrderNo": "OrderNoExample",
+    "tradeNo": "TS2501010001AR0000000000000000",
     "amount": "100",
     "status": 0,
-    "checkoutLink": "https://test-ar-payin.teemopay.com/#/?tradeNo=TS2509080002ARexample754",
+    "checkoutLink": "https://test-ar-payin.teemopay.com/#/?tradeNo=TS2501010001AR0000000000000000",
     "expirationTime": "2025-09-17 13:53:45.959",
     "errorMsg": null
   },
@@ -87,7 +86,7 @@ description: 商户创建收银台
 |-----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
 | 412 | Please try again later                                                                                                                                                    | 请稍后重试                                          |
 | 414 | *                                                                                                                                                                         | 更改对应参数                                         |
-| 416 | Application not found                                                                                                                                                     | app_code异常，请更改                                 |
+| 416 | Application not found                                                                                                                                                     | appCode异常，请更改                                 |
 | 424 | This payment method is not configured                                                                                                                                     | 代收方式未配置，请联系我们配置对应代收方式                          |
 | 426 | merchant order duplicate                                                                                                                                                  | 请更换商户订单号                                       |
 | 427 | The callback notification address for collection must not be empty.                                                                                                       | 未配置代收回调地址，请配置代收回调地址                            |

@@ -16,7 +16,7 @@ description: Merchant requests to create a payment order
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | Country code (CL) |
-| app_code         | App number        |
+| appCode         | App number        |
 
 ## Supported Payment Types (paymentType)
 
@@ -57,7 +57,7 @@ PAGO46
 {
     "realName": "TeemoPay",
     "amount": "10000",
-    "phone": "1234567890",
+    "phone": "923456789",
     "callbackUrl": "https://www.callbackexample.com",
     "merchantOrderNo": "OrderNoExample",
     "email": "TeemoPay@example.com",

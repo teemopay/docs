@@ -16,7 +16,7 @@ description: 商户请求创建一个代付订单
 | timestamp                 | 请求时间戳  |
 | nonce                     | 随机值    |
 | country                   | KR     |
-| app_code                  | app编号  |
+| appCode                  | app编号  |
 
 ### 请求参数
 
@@ -41,7 +41,7 @@ description: 商户请求创建一个代付订单
     "bankName": "Shinhan Bank",
     "accountType": 801,
     "bankAccount": "12345678998765",
-    "realName": "realName",
+    "realName": "TeemoPay",
     "idType": "RRN",
     "callbackUrl": "https://www.callbackexample.com",
     "sign": "YOUR_SIGN"

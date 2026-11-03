@@ -16,7 +16,7 @@ description: Merchant requests to create a collection (pay-in) order
 | timestamp        | Request timestamp       |
 | nonce            | Random value            |
 | country          | Country code (e.g., ID) |
-| app_code         | Application ID           |
+| appCode         | Application ID           |
 
 ### Supported Payment Types (paymentType)
 
@@ -69,7 +69,7 @@ description: Merchant requests to create a collection (pay-in) order
   "paymentType": 502,
   "email": "TeemoPay@example.com",
   "channel": "DANA",
-  "phone": "0800000000",
+  "phone": "081234567890",
   "sign": "YOUR_SIGN"
 }
 ```
@@ -109,5 +109,4 @@ description: Merchant requests to create a collection (pay-in) order
     "status": 1
   }
 }
-
 ```

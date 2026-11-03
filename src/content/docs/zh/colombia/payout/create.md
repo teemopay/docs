@@ -16,7 +16,7 @@ description: 商户请求创建一个代付订单
 | timestamp                 | 请求时间戳 |
 | nonce                     | 随机值   |
 | country                   | CO    |
-| app_code                  | app编号 |
+| appCode                  | app编号 |
 
 ### 请求参数
 
@@ -45,7 +45,7 @@ description: 商户请求创建一个代付订单
     "idType": "CC",
     "accountType": 201,
     "merchantOrderNo": "OrderNoExample",
-    "realName": "TEEMO",
+    "realName": "TeemoPay",
     "phone": "3000000000",
     "idCardNumber": "1234567890",
     "callbackUrl": "https://www.callbackexample.com",

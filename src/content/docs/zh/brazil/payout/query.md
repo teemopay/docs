@@ -16,7 +16,7 @@ description: 商户查询一个代付订单的状态
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
 | country   | BR     |
-| app_code  | app编号  |
+| appCode  | app编号  |
 
 ### 请求参数
 
@@ -49,6 +49,7 @@ description: 商户查询一个代付订单的状态
 | - refundAmount    | String | yes |    | 当次退款金额                            |
 | - refundStatus    | Int    | yes |    | 当次退款状态  0（部分退款）1（全额退款）            |
 | - refundTime      | String | yes |    | 当次退款时间                            |
+| voucherUrl        | String | yes |    | 凭证地址                              |
 | errorCode         | number | yes |    | 订单失败状态错误码                         |
 | errorMessage      | String | yes |    | 订单失败错误信息                          |
 | completeTime      | String | yes |    | 完成时间 当前国家时区 yyyy-MM-dd HH:mm:ss格式 |
@@ -71,7 +72,6 @@ description: 商户查询一个代付订单的状态
   "msg": "success",
   "traceId": "2e0e38e3e9a24b60b4f57c6d2ced196a.115.17744291515713103"
 }
-
 ```
 
 ```json title=退款示例
@@ -108,7 +108,6 @@ description: 商户查询一个代付订单的状态
   "msg": "success",
   "traceId": "dcf1aee524564c5485a655d09a02aa02.86.17766720253031143"
 }
-
 ```
 
 ### 错误码
@@ -117,7 +116,7 @@ description: 商户查询一个代付订单的状态
 |-----|----------------------------|----------------|
 | 412 | Please try again later     | 请稍后重试          |
 | 414 | *                          | 更改对应参数         |
-| 416 | Application not found      | app_code异常，请更改 |
+| 416 | Application not found      | appCode异常，请更改 |
 | 417 | Merchant account not found | 商户账户未找到，请联系我们  |
 | 418 | Merchant account is closed | 商户账户已关闭，请联系我们  |
 | 434 | Merchant order not exist   | 请检查提交的订单号      |

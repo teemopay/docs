@@ -16,7 +16,7 @@ description: 商户请求创建一个代收订单
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
 | country   | BR |
-| app_code  | app 编号 |
+| appCode  | app 编号 |
 
 ## 支持支付方式列表（paymentType）
 
@@ -43,14 +43,14 @@ description: 商户请求创建一个代收订单
 ```json
 {
   "merchantOrderNo": "OrderNoExample",
-  "realName": "aaaaaa",
+  "realName": "TeemoPay",
   "amount": "100.1",
-  "callbackUrl": "http://test.domin.com",
+  "callbackUrl": "https://www.callbackexample.com",
   "paymentType": 401,
-  "email": "1QWWQWQ2891@qq.com",
-  "phone": "12345678901",
+  "email": "TeemoPay@example.com",
+  "phone": "11987654321",
   "idCardNumber": "12345678901",
-  "sign": "YOUR SIGN",
+  "sign": "YOUR_SIGN",
   "expirationTime": 1735660800000
 }
 ```
@@ -66,7 +66,7 @@ description: 商户请求创建一个代收订单
 | paymentInfo     | String     | yes | 32  | 主要付款信息，返回的是实际用于付款的信息，例如：付款编号 |
 | additionalInfo  | JSONObject | no  |     | 扩展信息                         |
 | -- paymentLink       | String | no  |   | 付款链接信息                                     |
-| status          | Int        | yes |     | 代收状态, 1:成功 3:失败                |
+| status          | Int        | yes |     | 代收状态, 1:支付中 3:已失败                |
 | errorMsg        | String     | no  |     | 错误信息,失败时返回                   |
 
 ### additionalInfo （附加字段）字段说明
@@ -75,13 +75,14 @@ description: 商户请求创建一个代收订单
 | ---           | ---      | ----   | ---               |
 | paymentLink   | String   | N      | 扩展的付款链接信息   |
 
-```json
+
+```json title=响应示例
 {
     "code": 200,
     "data": {
         "merchantOrderNo": "OrderNoExample",
         "amount": "100.1",
-        "tradeNo": "TS2405220001BR0000509313375376",
+        "tradeNo": "TS2501010001BR0000000000000000",
         "paymentType": 401,
         "paymentInfo": "00020126920014br.gov.bcb.xxx.xxx.coop.br",
         "additionalInfo": {
@@ -94,6 +95,8 @@ description: 商户请求创建一个代收订单
     "traceId": "2e0e38e3e9a24b60b4f57c6d2ced196a.116.17744273719018419"
 }
 ```
+
+
 
 ### 错误码
 | 异常码       | 异常信息                                                                 | 处理方案                                               |
@@ -110,7 +113,7 @@ description: 商户请求创建一个代收订单
 | 486          | The phone format is invalid                                              | 手机号格式异常，请更换邮箱                               |
 | 500          | Business Error                                                           | 请联系我们                                             |
 
-```json title=返回示例
+```json title=错误示例
 {
     "code": 426,
     "data": null,

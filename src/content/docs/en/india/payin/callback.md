@@ -43,7 +43,7 @@ description: Merchant receives a payment result callback
     "status": 2,
     "paymentAmount": "1000.00",
     "serviceAmount": "15.00",
-    "paymentInfo": "K8xY3pQ7zW2dE9sR4fT1gH6jU8lM3nB5vC2xZ7qA9wS4eD1rF8tG3yH6uJ9iK2oL5pM8aN3bV7cX9dZ4...",
+    "paymentInfo": "PaymentInfoExample",
     "paymentType": 1001,
     "completeTime": "2025-01-01 00:00:00",
     "errorMessage": null,

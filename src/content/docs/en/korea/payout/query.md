@@ -16,7 +16,7 @@ description: Query a payout order
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | Country code (KR) |
-| app_code         | Application ID    |
+| appCode         | Application ID    |
 
 ### Request Parameters
 
@@ -38,6 +38,7 @@ description: Query a payout order
 | serviceAmount   | String | yes |     | Service Fee = Fixed Service Amount + Transaction Amount × Service Rate                 |
 | immService      | String | yes |     | Fixed Service Amount                                                                   |
 | serviceRate     | String | yes |     | Service Rate                                                                           |
+| voucherUrl      | String | yes |     | Voucher address                                                                        |
 | errorCode       | number | yes |     | Error Code for Failed Order Status                                                     |
 | errorMessage    | String | yes |     | Error Message for Failed Order                                                         |
 | completeTime    | String | yes |     | Completion Time (in the current country's time zone, formatted as yyyy-MM-dd HH:mm:ss) |

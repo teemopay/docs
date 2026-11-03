@@ -21,7 +21,7 @@ Merchants and platform use their respective private keys for signing and each ot
 4. Sort request body field names in ascending ASCII order, concatenate as a=1&b=2, only sort fields with values
 5. Add nonce=123 to the sorted result, becoming a=1&b=2&nonce=123
 6. Sign a=1&b=2&nonce=123 using private key, place in request body sign field
-7. Platform will verify timestamp, nonce and sign upon receiving request, returning failure if verification fails
+7. Platform will verify  nonce and sign upon receiving request, returning failure if verification fails
 
 Platform will perform above operations when calling back to merchant, merchants are recommended to sign parameters
 
@@ -34,7 +34,7 @@ Different interfaces have different request parameters, but all request paramete
 | Field        | Type             | Required | Length                                                   | Description                               |
 | ------------ | ---------------- | -------- | -------------------------------------------------------- | ----------------------------------------- |
 | Content-Type | application/json | yes      | Fixed value. All requests must be POST with data in body |                                           |
-| app_code     | String           | yes      | 32                                                       | Application code assigned to merchant     |
+| appCode     | String           | yes      | 32                                                       | Application code assigned to merchant     |
 | country      | String           | yes      | 2                                                        | MX-Mexico PE-Peru CO-Colombia PK-Pakistan |
 | nonce        | String           | yes      | 32                                                       | Must be 32-character non-repeating string |
 | timestamp    | String           | yes      | 13                                                       | Current timestamp (milliseconds)          |

@@ -16,7 +16,7 @@ description: Order List
 | timestamp | Request timestamp |
 | nonce | Random value |
 | country | IN |
-| app_code | Application code |
+| appCode | Application code |
 
 ## Notes
 
@@ -95,7 +95,7 @@ description: Order List
     "records": [
       {
         "type": "PAYIN",
-        "merchantOrderNo": "2C2741241kCApltr2IATMy0c9900440",
+        "merchantOrderNo": "OrderNoExample",
         "tradeNo": "TS24052200000491357178416",
         "amount": "5000.00",
         "transactionAmount": "5000.00",

@@ -17,7 +17,7 @@ description: Merchant query the status of a payout order
 | timestamp        | Request timestamp |
 | nonce            | Random value      |
 | country          | PK                |
-| app_code         | Application ID    |
+| appCode         | Application ID    |
 
 
 ### Request Parameters
@@ -33,7 +33,6 @@ description: Merchant query the status of a payout order
   "merchantOrderNo": "OrderNoExample",
   "sign": "YOUR_SIGN"
 }
-
 ```
 
 ### Response Parameters
@@ -47,6 +46,7 @@ description: Merchant query the status of a payout order
 | serviceAmount   | String | yes      |            | Service fee = fixed fee + (transaction amount \* service rate) (Added 20250506)    |
 | immService      | String | yes      |            | Fixed fee amount (Added 20250506)                                                  |
 | serviceRate     | String | yes      |            | Service rate (Added 20250506)                                                      |
+| voucherUrl      | String | yes      |            | Voucher address                                                                  |
 | errorCode       | number | yes      |            | Error code for failed order (Added 20250506)                                       |
 | errorMessage    | String | yes      |            | Error message for failed order (Added 20250506)                                    |
 | completeTime    | String | yes      |            | Completion time in local time zone, format: yyyy-MM-dd HH:mm:ss (Added 20250506) |
@@ -71,7 +71,6 @@ description: Merchant query the status of a payout order
   "traceId": "747bbf80261844ed85b809212aab0d81.85.17422898158610298"
 
 }
-
 ```
 ```json title= query Failure example
 {

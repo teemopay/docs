@@ -16,7 +16,7 @@ description: 商户请求创建一个代收订单
 | timestamp | 请求时间戳  |
 | nonce     | 随机值    |
 | country   | KR     |
-| app_code  | app编号  |
+| appCode  | app编号  |
 
 ### 支付方式列表（paymentType）
 
@@ -29,22 +29,23 @@ description: 商户请求创建一个代收订单
 
 ### 请求参数
 
-| 字段                  | 类型      | 必需  | 最大长度 | 描述                                                                                                                                                                               |
-|---------------------|---------|-----|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| merchantOrderNo     | String  | yes | 32   | 商户订单号                                                                                                                                                                            |
-| paymentType         | Integer | yes |      | 支付方式 【801: VA 802: KYC VA dynamic 803:KAKAOPAY 804: TOSSPAY】                                                                                                                     |
-| realName            | String  | yes | 64   | 用户姓名 【字母或者韩文不要超过20字符】 <br> 当支付方式为802时：系统将预填至KYC认证页面（收款人姓名字段）以提升用户体验。                                                                                                             |
-| ipAddress           | String  | no  | 64   | 付款人的客户端IP地址,当支付方式为803或者804时,ipAddress为必传字段,请确保传入的IP地址为真实用户IP,而非服务器代理IP <br> 频率限制<br> 单个IP地址每日累计发起交易上限为10笔<br>单个IP地址每日成功交易上限为3笔<br>注:超出频控阈值的交易请求将被拒绝，请在业务层做好相应的异常拦截与提示            |
-| merchantName        | String  | yes | 64   | 收款人名称                                                                                                                                                                            |
-| email               | String  | no  | 50   | 用户邮箱 【满足正则表达式即可】当支付方式为803或者804时,email为必传字段                                                                                                                                       |
-| amount              | String  | yes | 20   | 代收金额 【整数 单位元 货币:KRW】                                                                                                                                                             |
+| 字段                  | 类型      | 必需  | 最大长度 | 描述                                                                                                                                                                                 |
+|---------------------|---------|-----|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo     | String  | yes | 32   | 商户订单号                                                                                                                                                                              |
+| paymentType         | Integer | yes |      | 支付方式 【801: VA 802: KYC VA dynamic 803:KAKAOPAY 804: TOSSPAY】                                                                                                                       |
+| realName            | String  | yes | 64   | 用户姓名 【字母或者韩文不要超过20字符】 <br> 当支付方式为802时：系统将预填至KYC认证页面（收款人姓名字段）以提升用户体验。                                                                                                               |
+| idCardNumber        | String  | yes | 64   | 用户ID 。用户在平台注册账号的ID                                                                                                                                                                 |
+| ipAddress           | String  | no  | 64   | 付款人的客户端IP地址,当支付方式为803或者804时,ipAddress为必传字段,请确保传入的IP地址为真实用户IP,而非服务器代理IP <br> 频率限制<br> 单个IP地址每日累计发起交易上限为10笔<br>单个IP地址每日成功交易上限为3笔<br>注:超出频控阈值的交易请求将被拒绝，请在业务层做好相应的异常拦截与提示              |
+| merchantName        | String  | yes | 64   | 收款人名称                                                                                                                                                                              |
+| email               | String  | no | 50 | 用户邮箱，须符合标准邮箱格式；支付方式为 803 (KAKAOPAY) 时必填 |
+| amount              | String  | yes | 20   | 代收金额 【整数 单位元 货币:KRW】                                                                                                                                                               |
 | bankCode            | String  | no  | 20   | 银行代码 ：代表接收转账或进行认证的金融机构标识。需传输由韩国金融结算院（KFTC）定义的 3 位标准代码（例如：国民银行 004，新韩银行 088）。当支付方式 设为 802 时，系统将触发特定的 KYC 逻辑，允许可选输 bankCode。若该代码下未传输识别码，用户需在跳转后的 H5/App 认证页面内手动补全身份信息。 【传值参考kyc银行列表】 |
-| bankAccount         | String  | no  | 20   | 持有人账户：用于实名认证（KYC）的标识信息。当支付方式 为 802 时，本字段支持可选传输：若调用接口时携带此字段，系统将预填至 KYC 认证页面以提升用户体验；若不传输，则由用户在认证流程中手动填写。                                                                           |
-| accountHolderNumber | String  | yes | 20   | 账户持有人识别码(accountHolderNum):用于实名认证标识信息。填写规范:1.个人用户:请提供居民注册号码(ResidentID)的前6位数字,格式为生年月日YYMMDD(例:950101);2.企业用户:请提供10位数字的事业者登录号(BusinessRegistration Number)                        |
-| expirationTime      | Long    | no  |      | 过期时间 【最大两个小时，为空默认两个小时； 毫秒级时间戳 eg:1735660800000】                                                                                                                                  |
-| phone               | String  | no  | 20   | 用户手机号 【11 位数字；以 010 开头；没有区号】当支付方式为803或者804时,phone为必传字段                                                                                                                           |
-| callbackUrl         | String  | no  | 200  | 代收回调地址 【若不传递，取商户后台配置的回调地址】                                                                                                                                                       |
-| sign                | String  | yes |      | 签名                                                                                                                                                                               |
+| bankAccount         | String  | no  | 20   | 持有人账户：用于实名认证（KYC）的标识信息。当支付方式 为 802 时，本字段支持可选传输：若调用接口时携带此字段，系统将预填至 KYC 认证页面以提升用户体验；若不传输，则由用户在认证流程中手动填写。                                                                             |
+| accountHolderNumber | String  | yes | 20   | 账户持有人识别码(accountHolderNum):用于实名认证标识信息。填写规范:1.个人用户:请提供居民注册号码(ResidentID)的前6位数字,格式为生年月日YYMMDD(例:950101);2.企业用户:请提供10位数字的事业者登录号(BusinessRegistration Number)                          |
+| expirationTime      | Long    | no  |      | 过期时间 【最大两个小时，为空默认两个小时； 毫秒级时间戳 eg:1735660800000】                                                                                                                                    |
+| phone               | String  | no | 11 | 用户手机号，固定 11 位数字且以 010 开头；支付方式为 804 (TOSSPAY) 时必填 |
+| callbackUrl         | String  | no  | 200  | 代收回调地址 【若不传递，取商户后台配置的回调地址】                                                                                                                                                         |
+| sign                | String  | yes |      | 签名                                                                                                                                                                                 |
 
 ```json title="常规VA请求示例"
 {
@@ -53,7 +54,7 @@ description: 商户请求创建一个代收订单
   "amount": "1000",
   "phone": "01012345678",
   "callbackUrl": "https://www.callbackexample.com",
-  "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+  "merchantOrderNo": "OrderNoExample",
   "email": "TeemoPay@example.com",
   "paymentType": 801,
   "sign": "YOUR_SIGN"
@@ -64,9 +65,9 @@ description: 商户请求创建一个代收订单
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "802_test_012",
+    "merchantOrderNo": "OrderNoExample",
     "amount": "1000.00",
-    "tradeNo": "TS2509080002KR0000465606537906",
+    "tradeNo": "TS2501010001KR0000000000000000",
     "paymentInfo": "https://test-kr-payin.teemopay.com/TS2509080002KR0000465606537906",
     "paymentType": 802,
     "status": 0,
@@ -99,14 +100,14 @@ description: 商户请求创建一个代收订单
   "code": 200,
   "data": {
     "amount": "1000.00",
-    "tradeNo": "TS2405220001KR0000430564883184",
+    "tradeNo": "TS2501010001KR0000000000000000",
     "additionalInfo": {
       "bankCode": "IBK",
       "bankName": "기업은행",
       "expiredTime": 1761022567000,
       "paymentLink": "https://test-kr-payin.teemopay.com/TS2405220001KR0000430564883184"
     },
-    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+    "merchantOrderNo": "OrderNoExample",
     "paymentInfo": "29900000000000",
     "paymentType": 801,
     "status": 1
@@ -120,9 +121,9 @@ description: 商户请求创建一个代收订单
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "802_test_012",
+    "merchantOrderNo": "OrderNoExample",
     "amount": "1000.00",
-    "tradeNo": "TS2509080002KR0000465606537906",
+    "tradeNo": "TS2501010001KR0000000000000000",
     "paymentInfo": "https://test-kr-payin.teemopay.com/TS2509080002KR0000465606537906",
     "paymentType": 802,
     "status": 0,
@@ -168,9 +169,9 @@ description: 商户请求创建一个代收订单
 {
   "code": 200,
   "data": {
-    "merchantOrderNo": "2C2741241kCApltr2IATMy0c992278",
+    "merchantOrderNo": "OrderNoExample",
     "amount": null,
-    "tradeNo": "TS2405220001KR0000430564883184",
+    "tradeNo": "TS2501010001KR0000000000000000",
     "paymentType": 801,
     "paymentInfo": null,
     "additionalInfo": null,
