@@ -41,7 +41,7 @@ description: Merchant query the status of a payout order
 | merchantOrderNo | String | yes      | 32     | Merchant order number                                                        |
 | tradeNo         | String | yes      |        | Platform order number                                                        |
 | amount          | String | yes      |        | Payout amount                                                                |
-| status          | Int    | yes      |        | Payout status: `2` = Success, `3` = Failure                                  |
+| status          | Int    | yes      |        | Payout status: `2` = Success, `3` = Failure, `4` = Refund                    |
 | serviceAmount   | String | yes      |        | Service fee = Fixed amount + (Transaction amount × Service rate)             |
 | immService      | String | yes      |        | Fixed service amount                                                         |
 | serviceRate     | String | yes      |        | Service rate                                                                 |

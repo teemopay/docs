@@ -40,7 +40,7 @@ description: 商户查询一个代付订单的状态
 | merchantOrderNo   | String | yes  | 32  | 商户订单号                                          |
 | tradeNo           | String | yes  |     | 平台订单号                                          |
 | amount            | String | yes  |     | 代付金额                                           |
-| status            | Int    | yes  |     | 代付状态,2:成功 3:失败                                 |
+| status            | Int    | yes  |     | 代付状态,2:成功 3:失败 4:退款                               |
 | serviceAmount     | String | yes  |     | 服务费用  =  固收金额 +  交易金额 * 服务费率       |
 | immService        | String | yes  |     | 固收金额                               |
 | serviceRate       | String | yes  |     | 服务费率                               |
