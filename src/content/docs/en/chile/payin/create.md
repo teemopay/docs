@@ -47,7 +47,7 @@ PAGO46
 | paymentType     | Int    | Yes      |        | Payment type                                                                                             |
 | realName        | String | Yes      | 50     | User name: uppercase, no special characters, within 50 characters                                        |
 | email           | String | No       | 50     | User email: must match regex pattern                                                                     |
-| amount          | String | Yes      | 20     | Payment amount (in pesos)                                                                                |
+| amount          | String | Yes      | 20     | Payment amount (in pesos). Only integers are supported.                                                                                |
 | expirationTime  | Long   | No       |        | Expiration time |
 | phone           | String | No       | 20     | Phone number                                                                                             |
 | callbackUrl     | String | No       | 200    | Payment callback URL, if not provided, merchant configuration will be used                               |
