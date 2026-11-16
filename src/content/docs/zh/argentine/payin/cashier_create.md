@@ -58,7 +58,7 @@ description: 商户创建收银台
 | merchantOrderNo | String | 是  | 32 | 商户订单号           |
 | tradeNo         | String | 是  |    | 平台订单号           |
 | amount          | String | 是  |    | 订单交易金额          |
-| status          | Int    | 是  |    | 代收状态,0:受理中 3-失败 |
+| status          | Int    | 是  |    | 代收状态,0:初始化   3-失败 |
 | checkoutLink    | String | 是  |    | 主要付款信息，返回付款链接   |
 | expirationTime  | String | 是  |    | 收银台地址过期时间       |
 | errorMsg        | String | no |    | 错误信息,失败时返回      |
