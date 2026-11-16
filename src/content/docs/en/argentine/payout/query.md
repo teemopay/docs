@@ -34,7 +34,7 @@ description: Query a payout order
 | merchantOrderNo | String | yes | 32  | Merchant Order Number                                                                  |
 | tradeNo         | String | yes |     | Platform Order Number                                                                  |
 | amount          | String | yes |     | Disbursement Amount                                                                    |
-| status          | Int    | yes |     | Disbursement Status: 1- In transaction 2 - Successful; 3 - Failed                      |
+| status          | Int    | yes |     | `0` Init (equivalent to pending, non-final status. The order creation request has been received and is awaiting risk review and approval)<br>`1` Pending (pending, non-final status. The order has entered the payout processing flow)<br>`2` Successful (success, final status. The payout has been completed)<br>`3` Failed (failed, final status. Order creation validation or preliminary approval failed. The payout can be re-initiated as needed)<br>`4` Refunded (refunded, final status. The order has been fully refunded) |
 | serviceAmount   | String | yes |     | Service Fee = Fixed Service Amount + Transaction Amount × Service Rate                 |
 | immService      | String | yes |     | Fixed Service Amount                                                                   |
 | serviceRate     | String | yes |     | Service Rate                                                                           |

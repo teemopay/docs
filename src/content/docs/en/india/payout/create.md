@@ -54,7 +54,7 @@ description: Merchant requests to create a payout order
 |-------|------|----------|-------------|
 | merchantOrderNo | String | Yes | Merchant order number |
 | tradeNo | String | Yes | Platform order number |
-| status | Integer | Yes | `0` Pending (non-final status. The order creation request has been received and is awaiting risk review and approval)<br>`1` Processing (pending, non-final status. The order has entered the payout processing flow)<br>`3` Failed (final status. Order creation validation or preliminary approval failed. The payout can be re-initiated as needed) |
+| status | Integer | Yes | `0` Init (non-final status. The order creation request has been received and is awaiting risk review and approval)<br>`1` Pending (pending, non-final status. The order has entered the payout processing flow)<br>`3` Failed (final status. Order creation validation or preliminary approval failed. The payout can be re-initiated as needed) |
 | amount | String | Yes | Transaction amount |
 
 **Success Response Example**

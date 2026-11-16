@@ -42,7 +42,7 @@ description: Merchant query the status of a payout order
 | merchantOrderNo | String | yes      | 32         | Merchant order number                                                              |
 | tradeNo         | String | yes      |            | Platform order number                                                              |
 | amount          | String | yes      |            | Payout amount                                                                      |
-| status          | Int    | yes      |            | Payout status: 2 - Success, 3 - Failed                                             |
+| status          | Int    | yes      |            | `0` Init (equivalent to pending, non-final status. The order creation request has been received and is awaiting risk review and approval)<br>`1` Pending (pending, non-final status. The order has entered the payout processing flow)<br>`2` Successful (success, final status. The payout has been completed)<br>`3` Failed (failed, final status. Order creation validation or preliminary approval failed. The payout can be re-initiated as needed) |
 | serviceAmount   | String | yes      |            | Service fee = fixed fee + (transaction amount \* service rate) (Added 20250506)    |
 | immService      | String | yes      |            | Fixed fee amount (Added 20250506)                                                  |
 | serviceRate     | String | yes      |            | Service rate (Added 20250506)                                                      |
