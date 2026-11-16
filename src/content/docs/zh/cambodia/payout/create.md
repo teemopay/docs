@@ -67,7 +67,7 @@ description: 商户请求创建一个代付订单
 |-----------------|--------|-----|----|----------------------|
 | merchantOrderNo | String | yes | 32 | 商户订单号                |
 | tradeNo         | String | yes |    | 平台订单号                |
-| status          | Int    | yes |    | 代付状态：1-支付中 2-成功，3-失败 |
+| status          | Int    | yes |    | `0` 受理中（等同于pending，非终态。创建订单请求已接收，进入风控审批等待审核）<br>`1` 支付中（pending，非终态。订单已进入出款链路处理）<br>`3` 失败（failed，终态。订单创建校验 / 前置审批失败，可按需重新发起代付） |
 | amount          | String | yes |    | 交易金额                 |
 
 ```json title=成功示例

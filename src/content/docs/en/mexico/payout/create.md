@@ -60,7 +60,7 @@ description: Create a payout order
 | --------------- | ------ | -------- | ------ | ----------------------------------- |
 | merchantOrderNo | String | yes      | 32     | Merchant order number               |
 | tradeNo         | String | yes      |        | Platform order number               |
-| status          | Int    | yes      |        | 1-Pending 3-Failed (can be retried) |
+| status          | Int    | yes      |        | `0` Pending (non-final status. The order creation request has been received and is awaiting risk review and approval)<br>`1` Processing (pending, non-final status. The order has entered the payout processing flow)<br>`3` Failed (final status. Order creation validation or preliminary approval failed. The payout can be re-initiated as needed) |
 | amount          | String | yes      |        | Transaction amount                  |
 
 ```json title=Return Example
