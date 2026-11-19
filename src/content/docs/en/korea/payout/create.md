@@ -6,32 +6,33 @@ description: Create a payout order
 ### Request URL
 
 | method | url                       |
-| ------ | ------------------------- |
+|--------|---------------------------|
 | POST   | /api/pay/payout/create/v1 |
 
 ### Header Information
 
 | Header Parameter | Parameter Description |
-| ---------------- |-----------------------|
+|------------------|-----------------------|
 | timestamp        | Request timestamp     |
 | nonce            | Random value          |
 | country          | Country code (KR)     |
-| appCode         | Application ID        |
+| appCode          | Application ID        |
 
 ### Request Parameters
 
-| Field           | Type   | Required | Length | Description                                                                                                                                                                                |
-| --------------- | ------ | -------- | ------ |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| merchantOrderNo | String  | yes | 32   | Merchant Order Number                                                                                                                                                                      |
-| amount          | String  | yes | 20   | Payment Amount (for Disbursement) 【Integer, Unit: KRW (Korean Won)】                                                                                                                        |
-| bankCode        | String  | yes | 50   | Bank Code 【Refer to the bank code in the bank list】                                                                                                                                        |
-| bankName        | String  | yes | 50   | Bank Name 【Refer to the bank name in the bank list】                                                                                                                                        |
-| accountType     | Integer | yes |      | Account Type </br> 801: BANK_TRANSFER   </br>   802: BANKTRANSFER_KYC                                                                                                                                 |
-| bankAccount     | String  | yes | 50   | Beneficiary's Bank Account Number                                                                                                                                                          |
-| realName        | String  | yes | 40   | User's Real Name. No special characters allowed; uppercase is recommended. Must be at least 2 characters long. Strict verification is not required, but it must conform to normal name format. |
-| idType    | String  | yes | 50   | Beneficiary Type: RRN (Individual); CO (Enterprise）                                                                                                                                        |
-| callbackUrl     | String  | no  | 200  | Disbursement Callback URL. If not provided, the merchant's configured URL will be used.                                                                                                    |
-| sign            | String  | yes |      | Signature                                                                                                                                                                                  |
+| Field           | Type    | Required | Length | Description                                                                                                                                                                                    |
+|-----------------|---------|----------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String  | yes      | 32     | Merchant Order Number                                                                                                                                                                          |
+| amount          | String  | yes      | 20     | Payment Amount (for Disbursement) 【Integer, Unit: KRW (Korean Won)】                                                                                                                            |
+| bankCode        | String  | yes      | 50     | Bank Code 【Refer to the bank code in the bank list】                                                                                                                                            |
+| bankName        | String  | yes      | 50     | Bank Name 【Refer to the bank name in the bank list】                                                                                                                                            |
+| accountType     | Integer | yes      |        | Account Type </br> 801: BANK_TRANSFER   </br>   802: BANKTRANSFER_KYC                                                                                                                          |
+| bankAccount     | String  | yes      | 50     | Beneficiary's Bank Account Number                                                                                                                                                              |
+| realName        | String  | yes      | 40     | User's Real Name. No special characters allowed; uppercase is recommended. Must be at least 2 characters long. Strict verification is not required, but it must conform to normal name format. |
+| idType          | String  | yes      | 50     | Beneficiary Type: RRN (Individual); CO (Enterprise）                                                                                                                                            |
+| phone           | String  | yes      | 11     | User mobile number, exactly 11 digits and starting with 010.                                                                                                                                   |
+| callbackUrl     | String  | no       | 200    | Disbursement Callback URL. If not provided, the merchant's configured URL will be used.                                                                                                        |
+| sign            | String  | yes      |        | Signature                                                                                                                                                                                      |
 
 ```json title=Request Example
 {
@@ -50,12 +51,12 @@ description: Create a payout order
 
 ### Return Parameters
 
-| Parameter       | Type   | Required | Length | Description                         |
-| --------------- | ------ | -------- | ------ | ----------------------------------- |
-| merchantOrderNo | String | yes      | 32     | Merchant order number               |
-| tradeNo         | String | yes      |        | Platform order number               |
+| Parameter       | Type   | Required | Length | Description                                                                                                                                                                                                                                                                                                                                      |
+|-----------------|--------|----------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| merchantOrderNo | String | yes      | 32     | Merchant order number                                                                                                                                                                                                                                                                                                                            |
+| tradeNo         | String | yes      |        | Platform order number                                                                                                                                                                                                                                                                                                                            |
 | status          | Int    | yes      |        | `0` Init (non-final status. The order creation request has been received and is awaiting risk review and approval)<br>`1` Pending (pending, non-final status. The order has entered the payout processing flow)<br>`3` Failed (final status. Order creation validation or preliminary approval failed. The payout can be re-initiated as needed) |
-| amount          | String | yes      |        | Transaction amount                  |
+| amount          | String | yes      |        | Transaction amount                                                                                                                                                                                                                                                                                                                               |
 
 ```json title=Return Example
 {
