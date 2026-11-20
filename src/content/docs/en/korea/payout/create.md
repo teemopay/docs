@@ -32,6 +32,8 @@ description: Create a payout order
 | idType          | String  | yes      | 50     | Beneficiary Type: RRN (Individual); CO (Enterprise）                                                                                                                                            |
 | phone           | String  | yes      | 11     | User mobile number, exactly 11 digits and starting with 010.                                                                                                                                   |
 | callbackUrl     | String  | no       | 200    | Disbursement Callback URL. If not provided, the merchant's configured URL will be used.                                                                                                        |
+| userDepositCount | Integer | no | | Total number of the user's historical successful payouts on the merchant side. Non-negative integer, e.g. `0`, `1`, or `5`.<br>1. Counting rules: Count only the user's payout orders that have reached a final successful state on the merchant side. Exclude pending, canceled, failed, refunded, or reversed orders.<br>2. Boundary rules: `0` or omission means the user has no historical successful payouts on the merchant side, or has not completed their first payout.<br>3. Usage: This field is a reference factor for payout risk assessment and routing. The platform also considers its own historical transaction records when making decisions. |
+| userFirstDepositTime | Long | no | | Time of the user's first successful payout on the merchant side. A 13-digit Unix timestamp in milliseconds, using the same format as pay-in `expirationTime`, e.g. `1732929200000`.<br>1. Counting rules: Use the completion/credit time of the user's first successful payout order on the merchant side, rather than the user's registration time or the current payout request time.<br>2. Boundary rules: Omit this field when `userDepositCount` is `0` or there are no historical successful payouts. Supply a valid timestamp no later than the current request time. The platform will disregard this reference value if it is abnormal or inconsistent with the payout count.<br>3. Usage: This field is a reference factor for payout risk assessment and routing. The platform also considers its own historical transaction records when making decisions. |
 | sign            | String  | yes      |        | Signature                                                                                                                                                                                      |
 
 ```json title=Request Example
@@ -45,6 +47,8 @@ description: Create a payout order
   "realName": "TeemoPay",
   "idType": "RRN",
   "callbackUrl": "https://www.callbackexample.com",
+  "userDepositCount": 5,
+  "userFirstDepositTime": 1732929200000,
   "sign": "TEEMO_SIGN"
 }
 ```

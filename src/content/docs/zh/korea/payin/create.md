@@ -45,6 +45,8 @@ description: 商户请求创建一个代收订单
 | expirationTime      | Long    | no  |      | 过期时间 【最大两个小时，为空默认两个小时； 毫秒级时间戳 eg:1735660800000】                                                                                                                                    |
 | phone               | String  | yes | 11   | 用户手机号，固定 11 位数字且以 010 开头；                                                                                                                                                          |
 | callbackUrl         | String  | no  | 200  | 代收回调地址 【若不传递，取商户后台配置的回调地址】                                                                                                                                                         |
+| userDepositCount | Integer | no | | 用户在商户侧的历史成功入金总笔数；非负整数，如 `0`、`1`、`5`。<br>1. 统计口径：仅统计该用户在商户侧已支付成功（终态成功）的充值/入金订单总笔数，不含待支付、已取消、失败或退款/冲正订单。<br>2. 边界说明：`0` 或不传代表该用户在商户侧暂无历史成功入金记录（或尚未完成首充）。<br>3. 使用说明：本字段作为收款风控评估与路由分流的参考因子之一，平台将结合自身历史交易记录综合判定。 |
+| userFirstDepositTime | Long | no | | 用户在商户侧的首次成功入金时间；13 位毫秒级时间戳，与代收 `expirationTime` 的时间戳规范一致，如 `1732929200000`。<br>1. 统计口径：取该用户在商户侧第一笔成功入金订单的完成/入账时间，非用户注册时间或当前代收请求时间。<br>2. 边界说明：当 `userDepositCount` 为 `0` 或无历史成功入金记录时，本字段无需传递；请确保传入时间戳格式合法且不晚于当前请求时间，若数值异常或与入金次数逻辑冲突，平台将不采纳该参考值。<br>3. 使用说明：本字段作为收款风控评估与路由分流的参考因子之一，平台将结合自身历史交易记录综合判定。 |
 | sign                | String  | yes |      | 签名                                                                                                                                                                                 |
 
 ```json title="常规VA请求示例"
@@ -57,6 +59,8 @@ description: 商户请求创建一个代收订单
   "merchantOrderNo": "OrderNoExample",
   "email": "TeemoPay@example.com",
   "paymentType": 801,
+  "userDepositCount": 5,
+  "userFirstDepositTime": 1732929200000,
   "sign": "YOUR_SIGN"
 }
 ```

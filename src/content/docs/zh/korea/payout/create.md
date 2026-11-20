@@ -32,6 +32,8 @@ description: 商户请求创建一个代付订单
 | idType          | String  | yes | 50   | 收款人类型 ：RRN （个人）CO（企业）                                         |
 | phone           | Stirng  | yes | 11   | 用户手机号，固定 11 位数字且以 010 开头；                                     |
 | callbackUrl     | String  | no  | 200  | 代付回调地址，若不传, 则以商户配置为准                                          |
+| userDepositCount | Integer | no | | 用户在商户侧的历史成功出账总笔数；非负整数，如 `0`、`1`、`5`。<br>1. 统计口径：仅统计该用户在商户侧已出账成功（终态成功）的出账订单总笔数，不含待支付、已取消、失败或退款/冲正订单。<br>2. 边界说明：`0` 或不传代表该用户在商户侧暂无历史成功出账记录（或尚未完成首次出账）。<br>3. 使用说明：本字段作为出款风控评估与路由分流的参考因子之一，平台将结合自身历史交易记录综合判定。 |
+| userFirstDepositTime | Long | no | | 用户在商户侧的首次成功出账时间；13 位毫秒级时间戳，与代收 `expirationTime` 的时间戳规范一致，如 `1732929200000`。<br>1. 统计口径：取该用户在商户侧第一笔成功出账订单的完成/入账时间，非用户注册时间或当前代付请求时间。<br>2. 边界说明：当 `userDepositCount` 为 `0` 或无历史成功出账记录时，本字段无需传递；请确保传入时间戳格式合法且不晚于当前请求时间，若数值异常或与出账次数逻辑冲突，平台将不采纳该参考值。<br>3. 使用说明：本字段作为出款风控评估与路由分流的参考因子之一，平台将结合自身历史交易记录综合判定。 |
 | sign            | String  | yes |      | 签名                                                            |
 
 ```json title=请求示例
@@ -45,6 +47,8 @@ description: 商户请求创建一个代付订单
   "realName": "TeemoPay",
   "idType": "RRN",
   "callbackUrl": "https://www.callbackexample.com",
+  "userDepositCount": 5,
+  "userFirstDepositTime": 1732929200000,
   "sign": "YOUR_SIGN"
 }
 ```
